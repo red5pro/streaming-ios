@@ -34,7 +34,7 @@ The R5Connection manages the connection that the stream utilizes.  You will need
 ####Setup R5Stream
 The `R5Stream` handles both subscribing and publishing.  Creating one simply requires the connection already created.
 
-```	
+```Objective-C
 	//Create our new stream that will utilize that connection
     self.publish = [[R5Stream alloc] initWithConnection:connection];
     
@@ -51,7 +51,7 @@ The `R5StreamDelegate` that is assigned to the `R5Stream` will receive status ev
 ####Attach a Video Source
 The R5Stream will need a video and/or audio source to stream from.  To attach a video source, you will need to create an `R5Camera` with the `AVCaptureDevice` you wish to stream from.
 
-```
+```Objective-C
  	//Get a list of available cameras for this device
     NSArray *devices = [AVCaptureDevice devicesWithMediaType:AVMediaTypeVideo];
     
@@ -83,7 +83,7 @@ The R5Stream will need a video and/or audio source to stream from.  To attach a 
 ####Attach an Audio Source
 To add audio to a stream a `R5Microphone` object can be attached.  It behaves similarly to `R5Camera`, but requires `R5Stream.attachAudio` instead.
 
-```
+```Objective-C
 	//Setup a new R5Microphone for streaming audio with that device
     R5Microphone *microphone = [[R5Microphone new] initWithDevice:audioDevice];
     microphone.bitrate = 32;
@@ -100,7 +100,7 @@ The `R5VideoViewController` will present publishing streams as well as subscribe
 
 A `R5VideoViewController` can be set on any UIViewController, or created programmatically
 
-```
+```Objective-C
 	-(R5VideoViewController *) getNewViewController: (CGRect) frame{
 	    UIView *view = [[UIView alloc] initWithFrame: frame];
 	    R5VideoViewController *viewController = [[R5VideoViewController alloc] init];
@@ -114,7 +114,7 @@ A `R5VideoViewController` can be set on any UIViewController, or created program
 
 To view the preview before publishing as started, use `R5VideoViewController.showPreview`.
 
-```
+```Objective-C
     [self addChildViewController:self.r5View];
     [self.view addSubview:self.r5View.view];
     
@@ -131,7 +131,7 @@ To view the preview before publishing as started, use `R5VideoViewController.sho
 ####Start Publishing
 The `R5Stream.publish` method will establish the server connection and begin publishing.  
 
-```
+```Objective-C
     //start publishing!
     [self.publish publish:[self getStreamName:PUBLISH] type:R5RecordTypeLive];
 ```
@@ -141,6 +141,6 @@ The `R5Stream.publish` method will establish the server connection and begin pub
 
 The *type* parameter tells the server the recording mode to use on the server.
 
-- R5RecordTypeLive - Stream but do not record
-- R5RecordTypeRecord - Stream and record the file name.  Replace existing save.
-- R5RecordTypeAppend - Stream and append the recording to any existing save.
+- **R5RecordTypeLive** - Stream but do not record
+- **R5RecordTypeRecord** - Stream and record the file name.  Replace existing save.
+- **R5RecordTypeAppend** - Stream and append the recording to any existing save.
