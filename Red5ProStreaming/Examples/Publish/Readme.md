@@ -15,7 +15,7 @@ Publishing to a Red5 Pro stream requires a few components to function fully.
 ####Setup R5Connection
 The R5Connection manages the connection that the stream utilizes.  You will need to setup a configuration and intialize a new connection.
 
-```
+```Objective-C
 	//Setup a configuration object for our connection
     R5Configuration *config = [[R5Configuration alloc] init];
     config.host = [dict objectForKey:@"domain"];
