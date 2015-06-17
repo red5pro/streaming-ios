@@ -1,0 +1,517 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		4834CAE21B31C0A40084335B /* PublishExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 4834CAE11B31C0A40084335B /* PublishExample.m */; };
+		4834CAE81B31C6520084335B /* AdaptiveBitrateExample.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4834CAE61B31C6510084335B /* AdaptiveBitrateExample.mm */; };
+		4834CAED1B31C6900084335B /* ALToastView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4834CAEC1B31C68F0084335B /* ALToastView.m */; };
+		48638C1F1B30736400D2355C /* connection.plist in Resources */ = {isa = PBXBuildFile; fileRef = 48638C1E1B30736400D2355C /* connection.plist */; };
+		48638C261B307D3900D2355C /* BaseExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 48638C251B307D3900D2355C /* BaseExample.m */; };
+		48638C281B307D8800D2355C /* R5Streaming.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48638C271B307D8800D2355C /* R5Streaming.framework */; };
+		48638C2A1B307DA000D2355C /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48638C291B307DA000D2355C /* GLKit.framework */; };
+		48638C2C1B307DA600D2355C /* libiconv.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 48638C2B1B307DA600D2355C /* libiconv.2.dylib */; };
+		48638C311B308E9F00D2355C /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48638C301B308E9E00D2355C /* OpenAL.framework */; };
+		4879CB0F1B3072ED00E3702F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4879CB0E1B3072ED00E3702F /* main.m */; };
+		4879CB121B3072ED00E3702F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4879CB111B3072ED00E3702F /* AppDelegate.m */; };
+		4879CB151B3072ED00E3702F /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4879CB141B3072ED00E3702F /* ViewController.m */; };
+		4879CB181B3072ED00E3702F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4879CB161B3072ED00E3702F /* Main.storyboard */; };
+		4879CB1A1B3072ED00E3702F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4879CB191B3072ED00E3702F /* Images.xcassets */; };
+		4879CB1D1B3072ED00E3702F /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4879CB1B1B3072ED00E3702F /* LaunchScreen.xib */; };
+		4879CB291B3072ED00E3702F /* Red5ProStreamingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4879CB281B3072ED00E3702F /* Red5ProStreamingTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		4879CB231B3072ED00E3702F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4879CB011B3072ED00E3702F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4879CB081B3072ED00E3702F;
+			remoteInfo = Red5ProStreaming;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		4834CAE01B31C0A40084335B /* PublishExample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PublishExample.h; sourceTree = "<group>"; };
+		4834CAE11B31C0A40084335B /* PublishExample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PublishExample.m; sourceTree = "<group>"; };
+		4834CAE51B31C6510084335B /* AdaptiveBitrateExample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdaptiveBitrateExample.h; sourceTree = "<group>"; };
+		4834CAE61B31C6510084335B /* AdaptiveBitrateExample.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AdaptiveBitrateExample.mm; sourceTree = "<group>"; };
+		4834CAEB1B31C68F0084335B /* ALToastView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALToastView.h; sourceTree = "<group>"; };
+		4834CAEC1B31C68F0084335B /* ALToastView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALToastView.m; sourceTree = "<group>"; };
+		48638C1E1B30736400D2355C /* connection.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = connection.plist; sourceTree = "<group>"; };
+		48638C241B307D3900D2355C /* BaseExample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseExample.h; sourceTree = "<group>"; };
+		48638C251B307D3900D2355C /* BaseExample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseExample.m; sourceTree = "<group>"; };
+		48638C271B307D8800D2355C /* R5Streaming.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = R5Streaming.framework; sourceTree = "<group>"; };
+		48638C291B307DA000D2355C /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
+		48638C2B1B307DA600D2355C /* libiconv.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libiconv.2.dylib; path = usr/lib/libiconv.2.dylib; sourceTree = SDKROOT; };
+		48638C301B308E9E00D2355C /* OpenAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenAL.framework; path = System/Library/Frameworks/OpenAL.framework; sourceTree = SDKROOT; };
+		4879CB091B3072ED00E3702F /* Red5ProStreaming.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Red5ProStreaming.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4879CB0D1B3072ED00E3702F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4879CB0E1B3072ED00E3702F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		4879CB101B3072ED00E3702F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		4879CB111B3072ED00E3702F /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		4879CB131B3072ED00E3702F /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		4879CB141B3072ED00E3702F /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		4879CB171B3072ED00E3702F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		4879CB191B3072ED00E3702F /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		4879CB1C1B3072ED00E3702F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		4879CB221B3072ED00E3702F /* Red5ProStreamingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Red5ProStreamingTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		4879CB271B3072ED00E3702F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4879CB281B3072ED00E3702F /* Red5ProStreamingTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Red5ProStreamingTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		4879CB061B3072ED00E3702F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				48638C311B308E9F00D2355C /* OpenAL.framework in Frameworks */,
+				48638C2C1B307DA600D2355C /* libiconv.2.dylib in Frameworks */,
+				48638C2A1B307DA000D2355C /* GLKit.framework in Frameworks */,
+				48638C281B307D8800D2355C /* R5Streaming.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4879CB1F1B3072ED00E3702F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		4834CADF1B31C08F0084335B /* Publish */ = {
+			isa = PBXGroup;
+			children = (
+				4834CAE01B31C0A40084335B /* PublishExample.h */,
+				4834CAE11B31C0A40084335B /* PublishExample.m */,
+			);
+			name = Publish;
+			path = Examples/Publish;
+			sourceTree = "<group>";
+		};
+		4834CAE41B31C6510084335B /* AdaptiveBitratePublish */ = {
+			isa = PBXGroup;
+			children = (
+				4834CAE51B31C6510084335B /* AdaptiveBitrateExample.h */,
+				4834CAE61B31C6510084335B /* AdaptiveBitrateExample.mm */,
+			);
+			name = AdaptiveBitratePublish;
+			path = Examples/AdaptiveBitratePublish;
+			sourceTree = "<group>";
+		};
+		4834CAEA1B31C68F0084335B /* ALToastView */ = {
+			isa = PBXGroup;
+			children = (
+				4834CAEB1B31C68F0084335B /* ALToastView.h */,
+				4834CAEC1B31C68F0084335B /* ALToastView.m */,
+			);
+			path = ALToastView;
+			sourceTree = "<group>";
+		};
+		48638C201B30785000D2355C /* Examples */ = {
+			isa = PBXGroup;
+			children = (
+				4834CAE41B31C6510084335B /* AdaptiveBitratePublish */,
+				4834CADF1B31C08F0084335B /* Publish */,
+				48638C241B307D3900D2355C /* BaseExample.h */,
+				48638C251B307D3900D2355C /* BaseExample.m */,
+			);
+			name = Examples;
+			sourceTree = "<group>";
+		};
+		4879CB001B3072ED00E3702F = {
+			isa = PBXGroup;
+			children = (
+				48638C301B308E9E00D2355C /* OpenAL.framework */,
+				48638C2B1B307DA600D2355C /* libiconv.2.dylib */,
+				48638C291B307DA000D2355C /* GLKit.framework */,
+				4879CB0B1B3072ED00E3702F /* Red5ProStreaming */,
+				4879CB251B3072ED00E3702F /* Red5ProStreamingTests */,
+				4879CB0A1B3072ED00E3702F /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		4879CB0A1B3072ED00E3702F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4879CB091B3072ED00E3702F /* Red5ProStreaming.app */,
+				4879CB221B3072ED00E3702F /* Red5ProStreamingTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		4879CB0B1B3072ED00E3702F /* Red5ProStreaming */ = {
+			isa = PBXGroup;
+			children = (
+				4834CAEA1B31C68F0084335B /* ALToastView */,
+				48638C271B307D8800D2355C /* R5Streaming.framework */,
+				48638C201B30785000D2355C /* Examples */,
+				4879CB101B3072ED00E3702F /* AppDelegate.h */,
+				4879CB111B3072ED00E3702F /* AppDelegate.m */,
+				4879CB131B3072ED00E3702F /* ViewController.h */,
+				4879CB141B3072ED00E3702F /* ViewController.m */,
+				4879CB161B3072ED00E3702F /* Main.storyboard */,
+				4879CB191B3072ED00E3702F /* Images.xcassets */,
+				4879CB1B1B3072ED00E3702F /* LaunchScreen.xib */,
+				4879CB0C1B3072ED00E3702F /* Supporting Files */,
+			);
+			path = Red5ProStreaming;
+			sourceTree = "<group>";
+		};
+		4879CB0C1B3072ED00E3702F /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				4879CB0D1B3072ED00E3702F /* Info.plist */,
+				4879CB0E1B3072ED00E3702F /* main.m */,
+				48638C1E1B30736400D2355C /* connection.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		4879CB251B3072ED00E3702F /* Red5ProStreamingTests */ = {
+			isa = PBXGroup;
+			children = (
+				4879CB281B3072ED00E3702F /* Red5ProStreamingTests.m */,
+				4879CB261B3072ED00E3702F /* Supporting Files */,
+			);
+			path = Red5ProStreamingTests;
+			sourceTree = "<group>";
+		};
+		4879CB261B3072ED00E3702F /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				4879CB271B3072ED00E3702F /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		4879CB081B3072ED00E3702F /* Red5ProStreaming */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4879CB2C1B3072ED00E3702F /* Build configuration list for PBXNativeTarget "Red5ProStreaming" */;
+			buildPhases = (
+				4879CB051B3072ED00E3702F /* Sources */,
+				4879CB061B3072ED00E3702F /* Frameworks */,
+				4879CB071B3072ED00E3702F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Red5ProStreaming;
+			productName = Red5ProStreaming;
+			productReference = 4879CB091B3072ED00E3702F /* Red5ProStreaming.app */;
+			productType = "com.apple.product-type.application";
+		};
+		4879CB211B3072ED00E3702F /* Red5ProStreamingTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4879CB2F1B3072ED00E3702F /* Build configuration list for PBXNativeTarget "Red5ProStreamingTests" */;
+			buildPhases = (
+				4879CB1E1B3072ED00E3702F /* Sources */,
+				4879CB1F1B3072ED00E3702F /* Frameworks */,
+				4879CB201B3072ED00E3702F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4879CB241B3072ED00E3702F /* PBXTargetDependency */,
+			);
+			name = Red5ProStreamingTests;
+			productName = Red5ProStreamingTests;
+			productReference = 4879CB221B3072ED00E3702F /* Red5ProStreamingTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		4879CB011B3072ED00E3702F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0610;
+				ORGANIZATIONNAME = Infrared5;
+				TargetAttributes = {
+					4879CB081B3072ED00E3702F = {
+						CreatedOnToolsVersion = 6.1.1;
+					};
+					4879CB211B3072ED00E3702F = {
+						CreatedOnToolsVersion = 6.1.1;
+						TestTargetID = 4879CB081B3072ED00E3702F;
+					};
+				};
+			};
+			buildConfigurationList = 4879CB041B3072ED00E3702F /* Build configuration list for PBXProject "Red5ProStreaming" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 4879CB001B3072ED00E3702F;
+			productRefGroup = 4879CB0A1B3072ED00E3702F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				4879CB081B3072ED00E3702F /* Red5ProStreaming */,
+				4879CB211B3072ED00E3702F /* Red5ProStreamingTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		4879CB071B3072ED00E3702F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4879CB181B3072ED00E3702F /* Main.storyboard in Resources */,
+				4879CB1D1B3072ED00E3702F /* LaunchScreen.xib in Resources */,
+				48638C1F1B30736400D2355C /* connection.plist in Resources */,
+				4879CB1A1B3072ED00E3702F /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4879CB201B3072ED00E3702F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		4879CB051B3072ED00E3702F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4834CAE21B31C0A40084335B /* PublishExample.m in Sources */,
+				4879CB151B3072ED00E3702F /* ViewController.m in Sources */,
+				4834CAED1B31C6900084335B /* ALToastView.m in Sources */,
+				4834CAE81B31C6520084335B /* AdaptiveBitrateExample.mm in Sources */,
+				48638C261B307D3900D2355C /* BaseExample.m in Sources */,
+				4879CB121B3072ED00E3702F /* AppDelegate.m in Sources */,
+				4879CB0F1B3072ED00E3702F /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4879CB1E1B3072ED00E3702F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4879CB291B3072ED00E3702F /* Red5ProStreamingTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		4879CB241B3072ED00E3702F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4879CB081B3072ED00E3702F /* Red5ProStreaming */;
+			targetProxy = 4879CB231B3072ED00E3702F /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		4879CB161B3072ED00E3702F /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4879CB171B3072ED00E3702F /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		4879CB1B1B3072ED00E3702F /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4879CB1C1B3072ED00E3702F /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		4879CB2A1B3072ED00E3702F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		4879CB2B1B3072ED00E3702F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		4879CB2D1B3072ED00E3702F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Red5ProStreaming",
+				);
+				INFOPLIST_FILE = Red5ProStreaming/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		4879CB2E1B3072ED00E3702F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Red5ProStreaming",
+				);
+				INFOPLIST_FILE = Red5ProStreaming/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		4879CB301B3072ED00E3702F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = Red5ProStreamingTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Red5ProStreaming.app/Red5ProStreaming";
+			};
+			name = Debug;
+		};
+		4879CB311B3072ED00E3702F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = Red5ProStreamingTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Red5ProStreaming.app/Red5ProStreaming";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4879CB041B3072ED00E3702F /* Build configuration list for PBXProject "Red5ProStreaming" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4879CB2A1B3072ED00E3702F /* Debug */,
+				4879CB2B1B3072ED00E3702F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4879CB2C1B3072ED00E3702F /* Build configuration list for PBXNativeTarget "Red5ProStreaming" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4879CB2D1B3072ED00E3702F /* Debug */,
+				4879CB2E1B3072ED00E3702F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4879CB2F1B3072ED00E3702F /* Build configuration list for PBXNativeTarget "Red5ProStreamingTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4879CB301B3072ED00E3702F /* Debug */,
+				4879CB311B3072ED00E3702F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 4879CB011B3072ED00E3702F /* Project object */;
+}
