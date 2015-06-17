@@ -14,7 +14,7 @@
 -(void)viewDidAppear:(BOOL)animated{
     
     //set up the publisher - short method
-    //self.publish = [self getNewStream:YES];
+    //self.publish = [self getNewStream:PUBLISH];
     
     
     /*
@@ -80,7 +80,7 @@
     [self.r5View attachStream:self.publish];
     
     //start publishing!
-    [self.publish publish:[self getStreamName:YES] type:R5RecordTypeLive];
+    [self.publish publish:[self getStreamName:PUBLISH] type:R5RecordTypeLive];
     
 }
 

@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import "AdaptiveBitrateExample.h"
 #import "PublishExample.h"
+#import "SubscribeExample.h"
 #import <R5Streaming/R5Streaming.h>
 
 @interface ViewController ()
@@ -30,28 +31,47 @@
 }
 
 
-- (IBAction)onAdaptiveBitrate:(id)sender {
+-(void) showExample : (UIViewController*)viewController{
+    
+ 
+     NSDictionary *dict = [NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"connection" ofType:@"plist"]];
+    
+    if([[dict objectForKey:@"domain"] isEqualToString:@"0.0.0.0"]){
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"No Server!" message:@"Set the domain in your connection.plist!" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [alert show];
+        return;
+
+    }
     
     UIView *view = [[UIView alloc] initWithFrame:self.view.frame];
+    viewController.view = view;
     
-    AdaptiveBitrateExample *vc = [AdaptiveBitrateExample new];
-    vc.view = view;
+    [self.navigationController pushViewController:viewController animated:YES];
+
+}
+
+
+
+- (IBAction)onAdaptiveBitrate:(id)sender {
     
+    [self showExample:[AdaptiveBitrateExample new]];
     
-    [self.navigationController pushViewController:vc animated:YES];
+        
+}
+
+- (IBAction)onSubscribe:(id)sender {
     
-    
+    [self showExample:[SubscribeExample new]];
     
 }
 
 - (IBAction)onPublish:(id)sender {
     
-    UIView *view = [[UIView alloc] initWithFrame:self.view.frame];
-    
-    PublishExample *vc = [PublishExample new];
-    vc.view = view;
-    
-    
-    [self.navigationController pushViewController:vc animated:YES];
+   [self showExample:[PublishExample new]];
 }
+
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    
+}
+
 @end

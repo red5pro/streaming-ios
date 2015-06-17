@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14E11f" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="KWe-Tc-7WV">
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -16,32 +18,76 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Examples" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YrB-Ob-URb">
-                                <rect key="frame" x="16" y="72" width="167" height="29"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="23"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rc9-mq-Zfg">
-                                <rect key="frame" x="16" y="109" width="110" height="30"/>
-                                <state key="normal" title="Adaptive Bitrate">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="onAdaptiveBitrate:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bYb-Rj-hc7"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uEL-0W-c5f" userLabel="Publish">
-                                <rect key="frame" x="16" y="147" width="51" height="30"/>
-                                <state key="normal" title="Publish">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="onPublish:" destination="BYZ-38-t0r" eventType="touchUpInside" id="s42-IM-j5V"/>
-                                </connections>
-                            </button>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RFI-N8-lhG">
+                                <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                            </scrollView>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rgm-RT-V4A">
+                                <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Examples" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YrB-Ob-URb">
+                                        <rect key="frame" x="16" y="8" width="167" height="29"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="167" id="Jnt-gJ-XYE"/>
+                                            <constraint firstAttribute="height" constant="29" id="z59-YF-ncl"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="23"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rc9-mq-Zfg">
+                                        <rect key="frame" x="16" y="45" width="110" height="30"/>
+                                        <state key="normal" title="Adaptive Bitrate">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="onAdaptiveBitrate:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bYb-Rj-hc7"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uEL-0W-c5f" userLabel="Publish">
+                                        <rect key="frame" x="16" y="83" width="51" height="30"/>
+                                        <state key="normal" title="Publish">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="onPublish:" destination="BYZ-38-t0r" eventType="touchUpInside" id="s42-IM-j5V"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qRS-QM-V7h" userLabel="Publish">
+                                        <rect key="frame" x="16" y="121" width="70" height="30"/>
+                                        <state key="normal" title="Subscribe">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="onSubscribe:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Sc4-ub-34b"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="qRS-QM-V7h" firstAttribute="top" secondItem="uEL-0W-c5f" secondAttribute="bottom" constant="8" symbolic="YES" id="0qv-5x-bNV"/>
+                                    <constraint firstItem="rc9-mq-Zfg" firstAttribute="leading" secondItem="uEL-0W-c5f" secondAttribute="leading" id="2es-0I-lWl"/>
+                                    <constraint firstItem="YrB-Ob-URb" firstAttribute="leading" secondItem="rgm-RT-V4A" secondAttribute="leading" constant="16" id="Edl-tg-9oJ"/>
+                                    <constraint firstAttribute="trailing" secondItem="YrB-Ob-URb" secondAttribute="trailing" constant="137" id="TLR-3A-Icc"/>
+                                    <constraint firstItem="uEL-0W-c5f" firstAttribute="top" secondItem="rc9-mq-Zfg" secondAttribute="bottom" constant="8" symbolic="YES" id="aHY-tC-2az"/>
+                                    <constraint firstItem="rc9-mq-Zfg" firstAttribute="top" secondItem="YrB-Ob-URb" secondAttribute="bottom" constant="8" symbolic="YES" id="d8a-e5-dDb"/>
+                                    <constraint firstItem="uEL-0W-c5f" firstAttribute="leading" secondItem="qRS-QM-V7h" secondAttribute="leading" id="lFI-mC-iNw"/>
+                                    <constraint firstItem="YrB-Ob-URb" firstAttribute="leading" secondItem="rc9-mq-Zfg" secondAttribute="leading" id="lnN-w0-l5P"/>
+                                    <constraint firstItem="YrB-Ob-URb" firstAttribute="top" secondItem="rgm-RT-V4A" secondAttribute="topMargin" id="rOg-YJ-RYW"/>
+                                    <constraint firstAttribute="bottom" secondItem="qRS-QM-V7h" secondAttribute="bottom" constant="265" id="zmK-3B-3Pk"/>
+                                </constraints>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="rgm-RT-V4A" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="ELR-vh-9e3"/>
+                            <constraint firstItem="rgm-RT-V4A" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Kxz-Px-qY9"/>
+                            <constraint firstItem="rgm-RT-V4A" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="TLc-N9-bVS"/>
+                            <constraint firstAttribute="trailing" secondItem="rgm-RT-V4A" secondAttribute="trailing" id="d97-z8-h3s"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="RFI-N8-lhG"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" id="60M-5o-qfh"/>
                 </viewController>

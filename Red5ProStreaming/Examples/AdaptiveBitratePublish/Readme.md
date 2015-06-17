@@ -1,4 +1,4 @@
-#Adaptive Bitrate Example
+#Adaptive Bitrate Publishing
 
 This example demonstrates the AdaptiveBitrateController, which provides a mechanism to dynamically adjust the video publishing bitrate to adjust quality to meet the bandwidth restrictions of the network connection or encoding hardware.
 
@@ -17,9 +17,9 @@ The AdaptiveBitrateController is simple to setup.  You simply create a new insta
 R5AdaptiveBitrateController *adaptor = [R5AdaptiveBitrateController new];
 [adaptor attachToStream:self.publish];
 ```
-<sup><sub>
+<sup>
 [AdaptiveBitrateExample.mm #29](https://github.com/red5pro/streaming-ios/blob/master/Red5ProStreaming/Examples/AdaptiveBitratePublish/AdaptiveBitrateExample.mm#L29)
-</sub></sup>
+</sup>
 
 The controller will continuously adjust the video bitrate until the stream has closed.
 

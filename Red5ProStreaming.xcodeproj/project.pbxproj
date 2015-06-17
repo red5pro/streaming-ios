@@ -23,6 +23,7 @@
 		4879CB1A1B3072ED00E3702F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4879CB191B3072ED00E3702F /* Images.xcassets */; };
 		4879CB1D1B3072ED00E3702F /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4879CB1B1B3072ED00E3702F /* LaunchScreen.xib */; };
 		4879CB291B3072ED00E3702F /* Red5ProStreamingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4879CB281B3072ED00E3702F /* Red5ProStreamingTests.m */; };
+		489D6BEB1B31F0B1006403C1 /* SubscribeExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 489D6BEA1B31F0B1006403C1 /* SubscribeExample.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +63,8 @@
 		4879CB221B3072ED00E3702F /* Red5ProStreamingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Red5ProStreamingTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4879CB271B3072ED00E3702F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4879CB281B3072ED00E3702F /* Red5ProStreamingTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Red5ProStreamingTests.m; sourceTree = "<group>"; };
+		489D6BE91B31F0B1006403C1 /* SubscribeExample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubscribeExample.h; sourceTree = "<group>"; };
+		489D6BEA1B31F0B1006403C1 /* SubscribeExample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubscribeExample.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +121,7 @@
 		48638C201B30785000D2355C /* Examples */ = {
 			isa = PBXGroup;
 			children = (
+				489D6BE81B31F094006403C1 /* Subscribe */,
 				4834CAE41B31C6510084335B /* AdaptiveBitratePublish */,
 				4834CADF1B31C08F0084335B /* Publish */,
 				48638C241B307D3900D2355C /* BaseExample.h */,
@@ -190,6 +194,16 @@
 				4879CB271B3072ED00E3702F /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		489D6BE81B31F094006403C1 /* Subscribe */ = {
+			isa = PBXGroup;
+			children = (
+				489D6BE91B31F0B1006403C1 /* SubscribeExample.h */,
+				489D6BEA1B31F0B1006403C1 /* SubscribeExample.m */,
+			);
+			name = Subscribe;
+			path = Examples/Subscribe;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -296,6 +310,7 @@
 				4834CAE21B31C0A40084335B /* PublishExample.m in Sources */,
 				4879CB151B3072ED00E3702F /* ViewController.m in Sources */,
 				4834CAED1B31C6900084335B /* ALToastView.m in Sources */,
+				489D6BEB1B31F0B1006403C1 /* SubscribeExample.m in Sources */,
 				4834CAE81B31C6520084335B /* AdaptiveBitrateExample.mm in Sources */,
 				48638C261B307D3900D2355C /* BaseExample.m in Sources */,
 				4879CB121B3072ED00E3702F /* AppDelegate.m in Sources */,
@@ -428,6 +443,7 @@
 					"$(PROJECT_DIR)/Red5ProStreaming",
 				);
 				INFOPLIST_FILE = Red5ProStreaming/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -442,6 +458,7 @@
 					"$(PROJECT_DIR)/Red5ProStreaming",
 				);
 				INFOPLIST_FILE = Red5ProStreaming/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};

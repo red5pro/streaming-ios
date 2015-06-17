@@ -82,9 +82,9 @@
     NSDictionary *dict = [NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"connection" ofType:@"plist"]];
 
     if(type == PUBLISH){
-        return [dict objectForKey:@"publish_name"];
+        return [dict objectForKey:@"stream2"];
     }else{
-        return [dict objectForKey:@"subscribe_name"];
+        return [dict objectForKey:@"stream1"];
     }
 }
 
