@@ -4,7 +4,7 @@ This example demonstrates the AdaptiveBitrateController, which provides a mechan
 
 ###Example Code
 - ***[PublishExample.m](
-https://github.com/red5pro/streaming-ios/blob/master/Red5ProStreaming/Examples/Publish/PublishExample.mm)***
+https://github.com/red5pro/streaming-ios/blob/master/Red5ProStreaming/Examples/Publish/PublishExample.m)***
 
 - ***[BaseExample.m](
 https://github.com/red5pro/streaming-ios/blob/master/Red5ProStreaming/BaseExample.m)***
