@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4812FBD01B3312D10041EA17 /* AutoReconnectExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 4812FBCF1B3312D10041EA17 /* AutoReconnectExample.m */; };
 		4834CAE21B31C0A40084335B /* PublishExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 4834CAE11B31C0A40084335B /* PublishExample.m */; };
 		4834CAE81B31C6520084335B /* AdaptiveBitrateExample.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4834CAE61B31C6510084335B /* AdaptiveBitrateExample.mm */; };
 		4834CAED1B31C6900084335B /* ALToastView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4834CAEC1B31C68F0084335B /* ALToastView.m */; };
@@ -37,6 +38,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4812FBCE1B3312D10041EA17 /* AutoReconnectExample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AutoReconnectExample.h; sourceTree = "<group>"; };
+		4812FBCF1B3312D10041EA17 /* AutoReconnectExample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AutoReconnectExample.m; sourceTree = "<group>"; };
 		4834CAE01B31C0A40084335B /* PublishExample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PublishExample.h; sourceTree = "<group>"; };
 		4834CAE11B31C0A40084335B /* PublishExample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PublishExample.m; sourceTree = "<group>"; };
 		4834CAE51B31C6510084335B /* AdaptiveBitrateExample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdaptiveBitrateExample.h; sourceTree = "<group>"; };
@@ -89,6 +92,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4812FBCD1B3312060041EA17 /* AutoReconnect */ = {
+			isa = PBXGroup;
+			children = (
+				4812FBCE1B3312D10041EA17 /* AutoReconnectExample.h */,
+				4812FBCF1B3312D10041EA17 /* AutoReconnectExample.m */,
+			);
+			name = AutoReconnect;
+			path = Examples/AutoReconnect;
+			sourceTree = "<group>";
+		};
 		4834CADF1B31C08F0084335B /* Publish */ = {
 			isa = PBXGroup;
 			children = (
@@ -121,6 +134,7 @@
 		48638C201B30785000D2355C /* Examples */ = {
 			isa = PBXGroup;
 			children = (
+				4812FBCD1B3312060041EA17 /* AutoReconnect */,
 				489D6BE81B31F094006403C1 /* Subscribe */,
 				4834CAE41B31C6510084335B /* AdaptiveBitratePublish */,
 				4834CADF1B31C08F0084335B /* Publish */,
@@ -312,6 +326,7 @@
 				4834CAED1B31C6900084335B /* ALToastView.m in Sources */,
 				489D6BEB1B31F0B1006403C1 /* SubscribeExample.m in Sources */,
 				4834CAE81B31C6520084335B /* AdaptiveBitrateExample.mm in Sources */,
+				4812FBD01B3312D10041EA17 /* AutoReconnectExample.m in Sources */,
 				48638C261B307D3900D2355C /* BaseExample.m in Sources */,
 				4879CB121B3072ED00E3702F /* AppDelegate.m in Sources */,
 				4879CB0F1B3072ED00E3702F /* main.m in Sources */,

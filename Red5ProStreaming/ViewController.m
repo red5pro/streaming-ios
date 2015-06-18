@@ -10,6 +10,7 @@
 #import "AdaptiveBitrateExample.h"
 #import "PublishExample.h"
 #import "SubscribeExample.h"
+#import "AutoReconnectExample.h"
 #import <R5Streaming/R5Streaming.h>
 
 @interface ViewController ()
@@ -50,6 +51,9 @@
 
 }
 
+- (IBAction)onReconnect:(id)sender {
+    [self showExample:[AutoReconnectExample new]];
+}
 
 
 - (IBAction)onAdaptiveBitrate:(id)sender {

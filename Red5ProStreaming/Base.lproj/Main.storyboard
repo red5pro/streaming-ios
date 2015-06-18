@@ -61,6 +61,15 @@
                                             <action selector="onSubscribe:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Sc4-ub-34b"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AYZ-VC-bAn" userLabel="Publish">
+                                        <rect key="frame" x="16" y="159" width="111" height="30"/>
+                                        <state key="normal" title="Auto Reconnect">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="onReconnect:" destination="BYZ-38-t0r" eventType="touchUpInside" id="rrO-Of-jAJ"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="qRS-QM-V7h" firstAttribute="top" secondItem="uEL-0W-c5f" secondAttribute="bottom" constant="8" symbolic="YES" id="0qv-5x-bNV"/>

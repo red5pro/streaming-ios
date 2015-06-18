@@ -104,4 +104,11 @@
     [ALToastView toastInView:[[[UIApplication sharedApplication] keyWindow] rootViewController].view withText:[NSString stringWithFormat:@"Stream: %s - %@", r5_string_for_status(statusCode), msg]];
     
 }
+
+-(void)viewDidDisappear:(BOOL)animated{
+    
+    [self cleanup];
+}
+
+
 @end
