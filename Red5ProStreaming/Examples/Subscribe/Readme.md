@@ -49,7 +49,7 @@ The `R5Stream` handles both subscribing and publishing.  Creating one simply req
 The `R5StreamDelegate` that is assigned to the `R5Stream` will receive status events for that stream, including connecting, disconnecting, and errors.
 
 
-#### Preview the Subscribeer
+#### Preview the Subscriber
 The `R5VideoViewController` will present publishing streams as well as subscribed streams.  To view the subscribing stream, it simply needs to attach the `R5Stream`.  
 
 >For a more complete example of the `R5VideoViewController`, view the [PublishExample](https://github.com/red5pro/streaming-ios/blob/master/Red5ProStreaming/Examples/Publish).  For this example we will simply utilize `BaseExample.setupDefaultR5ViewController`
