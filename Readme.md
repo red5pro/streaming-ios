@@ -29,4 +29,10 @@ Once you have modified your settings, you can run the application for simulator 
 |
 | **[Subscribing](https://github.com/red5pro/streaming-ios/tree/master/Red5ProStreaming/Examples/Subscribe)**
 | *Starter example on subscribing to a Red5 Pro stream*  
+|
+| **[Stream Send](https://github.com/red5pro/streaming-ios/tree/master/Red5ProStreaming/Examples/StreamSend)**
+| *Broadcast messages to subscribers with R5Stream.send*  
+|
+| **[AutoReconnect](https://github.com/red5pro/streaming-ios/tree/master/Red5ProStreaming/Examples/AutoReconnect)**
+| *Wait for a publisher to start by monitoring connection events* 
      
