@@ -7,8 +7,8 @@
 //
 
 #import "BaseExample.h"
+#import "ALToastView.h"
 
 @interface StreamSendExample : BaseExample
 
-    -(void)onMessage:(NSString*)value;
 @end
