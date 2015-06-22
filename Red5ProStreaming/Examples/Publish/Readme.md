@@ -92,6 +92,9 @@ To add audio to a stream a `R5Microphone` object can be attached.  It behaves si
     [self.publish attachAudio:microphone];
 
 ```
+<sup>
+[PublishExample.m #70](https://github.com/red5pro/streaming-ios/blob/master/Red5ProStreaming/Examples/Publish/PublishExample.m#L70)
+</sup>
 
 #### Preview the Publisher
 The `R5VideoViewController` will present publishing streams as well as subscribed streams.  To preview a publishing stream, it simply needs to attach the `R5Stream`.  
