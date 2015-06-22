@@ -10,7 +10,7 @@ For more information visit http://red5pro.com.
 
 ##Setup
 
-You will need to modify **/Red5ProStreaming/Supporting Files/connection.plist** to point to your server instance.  If you do not, the examples will not function when you build.
+You will need to modify **/Red5ProStreaming/Supporting Files/connection.plist (the domain value)** to point to your server instance.  If you do not, the examples will not function when you build.
 
 Once you have modified your settings, you can run the application for simulator or device. 
 
