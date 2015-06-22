@@ -44,9 +44,6 @@
     
 }
 
--(void)viewDidDisappear:(BOOL)animated{
- 
-    [self cleanup];
-}
+
 
 @end

@@ -8,9 +8,9 @@
 	<string>live</string>
 	<key>port</key>
 	<integer>8554</integer>
-	<key>subscribe_name</key>
+	<key>stream1</key>
 	<string>subscriber</string>
-	<key>publish_name</key>
+	<key>stream2</key>
 	<string>publisher</string>
 </dict>
 </plist>

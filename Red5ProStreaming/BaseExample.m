@@ -9,7 +9,22 @@
 #import "BaseExample.h"
 #import "ALToastView.h"
 
+//simple static to mark whether we shoudl switch stream1 and stream2 names - used for testing 2 devices together
+static BOOL _swapped = NO;
+
+
 @implementation BaseExample
+
+
++(void)setSwapped:(BOOL)swapped{
+    _swapped = swapped;
+}
+
++(BOOL)getSwapped{
+    return _swapped;
+}
+
+
 -(R5Stream *) getNewStream: (enum R5StreamType) type{
         
      NSDictionary *dict = [NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"connection" ofType:@"plist"]];
@@ -81,7 +96,7 @@
 -(NSString*)getStreamName : (enum R5StreamType)type{
     NSDictionary *dict = [NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"connection" ofType:@"plist"]];
 
-    if(type == PUBLISH){
+    if(type == PUBLISH || _swapped == YES){
         return [dict objectForKey:@"stream2"];
     }else{
         return [dict objectForKey:@"stream1"];
@@ -104,4 +119,11 @@
     [ALToastView toastInView:[[[UIApplication sharedApplication] keyWindow] rootViewController].view withText:[NSString stringWithFormat:@"Stream: %s - %@", r5_string_for_status(statusCode), msg]];
     
 }
+
+-(void)viewDidDisappear:(BOOL)animated{
+    
+    [self cleanup];
+}
+
+
 @end
