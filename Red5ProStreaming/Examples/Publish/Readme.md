@@ -1,6 +1,6 @@
 #Publishing on Red5 Pro
 
-This example demonstrates the AdaptiveBitrateController, which provides a mechanism to dynamically adjust the video publishing bitrate to adjust quality to meet the bandwidth restrictions of the network connection or encoding hardware.
+This example demonstrates the basics of the Red5 Pro mobile publishing feature. 
 
 ###Example Code
 - ***[PublishExample.m](
