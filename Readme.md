@@ -4,13 +4,13 @@ This repository contains a simple project with a number of examples that can be 
 
 ##Requirements
 
-You will need a functional Red5 Pro server web (or locally) accessible for the client to connect too.  
+You will need a functional, running Red5 Pro server web- (or locally-) accessible for the client to connect to.  
 
 For more information visit http://red5pro.com.
 
 ##Setup
 
-You will need to modify **/Red5Streaming/connection.plist** to point to your server instance.  If you do not, the examples will not function when you build.
+You will need to modify **/Red5ProStreaming/Supporting Files/connection.plist** to point to your server instance.  If you do not, the examples will not function when you build.
 
 Once you have modified your settings, you can run the application for simulator or device. 
 
