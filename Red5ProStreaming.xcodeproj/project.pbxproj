@@ -57,8 +57,8 @@
 		48638C291B307DA000D2355C /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
 		48638C2B1B307DA600D2355C /* libiconv.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libiconv.2.dylib; path = usr/lib/libiconv.2.dylib; sourceTree = SDKROOT; };
 		48638C301B308E9E00D2355C /* OpenAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenAL.framework; path = System/Library/Frameworks/OpenAL.framework; sourceTree = SDKROOT; };
-		486612801B34858F00E88A23 /* StreamSendExample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StreamSendExample.h; sourceTree = "<group>"; };
-		486612811B34858F00E88A23 /* StreamSendExample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StreamSendExample.m; sourceTree = "<group>"; };
+		486612801B34858F00E88A23 /* StreamSendExample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StreamSendExample.h; path = ../StreamSend/StreamSendExample.h; sourceTree = "<group>"; };
+		486612811B34858F00E88A23 /* StreamSendExample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StreamSendExample.m; path = ../StreamSend/StreamSendExample.m; sourceTree = "<group>"; };
 		4879CB091B3072ED00E3702F /* Red5ProStreaming.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Red5ProStreaming.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4879CB0D1B3072ED00E3702F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4879CB0E1B3072ED00E3702F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };

@@ -39,11 +39,15 @@
             //we have started streaming successfully!!!
             NSLog(@"started streaming!");
             //call out to get our new stream
-            [self.publish.connection call:@"streams.getLiveStreams" withParam:@""];
+            [self.publish.connection call:@"streams.getLiveStreams"withReturn:@"onGetLiveStreams"  withParam:@""];
         }
     }
 }
 
+-(void)onGetLiveStreams:(NSString *)streams{
+    
+
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
