@@ -1,6 +1,6 @@
 #Publishing on Red5 Pro
 
-This example demonstrates the basics of the Red5 Pro mobile publishing feature. 
+This is the basic starter example on publishing to a Red5 Pro stream. 
 
 ###Example Code
 - ***[PublishExample.m](
