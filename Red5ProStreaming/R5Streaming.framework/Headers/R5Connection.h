@@ -35,9 +35,10 @@
  *  Make a connection call RPC to the server
  *
  *  @param method Method name to call
+ *  @param returnMethod Return method name.  "void" if no return
  *  @param param  Parameter to send for this method
  */
--(void)call:(NSString*)method withParam:(NSString*)param;
+-(void)call:(NSString*)method withReturn:(NSString*)returnMethod withParam:(NSString*)param;
 
 /**
  *  Get the connection context associated with this context

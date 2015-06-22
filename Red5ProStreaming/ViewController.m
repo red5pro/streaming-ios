@@ -12,6 +12,8 @@
 #import "SubscribeExample.h"
 #import "AutoReconnectExample.h"
 #import <R5Streaming/R5Streaming.h>
+#import "TwoWayVideoChatExample.h"
+#import "StreamSendExample.h"
 
 @interface ViewController ()
 
@@ -24,6 +26,7 @@
     
     r5_set_log_level(r5_log_level_debug);
     
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -31,6 +34,13 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)onSwapNames:(id)sender {
+    
+    UISwitch *switcher = (UISwitch*)sender;
+
+    [BaseExample setSwapped:switcher.on];
+    
+}
 
 -(void) showExample : (UIViewController*)viewController{
     
@@ -49,6 +59,11 @@
     
     [self.navigationController pushViewController:viewController animated:YES];
 
+}
+
+- (IBAction)onTwoWay:(id)sender {
+
+    [self showExample:[TwoWayVideoChatExample new]];
 }
 
 - (IBAction)onReconnect:(id)sender {
@@ -72,6 +87,11 @@
 - (IBAction)onPublish:(id)sender {
     
    [self showExample:[PublishExample new]];
+}
+
+- (IBAction)onRPC:(id)sender {
+    
+    [self showExample:[StreamSendExample new]];
 }
 
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{

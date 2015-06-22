@@ -10,6 +10,5 @@
 
 @interface ViewController : UIViewController<UIAlertViewDelegate>
 
-
 @end
 

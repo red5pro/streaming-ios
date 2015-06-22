@@ -11,12 +11,14 @@
 		4834CAE21B31C0A40084335B /* PublishExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 4834CAE11B31C0A40084335B /* PublishExample.m */; };
 		4834CAE81B31C6520084335B /* AdaptiveBitrateExample.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4834CAE61B31C6510084335B /* AdaptiveBitrateExample.mm */; };
 		4834CAED1B31C6900084335B /* ALToastView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4834CAEC1B31C68F0084335B /* ALToastView.m */; };
+		486031331B3350FE00EE08ED /* TwoWayVideoChatExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 486031321B3350FE00EE08ED /* TwoWayVideoChatExample.m */; };
 		48638C1F1B30736400D2355C /* connection.plist in Resources */ = {isa = PBXBuildFile; fileRef = 48638C1E1B30736400D2355C /* connection.plist */; };
 		48638C261B307D3900D2355C /* BaseExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 48638C251B307D3900D2355C /* BaseExample.m */; };
 		48638C281B307D8800D2355C /* R5Streaming.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48638C271B307D8800D2355C /* R5Streaming.framework */; };
 		48638C2A1B307DA000D2355C /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48638C291B307DA000D2355C /* GLKit.framework */; };
 		48638C2C1B307DA600D2355C /* libiconv.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 48638C2B1B307DA600D2355C /* libiconv.2.dylib */; };
 		48638C311B308E9F00D2355C /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48638C301B308E9E00D2355C /* OpenAL.framework */; };
+		486612821B34858F00E88A23 /* StreamSendExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 486612811B34858F00E88A23 /* StreamSendExample.m */; };
 		4879CB0F1B3072ED00E3702F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4879CB0E1B3072ED00E3702F /* main.m */; };
 		4879CB121B3072ED00E3702F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4879CB111B3072ED00E3702F /* AppDelegate.m */; };
 		4879CB151B3072ED00E3702F /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4879CB141B3072ED00E3702F /* ViewController.m */; };
@@ -46,6 +48,8 @@
 		4834CAE61B31C6510084335B /* AdaptiveBitrateExample.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AdaptiveBitrateExample.mm; sourceTree = "<group>"; };
 		4834CAEB1B31C68F0084335B /* ALToastView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALToastView.h; sourceTree = "<group>"; };
 		4834CAEC1B31C68F0084335B /* ALToastView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALToastView.m; sourceTree = "<group>"; };
+		486031311B3350FE00EE08ED /* TwoWayVideoChatExample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TwoWayVideoChatExample.h; sourceTree = "<group>"; };
+		486031321B3350FE00EE08ED /* TwoWayVideoChatExample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TwoWayVideoChatExample.m; sourceTree = "<group>"; };
 		48638C1E1B30736400D2355C /* connection.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = connection.plist; sourceTree = "<group>"; };
 		48638C241B307D3900D2355C /* BaseExample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseExample.h; sourceTree = "<group>"; };
 		48638C251B307D3900D2355C /* BaseExample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseExample.m; sourceTree = "<group>"; };
@@ -53,6 +57,8 @@
 		48638C291B307DA000D2355C /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
 		48638C2B1B307DA600D2355C /* libiconv.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libiconv.2.dylib; path = usr/lib/libiconv.2.dylib; sourceTree = SDKROOT; };
 		48638C301B308E9E00D2355C /* OpenAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenAL.framework; path = System/Library/Frameworks/OpenAL.framework; sourceTree = SDKROOT; };
+		486612801B34858F00E88A23 /* StreamSendExample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StreamSendExample.h; sourceTree = "<group>"; };
+		486612811B34858F00E88A23 /* StreamSendExample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StreamSendExample.m; sourceTree = "<group>"; };
 		4879CB091B3072ED00E3702F /* Red5ProStreaming.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Red5ProStreaming.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4879CB0D1B3072ED00E3702F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4879CB0E1B3072ED00E3702F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -131,9 +137,21 @@
 			path = ALToastView;
 			sourceTree = "<group>";
 		};
+		486031301B3350E300EE08ED /* TwoWayVideoChat */ = {
+			isa = PBXGroup;
+			children = (
+				486031311B3350FE00EE08ED /* TwoWayVideoChatExample.h */,
+				486031321B3350FE00EE08ED /* TwoWayVideoChatExample.m */,
+			);
+			name = TwoWayVideoChat;
+			path = Examples/TwoWayVideoChat;
+			sourceTree = "<group>";
+		};
 		48638C201B30785000D2355C /* Examples */ = {
 			isa = PBXGroup;
 			children = (
+				4866127F1B34858100E88A23 /* StreamSend */,
+				486031301B3350E300EE08ED /* TwoWayVideoChat */,
 				4812FBCD1B3312060041EA17 /* AutoReconnect */,
 				489D6BE81B31F094006403C1 /* Subscribe */,
 				4834CAE41B31C6510084335B /* AdaptiveBitratePublish */,
@@ -142,6 +160,16 @@
 				48638C251B307D3900D2355C /* BaseExample.m */,
 			);
 			name = Examples;
+			sourceTree = "<group>";
+		};
+		4866127F1B34858100E88A23 /* StreamSend */ = {
+			isa = PBXGroup;
+			children = (
+				486612801B34858F00E88A23 /* StreamSendExample.h */,
+				486612811B34858F00E88A23 /* StreamSendExample.m */,
+			);
+			name = StreamSend;
+			path = Examples/RPC;
 			sourceTree = "<group>";
 		};
 		4879CB001B3072ED00E3702F = {
@@ -322,6 +350,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				4834CAE21B31C0A40084335B /* PublishExample.m in Sources */,
+				486612821B34858F00E88A23 /* StreamSendExample.m in Sources */,
+				486031331B3350FE00EE08ED /* TwoWayVideoChatExample.m in Sources */,
 				4879CB151B3072ED00E3702F /* ViewController.m in Sources */,
 				4834CAED1B31C6900084335B /* ALToastView.m in Sources */,
 				489D6BEB1B31F0B1006403C1 /* SubscribeExample.m in Sources */,

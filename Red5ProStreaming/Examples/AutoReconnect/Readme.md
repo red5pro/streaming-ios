@@ -3,7 +3,7 @@
 This example demonstrates using the status updates from `R5Stream`.  A timer is used to attempt to reconnect to a stream that has not yet been published.
 
 To use the example, launch the app and you will see it attempting to connect to stream 'subscriber'.  Launch a publisher app with the name 'subscriber' after you have launched this example, and it will successfully connect after the stream has started.
-
+ 
 
 
 ###Example Code

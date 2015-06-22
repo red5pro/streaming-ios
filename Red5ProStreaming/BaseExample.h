@@ -55,4 +55,9 @@ enum R5StreamType{ PUBLISH, SUBSCRIBE };
  */
 -(void) setupDefaultR5ViewController;
 
+
+//swap stream names to test on 2 devices together
++(void)setSwapped:(BOOL)swapped;
++(BOOL)getSwapped;
+
 @end

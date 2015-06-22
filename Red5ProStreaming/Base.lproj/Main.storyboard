@@ -70,6 +70,36 @@
                                             <action selector="onReconnect:" destination="BYZ-38-t0r" eventType="touchUpInside" id="rrO-Of-jAJ"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YuB-hZ-LzN" userLabel="Publish">
+                                        <rect key="frame" x="16" y="197" width="98" height="30"/>
+                                        <state key="normal" title="Two Way Chat">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="onTwoWay:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Ju4-cY-9S5"/>
+                                        </connections>
+                                    </button>
+                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="V6x-dI-wzZ">
+                                        <rect key="frame" x="255" y="8" width="51" height="31"/>
+                                        <connections>
+                                            <action selector="onSwapNames:" destination="BYZ-38-t0r" eventType="valueChanged" id="Bww-z0-Kix"/>
+                                        </connections>
+                                    </switch>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Swap Names" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EBe-fC-s2K">
+                                        <rect key="frame" x="237" y="39" width="75" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wvv-Pj-yrk" userLabel="Publish">
+                                        <rect key="frame" x="16" y="235" width="32" height="30"/>
+                                        <state key="normal" title="RPC">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="onRPC:" destination="BYZ-38-t0r" eventType="touchUpInside" id="asN-PN-6GJ"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="qRS-QM-V7h" firstAttribute="top" secondItem="uEL-0W-c5f" secondAttribute="bottom" constant="8" symbolic="YES" id="0qv-5x-bNV"/>
