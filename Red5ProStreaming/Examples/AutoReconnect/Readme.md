@@ -2,7 +2,10 @@
 
 This example demonstrates using the status updates from `R5Stream`.  A timer is used to attempt to reconnect to a stream that has not yet been published.
 
-To use the example, launch the Auto Reconnect feature in the app and you will see it attempting to connect to stream 'subscriber'.  Launch a publisher app with the name 'subscriber' after you have launched this example, and it will successfully connect after the stream has started.
+To use the example: 
+1. Launch the Auto Reconnect feature in the app and you will see it attempting to connect to stream 'subscriber'.  
+2. Launch a second device using the publisher app, and use the "swap names" button to publish a stream with the name "subscriber" (alternatively, you can publish via the flash client running on your Red5 Pro server, at http://<red5proserverIP>:5080/live/broadcast.jsp )
+3. After you have started the broadcast, your app will successfully connect to the active stream.
  
 
 

@@ -147,3 +147,6 @@ The *type* parameter tells the server the recording mode to use on the server.
 - **R5RecordTypeLive** - Stream but do not record
 - **R5RecordTypeRecord** - Stream and record the file name.  Replace existing save.
 - **R5RecordTypeAppend** - Stream and append the recording to any existing save.
+
+####View your stream
+Open a browser window and navigate to http://<red5proserverIP>:5080//live/streams.jsp to see a list of active streams. Click on the _flash version to subscribe to your stream.
