@@ -4,13 +4,13 @@ This repository contains a simple project with a number of examples that can be 
 
 ##Requirements
 
-You will need a functional Red5 Pro server web (or locally) accessible for the client to connect too.  
+You will need a functional, running Red5 Pro server web- (or locally-) accessible for the client to connect to.  
 
 For more information visit http://red5pro.com.
 
 ##Setup
 
-You will need to modify **/Red5Streaming/connection.plist** to point to your server instance.  If you do not, the examples will not function when you build.
+You will need to modify **/Red5ProStreaming/Supporting Files/connection.plist (the domain value)** to point to your server instance.  If you do not, the examples will not function when you build.
 
 Once you have modified your settings, you can run the application for simulator or device. 
 
@@ -36,3 +36,9 @@ Once you have modified your settings, you can run the application for simulator 
 | **[AutoReconnect](https://github.com/red5pro/streaming-ios/tree/master/Red5ProStreaming/Examples/AutoReconnect)**
 | *Wait for a publisher to start by monitoring connection events* 
      
+##Notes
+
+1. For some of the above examples you will need two devices (a publisher, and a subscriber).
+2. You can see a list of active streams by navigating to http://<your_red5_pro_server_ip>:5080/live/streams.jsp
+3. Click on the flash link (for example, flash_publisher)in the streams list displayed to view the published stream in your browser.
+
