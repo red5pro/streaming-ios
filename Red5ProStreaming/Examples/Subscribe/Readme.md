@@ -15,7 +15,8 @@ Subscribing to a Red5 Pro stream requires a few components to function fully.
 ####Setup R5Connection
 The R5Connection manages the connection that the stream utilizes.  You will need to setup a configuration and intialize a new connection.
 
-```Objective-C
+```
+Objective-C
 	//Setup a configuration object for our connection
     R5Configuration *config = [[R5Configuration alloc] init];
     config.host = [dict objectForKey:@"domain"];
@@ -34,14 +35,14 @@ The R5Connection manages the connection that the stream utilizes.  You will need
 ####Setup R5Stream
 The `R5Stream` handles both subscribing and publishing.  Creating one simply requires the connection already created.
 
-```Objective-C
+```
+Objective-C
 	//Create our new stream that will utilize that connection
     self.subscribe = [[R5Stream alloc] initWithConnection:connection];
     
-    //Setup our listener to handle events from this stream
-    self.subscribe.delegate = self;
+    //Setup our listener to handle events from this stream    self.subscribe.delegate = self;
+ ```
 
-```
 <sup>
 [SubscribeExample.m #46](https://github.com/red5pro/streaming-ios/blob/master/Red5ProStreaming/Examples/Subscribe/SubscribeExample.m#L46)
 </sup>
@@ -58,9 +59,11 @@ The `R5VideoViewController` will present publishing streams as well as subscribe
 ####Start Subscribing
 The `R5Stream.Subscribe` method will establish the server connection and begin Subscribing.  
 
-```Objective-C
+```
+Objective-C
     //start subscribing!!
     [self.subscribe play:[self getStreamName:SUBSCRIBE] ];
+    
 ```
 <sup>
 [SubscribeExample.m #57](https://github.com/red5pro/streaming-ios/blob/master/Red5ProStreaming/Examples/Subscribe/SubscribeExample.m#L57)

@@ -1,6 +1,6 @@
 #Publishing on Red5 Pro
 
-This example demonstrates the AdaptiveBitrateController, which provides a mechanism to dynamically adjust the video publishing bitrate to adjust quality to meet the bandwidth restrictions of the network connection or encoding hardware.
+This is the basic starter example on publishing to a Red5 Pro stream. 
 
 ###Example Code
 - ***[PublishExample.m](
@@ -92,6 +92,9 @@ To add audio to a stream a `R5Microphone` object can be attached.  It behaves si
     [self.publish attachAudio:microphone];
 
 ```
+<sup>
+[PublishExample.m #70](https://github.com/red5pro/streaming-ios/blob/master/Red5ProStreaming/Examples/Publish/PublishExample.m#L70)
+</sup>
 
 #### Preview the Publisher
 The `R5VideoViewController` will present publishing streams as well as subscribed streams.  To preview a publishing stream, it simply needs to attach the `R5Stream`.  
@@ -144,3 +147,6 @@ The *type* parameter tells the server the recording mode to use on the server.
 - **R5RecordTypeLive** - Stream but do not record
 - **R5RecordTypeRecord** - Stream and record the file name.  Replace existing save.
 - **R5RecordTypeAppend** - Stream and append the recording to any existing save.
+
+####View your stream
+Open a browser window and navigate to http://your_red5_pro_server_ip:5080//live/streams.jsp to see a list of active streams. Click on the _flash version to subscribe to your stream.
