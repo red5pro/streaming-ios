@@ -70,7 +70,7 @@
                                             <action selector="onReconnect:" destination="BYZ-38-t0r" eventType="touchUpInside" id="rrO-Of-jAJ"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YuB-hZ-LzN" userLabel="Publish">
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YuB-hZ-LzN" userLabel="Publish">
                                         <rect key="frame" x="16" y="197" width="98" height="30"/>
                                         <state key="normal" title="Two Way Chat">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
