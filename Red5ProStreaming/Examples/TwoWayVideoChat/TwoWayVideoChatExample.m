@@ -11,6 +11,7 @@
 @interface TwoWayVideoChatExample ()<UITableViewDataSource, UITableViewDelegate>
 @property NSArray *streams;
 @property UITableView *tableView;
+@property NSTimer *timer;
 @end
 
 @implementation TwoWayVideoChatExample
@@ -26,7 +27,7 @@
     
     CGRect rect = self.tableView.bounds;
     CGFloat topBarOffset = self.topLayoutGuide.length;
-    rect.origin.y = topBarOffset;
+    rect.origin.y = topBarOffset*-1;
     rect.size.height = rect.size.height + (topBarOffset * -1);
     
     self.tableView.bounds = rect;
@@ -56,6 +57,7 @@
     }
     return 0;
 }
+
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -96,7 +98,7 @@
         
         if(statusCode == r5_status_start_streaming){
            
-            [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(getStreams:) userInfo:nil repeats:NO];
+            self.timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(getStreams:) userInfo:nil repeats:NO];
 
         }
     }
@@ -121,11 +123,20 @@
     
     if(self.subscribe == nil){
         
-        [NSTimer scheduledTimerWithTimeInterval:2 target:self selector:@selector(getStreams:) userInfo:nil repeats:NO];
+        
+        
+        self.timer = [NSTimer scheduledTimerWithTimeInterval:2 target:self selector:@selector(getStreams:) userInfo:nil repeats:NO];
     }
     
     
 
+}
+
+-(void)viewDidDisappear:(BOOL)animated{
+    
+    [super viewDidDisappear:animated];
+    [self.timer invalidate];
+    self.timer = nil;
 }
 
 
