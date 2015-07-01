@@ -157,7 +157,6 @@
             
         }
     }
-
     
 }
 
@@ -183,13 +182,13 @@
 -(void)onGetLiveStreams:(NSString *)streams{
     
     NSError *e = nil;
-   self.streams = [NSJSONSerialization JSONObjectWithData: [streams dataUsingEncoding:NSUTF8StringEncoding] options: NSJSONReadingMutableContainers error: &e];
+  
+    self.streams = [NSJSONSerialization JSONObjectWithData: [streams dataUsingEncoding:NSUTF8StringEncoding] options: NSJSONReadingMutableContainers error: &e];
     
     //set this as our table data source
     
     [self.tableView reloadData];
-    
-    
+
     if(self.subscribe == nil){
         
         self.timer = [NSTimer scheduledTimerWithTimeInterval:2 target:self selector:@selector(getStreams:) userInfo:nil repeats:NO];
