@@ -12,5 +12,7 @@
 	<string>stream1</string>
 	<key>stream2</key>
 	<string>stream2</string>
+	<key>showVideo</key>
+	<true/>
 </dict>
 </plist>

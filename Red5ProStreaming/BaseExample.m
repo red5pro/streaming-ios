@@ -51,18 +51,22 @@ static BOOL _swapped = NO;
     
     //attach audio/video to stream if we are publishing!
     if(type == PUBLISH){
-       
-        NSArray *devices = [AVCaptureDevice devicesWithMediaType:AVMediaTypeVideo];
-        AVCaptureDevice *videoDev = [devices lastObject];
         
-        R5Camera *camera = [[R5Camera alloc] initWithDevice:videoDev andBitRate:128];
-        
-        camera.width   = 320;
-        camera.height  = 240;
-        
-        camera.orientation = 90;
-        
-        [stream attachVideo:camera];
+        if([[dict objectForKey:@"showVideo"] boolValue] == YES){
+            
+            NSArray *devices = [AVCaptureDevice devicesWithMediaType:AVMediaTypeVideo];
+            AVCaptureDevice *videoDev = [devices lastObject];
+            
+            R5Camera *camera = [[R5Camera alloc] initWithDevice:videoDev andBitRate:128];
+            
+            camera.width   = 320;
+            camera.height  = 240;
+            
+            camera.orientation = 90;
+            
+            [stream attachVideo:camera];
+            
+        }
         
         AVCaptureDevice *audioDevice = [AVCaptureDevice defaultDeviceWithMediaType: AVMediaTypeAudio];
         
