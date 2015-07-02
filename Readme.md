@@ -35,6 +35,9 @@ Once you have modified your settings, you can run the application for simulator 
 |
 | **[AutoReconnect](https://github.com/red5pro/streaming-ios/tree/master/Red5ProStreaming/Examples/AutoReconnect)**
 | *Wait for a publisher to start by monitoring connection events* 
+|
+| **[Two Way Video Chat](https://github.com/red5pro/streaming-ios/tree/master/Red5ProStreaming/Examples/TwoWayVideoChat)**
+| *Starter example that shows how to implement a two way video chat.* 
      
 ##Notes
 
