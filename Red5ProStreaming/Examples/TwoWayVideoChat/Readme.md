@@ -9,7 +9,9 @@ This example demonstrates two way communication using Red5 Pro.  It also demonst
 https://github.com/red5pro/streaming-ios/blob/master/Red5ProStreaming/BaseExample.m)***
 
 ###Setup
-Two way communication simply requires setting up a publish stream and a subscribe stream at the same time.  
+Two way communication simply requires setting up a publish stream and a subscribe stream at the same time.  You can test the example with two devices.  On the second device select the **Swap Names** toggle on the main screen before launching. 
+
+Once the streams have populated the table you can choose the other device by its name.
 
 ###Getting Live Streams
 You can make RPC calls to the server using `R5Connection.call`.  The call is similar to `R5Stream.send` but allows you to specify a return method name.
