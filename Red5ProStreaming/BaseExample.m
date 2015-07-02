@@ -107,10 +107,16 @@ static BOOL _swapped = NO;
 -(NSString*)getStreamName : (enum R5StreamType)type{
     NSDictionary *dict = [NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"connection" ofType:@"plist"]];
 
-    if(type == PUBLISH || _swapped == YES){
-        return [dict objectForKey:@"stream2"];
+    if(type == PUBLISH ){
+        if(_swapped == YES)
+            return [dict objectForKey:@"stream1"];
+        else
+            return [dict objectForKey:@"stream2"];
     }else{
-        return [dict objectForKey:@"stream1"];
+        if(_swapped == YES)
+            return [dict objectForKey:@"stream2"];
+        else
+            return [dict objectForKey:@"stream1"];
     }
 }
 
