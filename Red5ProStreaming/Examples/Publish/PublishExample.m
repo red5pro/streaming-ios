@@ -51,11 +51,11 @@
     
     //Create an R5Camera with that device and specify the max bitrate to allow
     //Note : This bitrate will not be respected if it is lower than the encoder can go!
-    R5Camera *camera = [[R5Camera alloc] initWithDevice:videoDev andBitRate:512];
+    R5Camera *camera = [[R5Camera alloc] initWithDevice:videoDev andBitRate:128];
     
     //Set up the resolution we want this camera to use.  This can only be set before publishing begins
-    camera.width   = 640;
-    camera.height  = 480;
+    camera.width   = 320;
+    camera.height  = 240;
     
     //Setup the rotation of the video stream.  This is meta data, and is used by the client to rotate the video.  No rotation is done on the publisher.
     camera.orientation = 90;
