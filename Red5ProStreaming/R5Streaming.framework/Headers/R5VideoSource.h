@@ -25,6 +25,8 @@ typedef int (^source_param_handler_t)(NSData* params);
 @property int height;           //!< Desired height of the video source (subject to hardware)
 @property int bitrate;          //!< Bitrate in kbps of the video stream
 @property int orientation;      //!< Orientation of presentation. @note  Video is rotated by the streaming software and NOT in the encoding.  This is a meta flag only.
+
+@property int fps;                  //!< Frame rate to record at
 @property AVEncoder *encoder;//!< Hardware encoder set by the VideoSource.  Pass frames to the encoder to continue to socket
 
 @property BOOL adaptiveBitRate;

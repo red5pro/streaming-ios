@@ -24,6 +24,13 @@ static BOOL _swapped = NO;
     return _swapped;
 }
 
+-(void)viewDidLoad{
+    
+    
+    [self setEdgesForExtendedLayout:UIRectEdgeAll];
+    
+}
+
 
 -(R5Stream *) getNewStream: (enum R5StreamType) type{
         
@@ -44,18 +51,22 @@ static BOOL _swapped = NO;
     
     //attach audio/video to stream if we are publishing!
     if(type == PUBLISH){
-       
-        NSArray *devices = [AVCaptureDevice devicesWithMediaType:AVMediaTypeVideo];
-        AVCaptureDevice *videoDev = [devices lastObject];
         
-        R5Camera *camera = [[R5Camera alloc] initWithDevice:videoDev andBitRate:512];
-        
-        camera.width   = 640;
-        camera.height  = 480;
-        
-        camera.orientation = 90;
-        
-        [stream attachVideo:camera];
+        if([[dict objectForKey:@"showVideo"] boolValue] == YES){
+            
+            NSArray *devices = [AVCaptureDevice devicesWithMediaType:AVMediaTypeVideo];
+            AVCaptureDevice *videoDev = [devices lastObject];
+            
+            R5Camera *camera = [[R5Camera alloc] initWithDevice:videoDev andBitRate:128];
+            
+            camera.width   = 320;
+            camera.height  = 240;
+            
+            camera.orientation = 90;
+            
+            [stream attachVideo:camera];
+            
+        }
         
         AVCaptureDevice *audioDevice = [AVCaptureDevice defaultDeviceWithMediaType: AVMediaTypeAudio];
         
@@ -96,10 +107,16 @@ static BOOL _swapped = NO;
 -(NSString*)getStreamName : (enum R5StreamType)type{
     NSDictionary *dict = [NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"connection" ofType:@"plist"]];
 
-    if(type == PUBLISH || _swapped == YES){
-        return [dict objectForKey:@"stream2"];
+    if(type == PUBLISH ){
+        if(_swapped == YES)
+            return [dict objectForKey:@"stream1"];
+        else
+            return [dict objectForKey:@"stream2"];
     }else{
-        return [dict objectForKey:@"stream1"];
+        if(_swapped == YES)
+            return [dict objectForKey:@"stream2"];
+        else
+            return [dict objectForKey:@"stream1"];
     }
 }
 

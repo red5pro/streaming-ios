@@ -26,6 +26,10 @@
     
     r5_set_log_level(r5_log_level_debug);
     
+    
+    [self setEdgesForExtendedLayout:UIRectEdgeNone];
+    
+    
 
 }
 

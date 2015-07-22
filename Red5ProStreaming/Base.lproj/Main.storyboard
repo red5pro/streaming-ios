@@ -70,7 +70,7 @@
                                             <action selector="onReconnect:" destination="BYZ-38-t0r" eventType="touchUpInside" id="rrO-Of-jAJ"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YuB-hZ-LzN" userLabel="Publish">
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YuB-hZ-LzN" userLabel="Publish">
                                         <rect key="frame" x="16" y="197" width="98" height="30"/>
                                         <state key="normal" title="Two Way Chat">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -134,6 +134,36 @@
             </objects>
             <point key="canvasLocation" x="64" y="495"/>
         </scene>
+        <!--no_video-->
+        <scene sceneID="nWi-5B-GXJ">
+            <objects>
+                <viewController title="no_video" automaticallyAdjustsScrollViewInsets="NO" id="CEl-Ht-4Ac" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="82Z-ku-Vdx"/>
+                        <viewControllerLayoutGuide type="bottom" id="Elf-1Y-QMD"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="lrW-ID-neX">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="video_icon.png" translatesAutoresizingMaskIntoConstraints="NO" id="367-KK-k2v">
+                                <rect key="frame" x="74" y="158" width="173" height="163"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="Elf-1Y-QMD" firstAttribute="top" secondItem="367-KK-k2v" secondAttribute="bottom" constant="159" id="M80-F8-Jnf"/>
+                            <constraint firstItem="367-KK-k2v" firstAttribute="top" secondItem="82Z-ku-Vdx" secondAttribute="bottom" constant="138" id="h0U-NL-qdk"/>
+                            <constraint firstItem="367-KK-k2v" firstAttribute="leading" secondItem="lrW-ID-neX" secondAttribute="leadingMargin" constant="58" id="qOh-oj-RRu"/>
+                            <constraint firstItem="367-KK-k2v" firstAttribute="centerX" secondItem="lrW-ID-neX" secondAttribute="centerX" id="xLJ-kH-zwb"/>
+                        </constraints>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zK9-LE-y8Q" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="197" y="1142"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="rAs-YD-0hx">
             <objects>
@@ -155,4 +185,7 @@
             <point key="canvasLocation" x="-346" y="495"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="video_icon.png" width="512" height="512"/>
+    </resources>
 </document>

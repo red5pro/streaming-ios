@@ -9,8 +9,10 @@
 	<key>port</key>
 	<integer>8554</integer>
 	<key>stream1</key>
-	<string>subscriber</string>
+	<string>stream1</string>
 	<key>stream2</key>
-	<string>publisher</string>
+	<string>stream2</string>
+	<key>showVideo</key>
+	<true/>
 </dict>
 </plist>

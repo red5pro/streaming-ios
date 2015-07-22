@@ -41,6 +41,7 @@
 @property int channels;             //!< number of channels to capture
 @property int bitrate;              //!< bitrate in kbps
 
+
 /**
  *  A microphone input for R5Stream
  *
