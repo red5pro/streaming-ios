@@ -22,9 +22,9 @@ extern "C" {
     
 #define R5PRO_MAJOR_VERSION         0
 #define R5PRO_MINOR_VERSION         8
-#define R5PRO_REVISION              36
+#define R5PRO_REVISION              37
 #define R5PRO_BUILD                 0
-#define R5PRO_VERSION               "0.8.36.0"
+#define R5PRO_VERSION               "0.8.37.0"
 #define R5PRO_VERSION_ISRELEASE     0
 #define R5PRO_VERSION_CHECK(maj, min) ((maj==MYLIB_MAJOR_VERSION) && (min<=MYLIB_MINOR_VERSION))
     
@@ -120,24 +120,25 @@ int r5_get_log_level();
 
     typedef struct r5_stats{
         
-        float                   buffered_time;
-        int                     subscribe_queue_size;
-        int                     nb_audio_frames;
-        int                     nb_video_frames;
-        long                    pkts_received;
-        long                    pkts_sent;
-        long                    pkts_video_dropped;
-        long                    pkts_audio_dropped;
-        long                    publish_pkts_dropped;
+        float                   buffered_time;              //!< Length of content that has been received on socket
+        int                     subscribe_queue_size;       //!< Number of audio/video frames waiting for decode
+        int                     nb_audio_frames;            //!< Number of queued audio frames to be played
+        int                     nb_video_frames;            //!< Number of queued video frames to be played
+        long                    pkts_received;              //!< Num Received packets
+        long                    pkts_sent;                  //!< Num Sent packets
+        long                    pkts_video_dropped;         //!< Incoming video packets dropped
+        long                    pkts_audio_dropped;         //!< Incoming audio packets dropped
+        long                    publish_pkts_dropped;       //!< Total audio/video packets dropped due to latency
         
         long                    log_time;
-        long                    total_bytes_received;
-        long                    total_bytes_sent;
-        float                   subscribe_bitrate;
-        float                   publish_bitrate;
-        long                    socket_queue_size;
-        float                   bitrate_sent_smoothed;
-        float                   bitrate_received_smoothed;
+        long                    total_bytes_received;       //!< Total bytes received by stream
+        long                    total_bytes_sent;           //!< total bytes sent by stream
+        float                   subscribe_bitrate;          //!< Subscribing bitrate  (not smoothed)
+        float                   publish_bitrate;            //!< Publishing bitrate (not smoothed)
+        long                    socket_queue_size;          //!< Num Packets queued to be sent out
+        float                   bitrate_sent_smoothed;      //!< Smoothed outgoing bitrate
+        float                   bitrate_received_smoothed;  //!< Smoothed incoming bitrate
+        float                   subscribe_latency;          //!< How far behind subscriber clock the stream is arriving
         
     }r5_stats;
     

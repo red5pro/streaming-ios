@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <AVFoundation/AVFoundation.h>
 #import "R5VideoSource.h"
+#import "R5AudioController.h"
 
 /**
  *  @brief R5Camera encapsulates an AVCaptureDevice and provides video data to the R5Stream for publishing
@@ -40,6 +41,7 @@
 @property int sampleRate;           //!< sample rate to capture
 @property int channels;             //!< number of channels to capture
 @property int bitrate;              //!< bitrate in kbps
+@property R5AudioController *audioController;
 
 
 /**

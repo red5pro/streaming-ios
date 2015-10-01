@@ -11,7 +11,10 @@
 #import "R5Connection.h"
 #import "R5Camera.h"
 #import "R5Configuration.h"
+#import "R5AudioController.h"
 #include <AVFoundation/AVFoundation.h>
+
+
 
 
 @protocol R5StreamDelegate;
@@ -39,6 +42,9 @@ enum R5StreamMode{
     
     
 }
+
+
+@property R5AudioController *audioController;
 
 
 /**
