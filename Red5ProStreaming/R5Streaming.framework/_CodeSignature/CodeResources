@@ -8,13 +8,21 @@
 		<data>
 		R+9JXE/SYTIddMYjRuyet66CM0o=
 		</data>
+		<key>Headers/R5AACEncoder.h</key>
+		<data>
+		qKUwQtVfBbeAj6zr3rIkP3Q45Tk=
+		</data>
 		<key>Headers/R5AdaptiveBitrateController.h</key>
 		<data>
 		zkFmrYT2RgXT+k0nJjfaf3anZDg=
 		</data>
+		<key>Headers/R5AudioController.h</key>
+		<data>
+		xAo4iZZg/LRq0lPVINggqKBYnkU=
+		</data>
 		<key>Headers/R5Camera.h</key>
 		<data>
-		oXEzlcIiE+xckbsiLLuA3c4dFYk=
+		r2ZoQgYYXizTk1slDZV2FzUb4co=
 		</data>
 		<key>Headers/R5Configuration.h</key>
 		<data>
@@ -26,7 +34,7 @@
 		</data>
 		<key>Headers/R5Stream.h</key>
 		<data>
-		dGRd+/s0ZdbjgULQrEtarCgd4nU=
+		wTIMgAYZdSainsUS8EXiy0JwbtU=
 		</data>
 		<key>Headers/R5Streaming.h</key>
 		<data>
@@ -50,7 +58,7 @@
 		</data>
 		<key>Headers/global.h</key>
 		<data>
-		f2q8lQgdcI+41+kTDDc7cYLewZQ=
+		s3bPlrSdfi8psIk7VGXj0yqQFwo=
 		</data>
 		<key>Headers/parse_util.h</key>
 		<data>
@@ -79,13 +87,21 @@
 		<data>
 		R+9JXE/SYTIddMYjRuyet66CM0o=
 		</data>
+		<key>Headers/R5AACEncoder.h</key>
+		<data>
+		qKUwQtVfBbeAj6zr3rIkP3Q45Tk=
+		</data>
 		<key>Headers/R5AdaptiveBitrateController.h</key>
 		<data>
 		zkFmrYT2RgXT+k0nJjfaf3anZDg=
 		</data>
+		<key>Headers/R5AudioController.h</key>
+		<data>
+		xAo4iZZg/LRq0lPVINggqKBYnkU=
+		</data>
 		<key>Headers/R5Camera.h</key>
 		<data>
-		oXEzlcIiE+xckbsiLLuA3c4dFYk=
+		r2ZoQgYYXizTk1slDZV2FzUb4co=
 		</data>
 		<key>Headers/R5Configuration.h</key>
 		<data>
@@ -97,7 +113,7 @@
 		</data>
 		<key>Headers/R5Stream.h</key>
 		<data>
-		dGRd+/s0ZdbjgULQrEtarCgd4nU=
+		wTIMgAYZdSainsUS8EXiy0JwbtU=
 		</data>
 		<key>Headers/R5Streaming.h</key>
 		<data>
@@ -121,7 +137,7 @@
 		</data>
 		<key>Headers/global.h</key>
 		<data>
-		f2q8lQgdcI+41+kTDDc7cYLewZQ=
+		s3bPlrSdfi8psIk7VGXj0yqQFwo=
 		</data>
 		<key>Headers/parse_util.h</key>
 		<data>
