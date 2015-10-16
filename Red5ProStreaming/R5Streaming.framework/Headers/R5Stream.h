@@ -62,6 +62,7 @@ enum R5StreamMode{
  */
 @property NSObject *client;
 
+
 /**
  *  Initialize the stream.  The connection is *not* established.
  *
