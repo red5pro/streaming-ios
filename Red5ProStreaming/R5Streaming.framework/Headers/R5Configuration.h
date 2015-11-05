@@ -18,6 +18,7 @@
 @property NSString *contextName;    //!< Application/Context name
 @property NSString *streamName;     //!< Name of the stream to publish/subscribe too
 @property int port;                 //!< Port to connect over
+@property NSString *parameters;     //!< Custom properties for connection.  ';' delimited list of values (ex: "val1;val2;val3;").   Must be set prior to connection being established.
 
 //! @cond
 @property NSMutableArray *setup;
