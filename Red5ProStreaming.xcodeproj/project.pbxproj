@@ -13,6 +13,7 @@
 		4834CAE21B31C0A40084335B /* PublishExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 4834CAE11B31C0A40084335B /* PublishExample.m */; };
 		4834CAE81B31C6520084335B /* AdaptiveBitrateExample.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4834CAE61B31C6510084335B /* AdaptiveBitrateExample.mm */; };
 		4834CAED1B31C6900084335B /* ALToastView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4834CAEC1B31C68F0084335B /* ALToastView.m */; };
+		484960151BFA517800969F81 /* StreamImageExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 484960141BFA517800969F81 /* StreamImageExample.m */; };
 		486031331B3350FE00EE08ED /* TwoWayVideoChatExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 486031321B3350FE00EE08ED /* TwoWayVideoChatExample.m */; };
 		48638C1F1B30736400D2355C /* connection.plist in Resources */ = {isa = PBXBuildFile; fileRef = 48638C1E1B30736400D2355C /* connection.plist */; };
 		48638C261B307D3900D2355C /* BaseExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 48638C251B307D3900D2355C /* BaseExample.m */; };
@@ -52,6 +53,8 @@
 		4834CAE61B31C6510084335B /* AdaptiveBitrateExample.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AdaptiveBitrateExample.mm; sourceTree = "<group>"; };
 		4834CAEB1B31C68F0084335B /* ALToastView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALToastView.h; sourceTree = "<group>"; };
 		4834CAEC1B31C68F0084335B /* ALToastView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALToastView.m; sourceTree = "<group>"; };
+		484960131BFA517800969F81 /* StreamImageExample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StreamImageExample.h; path = Examples/StreamImage/StreamImageExample.h; sourceTree = "<group>"; };
+		484960141BFA517800969F81 /* StreamImageExample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StreamImageExample.m; path = Examples/StreamImage/StreamImageExample.m; sourceTree = "<group>"; };
 		486031311B3350FE00EE08ED /* TwoWayVideoChatExample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TwoWayVideoChatExample.h; sourceTree = "<group>"; };
 		486031321B3350FE00EE08ED /* TwoWayVideoChatExample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TwoWayVideoChatExample.m; sourceTree = "<group>"; };
 		48638C1E1B30736400D2355C /* connection.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = connection.plist; sourceTree = "<group>"; };
@@ -139,6 +142,15 @@
 			path = ALToastView;
 			sourceTree = "<group>";
 		};
+		484960121BFA514C00969F81 /* StreamImage */ = {
+			isa = PBXGroup;
+			children = (
+				484960131BFA517800969F81 /* StreamImageExample.h */,
+				484960141BFA517800969F81 /* StreamImageExample.m */,
+			);
+			name = StreamImage;
+			sourceTree = "<group>";
+		};
 		486031301B3350E300EE08ED /* TwoWayVideoChat */ = {
 			isa = PBXGroup;
 			children = (
@@ -152,6 +164,7 @@
 		48638C201B30785000D2355C /* Examples */ = {
 			isa = PBXGroup;
 			children = (
+				484960121BFA514C00969F81 /* StreamImage */,
 				4866127F1B34858100E88A23 /* StreamSend */,
 				486031301B3350E300EE08ED /* TwoWayVideoChat */,
 				4812FBCD1B3312060041EA17 /* AutoReconnect */,
@@ -359,6 +372,7 @@
 				4834CAED1B31C6900084335B /* ALToastView.m in Sources */,
 				489D6BEB1B31F0B1006403C1 /* SubscribeExample.m in Sources */,
 				4834CAE81B31C6520084335B /* AdaptiveBitrateExample.mm in Sources */,
+				484960151BFA517800969F81 /* StreamImageExample.m in Sources */,
 				4812FBD01B3312D10041EA17 /* AutoReconnectExample.m in Sources */,
 				48638C261B307D3900D2355C /* BaseExample.m in Sources */,
 				482CE9B21B431B870050B9B1 /* StreamSendExample.m in Sources */,
@@ -487,6 +501,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Red5ProStreaming",
@@ -502,6 +517,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Red5ProStreaming",

@@ -14,6 +14,7 @@
 #import <R5Streaming/R5Streaming.h>
 #import "TwoWayVideoChatExample.h"
 #import "StreamSendExample.h"
+#import "StreamImageExample.h"
 
 @interface ViewController ()
 
@@ -96,6 +97,10 @@
 - (IBAction)onRPC:(id)sender {
     
     [self showExample:[StreamSendExample new]];
+}
+
+- (IBAction)onStreamImage:(id)sender {
+    [self showExample:[StreamImageExample new]];
 }
 
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
