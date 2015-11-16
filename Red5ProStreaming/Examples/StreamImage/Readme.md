@@ -21,7 +21,7 @@ Touch the screen at any time while streaming to popup a temporary overlay contai
 UIImage *img = [self.subscribe getStreamImage];
 ```
 <sup>
-[StreamImageExample.m #74](/SendImageExample.m#L41)
+[StreamImageExample.m #41](/StreamImageExample.m#L41)
 </sup>
 
 The UIImage can be saved to disk, displayed with a UIImageView, or processed in any way that is needed.
