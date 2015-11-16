@@ -39,7 +39,7 @@ Once you have modified your settings, you can run the application for simulator 
 | **[Two Way Video Chat](https://github.com/red5pro/streaming-ios/tree/master/Red5ProStreaming/Examples/TwoWayVideoChat)**
 | *Starter example that shows how to implement a two way video chat* 
 |
-| **[Stream Image](https://github.com/red5pro/streaming-ios/tree/master/Red5ProStreaming/Examples/StreamImage)**
+| **[Stream Image](Red5ProStreaming/Examples/StreamImage)**
 | *Capture a stream capture of the R5Stream subscriber* 
      
 ##Notes
