@@ -126,6 +126,14 @@
                                             <action selector="onCustomVideoSource:" destination="BYZ-38-t0r" eventType="touchUpInside" id="brH-0X-LRO"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A71-g0-0in">
+                                        <rect key="frame" x="16" y="348" width="89" height="30"/>
+                                        <animations/>
+                                        <state key="normal" title="Swift Publish"/>
+                                        <connections>
+                                            <action selector="onSwiftPublish:" destination="BYZ-38-t0r" eventType="touchUpInside" id="U3n-SH-Fym"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <animations/>
                                 <constraints>

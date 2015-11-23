@@ -10,6 +10,7 @@
 		4812FBD01B3312D10041EA17 /* AutoReconnectExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 4812FBCF1B3312D10041EA17 /* AutoReconnectExample.m */; };
 		4816815D1C03915900ABCBE2 /* CustomVideoSourceExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 4816815C1C03915900ABCBE2 /* CustomVideoSourceExample.m */; };
 		481681631C0399C900ABCBE2 /* ColorsVideoSource.mm in Sources */ = {isa = PBXBuildFile; fileRef = 481681621C0399C900ABCBE2 /* ColorsVideoSource.mm */; };
+		4816816A1C03BBBC00ABCBE2 /* SwiftPublishExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 481681691C03BBBC00ABCBE2 /* SwiftPublishExample.swift */; };
 		482CE9AF1B42F67C0050B9B1 /* video_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 482CE9AE1B42F67C0050B9B1 /* video_icon.png */; };
 		482CE9B21B431B870050B9B1 /* StreamSendExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 482CE9B11B431B870050B9B1 /* StreamSendExample.m */; };
 		4834CAE21B31C0A40084335B /* PublishExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 4834CAE11B31C0A40084335B /* PublishExample.m */; };
@@ -50,6 +51,8 @@
 		4816815C1C03915900ABCBE2 /* CustomVideoSourceExample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CustomVideoSourceExample.m; path = Examples/CustomVideo/CustomVideoSourceExample.m; sourceTree = "<group>"; };
 		481681611C0399C900ABCBE2 /* ColorsVideoSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ColorsVideoSource.h; path = Examples/CustomVideo/ColorsVideoSource.h; sourceTree = "<group>"; };
 		481681621C0399C900ABCBE2 /* ColorsVideoSource.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = ColorsVideoSource.mm; path = Examples/CustomVideo/ColorsVideoSource.mm; sourceTree = "<group>"; };
+		481681681C03BBBC00ABCBE2 /* Red5ProStreaming-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Red5ProStreaming-Bridging-Header.h"; sourceTree = "<group>"; };
+		481681691C03BBBC00ABCBE2 /* SwiftPublishExample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SwiftPublishExample.swift; path = Examples/SwiftPublish/SwiftPublishExample.swift; sourceTree = "<group>"; };
 		482CE9AE1B42F67C0050B9B1 /* video_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = video_icon.png; sourceTree = "<group>"; };
 		482CE9B01B431B870050B9B1 /* StreamSendExample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StreamSendExample.h; path = Red5ProStreaming/Examples/StreamSend/StreamSendExample.h; sourceTree = SOURCE_ROOT; };
 		482CE9B11B431B870050B9B1 /* StreamSendExample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StreamSendExample.m; path = Red5ProStreaming/Examples/StreamSend/StreamSendExample.m; sourceTree = SOURCE_ROOT; };
@@ -130,6 +133,14 @@
 			name = CustomVideoSource;
 			sourceTree = "<group>";
 		};
+		481681671C03BB9700ABCBE2 /* SwiftPublish */ = {
+			isa = PBXGroup;
+			children = (
+				481681691C03BBBC00ABCBE2 /* SwiftPublishExample.swift */,
+			);
+			name = SwiftPublish;
+			sourceTree = "<group>";
+		};
 		4834CADF1B31C08F0084335B /* Publish */ = {
 			isa = PBXGroup;
 			children = (
@@ -181,6 +192,7 @@
 		48638C201B30785000D2355C /* Examples */ = {
 			isa = PBXGroup;
 			children = (
+				481681671C03BB9700ABCBE2 /* SwiftPublish */,
 				4816815A1C03912600ABCBE2 /* CustomVideoSource */,
 				484960121BFA514C00969F81 /* StreamImage */,
 				4866127F1B34858100E88A23 /* StreamSend */,
@@ -229,6 +241,7 @@
 		4879CB0B1B3072ED00E3702F /* Red5ProStreaming */ = {
 			isa = PBXGroup;
 			children = (
+				481681681C03BBBC00ABCBE2 /* Red5ProStreaming-Bridging-Header.h */,
 				4834CAEA1B31C68F0084335B /* ALToastView */,
 				48638C271B307D8800D2355C /* R5Streaming.framework */,
 				48638C201B30785000D2355C /* Examples */,
@@ -326,6 +339,7 @@
 		4879CB011B3072ED00E3702F /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0710;
 				LastUpgradeCheck = 0610;
 				ORGANIZATIONNAME = Infrared5;
 				TargetAttributes = {
@@ -388,6 +402,7 @@
 				486031331B3350FE00EE08ED /* TwoWayVideoChatExample.m in Sources */,
 				4879CB151B3072ED00E3702F /* ViewController.m in Sources */,
 				4834CAED1B31C6900084335B /* ALToastView.m in Sources */,
+				4816816A1C03BBBC00ABCBE2 /* SwiftPublishExample.swift in Sources */,
 				489D6BEB1B31F0B1006403C1 /* SubscribeExample.m in Sources */,
 				4834CAE81B31C6520084335B /* AdaptiveBitrateExample.mm in Sources */,
 				481681631C0399C900ABCBE2 /* ColorsVideoSource.mm in Sources */,
@@ -521,15 +536,18 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Red5ProStreaming",
 				);
 				INFOPLIST_FILE = Red5ProStreaming/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Red5ProStreaming/Red5ProStreaming-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -537,15 +555,17 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Red5ProStreaming",
 				);
 				INFOPLIST_FILE = Red5ProStreaming/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Red5ProStreaming/Red5ProStreaming-Bridging-Header.h";
 			};
 			name = Release;
 		};

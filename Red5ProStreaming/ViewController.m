@@ -16,6 +16,7 @@
 #import "StreamSendExample.h"
 #import "StreamImageExample.h"
 #import "CustomVideoSourceExample.h"
+#import "Red5ProStreaming-Swift.h"
 
 @interface ViewController ()
 
@@ -65,6 +66,11 @@
     
     [self.navigationController pushViewController:viewController animated:YES];
 
+}
+
+- (IBAction)onSwiftPublish:(id)sender {
+
+    [self showExample:(UIViewController*)[PublishSwiftViewController new]];
 }
 
 - (IBAction)onTwoWay:(id)sender {
