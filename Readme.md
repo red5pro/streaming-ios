@@ -44,6 +44,9 @@ Once you have modified your settings, you can run the application for simulator 
 |
 | **[Custom Video Source](Red5ProStreaming/Examples/CustomVideo)**
 | *Render custom pixel data to the video stream in place of standard camera input* 
+|
+| **[Swift Publishing](Red5ProStreaming/Examples/SwiftPublish)**
+| *How to publish using Swift* 
      
 ##Notes
 
