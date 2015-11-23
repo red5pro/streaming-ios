@@ -15,6 +15,7 @@
 #import "TwoWayVideoChatExample.h"
 #import "StreamSendExample.h"
 #import "StreamImageExample.h"
+#import "CustomVideoSourceExample.h"
 
 @interface ViewController ()
 
@@ -101,6 +102,10 @@
 
 - (IBAction)onStreamImage:(id)sender {
     [self showExample:[StreamImageExample new]];
+}
+
+- (IBAction)onCustomVideoSource:(id)sender {
+    [self showExample:[CustomVideoSourceExample new]];
 }
 
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{

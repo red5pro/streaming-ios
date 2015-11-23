@@ -111,11 +111,19 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fPa-G4-vsr">
-                                        <rect key="frame" x="16" y="273" width="95" height="30"/>
+                                        <rect key="frame" x="16" y="273" width="154" height="30"/>
                                         <animations/>
-                                        <state key="normal" title="Stream Image"/>
+                                        <state key="normal" title="Stream Image Capture"/>
                                         <connections>
                                             <action selector="onStreamImage:" destination="BYZ-38-t0r" eventType="touchUpInside" id="CA7-sD-sbz"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oah-Af-FDy">
+                                        <rect key="frame" x="16" y="311" width="149" height="30"/>
+                                        <animations/>
+                                        <state key="normal" title="Custom Video Source"/>
+                                        <connections>
+                                            <action selector="onCustomVideoSource:" destination="BYZ-38-t0r" eventType="touchUpInside" id="brH-0X-LRO"/>
                                         </connections>
                                     </button>
                                 </subviews>
