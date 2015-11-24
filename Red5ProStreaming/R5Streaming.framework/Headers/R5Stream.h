@@ -157,6 +157,9 @@ enum R5StreamMode{
 -(R5Microphone*) getMicrophone;
 
 
+
+-(UIImage *) getStreamImage;
+
 @end
 
 

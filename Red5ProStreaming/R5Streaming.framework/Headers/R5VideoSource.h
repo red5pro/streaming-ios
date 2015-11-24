@@ -80,7 +80,10 @@ typedef int (^source_param_handler_t)(NSData* params);
  *
  *  @param session Session to stop
  */
+
+
 -(void)releaseSession:(AVCaptureSession*)session;
+
 
 -(void)updateEncoder;
 

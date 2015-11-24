@@ -14,6 +14,9 @@
 #import <R5Streaming/R5Streaming.h>
 #import "TwoWayVideoChatExample.h"
 #import "StreamSendExample.h"
+#import "StreamImageExample.h"
+#import "CustomVideoSourceExample.h"
+#import "Red5ProStreaming-Swift.h"
 
 @interface ViewController ()
 
@@ -65,6 +68,11 @@
 
 }
 
+- (IBAction)onSwiftPublish:(id)sender {
+
+    [self showExample:(UIViewController*)[PublishSwiftViewController new]];
+}
+
 - (IBAction)onTwoWay:(id)sender {
 
     [self showExample:[TwoWayVideoChatExample new]];
@@ -96,6 +104,14 @@
 - (IBAction)onRPC:(id)sender {
     
     [self showExample:[StreamSendExample new]];
+}
+
+- (IBAction)onStreamImage:(id)sender {
+    [self showExample:[StreamImageExample new]];
+}
+
+- (IBAction)onCustomVideoSource:(id)sender {
+    [self showExample:[CustomVideoSourceExample new]];
 }
 
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{

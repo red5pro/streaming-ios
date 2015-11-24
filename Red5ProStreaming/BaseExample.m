@@ -33,6 +33,8 @@ static BOOL _swapped = NO;
 
 
 -(R5Stream *) getNewStream: (enum R5StreamType) type{
+    NSLog(@"Got the stream");
+    r5_set_log_level(r5_log_level_debug);
         
      NSDictionary *dict = [NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"connection" ofType:@"plist"]];
     
@@ -46,6 +48,7 @@ static BOOL _swapped = NO;
     R5Connection *connection = [[R5Connection alloc] initWithConfig: config];
     
     R5Stream *stream = [[R5Stream alloc] initWithConnection:connection];
+    
     
     stream.delegate = self;
     

@@ -38,6 +38,15 @@ Once you have modified your settings, you can run the application for simulator 
 |
 | **[Two Way Video Chat](https://github.com/red5pro/streaming-ios/tree/master/Red5ProStreaming/Examples/TwoWayVideoChat)**
 | *Starter example that shows how to implement a two way video chat* 
+|
+| **[Stream Image Capture](Red5ProStreaming/Examples/StreamImage)**
+| *Capture a stream capture of the R5Stream subscriber* 
+|
+| **[Custom Video Source](Red5ProStreaming/Examples/CustomVideo)**
+| *Render custom pixel data to the video stream in place of standard camera input* 
+|
+| **[Swift Publishing](Red5ProStreaming/Examples/SwiftPublish)**
+| *How to publish using Swift* 
      
 ##Notes
 

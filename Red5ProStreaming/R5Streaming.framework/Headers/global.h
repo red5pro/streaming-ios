@@ -22,22 +22,15 @@ extern "C" {
     
 #define R5PRO_MAJOR_VERSION         0
 #define R5PRO_MINOR_VERSION         8
-#define R5PRO_REVISION              38
-#define R5PRO_BUILD                 0
-#define R5PRO_VERSION               "0.8.38.0"
+#define R5PRO_REVISION              41
+#define R5PRO_BUILD                 1
+#define R5PRO_VERSION               "0.8.41.1"
 #define R5PRO_VERSION_ISRELEASE     0
 #define R5PRO_VERSION_CHECK(maj, min) ((maj==MYLIB_MAJOR_VERSION) && (min<=MYLIB_MINOR_VERSION))
     
     
 #define SEC_TO_NANO 1e9
 #define SEC_TO_MS 1e3
-
-
-    typedef struct rpc_call rpc_call;
-    typedef struct client_ctx client_ctx;
-    typedef struct media_decoder media_decoder_t;
-    
-
 
 
 #if defined(__APPLE__) && defined(__MACH__)
@@ -70,54 +63,107 @@ extern "C" {
 #define LOGW(M, ...) if(r5_get_log_level() <= (int)r5_log_level_warn) LOG( M, ##__VA_ARGS__);
 #define LOGE(M, ...) if(r5_get_log_level() <= (int)r5_log_level_error) LOG(M, ##__VA_ARGS__);
 #endif
-    
-#define clean_errno() (errno == 0 ? "None" : strerror(errno))
-    
 
-    
+
 #define check_mem(A) check((A), "Out of memory.")
 
+    /**
+     Logging level for R5 Pro API
+     */
+    enum r5_log_level{
+        r5_log_level_debug,
+        r5_log_level_info,
+        r5_log_level_warn,
+        r5_log_level_error
+    };
 
-//##define NDEBUG
-
-int r5_valid_license();
-
-
-enum r5_log_level{
-    r5_log_level_debug,
-    r5_log_level_info,
-    r5_log_level_warn,
-    r5_log_level_error
-};
-
-enum r5_status{
-    r5_status_connected,
-    r5_status_disconnected,
-    r5_status_connection_error,
-    r5_status_connection_timeout,
-    r5_status_connection_close,
-    r5_status_start_streaming,
-    r5_status_stop_streaming,
-    r5_status_netstatus
-};
+    /**
+     Status code for an R5Stream/R5Connection
+     */
+    enum r5_status{
+        r5_status_connected,
+        r5_status_disconnected,
+        r5_status_connection_error,
+        r5_status_connection_timeout,
+        r5_status_connection_close,
+        r5_status_start_streaming,
+        r5_status_stop_streaming,
+        r5_status_netstatus
+    };
     
+    /**
+     Streaming mode for an R5Stream
+     */
+    typedef enum r5_stream_mode{
+        r5_stream_mode_stop,
+        r5_stream_mode_subscribe,
+        r5_stream_mode_publish
+    }r5_stream_mode_t;
+    
+    /**
+     Buffering state of an R5Stream
+     */
+    enum r5_buffer_state{
+        r5_buffer_state_buffered,
+        r5_buffer_state_needs_rebuffer,
+        r5_buffer_state_rebuffering
+    };
+    
+    /**
+     Type of r5_media for encoding
+     */
+    typedef enum r5_media_type{
+        r5_media_type_video,
+        r5_media_type_audio,
+        r5_media_type_video_custom,
+        r5_media_type_audio_custom
+    } r5_media_type;
+   
 
-enum r5_stream_mode{
-    r5_stream_mode_stop,
-    r5_stream_mode_subscribe,
-    r5_stream_mode_publish
-};
-
-typedef enum r5_stream_mode r5_stream_mode_t;
+    /**
+     *  Client context
+     */
+    typedef struct client_ctx client_ctx;
  
+ 
+    /**
+     *  Format r5_status events into a readable string
+     *
+     *  @param status r5_status to stringify
+     *
+     *  @return A string representation the the status code
+     */
+    const char * r5_string_for_status(int status);
     
-const char * r5_string_for_status(int status);
-
-void r5_set_log_level(int level);
-int r5_get_log_level();
+    
+    /**
+     *  Set logging level for the R5 Pro SDK
+     *
+     *  @param level r5_log_level of the level of logging desired
+     */
+    void r5_set_log_level(int level);
+    
+    /**
+     *  Internal License validation
+     *
+     *  @return if build is valid or not
+     */
+    int r5_valid_license();
+    
+    /**
+     *  @return The current logging level for the R5 Pro library
+     */
+    int r5_get_log_level();
+    
+    /**
+     * Current stream time in ms
+     */
     double now_ms(void);
 
 
+    /**
+     *  Stats for an R5Stream
+     */
     typedef struct r5_stats{
         
         float                   buffered_time;              //!< Length of content that has been received on socket
@@ -144,11 +190,7 @@ int r5_get_log_level();
     
     
     
-    enum r5_buffer_state{
-        r5_buffer_state_buffered,
-        r5_buffer_state_needs_rebuffer,
-        r5_buffer_state_rebuffering
-    };
+    
     
 #ifdef __cplusplus
 }

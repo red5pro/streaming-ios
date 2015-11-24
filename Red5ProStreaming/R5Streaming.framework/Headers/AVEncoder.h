@@ -11,7 +11,7 @@
 #import <Foundation/Foundation.h>
 #import <AVFoundation/AVFoundation.h>
 #import "sys/stat.h"
-
+#import "global.h"
 
 
 
@@ -27,7 +27,18 @@ typedef int (^param_handler_t)(NSData* params);
 
 -(void) updateParams:(NSDictionary *)params;
 
-- (void) encodeFrame:(CMSampleBufferRef) sampleBuffer ofType:(int)media_type;
+/**
+ *  Encode a CMSampleBuffer to streaming format to send over R5Stream
+ *
+ *  @param sampleBuffer Sample buffer with correctly set timestamp.\n
+     Contains an CVImageBufferRef for media_type r5_media_type_video (from camera input).\n
+     Contains a CVPixelBufferRef for media_type r5_media_type_video_custom (for rgb or other pixel formats).\n
+ *  @param media_type   Type of media that is going to be encoded.\n
+    Can be r5_media_type_video or r5_media_type_video_custom
+ */
+- (void) encodeFrame:(CMSampleBufferRef) sampleBuffer ofType:(r5_media_type) media_type;
+
+
 - (NSData*) getConfigData;
 - (void) shutdown;
 
