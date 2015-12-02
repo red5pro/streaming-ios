@@ -42,7 +42,7 @@ NSURL *url = [NSURL URLWithString:urlAsString];
                            // ...
                        }];
 ```
-<sup>[Based on this code](./ClusteringExample.m#L33-L40 "Connecting to your Red5 Pro Cluster origin")</sup>
+<sup>[Based on this code](./ClusteringExample.m#L33-L54 "Connecting to your Red5 Pro Cluster origin")</sup>
 
 ##### Create your `R5Configuration`
 Just as one would for the preliminary [Subscribe example](../Subscribe/), create a configuration with values appropriate to your [Red5 Pro](https://red5pro.com/) server and stream(s). These values include your host (_the IP you receive_), the context name (_e.g. "live"_), what port you're using (_8554 by default_), and your stream name.
