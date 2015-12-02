@@ -1,10 +1,17 @@
 # Subscribing to a Red5 Pro Cluster
 
-<!-- MarkdownTOC depth=3 -->
+<!-- MarkdownTOC -->
 
 1. [Reference](#reference)
 2. [Requirements](#requirements)
 3. [Explanation](#explanation)
+    1. [Connect to your Red5 Pro Cluster](#connect-to-your-red5-pro-cluster)
+    2. [Create your `R5Configuration`](#create-your-r5configuration)
+    3. [Create your `R5Connection`](#create-your-r5connection)
+    4. [Create your `R5Stream`](#create-your-r5stream)
+    5. [Assign your `R5Stream` a delegate](#assign-your-r5stream-a-delegate)
+    6. [Attach your `R5Stream` to an `R5VideoViewController`](#attach-your-r5stream-to-an-r5videoviewcontroller)
+    7. [Subscribe to your `R5Stream`](#subscribe-to-your-r5stream)
 
 <!-- /MarkdownTOC -->
 
