@@ -3,7 +3,7 @@
 `R5Stream.getStreamImage` allows the user to capture a screenshot of the stream at any time.  
 
 ###Example Code
-- ***[StreamImageExample.m](/StreamImageExample.m)***
+- ***[StreamImageExample.m](StreamImageExample.m)***
 
 - ***[BaseExample.m](
 https://github.com/red5pro/streaming-ios/blob/master/Red5ProStreaming/BaseExample.m)***
