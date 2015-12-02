@@ -54,12 +54,6 @@
                                NSString *ip = [dataAsString substringToIndex:[dataAsString rangeOfString:@":"].location];
                                NSLog(@"Retrieved %@ from %@, of which the usable IP is %@", dataAsString, urlAsString, ip);
                                
-                               //   UI updates must be asynchronous
-                               dispatch_async(dispatch_get_main_queue(), ^{
-                                   //   Showcase the IP we received, for testing purposes
-                                   [label setText:ip];
-                               });
-                               
                                //   Setup a configuration object for our connection
                                R5Configuration *config = [[R5Configuration alloc] init];
                                config.host = ip;
@@ -73,7 +67,7 @@
                                //   Create a new connection using the configuration above
                                R5Connection *connection = [[R5Connection alloc] initWithConfig: config];
                                
-                               //   Another UI update, so it's got to be asynchronous
+                               //   UI updates must be asynchronous
                                dispatch_async(dispatch_get_main_queue(), ^{
                                    //   Create our new stream that will utilize that connection
                                    self.subscribe  = [[R5Stream alloc] initWithConnection:connection];
@@ -89,7 +83,13 @@
                                    
                                    //   Start subscribing!!
                                    [self.subscribe play:[self getStreamName:SUBSCRIBE]];
+                                   
+                                   //   Showcase the IP we received, for testing purposes
+                                   [label setText:ip];
+                                   [self.view addSubview:label];
                                });
+                               
+                               
                            }];
 }
 
