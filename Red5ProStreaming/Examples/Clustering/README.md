@@ -1,70 +1,85 @@
-#Subscribing on Red5 Pro
+# Subscribing to a Red5 Pro Cluster
 
-This example shows how to easily subscribe to a Red5 Pro stream.
+<!-- MarkdownTOC depth=3 -->
 
-###Example Code
-- ***[SubscribeExample.m](
-https://github.com/red5pro/streaming-ios/blob/master/Red5ProStreaming/Examples/Subscribe/SubscribeExample.m)***
+1. [Reference](#reference)
+2. [Requirements](#requirements)
+3. [Explanation](#explanation)
 
-- ***[BaseExample.m](
-https://github.com/red5pro/streaming-ios/blob/master/Red5ProStreaming/BaseExample.m)***
+<!-- /MarkdownTOC -->
 
+## Reference
 
-##How to Subscribe
-Subscribing to a Red5 Pro stream requires a few components to function fully.
-####Setup R5Connection
-The R5Connection manages the connection that the stream utilizes.  You will need to setup a configuration and intialize a new connection.
+This example was built off of our [Subscribe example](../Subscribe/ "Red5 Pro iOS Subscribe Example"), so please see it for any explanation you find lacking within this document.
 
+## Requirements
+
+For this and our [other examples](../ "Red5 Pro iOS Examples"), you will have to edit the base [connection.plist](../../connection.plist "A Red5 Pro configuration dictionary") with appropriate values to suit your own [Red5 Pro](https://red5pro.com/) server and stream(s).
+
+## Explanation
+
+##### [Connect to your Red5 Pro Cluster](./ClusteringExample.m#L33-L40 "Connecting to your Red5 Pro Cluster origin")
+Sending a GET request to the Red5 Pro Cluster origin IP's `/cluster` endpoint on port 5080 (the default port) will return an IP with an attached port. For the purposes of subscribing, one only needs to [use the IP portion of the return](./ClusteringExample.m#L51-L54).
+
+```objc
+NSString *domain = @"99.98.97.96";
+NSString *urlAsString = [NSString stringWithFormat:@"http://%@:5080/cluster", domain];
+NSURL *url = [NSURL URLWithString:urlAsString];
+
+[NSURLConnection sendAsynchronousRequest:[NSURLRequest requestWithURL:url]
+                                   queue:[NSOperationQueue new]
+                       completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
+                           // ...
+                           NSString *dataAsString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+                           NSString *ip = [dataAsString substringToIndex:[dataAsString rangeOfString:@":"].location];
+                           // ...
+                       }];
 ```
-Objective-C
-	//Setup a configuration object for our connection
-    R5Configuration *config = [[R5Configuration alloc] init];
-    config.host = [dict objectForKey:@"domain"];
-    config.contextName = [dict objectForKey:@"context"];
-    config.port = [(NSNumber *)[dict objectForKey:@"port"] intValue];
-    config.protocol = 1;
-    config.buffer_time = 1;
-    
-    //Create a new connection using the configuration above
-    R5Connection *connection = [[R5Connection alloc] initWithConfig: config];
+
+##### [Create your `R5Configuration`](./ClusteringExample.m#L64-L71 "Creating an R5Configuration for Red5 Pro")
+Just as one would for the preliminary [Subscribe example](../Subscribe/), create a configuration with values appropriate to your [Red5 Pro](https://red5pro.com/) server and stream(s). These values include your host (_the IP you receive_), the context name (_e.g. "live"_), what port you're using (_8554 by default_), and your stream name.
+
+```objc
+R5Configuration *config = [[R5Configuration alloc] init];
+config.host = ip;
+config.contextName = @"myContext";
+config.port = 8554;
+config.protocol = 1;
+config.buffer_time = 1;
 ```
-<sup>
-[SubscribeExample.m #29](https://github.com/red5pro/streaming-ios/blob/master/Red5ProStreaming/Examples/Subscribe/SubscribeExample.m#L29)
-</sup>
 
-####Setup R5Stream
-The `R5Stream` handles both subscribing and publishing.  Creating one simply requires the connection already created.
+##### [Create your `R5Connection`](./ClusteringExample.m#L74 "Creating an R5Connection for Red5 Pro")
+Using the `R5Configuration` you've setup, you can create a connection to your [Red5 Pro](https://red5pro.com/) server.
 
+```objc
+R5Connection *connection = [[R5Connection alloc] initWithConfig: config];
 ```
-Objective-C
-	//Create our new stream that will utilize that connection
-    self.subscribe = [[R5Stream alloc] initWithConnection:connection];
-    
-    //Setup our listener to handle events from this stream    self.subscribe.delegate = self;
- ```
 
-<sup>
-[SubscribeExample.m #46](https://github.com/red5pro/streaming-ios/blob/master/Red5ProStreaming/Examples/Subscribe/SubscribeExample.m#L46)
-</sup>
+##### [Create your `R5Stream`](./ClusteringExample.m#L79 "Creating an R5Stream for Red5 Pro")
+Using the `R5Connection` you've setup, you can create a stream connection to your [Red5 Pro](https://red5pro.com/) server. This stream connection will be what sends messages to your delegate as well as what you attach to your video view controller and tell to play.
 
-The `R5StreamDelegate` that is assigned to the `R5Stream` will receive status events for that stream, including connecting, disconnecting, and errors.
-
-
-#### Preview the Subscriber
-The `R5VideoViewController` will present publishing streams as well as subscribed streams.  To view the subscribing stream, it simply needs to attach the `R5Stream`.  
-
->For a more complete example of the `R5VideoViewController`, view the [PublishExample](https://github.com/red5pro/streaming-ios/blob/master/Red5ProStreaming/Examples/Publish).  For this example we will simply utilize `BaseExample.setupDefaultR5ViewController`
-
-
-####Start Subscribing
-The `R5Stream.Subscribe` method will establish the server connection and begin Subscribing.  
-
+```objc
+R5Stream *stream  = [[R5Stream alloc] initWithConnection:connection];
 ```
-Objective-C
-    //start subscribing!!
-    [self.subscribe play:[self getStreamName:SUBSCRIBE] ];
-    
+
+##### [Assign your `R5Stream` a delegate](./ClusteringExample.m#L82 "Assigning a delegate to a Red5 Pro R5Stream")
+The delegate you assign to your `R5Stream` will receive and handle, as you see fit, messages from the `R5Stream` during it's connection and subscription.
+
+```objc
+stream.delegate = self;
 ```
-<sup>
-[SubscribeExample.m #57](https://github.com/red5pro/streaming-ios/blob/master/Red5ProStreaming/Examples/Subscribe/SubscribeExample.m#L57)
-</sup>
+
+##### [Attach your `R5Stream` to an `R5VideoViewController`](./ClusteringExample.m#L85-L88 "Attaching an R5Stream to an R5VideoViewController for Red5 Pro")
+This view controller is what is added to the screen so as to allow visual and audio playback of your stream.
+
+```objc
+// R5VideoViewController *r5view = ...
+[r5View attachStream:stream];
+```
+
+##### [Subscribe to your `R5Stream`](./ClusteringExample.m#L91 "Subscribing to a stream on a Red5 Pro Cluster")
+Setting your `R5Stream` to play will start the visual and audio playback of your stream.
+
+```objc
+[stream play:[self getStreamName:SUBSCRIBE]];
+```
