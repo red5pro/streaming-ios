@@ -32,6 +32,7 @@
 		4879CB1D1B3072ED00E3702F /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4879CB1B1B3072ED00E3702F /* LaunchScreen.xib */; };
 		4879CB291B3072ED00E3702F /* Red5ProStreamingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4879CB281B3072ED00E3702F /* Red5ProStreamingTests.m */; };
 		489D6BEB1B31F0B1006403C1 /* SubscribeExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 489D6BEA1B31F0B1006403C1 /* SubscribeExample.m */; };
+		C3F0EB1A1C0E355700932574 /* ClusteringExample.m in Sources */ = {isa = PBXBuildFile; fileRef = C3F0EB191C0E355700932574 /* ClusteringExample.m */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -88,6 +89,8 @@
 		4879CB281B3072ED00E3702F /* Red5ProStreamingTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Red5ProStreamingTests.m; sourceTree = "<group>"; };
 		489D6BE91B31F0B1006403C1 /* SubscribeExample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubscribeExample.h; sourceTree = "<group>"; };
 		489D6BEA1B31F0B1006403C1 /* SubscribeExample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubscribeExample.m; sourceTree = "<group>"; };
+		C3F0EB181C0E355700932574 /* ClusteringExample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClusteringExample.h; sourceTree = "<group>"; };
+		C3F0EB191C0E355700932574 /* ClusteringExample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClusteringExample.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -192,6 +195,7 @@
 		48638C201B30785000D2355C /* Examples */ = {
 			isa = PBXGroup;
 			children = (
+				C3F0EB121C0E352C00932574 /* Clustering */,
 				481681671C03BB9700ABCBE2 /* SwiftPublish */,
 				4816815A1C03912600ABCBE2 /* CustomVideoSource */,
 				484960121BFA514C00969F81 /* StreamImage */,
@@ -293,6 +297,16 @@
 			);
 			name = Subscribe;
 			path = Examples/Subscribe;
+			sourceTree = "<group>";
+		};
+		C3F0EB121C0E352C00932574 /* Clustering */ = {
+			isa = PBXGroup;
+			children = (
+				C3F0EB181C0E355700932574 /* ClusteringExample.h */,
+				C3F0EB191C0E355700932574 /* ClusteringExample.m */,
+			);
+			name = Clustering;
+			path = Examples/Clustering;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -401,6 +415,7 @@
 				4834CAE21B31C0A40084335B /* PublishExample.m in Sources */,
 				486031331B3350FE00EE08ED /* TwoWayVideoChatExample.m in Sources */,
 				4879CB151B3072ED00E3702F /* ViewController.m in Sources */,
+				C3F0EB1A1C0E355700932574 /* ClusteringExample.m in Sources */,
 				4834CAED1B31C6900084335B /* ALToastView.m in Sources */,
 				4816816A1C03BBBC00ABCBE2 /* SwiftPublishExample.swift in Sources */,
 				489D6BEB1B31F0B1006403C1 /* SubscribeExample.m in Sources */,
