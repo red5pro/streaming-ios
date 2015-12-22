@@ -47,6 +47,9 @@ Once you have modified your settings, you can run the application for simulator 
 |
 | **[Swift Publishing](Red5ProStreaming/Examples/SwiftPublish)**
 | *How to publish using Swift* 
+|
+| **[Clustering](Red5ProStreaming/Examples/Clustering)**
+| *How to subscribe to a Red5 Pro Cluster* 
      
 ##Notes
 

@@ -17,6 +17,7 @@
 #import "StreamImageExample.h"
 #import "CustomVideoSourceExample.h"
 #import "Red5ProStreaming-Swift.h"
+#import "ClusteringExample.h"
 
 @interface ViewController ()
 
@@ -112,6 +113,10 @@
 
 - (IBAction)onCustomVideoSource:(id)sender {
     [self showExample:[CustomVideoSourceExample new]];
+}
+
+- (IBAction)onClustering:(id)sender {
+    [self showExample:[ClusteringExample new]];
 }
 
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{

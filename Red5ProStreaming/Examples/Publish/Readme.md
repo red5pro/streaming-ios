@@ -73,7 +73,7 @@ The R5Stream will need a video and/or audio source to stream from.  To attach a 
     [self.publish  attachVideo:camera];
 ```
 <sup>
-[PublishExample.m #47](https://github.com/red5pro/streaming-ios/blob/master/Red5ProStreaming/Examples/Publish/PublishExample.m#L47)
+[PublishExample.m #47](PublishExample.m#L47)
 </sup>
 
 `R5Camera.width` and `R5Camera.height` specify the encoded video size to be streamed.  `R5Camera` will choose the video format that is closest to this resolution from the camera.
@@ -93,7 +93,7 @@ To add audio to a stream a `R5Microphone` object can be attached.  It behaves si
 
 ```
 <sup>
-[PublishExample.m #70](https://github.com/red5pro/streaming-ios/blob/master/Red5ProStreaming/Examples/Publish/PublishExample.m#L70)
+[PublishExample.m #70](PublishExample.m#L70)
 </sup>
 
 #### Preview the Publisher
@@ -112,7 +112,7 @@ A `R5VideoViewController` can be set on any UIViewController, or created program
 	}
 ```
 <sup>
-[BaseExample.m #72](https://github.com/red5pro/streaming-ios/blob/master/Red5ProStreaming/BaseExample.m#L72)
+[BaseExample.m #101](BaseExample.m#L101)
 </sup>
 
 To view the preview before publishing as started, use `R5VideoViewController.showPreview`.
@@ -128,6 +128,16 @@ To view the preview before publishing as started, use `R5VideoViewController.sho
     [self.r5View showDebugInfo:YES];
 ```
 <sup>
+[BaseExample.m #91](BaseExample.m#L91)
+</sup>
+
+Lastly, we attach the Stream to the R5VideoView to see the streaming content.
+
+```Objective-C
+//attach the R5VideoViewController to our publishing stream
+    [self.r5View attachStream:self.publish];
+```
+<sup>
 [BaseExample.m #59](https://github.com/red5pro/streaming-ios/blob/master/Red5ProStreaming/BaseExample.m#L59)
 </sup>
 
@@ -139,7 +149,7 @@ The `R5Stream.publish` method will establish the server connection and begin pub
     [self.publish publish:[self getStreamName:PUBLISH] type:R5RecordTypeLive];
 ```
 <sup>
-[PublishExample.m #83](https://github.com/red5pro/streaming-ios/blob/master/Red5ProStreaming/Examples/Publish/PublishExample.m#L83)
+[PublishExample.m #79](PublishExample.m#L79)
 </sup>
 
 The *type* parameter tells the server the recording mode to use on the server.
