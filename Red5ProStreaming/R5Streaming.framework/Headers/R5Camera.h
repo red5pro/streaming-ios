@@ -16,7 +16,9 @@
  */
 @interface R5Camera : R5VideoSource
 
-@property AVCaptureDevice *device;
+@property CMSampleBufferRef currentSampleBuffer;
+
+@property (nonatomic) AVCaptureDevice *device;
 
 /**
  *  Initialize the camera with device and bitrate

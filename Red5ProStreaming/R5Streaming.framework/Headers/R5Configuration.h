@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import "global.h"
 /**
  *  @brief Configuration object for the R5Stream.
  */
@@ -23,7 +23,10 @@
 //! @cond
 @property NSMutableArray *setup;
 @property NSString *sdp_body;
+@property client_ctx *client;
 //! @endcond
+
+
 
 @property float buffer_time;        //!< Desired buffer time for streaming
 

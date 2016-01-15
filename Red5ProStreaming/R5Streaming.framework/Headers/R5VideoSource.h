@@ -33,6 +33,7 @@ typedef int (^source_param_handler_t)(NSData* params);
 
 @property BOOL pauseEncoding;
 
+
 @property AVCaptureVideoDataOutput *output; //!< Output path for the encoded data
 
 

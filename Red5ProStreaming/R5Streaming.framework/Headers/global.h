@@ -22,9 +22,9 @@ extern "C" {
     
 #define R5PRO_MAJOR_VERSION         0
 #define R5PRO_MINOR_VERSION         8
-#define R5PRO_REVISION              41
+#define R5PRO_REVISION              44
 #define R5PRO_BUILD                 1
-#define R5PRO_VERSION               "0.8.41.1"
+#define R5PRO_VERSION               "0.8.44.1"
 #define R5PRO_VERSION_ISRELEASE     0
 #define R5PRO_VERSION_CHECK(maj, min) ((maj==MYLIB_MAJOR_VERSION) && (min<=MYLIB_MINOR_VERSION))
     
@@ -106,8 +106,18 @@ extern "C" {
     enum r5_buffer_state{
         r5_buffer_state_buffered,
         r5_buffer_state_needs_rebuffer,
+        r5_buffer_state_flush_buffer,
         r5_buffer_state_rebuffering
     };
+    
+    /**
+     Scale modes for GL rendering of incoming streams
+     */
+    typedef enum r5_scale_mode{
+        r5_scale_to_fill,   //scale to fill and maintain aspect ratio (cropping will occur)
+        r5_scale_to_fit,    //scale to fit inside view (letterboxing will occur)
+        r5_scale_fill       //scale to fill view (will not respect aspect ratio of video)
+    }r5_scale_mode;
     
     /**
      Type of r5_media for encoding
