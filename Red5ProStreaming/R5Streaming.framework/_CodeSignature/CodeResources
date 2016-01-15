@@ -8,25 +8,21 @@
 		<data>
 		uQUzHDcuvzLpn0yyQEDkgpRFIqY=
 		</data>
-		<key>Headers/R5AACEncoder.h</key>
-		<data>
-		qKUwQtVfBbeAj6zr3rIkP3Q45Tk=
-		</data>
 		<key>Headers/R5AdaptiveBitrateController.h</key>
 		<data>
 		zkFmrYT2RgXT+k0nJjfaf3anZDg=
 		</data>
 		<key>Headers/R5AudioController.h</key>
 		<data>
-		xAo4iZZg/LRq0lPVINggqKBYnkU=
+		+MLscb41SaTedhJbHiutHgMINfQ=
 		</data>
 		<key>Headers/R5Camera.h</key>
 		<data>
-		r2ZoQgYYXizTk1slDZV2FzUb4co=
+		t0JWprsZpKg0Ncd4N3Fyer/34xo=
 		</data>
 		<key>Headers/R5Configuration.h</key>
 		<data>
-		IUE5aVLStt9caHneo7N2X8cQtx0=
+		XthMYequVeBwRgUWf1HQJvU7k/o=
 		</data>
 		<key>Headers/R5Connection.h</key>
 		<data>
@@ -42,11 +38,11 @@
 		</data>
 		<key>Headers/R5VideoSource.h</key>
 		<data>
-		gsgwsQZWQl0Y4NoV+sgKZZ4Tee4=
+		d9iBl/se74pzy3zt9W7c356KegQ=
 		</data>
 		<key>Headers/R5VideoViewController.h</key>
 		<data>
-		5KSq2IEhznkfLCVFk+O8PwOERKw=
+		DeVd0/m0/2Q2kgpHTxiklagoBuA=
 		</data>
 		<key>Headers/codec_facade.h</key>
 		<data>
@@ -58,7 +54,7 @@
 		</data>
 		<key>Headers/global.h</key>
 		<data>
-		mGx95UV4i63BOK+z1T/ZQ+sSYaw=
+		PHkuO6j8f2KsCtPOHrteHchXr+8=
 		</data>
 		<key>Headers/parse_util.h</key>
 		<data>
@@ -74,7 +70,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		wQBAxaxRTZ55lHaS8l/utF1EkbE=
+		ShdhquralahpbDJlBM7A1A6sfsE=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -87,25 +83,21 @@
 		<data>
 		uQUzHDcuvzLpn0yyQEDkgpRFIqY=
 		</data>
-		<key>Headers/R5AACEncoder.h</key>
-		<data>
-		qKUwQtVfBbeAj6zr3rIkP3Q45Tk=
-		</data>
 		<key>Headers/R5AdaptiveBitrateController.h</key>
 		<data>
 		zkFmrYT2RgXT+k0nJjfaf3anZDg=
 		</data>
 		<key>Headers/R5AudioController.h</key>
 		<data>
-		xAo4iZZg/LRq0lPVINggqKBYnkU=
+		+MLscb41SaTedhJbHiutHgMINfQ=
 		</data>
 		<key>Headers/R5Camera.h</key>
 		<data>
-		r2ZoQgYYXizTk1slDZV2FzUb4co=
+		t0JWprsZpKg0Ncd4N3Fyer/34xo=
 		</data>
 		<key>Headers/R5Configuration.h</key>
 		<data>
-		IUE5aVLStt9caHneo7N2X8cQtx0=
+		XthMYequVeBwRgUWf1HQJvU7k/o=
 		</data>
 		<key>Headers/R5Connection.h</key>
 		<data>
@@ -121,11 +113,11 @@
 		</data>
 		<key>Headers/R5VideoSource.h</key>
 		<data>
-		gsgwsQZWQl0Y4NoV+sgKZZ4Tee4=
+		d9iBl/se74pzy3zt9W7c356KegQ=
 		</data>
 		<key>Headers/R5VideoViewController.h</key>
 		<data>
-		5KSq2IEhznkfLCVFk+O8PwOERKw=
+		DeVd0/m0/2Q2kgpHTxiklagoBuA=
 		</data>
 		<key>Headers/codec_facade.h</key>
 		<data>
@@ -137,7 +129,7 @@
 		</data>
 		<key>Headers/global.h</key>
 		<data>
-		mGx95UV4i63BOK+z1T/ZQ+sSYaw=
+		PHkuO6j8f2KsCtPOHrteHchXr+8=
 		</data>
 		<key>Headers/parse_util.h</key>
 		<data>

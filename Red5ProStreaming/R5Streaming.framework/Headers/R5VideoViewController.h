@@ -46,4 +46,16 @@
  */
 -(void) showDebugInfo:(BOOL)debug;
 
+/**
+ *  Set the view render frame
+ *
+ *  @param frame Set the frame
+ */
+-(void)setFrame:(CGRect) frame;
+
+/**
+ * Scaling mode of the rendering view for subscribing streams
+ */
+@property (nonatomic)  r5_scale_mode scaleMode;
+
 @end
