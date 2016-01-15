@@ -30,6 +30,7 @@ typedef enum R5AudioControllerMode{
     AUGraph   mGraph;
     AudioUnit mMixer;
     AudioUnit mOutput;
+    AudioUnit mTime;
    
 }
 
