@@ -4,7 +4,7 @@
 
 
 ###Example Code
-- ***[StreamSendExample.m](/StreamSendExample.m)***
+- ***[StreamSendExample.m](StreamSendExample.m)***
 
 - ***[BaseExample.m](
 https://github.com/red5pro/streaming-ios/blob/master/Red5ProStreaming/BaseExample.m)***
@@ -27,7 +27,7 @@ Once the stream has connected you are able to dispatch messages to any connected
 
 ```
 <sup>
-[StreamSendExample.m #74](/SendStreamExample.m#L74)
+[StreamSendExample.m #74](StreamSendExample.m#L74)
 </sup>
 
 ###Send Message Format
@@ -45,7 +45,7 @@ In order to handle `R5Stream.send` calls from the publisher, the `R5Stream.clien
 self.subscribe.client = self;
 ```
 <sup>
-[StreamSendExample.m #61](/SendStreamExample.m#L61)
+[StreamSendExample.m #61](StreamSendExample.m#L61)
 </sup>
 
 Because the publisher will be sending **onStreamSend**, the subscriber client delegate will need a matching method signature.  All methods receive a single string argument containing the variable map provided by the publisher.  This map can easily be parsed.
@@ -67,5 +67,5 @@ Because the publisher will be sending **onStreamSend**, the subscriber client de
 }
 ```
 <sup>
-[StreamSendExample.m #94](/SendStreamExample.m#L94)
+[StreamSendExample.m #94](StreamSendExample.m#L94)
 </sup>
