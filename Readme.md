@@ -20,40 +20,40 @@ Once you have modified your settings, you can run the application for simulator 
 
 
 
-| [Publishing](https://github.com/red5pro/streaming-ios/tree/master/Red5ProStreaming/Examples/Publish)                 
+###[Publishing](https://github.com/red5pro/streaming-ios/tree/master/Red5ProStreaming/Examples/Publish)
+
+| **[Adaptive Bitrate Publishing](https://github.com/red5pro/streaming-ios/tree/master/Red5ProStreaming/Examples/AdaptiveBitratePublish)**                 
 | :-----
-| *Starter example on publishing to a Red5 Pro stream* 
-|
-| **[Adaptive Bitrate Publishing](https://github.com/red5pro/streaming-ios/tree/master/Red5ProStreaming/Examples/AdaptiveBitratePublish)**
-| *Utilize the AdaptiveBitrateController to dynamically adjust video bitrate with connection quality*
-|
-| **[Subscribing](https://github.com/red5pro/streaming-ios/tree/master/Red5ProStreaming/Examples/Subscribe)**
-| *Starter example on subscribing to a Red5 Pro stream*  
-|
-| **[Stream Send](https://github.com/red5pro/streaming-ios/tree/master/Red5ProStreaming/Examples/StreamSend)**
-| *Broadcast messages to subscribers with R5Stream.send*  
-|
-| **[AutoReconnect](https://github.com/red5pro/streaming-ios/tree/master/Red5ProStreaming/Examples/AutoReconnect)**
-| *Wait for a publisher to start by monitoring connection events* 
-|
-| **[Two Way Video Chat](https://github.com/red5pro/streaming-ios/tree/master/Red5ProStreaming/Examples/TwoWayVideoChat)**
-| *Starter example that shows how to implement a two way video chat* 
-|
-| **[Stream Image Capture](Red5ProStreaming/Examples/StreamImage)**
-| *Capture a stream capture of the R5Stream subscriber* 
+| *Utilize the AdaptiveBitrateController to dynamically adjust video bitrate with connection quality* 
 |
 | **[Custom Video Source](Red5ProStreaming/Examples/CustomVideo)**
-| *Render custom pixel data to the video stream in place of standard camera input* 
+| *Publish custom data to a Red5 Pro stream in place of standard camera input*  
+|
+| **[Stream Send](https://github.com/red5pro/streaming-ios/tree/master/Red5ProStreaming/Examples/StreamSend)**
+| *Broadcast messages to subscribers with R5Stream.send - includes example for recieving as a subscriber*  
 |
 | **[Swift Publishing](Red5ProStreaming/Examples/SwiftPublish)**
 | *How to publish using Swift* 
 |
+| **[Two Way Video Chat](https://github.com/red5pro/streaming-ios/tree/master/Red5ProStreaming/Examples/TwoWayVideoChat)**
+| *Starter example that shows how to implement a two way video chat using each end as both publisher and subscriber* 
+
+###[Subscribing](https://github.com/red5pro/streaming-ios/tree/master/Red5ProStreaming/Examples/Subscribe)
+
+| **[AutoReconnect](https://github.com/red5pro/streaming-ios/tree/master/Red5ProStreaming/Examples/AutoReconnect)**                 
+| :-----
+| *Wait for a publisher to start by monitoring connection events* 
+|
 | **[Clustering](Red5ProStreaming/Examples/Clustering)**
-| *How to subscribe to a Red5 Pro Cluster* 
+| *How to subscribe to a Red5 Pro Cluster*
+|
+| **[Stream Image Capture](Red5ProStreaming/Examples/StreamImage)**
+| *Capture an image from a subscribing R5Stream* 
      
 ##Notes
 
 1. For some of the above examples you will need two devices (a publisher, and a subscriber). You can also use a web browser to subscribe or publish via Flash.
 2. You can see a list of active streams by navigating to http://your_red5_pro_server_ip:5080/live/streams.jsp
 3. Click on the flash link (for example, flash_publisher) in the streams list displayed to view the published stream in your browser.
+
 [![Analytics](https://ga-beacon.appspot.com/UA-59819838-3/red5pro/streaming-ios?pixel)](https://github.com/igrigorik/ga-beacon)

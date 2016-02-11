@@ -22,9 +22,9 @@ extern "C" {
     
 #define R5PRO_MAJOR_VERSION         0
 #define R5PRO_MINOR_VERSION         8
-#define R5PRO_REVISION              44
+#define R5PRO_REVISION              45
 #define R5PRO_BUILD                 1
-#define R5PRO_VERSION               "0.8.44.1"
+#define R5PRO_VERSION               "0.8.45.1"
 #define R5PRO_VERSION_ISRELEASE     0
 #define R5PRO_VERSION_CHECK(maj, min) ((maj==MYLIB_MAJOR_VERSION) && (min<=MYLIB_MINOR_VERSION))
     
