@@ -13,49 +13,78 @@
 #import <AudioUnit/AudioUnit.h>
 #import <AVFoundation/AVAudioFormat.h>
 
+/**
+ Audio Pathway for the R5AudioController.
+ */
 typedef enum R5AudioControllerMode{
-    R5AudioControllerModeStandardIO,
-    R5AudioControllerModeEchoCancellation
+    R5AudioControllerModeStandardIO, //!< Standard RemoteIO - Does not perform and Echo Cancellation
+    R5AudioControllerModeEchoCancellation //!< VOIP IO - Performs Echo cancellation
 } R5AudioControllerMode;
 
 
+/**
+ *   @brief Controller Object for R5Stream and R5Microphones.  A shared instance is used unless otherwise defined on the object.
+ */
 @interface R5AudioController : NSObject{
-    AudioStreamBasicDescription audioFormat;
-    AudioStreamBasicDescription streamInAudioFormat;
-    double frameCount;
-    AudioComponentInstance audioUnit;
-    
-    AVAudioFormat *mAudioFormat;
-    
-    AUGraph   mGraph;
-    AudioUnit mMixer;
-    AudioUnit mOutput;
-    AudioUnit mTime;
-   
+
+
 }
 
+/**
+ *  The static instance of a single R5AudioController.  Controls all streams by default.
+ *
+ *  @return a single shared R5AudioController.
+ */
 +(R5AudioController *)sharedInstance;
 
-@property (readonly) AudioComponentInstance audioUnit
-;
-@property (readonly) AudioStreamBasicDescription audioFormat;
-@property (readonly) AudioStreamBasicDescription streamInAudioFormat;
+/**
+ *  Is the R5AudioController currently playing an R5Stream.
+ */
 @property (readonly) BOOL isPlaying;
+
+/**
+ *  Is the R5AudioController currently recording to an R5Stream.
+ */
 @property (readonly) BOOL isRecording;
 
+/**
+ *  Pan (left/right) for audio playback.  -1 to 1 value.
+ */
 @property (nonatomic) AudioUnitParameterValue pan;
+
+/**
+ *  Adjusts the gain of the playback.  0 to 1 value.
+ */
 @property (nonatomic) AudioUnitParameterValue volume;
 
 
+//! @cond
 
+/**
+ *  Recording sample rate.  Defaults to 16000.  Modifying can cause problems.
+ */
+@property int RecordSampleRate;
+
+/**
+ *  Playback sample rate.  Defaults to 16000.  Modifying can cause problems.
+ */
+@property int PlaybackSampleRate;
+
+/**
+ *  Playback channel count.  Modifying can cause problems.
+ */
+@property int PlaybackChannelCount;
+
+
+//! @endcond
+
+/**
+ *  Initialize a new R5AudioController
+ *
+ *  @param mode StandardIO or Echo Cancellation
+ *
+ *  @return an initialized R5AudioController
+ */
 -(instancetype)initWithMode:(R5AudioControllerMode)mode;
-
-//startRecording with passback to encoder
--(void)startRecording:(NSObject *)encoder;
--(void)startPlayback:(NSObject *)stream;
-
--(void)stopPlayback;
--(void)stopRecording;
-
 
 @end
