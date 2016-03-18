@@ -43,7 +43,7 @@
 @property int sampleRate;           //!< sample rate to capture
 @property int channels;             //!< number of channels to capture
 @property int bitrate;              //!< bitrate in kbps
-@property R5AudioController *audioController;
+@property R5AudioController *audioController; //!< Audio Controller for recording.  Defaults to shared instance.
 
 
 /**

@@ -43,7 +43,9 @@ enum R5StreamMode{
     
 }
 
-
+/**
+ *  Audio Controller for Stream playback. Defaults to shared instance.
+ */
 @property R5AudioController *audioController;
 
 

@@ -17,14 +17,18 @@ extern "C" {
     
 #include <stdlib.h>
 #ifdef IS_IOS
-#include <pthread.h>
+#include <pthread.h> 
 #endif
     
+#define STRINGIFY_(s) #s
+#define STRINGIFY(s) STRINGIFY_(s)
+     
 #define R5PRO_MAJOR_VERSION         0
 #define R5PRO_MINOR_VERSION         8
-#define R5PRO_REVISION              45
-#define R5PRO_BUILD                 1
-#define R5PRO_VERSION               "0.8.45.1"
+#define R5PRO_REVISION              46
+#define R5PRO_BUILD                 16
+    
+#define R5PRO_VERSION               STRINGIFY(R5PRO_MAJOR_VERSION.R5PRO_MINOR_VERSION.R5PRO_REVISION.R5PRO_BUILD)
 #define R5PRO_VERSION_ISRELEASE     0
 #define R5PRO_VERSION_CHECK(maj, min) ((maj==MYLIB_MAJOR_VERSION) && (min<=MYLIB_MINOR_VERSION))
     
