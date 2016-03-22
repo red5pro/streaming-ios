@@ -3,7 +3,7 @@
 This example demonstrates two way communication using Red5 Pro.  It also demonstrates using Remote Procedure Calls (RPC) on the server.
 
 ###Example Code
-- ***[TwoWayVideoChatExample.m](/TwoWayVideoChatExample.m)***
+- ***[TwoWayVideoChatExample.m](TwoWayVideoChatExample.m)***
 
 - ***[BaseExample.m](
 https://github.com/red5pro/streaming-ios/blob/master/Red5ProStreaming/BaseExample.m)***
