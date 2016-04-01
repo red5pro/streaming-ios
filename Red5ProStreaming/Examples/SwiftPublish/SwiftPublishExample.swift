@@ -44,9 +44,9 @@ import R5Streaming
         //Attach video to stream
         let videoDevice = AVCaptureDevice.devicesWithMediaType(AVMediaTypeVideo).last as? AVCaptureDevice
         
-        let camera = R5Camera(device: videoDevice, andBitRate: 400)
-        camera.width = 320
-        camera.height = 240
+        let camera = R5Camera(device: videoDevice, andBitRate: 512)
+        camera.width = 640
+        camera.height = 480
         camera.orientation = 90
         publish.attachVideo(camera)
         
