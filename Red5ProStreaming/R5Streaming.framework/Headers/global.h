@@ -6,8 +6,6 @@
 //  Copyright (c) 2014 Andy Zupko. All rights reserved.
 //
 
-
-
 #ifndef Red5Pro_global_h
 #define Red5Pro_global_h
 
@@ -23,10 +21,10 @@ extern "C" {
 #define STRINGIFY_(s) #s
 #define STRINGIFY(s) STRINGIFY_(s)
      
-#define R5PRO_MAJOR_VERSION         0
-#define R5PRO_MINOR_VERSION         8
-#define R5PRO_REVISION              46
-#define R5PRO_BUILD                 16
+#define R5PRO_MAJOR_VERSION         1
+#define R5PRO_MINOR_VERSION         1
+#define R5PRO_REVISION              0
+#define R5PRO_BUILD                 0
     
 #define R5PRO_VERSION               STRINGIFY(R5PRO_MAJOR_VERSION.R5PRO_MINOR_VERSION.R5PRO_REVISION.R5PRO_BUILD)
 #define R5PRO_VERSION_ISRELEASE     0
@@ -43,9 +41,9 @@ extern "C" {
 #if TARGET_IPHONE_SIMULATOR == 1
 /* iOS in Xcode simulator */
 
-#elif TARGET_OS_IPHONE == 1
+#elif TARGET_OS_IPHONE == 1 
 /* iOS on iPhone, iPad, etc. */
-
+ 
 #elif TARGET_OS_MAC == 1
 /* OSX */
 
@@ -190,7 +188,6 @@ extern "C" {
         long                    pkts_audio_dropped;         //!< Incoming audio packets dropped
         long                    publish_pkts_dropped;       //!< Total audio/video packets dropped due to latency
         
-        long                    log_time;
         long                    total_bytes_received;       //!< Total bytes received by stream
         long                    total_bytes_sent;           //!< total bytes sent by stream
         float                   subscribe_bitrate;          //!< Subscribing bitrate  (not smoothed)
@@ -202,6 +199,14 @@ extern "C" {
         
     }r5_stats;
     
+    /**
+     *  Access Stats object for current stream
+     *
+     *  @param client Client to retrieve stats for
+     *
+     *  @return stats object with current state
+     */
+    r5_stats *r5_client_stats(client_ctx* client);
     
     
     

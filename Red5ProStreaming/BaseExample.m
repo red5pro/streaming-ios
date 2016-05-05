@@ -111,7 +111,7 @@ static BOOL _swapped = NO;
     NSDictionary *dict = [NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"connection" ofType:@"plist"]];
 
     if(type == PUBLISH ){
-        if(_swapped == YES)
+        if(_swapped == NO)
             return [dict objectForKey:@"stream1"];
         else
             return [dict objectForKey:@"stream2"];
