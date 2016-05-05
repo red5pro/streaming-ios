@@ -6,8 +6,6 @@
 //  Copyright (c) 2014 Andy Zupko. All rights reserved.
 //
 
-
-
 #ifndef Red5Pro_global_h
 #define Red5Pro_global_h
 
@@ -24,9 +22,9 @@ extern "C" {
 #define STRINGIFY(s) STRINGIFY_(s)
      
 #define R5PRO_MAJOR_VERSION         1
-#define R5PRO_MINOR_VERSION         0
+#define R5PRO_MINOR_VERSION         1
 #define R5PRO_REVISION              0
-#define R5PRO_BUILD                 9 
+#define R5PRO_BUILD                 0
     
 #define R5PRO_VERSION               STRINGIFY(R5PRO_MAJOR_VERSION.R5PRO_MINOR_VERSION.R5PRO_REVISION.R5PRO_BUILD)
 #define R5PRO_VERSION_ISRELEASE     0
@@ -43,9 +41,9 @@ extern "C" {
 #if TARGET_IPHONE_SIMULATOR == 1
 /* iOS in Xcode simulator */
 
-#elif TARGET_OS_IPHONE == 1
+#elif TARGET_OS_IPHONE == 1 
 /* iOS on iPhone, iPad, etc. */
-
+ 
 #elif TARGET_OS_MAC == 1
 /* OSX */
 

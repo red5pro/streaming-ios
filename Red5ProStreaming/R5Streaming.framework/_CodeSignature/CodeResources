@@ -22,7 +22,7 @@
 		</data>
 		<key>Headers/R5Configuration.h</key>
 		<data>
-		XthMYequVeBwRgUWf1HQJvU7k/o=
+		PGvXo+880HvO/HGzQzRgMw5yhDU=
 		</data>
 		<key>Headers/R5Connection.h</key>
 		<data>
@@ -30,7 +30,7 @@
 		</data>
 		<key>Headers/R5Stream.h</key>
 		<data>
-		GuHWh+vpx8I5+3KVoKiALkeDQYU=
+		vFjkZPRVq8rqBt3u6UlJu/ekX4w=
 		</data>
 		<key>Headers/R5Streaming.h</key>
 		<data>
@@ -46,7 +46,7 @@
 		</data>
 		<key>Headers/codec_facade.h</key>
 		<data>
-		c6Ud6rrx6vkcBAdHccndFPtegpo=
+		I4bc/dY/Vk0Hp7Q5FZ7uH50sgwo=
 		</data>
 		<key>Headers/connection.h</key>
 		<data>
@@ -54,7 +54,7 @@
 		</data>
 		<key>Headers/global.h</key>
 		<data>
-		jvnm3nYfwrFGEr6bErzCScjVIRc=
+		y0HRpJhBLtnELKhVML1MYutnM/A=
 		</data>
 		<key>Headers/parse_util.h</key>
 		<data>
@@ -70,7 +70,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		yU4MH1Yj2OfFeDxtsbnJspSMTQw=
+		XgN6e5vf9Fn3ZLL3EBBapqaumaY=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -80,73 +80,192 @@
 	<key>files2</key>
 	<dict>
 		<key>Headers/AVEncoder.h</key>
-		<data>
-		uQUzHDcuvzLpn0yyQEDkgpRFIqY=
-		</data>
+		<dict>
+			<key>hash</key>
+			<data>
+			uQUzHDcuvzLpn0yyQEDkgpRFIqY=
+			</data>
+			<key>hash2</key>
+			<data>
+			ASeBEG34tZewFa7wqQu+0hrvOVbelFLAX7J52PE+2/w=
+			</data>
+		</dict>
 		<key>Headers/R5AdaptiveBitrateController.h</key>
-		<data>
-		zkFmrYT2RgXT+k0nJjfaf3anZDg=
-		</data>
+		<dict>
+			<key>hash</key>
+			<data>
+			zkFmrYT2RgXT+k0nJjfaf3anZDg=
+			</data>
+			<key>hash2</key>
+			<data>
+			3HxkVJPZTr9XMgKHRm6TfyzxpFZNB1OA67FvX2RWTSk=
+			</data>
+		</dict>
 		<key>Headers/R5AudioController.h</key>
-		<data>
-		fo5M/6gHVm1IExpvK49ZmETdyNA=
-		</data>
+		<dict>
+			<key>hash</key>
+			<data>
+			fo5M/6gHVm1IExpvK49ZmETdyNA=
+			</data>
+			<key>hash2</key>
+			<data>
+			vvxCwSuggaUlInTrgwKk/RuydDRG48VG1IOemFOuIhI=
+			</data>
+		</dict>
 		<key>Headers/R5Camera.h</key>
-		<data>
-		mRCApmkU+gc0t9raxiydaea2ZIQ=
-		</data>
+		<dict>
+			<key>hash</key>
+			<data>
+			mRCApmkU+gc0t9raxiydaea2ZIQ=
+			</data>
+			<key>hash2</key>
+			<data>
+			hMHxyJmxFeY+4xERDXGGRaiHju1kphQb/byy2utaeV8=
+			</data>
+		</dict>
 		<key>Headers/R5Configuration.h</key>
-		<data>
-		XthMYequVeBwRgUWf1HQJvU7k/o=
-		</data>
+		<dict>
+			<key>hash</key>
+			<data>
+			PGvXo+880HvO/HGzQzRgMw5yhDU=
+			</data>
+			<key>hash2</key>
+			<data>
+			QiEprpIWI43BEytmg8BU+4psAIHZHJJIKg/2ZkriRbM=
+			</data>
+		</dict>
 		<key>Headers/R5Connection.h</key>
-		<data>
-		318NWc1x+HDhhglr7LvCzLETT1M=
-		</data>
+		<dict>
+			<key>hash</key>
+			<data>
+			318NWc1x+HDhhglr7LvCzLETT1M=
+			</data>
+			<key>hash2</key>
+			<data>
+			i+O7cC53so74aIA6iHa8GumZq9paBOfp9ly3t2B5vZk=
+			</data>
+		</dict>
 		<key>Headers/R5Stream.h</key>
-		<data>
-		GuHWh+vpx8I5+3KVoKiALkeDQYU=
-		</data>
+		<dict>
+			<key>hash</key>
+			<data>
+			vFjkZPRVq8rqBt3u6UlJu/ekX4w=
+			</data>
+			<key>hash2</key>
+			<data>
+			wVSH7H9XQ71Tvw96CPZB77PoZq7HoUh/kJiqy3Sz67o=
+			</data>
+		</dict>
 		<key>Headers/R5Streaming.h</key>
-		<data>
-		5tMO9dkjFygcrpxRVB1YNsNujqI=
-		</data>
+		<dict>
+			<key>hash</key>
+			<data>
+			5tMO9dkjFygcrpxRVB1YNsNujqI=
+			</data>
+			<key>hash2</key>
+			<data>
+			Tw4Z8PdjDpbSTitvRzNo/oaoqL8w7d6iIfIJBobOV/g=
+			</data>
+		</dict>
 		<key>Headers/R5VideoSource.h</key>
-		<data>
-		d9iBl/se74pzy3zt9W7c356KegQ=
-		</data>
+		<dict>
+			<key>hash</key>
+			<data>
+			d9iBl/se74pzy3zt9W7c356KegQ=
+			</data>
+			<key>hash2</key>
+			<data>
+			gfVRKqJd4Am5aaCjheeLKIgYusswlGnHI1o8Eepl+HQ=
+			</data>
+		</dict>
 		<key>Headers/R5VideoViewController.h</key>
-		<data>
-		DeVd0/m0/2Q2kgpHTxiklagoBuA=
-		</data>
+		<dict>
+			<key>hash</key>
+			<data>
+			DeVd0/m0/2Q2kgpHTxiklagoBuA=
+			</data>
+			<key>hash2</key>
+			<data>
+			xteNIWcwbR14oHehX6MRNv248vqPcqn0+LWTAEQEpt0=
+			</data>
+		</dict>
 		<key>Headers/codec_facade.h</key>
-		<data>
-		c6Ud6rrx6vkcBAdHccndFPtegpo=
-		</data>
+		<dict>
+			<key>hash</key>
+			<data>
+			I4bc/dY/Vk0Hp7Q5FZ7uH50sgwo=
+			</data>
+			<key>hash2</key>
+			<data>
+			aDB4dOs+nVvM0k9piC/N20g+AeYSs3678wHpTR8IFKU=
+			</data>
+		</dict>
 		<key>Headers/connection.h</key>
-		<data>
-		buT40SKAyKh5T8NU3JJL8/1LbcI=
-		</data>
+		<dict>
+			<key>hash</key>
+			<data>
+			buT40SKAyKh5T8NU3JJL8/1LbcI=
+			</data>
+			<key>hash2</key>
+			<data>
+			aeSRSev3jEq6OppEeDQBP+JGxjjnJr6jTrF7UMC8+g8=
+			</data>
+		</dict>
 		<key>Headers/global.h</key>
-		<data>
-		jvnm3nYfwrFGEr6bErzCScjVIRc=
-		</data>
+		<dict>
+			<key>hash</key>
+			<data>
+			y0HRpJhBLtnELKhVML1MYutnM/A=
+			</data>
+			<key>hash2</key>
+			<data>
+			cIxedv+CAQ86fe51+b6YypQmUAms4ff6HSLCSR7mcbI=
+			</data>
+		</dict>
 		<key>Headers/parse_util.h</key>
-		<data>
-		Wy/N+kLkfBzneN90RhoFfKWHvp0=
-		</data>
+		<dict>
+			<key>hash</key>
+			<data>
+			Wy/N+kLkfBzneN90RhoFfKWHvp0=
+			</data>
+			<key>hash2</key>
+			<data>
+			wADxqg+ioMT+4dVbQrXgZUML9TWRiDbGymDkMR+ugnM=
+			</data>
+		</dict>
 		<key>Headers/publish.h</key>
-		<data>
-		GHAFWpgHOeKbClEH4Ow2L4KqW8k=
-		</data>
+		<dict>
+			<key>hash</key>
+			<data>
+			GHAFWpgHOeKbClEH4Ow2L4KqW8k=
+			</data>
+			<key>hash2</key>
+			<data>
+			2ZqkxDvHdmevoiwEll1B4rl99AUu0Mz00W0gdfJQ8iA=
+			</data>
+		</dict>
 		<key>Headers/session_description.h</key>
-		<data>
-		ZNt7GqX4/fqSxN9XvTgNd01eAuA=
-		</data>
+		<dict>
+			<key>hash</key>
+			<data>
+			ZNt7GqX4/fqSxN9XvTgNd01eAuA=
+			</data>
+			<key>hash2</key>
+			<data>
+			hoWYAruhuNOTHxkHHmqf9Bf5HVOZxF75vPS1RUqmRww=
+			</data>
+		</dict>
 		<key>Modules/module.modulemap</key>
-		<data>
-		tOdhB530EnW1VsyDpGfQPObaxh4=
-		</data>
+		<dict>
+			<key>hash</key>
+			<data>
+			tOdhB530EnW1VsyDpGfQPObaxh4=
+			</data>
+			<key>hash2</key>
+			<data>
+			uGUmiTtd5DDGwLrPyK1zdlwwSBue48L9b7SfgqmXg/w=
+			</data>
+		</dict>
 	</dict>
 	<key>rules</key>
 	<dict>

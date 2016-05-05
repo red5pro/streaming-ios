@@ -19,6 +19,7 @@
 @property NSString *streamName;     //!< Name of the stream to publish/subscribe too
 @property int port;                 //!< Port to connect over
 @property NSString *parameters;     //!< Custom properties for connection.  ';' delimited list of values (ex: "val1;val2;val3;").   Must be set prior to connection being established.
+@property float stream_buffer_time; //!< Buffer time request for server buffer time.  Server will start dropping packets after this amount of buffered data has been reached.  Subscriber only.
 
 //! @cond
 @property NSMutableArray *setup;

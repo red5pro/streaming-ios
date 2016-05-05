@@ -17,7 +17,7 @@
 extern "C" {
 #endif
     
-    #define LATE_PACKET_DROP_TIME   4.0
+    #define LATE_PACKET_DROP_TIME   2.0
     
    typedef struct media_decoder media_decoder_t;
 
