@@ -22,7 +22,7 @@ extern "C" {
 #define STRINGIFY(s) STRINGIFY_(s)
      
 #define R5PRO_MAJOR_VERSION         1
-#define R5PRO_MINOR_VERSION         1
+#define R5PRO_MINOR_VERSION         2
 #define R5PRO_REVISION              0
 #define R5PRO_BUILD                 0
     
@@ -32,7 +32,7 @@ extern "C" {
     
     
 #define SEC_TO_NANO 1e9
-#define SEC_TO_MS 1e3
+#define SEC_TO_MS 1e3 
 
 
 #if defined(__APPLE__) && defined(__MACH__)
