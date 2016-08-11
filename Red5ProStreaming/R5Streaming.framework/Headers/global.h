@@ -22,7 +22,7 @@ extern "C" {
 #define STRINGIFY(s) STRINGIFY_(s)
      
 #define R5PRO_MAJOR_VERSION         1
-#define R5PRO_MINOR_VERSION         2
+#define R5PRO_MINOR_VERSION         3
 #define R5PRO_REVISION              0
 #define R5PRO_BUILD                 0
     
@@ -70,7 +70,7 @@ extern "C" {
 #define check_mem(A) check((A), "Out of memory.")
 
     /**
-     Logging level for R5 Pro API
+     * Logging level for R5 Pro API
      */
     enum r5_log_level{
         r5_log_level_debug,
@@ -80,21 +80,21 @@ extern "C" {
     };
 
     /**
-     Status code for an R5Stream/R5Connection
+     * Status code for an R5Stream/R5Connection
      */
     enum r5_status{
-        r5_status_connected,
-        r5_status_disconnected,
-        r5_status_connection_error,
-        r5_status_connection_timeout,
-        r5_status_connection_close,
-        r5_status_start_streaming,
-        r5_status_stop_streaming,
-        r5_status_netstatus
+        r5_status_connected,            //!< A connection with the server has been established.  Streaming has *not* started yet.
+        r5_status_disconnected,         //!< The connection with the server has been lost.
+        r5_status_connection_error,     //!< There was an error with the connection.
+        r5_status_connection_timeout,   //!< The connection has failed due to timeout.
+        r5_status_connection_close,     //!< The connection is fully closed.  Wait for this before releasing assets.
+        r5_status_start_streaming,      //!< Streaming content has begun as a publisher or subscriber
+        r5_status_stop_streaming,       //!< Streaming content has stopped.
+        r5_status_netstatus             //!< A netstatus event has been received from the server.
     };
     
     /**
-     Streaming mode for an R5Stream
+     * Streaming mode for an R5Stream
      */
     typedef enum r5_stream_mode{
         r5_stream_mode_stop,
@@ -103,7 +103,7 @@ extern "C" {
     }r5_stream_mode_t;
     
     /**
-     Buffering state of an R5Stream
+     * Buffering state of an R5Stream
      */
     enum r5_buffer_state{
         r5_buffer_state_buffered,
@@ -113,7 +113,7 @@ extern "C" {
     };
     
     /**
-     Scale modes for GL rendering of incoming streams
+     * Scale modes for GL rendering of incoming streams
      */
     typedef enum r5_scale_mode{
         r5_scale_to_fill,   //scale to fill and maintain aspect ratio (cropping will occur)
@@ -122,13 +122,13 @@ extern "C" {
     }r5_scale_mode;
     
     /**
-     Type of r5_media for encoding
+     * Type of r5_media for encoding
      */
     typedef enum r5_media_type{
-        r5_media_type_video,
-        r5_media_type_audio,
-        r5_media_type_video_custom,
-        r5_media_type_audio_custom
+        r5_media_type_video,            //!< Standard video using R5Camera
+        r5_media_type_audio,            //!< Standard audio using R5Microphone
+        r5_media_type_video_custom,     //!< Custom video source
+        r5_media_type_audio_custom      //!< Custom audio source
     } r5_media_type;
    
 
