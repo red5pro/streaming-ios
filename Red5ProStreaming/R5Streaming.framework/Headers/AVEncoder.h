@@ -21,6 +21,9 @@ typedef int (^param_handler_t)(NSData* params);
 
 @interface AVEncoder : NSObject
 
+
+@property double lastPTS;
+
 +(AVEncoder*)encoderWithParams:(NSDictionary*)params;
 
 - (void) encodeWithBlock:(encoder_handler_t) block onParams: (param_handler_t) paramsHandler;
