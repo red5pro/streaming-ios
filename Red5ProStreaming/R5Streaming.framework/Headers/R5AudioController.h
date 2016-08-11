@@ -58,6 +58,8 @@ typedef enum R5AudioControllerMode{
 @property (nonatomic) AudioUnitParameterValue volume;
 
 
+
+
 //! @cond
 
 /**
@@ -86,5 +88,8 @@ typedef enum R5AudioControllerMode{
  *  @return an initialized R5AudioController
  */
 -(instancetype)initWithMode:(R5AudioControllerMode)mode;
+
+
+-(double) currentStreamTime;
 
 @end

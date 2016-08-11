@@ -176,7 +176,8 @@ enum R5StreamMode{
 
 
 /**
- *  Delegate for handling R5Stream events
+ *  @protocol R5StreamDelegate
+ *  @brief Delegate for handling R5Stream events
  */
 @protocol R5StreamDelegate <NSObject>
 
@@ -186,6 +187,21 @@ enum R5StreamMode{
  *  @param stream     Stream that has dispatched the event.
  *  @param statusCode Unique status code of the event.
  *  @param msg        A string description of the event.
+ *
+ *
+ * 
+ *  Status Code     |  Msg
+ *  -----------     | ------------
+ *  CONNECTED       |   null
+ *  DISCONNECTED    |   null
+ *  ERROR           |   string message describing error
+ *  TIMEOUT         |   null
+ *  CLOSE           |   null
+ *  START_STREAMING |   null
+ *  STOP_STREAMING  |   null
+ *  NET_STATUS      |   "NetStream.Play.PublishNotify" - publisher started<br/>"NetStream.Play.UnpublishNotify" - publisher stopped<br/>"NetStream.Play.StreamDry" - Keep Alive while no publisher publishing
+ *
+ *
  */
 -(void)onR5StreamStatus:(R5Stream *)stream withStatus:(int) statusCode withMessage:(NSString*)msg;
 
