@@ -27,6 +27,11 @@ extern "C" {
         const char* value;
     }keyvalue;
 
+    typedef struct timehash{
+        struct timehash *next;
+        const char* key;
+        double value;
+    }timehash;
 
 static inline int r5_is_digit(char c) {
     return c >= '0' && c <= '9';
@@ -40,9 +45,16 @@ char* r5_parse_str(const char*start, long length);
     
 int r5_parse_map(const char*data, long length, keyvalue *keys);
     
-    void tonet_short(uint8_t* p, unsigned short s);
-    void tonet_long(uint8_t* p, unsigned long l);
-
+void tonet_short(uint8_t* p, unsigned short s);
+void tonet_long(uint8_t* p, unsigned long l);
+    
+void timehash_set(timehash *hash, char *key, double value);
+int timehash_get(timehash *hash, char *key, double* value);
+int timehash_contains(timehash *hash, char* key);
+    
+void timehash_release(timehash *hash);
+    
+timehash* timehash_create();
 
     
 

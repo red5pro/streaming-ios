@@ -51,7 +51,7 @@
     
     //Create an R5Camera with that device and specify the max bitrate to allow
     //Note : This bitrate will not be respected if it is lower than the encoder can go!
-    R5Camera *camera = [[R5Camera alloc] initWithDevice:videoDev andBitRate:512];
+    R5Camera *camera = [[R5Camera alloc] initWithDevice:videoDev andBitRate:750];
     
     //Set up the resolution we want this camera to use.  This can only be set before publishing begins
     camera.width   = 640;

@@ -60,10 +60,10 @@ static BOOL _swapped = NO;
             NSArray *devices = [AVCaptureDevice devicesWithMediaType:AVMediaTypeVideo];
             AVCaptureDevice *videoDev = [devices lastObject];
             
-            R5Camera *camera = [[R5Camera alloc] initWithDevice:videoDev andBitRate:128];
+            R5Camera *camera = [[R5Camera alloc] initWithDevice:videoDev andBitRate:750];
             
-            camera.width   = 320;
-            camera.height  = 240;
+            camera.width   = 640;
+            camera.height  = 360;
             
             camera.orientation = 90;
             
