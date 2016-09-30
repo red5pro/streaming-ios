@@ -32,7 +32,7 @@
 		4879CB1D1B3072ED00E3702F /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4879CB1B1B3072ED00E3702F /* LaunchScreen.xib */; };
 		4879CB291B3072ED00E3702F /* Red5ProStreamingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4879CB281B3072ED00E3702F /* Red5ProStreamingTests.m */; };
 		489D6BEB1B31F0B1006403C1 /* SubscribeExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 489D6BEA1B31F0B1006403C1 /* SubscribeExample.m */; };
-		C3F0EB1A1C0E355700932574 /* ClusteringExample.m in Sources */ = {isa = PBXBuildFile; fileRef = C3F0EB191C0E355700932574 /* ClusteringExample.m */; settings = {ASSET_TAGS = (); }; };
+		C3F0EB1A1C0E355700932574 /* ClusteringExample.m in Sources */ = {isa = PBXBuildFile; fileRef = C3F0EB191C0E355700932574 /* ClusteringExample.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -359,9 +359,12 @@
 				TargetAttributes = {
 					4879CB081B3072ED00E3702F = {
 						CreatedOnToolsVersion = 6.1.1;
+						DevelopmentTeam = E964K44BWW;
+						LastSwiftMigration = 0800;
 					};
 					4879CB211B3072ED00E3702F = {
 						CreatedOnToolsVersion = 6.1.1;
+						LastSwiftMigration = 0800;
 						TestTargetID = 4879CB081B3072ED00E3702F;
 					};
 				};
@@ -552,6 +555,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				DEVELOPMENT_TEAM = E964K44BWW;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -563,6 +567,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Red5ProStreaming/Red5ProStreaming-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 2.3;
 			};
 			name = Debug;
 		};
@@ -571,6 +576,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				DEVELOPMENT_TEAM = E964K44BWW;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -581,6 +587,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Red5ProStreaming/Red5ProStreaming-Bridging-Header.h";
+				SWIFT_VERSION = 2.3;
 			};
 			name = Release;
 		};
@@ -599,6 +606,7 @@
 				INFOPLIST_FILE = Red5ProStreamingTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 2.3;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Red5ProStreaming.app/Red5ProStreaming";
 			};
 			name = Debug;
@@ -614,6 +622,7 @@
 				INFOPLIST_FILE = Red5ProStreamingTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 2.3;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Red5ProStreaming.app/Red5ProStreaming";
 			};
 			name = Release;
