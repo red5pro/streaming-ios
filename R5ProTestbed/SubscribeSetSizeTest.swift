@@ -11,7 +11,7 @@ import R5Streaming
 
 @objc(SubscribeSetSizeTest)
 class SubscribeSetSizeTest: BaseTest {
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
         setupR5VideoViewController()
@@ -22,12 +22,12 @@ class SubscribeSetSizeTest: BaseTest {
         self.subscribeStream = R5Stream(connection: connection)
         self.subscribeStream!.delegate = self
         
-        currentView?.attachStream(subscribeStream)
+        currentView?.attach(subscribeStream)
         
         self.subscribeStream!.play(Testbed.getParameter("stream1") as! String)
         
         
-        let tap : UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "handleSingleTap:")
+        let tap : UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(SubscribeSetSizeTest.handleSingleTap(_:)))
         
         self.view.addGestureRecognizer(tap)
         
@@ -51,7 +51,7 @@ class SubscribeSetSizeTest: BaseTest {
         return currentView!
     }
     
-    func handleSingleTap(recognizer : UITapGestureRecognizer) {
+    func handleSingleTap(_ recognizer : UITapGestureRecognizer) {
         
             currentView!.setFrame(CGRect(x: 100, y: 100, width: 200, height: 200));
         

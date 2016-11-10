@@ -12,27 +12,27 @@ import R5Streaming
 @objc(SubscribeCluster)
 class SubscribeCluster: BaseTest {
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         
         super.viewDidAppear(animated)
         
         let urlString = "http://" + (Testbed.getParameter("host") as! String) + ":5080/cluster"
         
         NSURLConnection.sendAsynchronousRequest(
-            NSURLRequest( URL: NSURL(string: urlString)! ),
-            queue: NSOperationQueue(),
-            completionHandler:{ (response: NSURLResponse?, data: NSData?, error: NSError?) -> Void in
+            NSURLRequest( url: NSURL(string: urlString)! as URL ) as URLRequest,
+            queue: OperationQueue(),
+            completionHandler:{ (response: URLResponse?, data: Data?, error: Error?) -> Void in
             
                 if ((error) != nil) {
-                    NSLog("%@", error!);
+                    NSLog("%@", error! as NSError);
                     return;
                 }
                 
                 //   Convert our response to a usable NSString
-                let dataAsString = NSString( data: data!, encoding: NSUTF8StringEncoding)
+                let dataAsString = NSString( data: data!, encoding: String.Encoding.utf8.rawValue)
                 
                 //   The string above is formatted like 99.98.97.96:1234, but we won't need the port portion
-                let ip = dataAsString?.substringToIndex((dataAsString?.rangeOfString(":").location)!)
+                let ip = dataAsString?.substring(to: (dataAsString?.range(of: ":").location)!)
                 NSLog("Retrieved %@ from %@, of which the usable IP is %@", dataAsString!, urlString, ip!);
 
                 //   Setup a configuration object for our connection
@@ -47,7 +47,7 @@ class SubscribeCluster: BaseTest {
                 let connection = R5Connection(config: config)
                 
                 //   UI updates must be asynchronous
-                dispatch_async(dispatch_get_main_queue(), {
+                DispatchQueue.main.async(execute: {
                     //   Create our new stream that will utilize that connection
                     self.subscribeStream = R5Stream(connection: connection)
                     
@@ -59,14 +59,14 @@ class SubscribeCluster: BaseTest {
                     self.setupDefaultR5VideoViewController()
                     
                     //   Attach the R5VideoViewController to our publishing stream
-                    self.currentView?.attachStream(self.subscribeStream)
+                    self.currentView?.attach(self.subscribeStream)
                     
                     //   Start subscribing!!
                     self.subscribeStream!.play(Testbed.getParameter("stream1") as! String)
                     
                     let label = UILabel(frame: CGRect(x: 0, y: self.view.frame.height-24, width: self.view.frame.width, height: 24))
-                    label.textAlignment = NSTextAlignment.Left
-                    label.backgroundColor = UIColor.lightGrayColor()
+                    label.textAlignment = NSTextAlignment.left
+                    label.backgroundColor = UIColor.lightGray
                     label.text = "Connected to: " + ip!
                     self.view.addSubview(label)
                 })

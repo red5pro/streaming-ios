@@ -11,7 +11,7 @@ import R5Streaming
 
 @objc(SubscribeAspectRatioTest)
 class SubscribeAspectRatioTest: BaseTest {
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
         
@@ -23,18 +23,18 @@ class SubscribeAspectRatioTest: BaseTest {
         self.subscribeStream = R5Stream(connection: connection)
         self.subscribeStream!.delegate = self
         
-        currentView?.attachStream(subscribeStream)
+        currentView?.attach(subscribeStream)
         
         self.subscribeStream!.play(Testbed.getParameter("stream1") as! String)
         
         
-        let tap : UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "handleSingleTap:")
+        let tap : UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(SubscribeAspectRatioTest.handleSingleTap(_:)))
         
         self.view.addGestureRecognizer(tap)
         
     }
     
-    func handleSingleTap(recognizer : UITapGestureRecognizer) {
+    func handleSingleTap(_ recognizer : UITapGestureRecognizer) {
         
         var nextMode = (currentView?.scaleMode.rawValue)! + 1;
         if(nextMode == 3){

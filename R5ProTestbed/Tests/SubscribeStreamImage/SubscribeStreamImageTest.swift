@@ -14,7 +14,7 @@ class SubscribeStreamImageTest: BaseTest {
     
     var uiv : UIImageView? = nil
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         
         super.viewDidAppear(animated)
 
@@ -28,18 +28,18 @@ class SubscribeStreamImageTest: BaseTest {
         self.subscribeStream!.delegate = self
         self.subscribeStream?.client = self;
         
-        currentView?.attachStream(subscribeStream)
+        currentView?.attach(subscribeStream)
         
         
         self.subscribeStream!.play(Testbed.getParameter("stream1") as! String)
         
-        let tap : UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "handleSingleTap:")
+        let tap : UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(SubscribeStreamImageTest.handleSingleTap(recognizer:)))
         
         self.view.addGestureRecognizer(tap)
         
         
         uiv = UIImageView(frame: CGRect(x: 0, y: self.view.frame.height-200, width: 300, height: 200))
-        uiv!.contentMode = UIViewContentMode.ScaleAspectFit
+        uiv!.contentMode = UIViewContentMode.scaleAspectFit
         self.view.addSubview(uiv!);
         
     }
@@ -47,7 +47,7 @@ class SubscribeStreamImageTest: BaseTest {
     func handleSingleTap(recognizer : UITapGestureRecognizer) {
         
         
-        uiv!.image = self.subscribeStream?.getStreamImage();
+        uiv!.image = self.subscribeStream?.getImage();
         
     }
     

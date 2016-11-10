@@ -14,7 +14,7 @@ class CustomVideoSource : R5VideoSource {
     
     var frameDuration : CMTime;
     var PTS : CMTime;
-    var timer : NSTimer?;
+    var timer : Timer?;
     
     override init() {
         
@@ -38,7 +38,7 @@ class CustomVideoSource : R5VideoSource {
     override func startVideoCapture() {
         
         //start a timer to run at desired framerate.
-        self.timer = NSTimer.scheduledTimerWithTimeInterval(1.0 / Double(self.fps),
+        self.timer = Timer.scheduledTimer(timeInterval: 1.0 / Double(self.fps),
                                                             target: self,
                                                             selector: #selector(capturePixels),
                                                             userInfo: nil,
@@ -51,12 +51,12 @@ class CustomVideoSource : R5VideoSource {
         self.timer!.invalidate();
     }
     
-    func capturePixels( time:NSTimer ){
+    func capturePixels( _ time:Timer ){
         
         //make sure encoding layer is ready for input!
         if(self.encoder != nil){
             
-            let frameSize: CGSize = CGSizeMake(352, 288);
+            let frameSize: CGSize = CGSize(width: 352, height: 288);
             
             //
             //  Below is a simple "plasma" style rendering using the PTS as the animation offset
@@ -66,7 +66,7 @@ class CustomVideoSource : R5VideoSource {
             let time: Float = Float( CMTimeGetSeconds(self.PTS) * 0.6 );
             let scale: Float = 0.035;
             let componentsPerPixel = 3;
-            let rgbPixels: UnsafeMutablePointer<__uint8_t> = UnsafeMutablePointer<__uint8_t>.alloc(Int(frameSize.width * frameSize.height) * componentsPerPixel);
+            let rgbPixels: UnsafeMutablePointer<__uint8_t> = UnsafeMutablePointer<__uint8_t>.allocate(capacity: Int(frameSize.width * frameSize.height) * componentsPerPixel);
             
             //stride
             let bpr: Int = Int(frameSize.width) * componentsPerPixel;
@@ -112,7 +112,7 @@ class CustomVideoSource : R5VideoSource {
                 NSLog("Failed to get pixel buffer");
             }
             
-            var videoInfo: CMVideoFormatDescriptionRef?;
+            var videoInfo: CMVideoFormatDescription?;
             
             //Create a description for the pixel buffer
             result = CMVideoFormatDescriptionCreateForImageBuffer(kCFAllocatorDefault, pixelBuffer!, &videoInfo);
@@ -127,7 +127,7 @@ class CustomVideoSource : R5VideoSource {
             timingInfo.decodeTimeStamp = kCMTimeInvalid;
             timingInfo.presentationTimeStamp = self.PTS;
             
-            var buffer: CMSampleBufferRef?;
+            var buffer: CMSampleBuffer?;
             
             //Create the sample buffer for the pixel buffer
             result = CMSampleBufferCreateForImageBuffer(kCFAllocatorDefault,
@@ -139,7 +139,7 @@ class CustomVideoSource : R5VideoSource {
             
             //push the sample buffer to the encoder with type r5_media_type_video_custom
             if(!self.pauseEncoding){
-                self.encoder.encodeFrame( buffer, ofType: r5_media_type_video_custom );
+                self.encoder.encodeFrame( buffer, of: r5_media_type_video_custom );
             }
             
             //increment our timestamp

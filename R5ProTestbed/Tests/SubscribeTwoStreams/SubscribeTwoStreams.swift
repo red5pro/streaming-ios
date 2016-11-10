@@ -21,7 +21,7 @@ class SubscribeTwoStreams: BaseTest {
         // Do any additional setup after loading the view.
     }
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
         let screenSize = self.view.bounds.size
@@ -40,7 +40,7 @@ class SubscribeTwoStreams: BaseTest {
         self.subscribeStream!.delegate = self
         self.subscribeStream?.client = self;
         
-        firstView?.attachStream(subscribeStream)
+        firstView?.attach(subscribeStream)
         
         self.subscribeStream!.audioController = R5AudioController(mode: R5AudioControllerModeStandardIO)
         
@@ -60,14 +60,14 @@ class SubscribeTwoStreams: BaseTest {
         
         secondView?.view.center = CGPoint( x: screenSize.width/2, y: 3 * (screenSize.height/4) )
         
-        secondView?.attachStream(subscribeStream2)
+        secondView?.attach(subscribeStream2)
         
         self.subscribeStream2?.audioController = R5AudioController(mode: R5AudioControllerModeEchoCancellation)
         
         self.subscribeStream2?.play(Testbed.getParameter("stream2") as! String)
     }
     
-    func onMetaData(data : String){
+    func onMetaData(_ data : String){
         
     }
     

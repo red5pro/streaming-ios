@@ -12,7 +12,7 @@ import R5Streaming
 @objc(PublishCustomSourceTest)
 class PublishCustomSourceTest : BaseTest {
 
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         
         super.viewDidAppear(animated);
         
@@ -35,18 +35,18 @@ class PublishCustomSourceTest : BaseTest {
             
         if(Testbed.getParameter("audio_on") as! Bool){
             // Attach the audio from microphone to stream
-            let audioDevice = AVCaptureDevice.defaultDeviceWithMediaType(AVMediaTypeAudio)
+            let audioDevice = AVCaptureDevice.defaultDevice(withMediaType: AVMediaTypeAudio)
             let microphone = R5Microphone(device: audioDevice)
-            microphone.bitrate = 32
-            microphone.device = audioDevice;
-            NSLog("Got device %@", audioDevice)
+            microphone?.bitrate = 32
+            microphone?.device = audioDevice;
+            NSLog("Got device %@", audioDevice!)
             self.publishStream!.attachAudio(microphone)
         }
         
         
         // show preview and debug info
         // self.publishStream?.getVideoSource().fps = 2;
-        self.currentView!.attachStream(publishStream!)
+        self.currentView!.attach(publishStream!)
         
         
         self.publishStream!.publish(Testbed.getParameter("stream1") as! String, type: R5RecordTypeLive)

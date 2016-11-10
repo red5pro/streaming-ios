@@ -13,7 +13,7 @@ import R5Streaming
 class PublishTest: BaseTest {
 
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
 
         super.viewDidAppear(animated)
         
@@ -29,10 +29,10 @@ class PublishTest: BaseTest {
         // Set up the connection and stream
         let connection = R5Connection(config: config)
         
-        setupPublisher(connection)
+        setupPublisher(connection!)
         // show preview and debug info
        // self.publishStream?.getVideoSource().fps = 2;
-        self.currentView!.attachStream(publishStream!)
+        self.currentView!.attach(publishStream!)
         
         
         self.publishStream!.publish(Testbed.getParameter("stream1") as! String, type: R5RecordTypeLive)

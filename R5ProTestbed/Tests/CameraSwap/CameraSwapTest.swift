@@ -12,7 +12,7 @@ import R5Streaming
 @objc(CameraSwapTest)
 class CameraSwapTest: BaseTest {
 
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         
         super.viewDidAppear(animated)
         
@@ -28,22 +28,22 @@ class CameraSwapTest: BaseTest {
         // Set up the connection and stream
         let connection = R5Connection(config: config)
         
-        setupPublisher(connection)
+        setupPublisher(connection!)
         // show preview and debug info
         
-        self.currentView!.attachStream(publishStream!)
+        self.currentView!.attach(publishStream!)
         
         
         self.publishStream!.publish(Testbed.getParameter("stream1") as! String, type: R5RecordTypeLive)
         
         
-        let tap : UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "handleSingleTap:")
+        let tap : UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(CameraSwapTest.handleSingleTap(_:)))
         
         self.view.addGestureRecognizer(tap)
         
     }
     
-    func handleSingleTap(recognizer : UITapGestureRecognizer) {
+    func handleSingleTap(_ recognizer : UITapGestureRecognizer) {
         
        //change which camera is being used!!!
         
@@ -52,12 +52,12 @@ class CameraSwapTest: BaseTest {
         var frontCamera : AVCaptureDevice?
         var backCamera : AVCaptureDevice?
         
-        for device in AVCaptureDevice.devicesWithMediaType(AVMediaTypeVideo){
+        for device in AVCaptureDevice.devices(withMediaType: AVMediaTypeVideo){
             let device = device as! AVCaptureDevice
-            if frontCamera == nil && device.position == AVCaptureDevicePosition.Front {
+            if frontCamera == nil && device.position == AVCaptureDevicePosition.front {
                 frontCamera = device
                 continue;
-            }else if backCamera == nil && device.position == AVCaptureDevicePosition.Back{
+            }else if backCamera == nil && device.position == AVCaptureDevicePosition.back{
                 backCamera = device
             }
             

@@ -27,29 +27,29 @@ class DetailViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
-    @IBAction func onStream1NameChange(sender: AnyObject) {
+    @IBAction func onStream1NameChange(_ sender: AnyObject) {
         Testbed.setStream1Name(stream1Text.text!)
     }
-    @IBAction func onStream2NameChange(sender: AnyObject) {
+    @IBAction func onStream2NameChange(_ sender: AnyObject) {
         Testbed.setStream2Name(stream2Text.text!)
     }
-    @IBAction func onStreamNameSwap(sender: AnyObject) {
+    @IBAction func onStreamNameSwap(_ sender: AnyObject) {
         Testbed.setStream1Name(stream2Text.text!)
         Testbed.setStream2Name(stream1Text.text!)
         stream1Text.text = Testbed.parameters!["stream1"] as? String
         stream2Text.text = Testbed.parameters!["stream2"] as? String
     }
-    @IBAction func onHostChange(sender: AnyObject) {
+    @IBAction func onHostChange(_ sender: AnyObject) {
         Testbed.setHost(hostText.text!)
     }
-    @IBAction func onDebugChange( sender: AnyObject) {
-        Testbed.setDebug(debugSwitch.on)
+    @IBAction func onDebugChange( _ sender: AnyObject) {
+        Testbed.setDebug(debugSwitch.isOn)
     }
-    @IBAction func onVideoChange( sender: AnyObject) {
-        Testbed.setVideo(videoSwitch.on)
+    @IBAction func onVideoChange( _ sender: AnyObject) {
+        Testbed.setVideo(videoSwitch.isOn)
     }
-    @IBAction func onAudioChange( sender: AnyObject) {
-        Testbed.setAudio(audioSwitch.on)
+    @IBAction func onAudioChange( _ sender: AnyObject) {
+        Testbed.setAudio(audioSwitch.isOn)
     }
     
     func configureView() {
@@ -72,7 +72,7 @@ class DetailViewController: UIViewController, UITextFieldDelegate {
             
             if(self.detailItem!["description"] != nil){
 
-                let navButton = UIBarButtonItem(title: "Info", style: UIBarButtonItemStyle.Plain, target: self, action: "showInfo")
+                let navButton = UIBarButtonItem(title: "Info", style: UIBarButtonItemStyle.plain, target: self, action: #selector(DetailViewController.showInfo))
                 navButton.imageInsets = UIEdgeInsetsMake(10, 10, 10, 10);
 
                 navigationItem.rightBarButtonItem =    navButton
@@ -92,7 +92,7 @@ class DetailViewController: UIViewController, UITextFieldDelegate {
                 self.view.addSubview(r5ViewController!.view)
     
                 r5ViewController!.view.autoresizesSubviews = true
-                r5ViewController!.view.autoresizingMask = [UIViewAutoresizing.FlexibleHeight, UIViewAutoresizing.FlexibleWidth];
+                r5ViewController!.view.autoresizingMask = [UIViewAutoresizing.flexibleHeight, UIViewAutoresizing.flexibleWidth];
             }
 
         }
@@ -104,19 +104,19 @@ class DetailViewController: UIViewController, UITextFieldDelegate {
         let alert = UIAlertView()
         alert.title = "Info"
         alert.message = self.detailItem!["description"] as? String
-        alert.addButtonWithTitle("OK")
+        alert.addButton(withTitle: "OK")
         alert.show()
         
       
     }
 
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         self.view.endEditing(true)
         return false
     }
 
     
-    override func viewWillDisappear(animated: Bool) {
+    override func viewWillDisappear(_ animated: Bool) {
      
        closeCurrentTest()
     }

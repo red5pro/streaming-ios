@@ -18,7 +18,7 @@ class SubscribeTest: BaseTest {
         // Do any additional setup after loading the view.
     }
 
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
         
@@ -31,7 +31,7 @@ class SubscribeTest: BaseTest {
         self.subscribeStream!.delegate = self
         self.subscribeStream?.client = self;
         
-        currentView?.attachStream(subscribeStream)
+        currentView?.attach(subscribeStream)
         
         
         self.subscribeStream!.play(Testbed.getParameter("stream1") as! String)
@@ -41,7 +41,7 @@ class SubscribeTest: BaseTest {
     }
     
     
-    func onMetaData(data : String){
+    func onMetaData(_ data : String){
         
     }
     

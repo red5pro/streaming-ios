@@ -12,7 +12,7 @@ import R5Streaming
 @objc(PublishOrientationTest)
 class PublishOrientationTest: BaseTest {
 
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         
         super.viewDidAppear(animated)
         
@@ -28,28 +28,28 @@ class PublishOrientationTest: BaseTest {
         // Set up the connection and stream
         let connection = R5Connection(config: config)
         
-        setupPublisher(connection)
+        setupPublisher(connection!)
         // show preview and debug info
         
-        self.currentView!.attachStream(publishStream!)
+        self.currentView!.attach(publishStream!)
         
         
         self.publishStream!.publish(Testbed.getParameter("stream1") as! String, type: R5RecordTypeLive)
         
         
-        let tap : UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "handleSingleTap:")
+        let tap : UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(PublishOrientationTest.handleSingleTap(_:)))
         
         self.view.addGestureRecognizer(tap)
         
     }
     
-    func handleSingleTap(recognizer : UITapGestureRecognizer) {
+    func handleSingleTap(_ recognizer : UITapGestureRecognizer) {
         
         let cam = self.publishStream?.getVideoSource() as! R5Camera
         
         cam.orientation = cam.orientation + 90
         
-        self.publishStream?.updateStreamMeta()
+        self.publishStream?.updateMeta()
         
     }
     

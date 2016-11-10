@@ -12,7 +12,7 @@ import R5Streaming
 @objc(AdaptiveBitrateControllerTest)
 class AdaptiveBitrateControllerTest: BaseTest {
 
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         
         super.viewDidAppear(animated)
 
@@ -23,14 +23,14 @@ class AdaptiveBitrateControllerTest: BaseTest {
         // Set up the connection and stream
         let connection = R5Connection(config: config)
         
-        setupPublisher(connection)
+        setupPublisher(connection!)
         // show preview and debug info
         
-        self.currentView!.attachStream(publishStream!)
+        self.currentView!.attach(publishStream!)
         
         //The Adaptive bitrate controller!
         let controller = R5AdaptiveBitrateController()
-        controller.attachToStream(self.publishStream!)
+        controller.attach(to: self.publishStream!)
         controller.requiresVideo = Testbed.getParameter("video_on") as! Bool
         
         

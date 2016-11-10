@@ -13,7 +13,7 @@ import R5Streaming
 class SubscribeRemoteCallTest: BaseTest {
     var label : UILabel? = nil
 
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
         
@@ -26,25 +26,25 @@ class SubscribeRemoteCallTest: BaseTest {
         self.subscribeStream!.delegate = self
         self.subscribeStream?.client = self;
         
-        currentView?.attachStream(subscribeStream)
+        currentView?.attach(subscribeStream)
         
         
         self.subscribeStream!.play(Testbed.getParameter("stream1") as! String)
         
     }
     
-    func whateverFunctionName(message: String){
+    func whateverFunctionName(_ message: String){
         
         NSLog("Got this message: " + message)
         
-        let splitMessage = message.characters.split(";").map(String.init)
+        let splitMessage = message.characters.split(separator: ";").map(String.init)
         
         var message : String = ""
         var point : CGPoint = CGPoint()
         
         for item in splitMessage {
             
-            let itemSplit = item.characters.split("=").map(String.init)
+            let itemSplit = item.characters.split(separator: "=").map(String.init)
             let size = self.view.frame.size
             switch itemSplit[0] {
             case "message":
@@ -61,12 +61,12 @@ class SubscribeRemoteCallTest: BaseTest {
             }
         }
         
-        dispatch_async(dispatch_get_main_queue(), {
+        DispatchQueue.main.async(execute: {
             
             if( self.label == nil){
                 self.label = UILabel(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 24))
-                self.label!.textAlignment = NSTextAlignment.Left
-                self.label!.backgroundColor = UIColor.lightGrayColor()
+                self.label!.textAlignment = NSTextAlignment.left
+                self.label!.backgroundColor = UIColor.lightGray
                 self.view.addSubview(self.label!)
             }
             

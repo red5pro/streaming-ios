@@ -12,7 +12,7 @@ import R5Streaming
 @objc(PublishRemoteCallTest)
 class PublishRemoteCallTest: BaseTest {
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         
         super.viewDidAppear(animated)
         
@@ -27,30 +27,30 @@ class PublishRemoteCallTest: BaseTest {
         // Set up the connection and stream
         let connection = R5Connection(config: config)
         
-        setupPublisher(connection)
+        setupPublisher(connection!)
         // show preview and debug info
         
-        self.currentView!.attachStream(publishStream!)
+        self.currentView!.attach(publishStream!)
         
         
         self.publishStream!.publish(Testbed.getParameter("stream1") as! String, type: R5RecordTypeLive)
         
     }
     
-    override func onR5StreamStatus(stream: R5Stream!, withStatus statusCode: Int32, withMessage msg: String!) {
+    override func onR5StreamStatus(_ stream: R5Stream!, withStatus statusCode: Int32, withMessage msg: String!) {
         
         if(Int(statusCode) == Int(r5_status_start_streaming.rawValue)){
             
-            let tap : UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "handleSingleTap:")
+            let tap : UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(PublishRemoteCallTest.handleSingleTap(_:)))
             
             self.view.addGestureRecognizer(tap)
         }
     }
     
-    func handleSingleTap(recognizer : UITapGestureRecognizer) {
+    func handleSingleTap(_ recognizer : UITapGestureRecognizer) {
         
         var sendString : String = "";
-        let touchLoc = recognizer.locationOfTouch(0, inView: self.view)
+        let touchLoc = recognizer.location(ofTouch: 0, in: self.view)
         let size = self.view.bounds.size
         
         sendString += "message=The publisher wants your attention;"

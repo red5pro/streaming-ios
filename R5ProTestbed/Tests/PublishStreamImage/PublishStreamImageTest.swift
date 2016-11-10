@@ -14,7 +14,7 @@ class PublishStreamImageTest: BaseTest {
 
     var uiv : UIImageView? = nil
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         
         super.viewDidAppear(animated)
         
@@ -30,30 +30,30 @@ class PublishStreamImageTest: BaseTest {
         // Set up the connection and stream
         let connection = R5Connection(config: config)
         
-        setupPublisher(connection)
+        setupPublisher(connection!)
         // show preview and debug info
         
-        self.currentView!.attachStream(publishStream!)
+        self.currentView!.attach(publishStream!)
         
         
         self.publishStream!.publish(Testbed.getParameter("stream1") as! String, type: R5RecordTypeLive)
         
         
-        let tap : UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "handleSingleTap:")
+        let tap : UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(PublishStreamImageTest.handleSingleTap(_:)))
 
         self.view.addGestureRecognizer(tap)
 
         
         uiv = UIImageView(frame: CGRect(x: 0, y: self.view.frame.height-200, width: 300, height: 200))
-        uiv!.contentMode = UIViewContentMode.ScaleAspectFit
+        uiv!.contentMode = UIViewContentMode.scaleAspectFit
         self.view.addSubview(uiv!);
         
     }
 
-    func handleSingleTap(recognizer : UITapGestureRecognizer) {
+    func handleSingleTap(_ recognizer : UITapGestureRecognizer) {
 
         
-        uiv!.image = self.publishStream?.getStreamImage();
+        uiv!.image = self.publishStream?.getImage();
    
     }
 

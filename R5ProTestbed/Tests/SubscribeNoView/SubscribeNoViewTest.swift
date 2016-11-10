@@ -12,7 +12,7 @@ import R5Streaming
 @objc(SubscribeNoViewTest)
 class SubscribeNoViewTest: BaseTest {
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
         let config = getConfig()

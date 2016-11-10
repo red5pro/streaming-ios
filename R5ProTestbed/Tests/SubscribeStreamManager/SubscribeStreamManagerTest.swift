@@ -12,7 +12,7 @@ import R5Streaming
 @objc(SubscribeStreamManagerTest)
 class SubscribeStreamManagerTest: BaseTest {
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         
         super.viewDidAppear(animated)
         
@@ -25,24 +25,23 @@ class SubscribeStreamManagerTest: BaseTest {
             (Testbed.getParameter("context") as! String) + "/" +
             (Testbed.getParameter("stream1") as! String) + "?action=subscribe"
         
-        
         NSURLConnection.sendAsynchronousRequest(
-            NSURLRequest( URL: NSURL(string: urlString)! ),
-            queue: NSOperationQueue(),
-            completionHandler:{ (response: NSURLResponse?, data: NSData?, error: NSError?) -> Void in
+            URLRequest( url: URL(string: urlString)! ),
+            queue: OperationQueue(),
+            completionHandler:{ (response: URLResponse?, data: Data?, error: Error?) in
                 
                 if ((error) != nil) {
-                    NSLog("%@", error!);
+                    NSLog("%@", error as! NSError);
                     return;
                 }
                 
                 //   Convert our response to a usable NSString
-                let dataAsString = NSString( data: data!, encoding: NSUTF8StringEncoding)
+                let dataAsString = NSString( data: data!, encoding: String.Encoding.utf8.rawValue)
                 
                 //   The string above is in JSON format, we specifically need the serverAddress value
                 var json: [String: AnyObject]
                 do{
-                    json = try NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions()) as! [String: AnyObject]
+                    json = try JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions()) as! [String: AnyObject]
                 }catch{
                     print(error)
                     return
@@ -69,19 +68,19 @@ class SubscribeStreamManagerTest: BaseTest {
                 let connection = R5Connection(config: config)
                 
                 //   UI updates must be asynchronous
-                dispatch_async(dispatch_get_main_queue(), {
+                DispatchQueue.main.async(execute: {
                     //   Create our new stream that will utilize that connection
                     self.subscribeStream = R5Stream(connection: connection)
                     self.subscribeStream!.delegate = self
                     self.subscribeStream?.client = self;
                     
-                    self.currentView?.attachStream(self.subscribeStream)
+                    self.currentView?.attach(self.subscribeStream)
                     
                     self.subscribeStream!.play(Testbed.getParameter("stream1") as! String)
                     
                     let label = UILabel(frame: CGRect(x: 0, y: self.view.frame.height-24, width: self.view.frame.width, height: 24))
-                    label.textAlignment = NSTextAlignment.Left
-                    label.backgroundColor = UIColor.lightGrayColor()
+                    label.textAlignment = NSTextAlignment.left
+                    label.backgroundColor = UIColor.lightGray
                     label.text = "Connected to: " + ip
                     self.view.addSubview(label)
                 })

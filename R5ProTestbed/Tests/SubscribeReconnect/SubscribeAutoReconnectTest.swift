@@ -18,7 +18,7 @@ class SubscribeAutoReconnectTest: BaseTest {
         // Do any additional setup after loading the view.
     }
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
         
@@ -37,7 +37,7 @@ class SubscribeAutoReconnectTest: BaseTest {
         self.subscribeStream!.delegate = self
         self.subscribeStream?.client = self;
         
-        currentView?.attachStream(subscribeStream)
+        currentView?.attach(subscribeStream)
         
         
         self.subscribeStream!.play(Testbed.getParameter("stream1") as! String)
@@ -46,7 +46,7 @@ class SubscribeAutoReconnectTest: BaseTest {
         
     }
     
-    override func onR5StreamStatus(stream: R5Stream!, withStatus statusCode: Int32, withMessage msg: String!) {
+    override func onR5StreamStatus(_ stream: R5Stream!, withStatus statusCode: Int32, withMessage msg: String!) {
         
         super.onR5StreamStatus(stream, withStatus: statusCode, withMessage: msg)
         
@@ -58,7 +58,7 @@ class SubscribeAutoReconnectTest: BaseTest {
         
             NSLog("Connection error")
             
-            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(2.0 * Double(NSEC_PER_SEC))), dispatch_get_main_queue()) { () -> Void in
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + Double(Int64(2.0 * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC)) { () -> Void in
                 self.Subscribe()
             }
         }
@@ -66,7 +66,7 @@ class SubscribeAutoReconnectTest: BaseTest {
     }
     
     
-    func onMetaData(data : String){
+    func onMetaData(_ data : String){
         
     }
     

@@ -12,11 +12,11 @@ import R5Streaming
 @objc(BaseTest)
 class BaseTest: UIViewController , R5StreamDelegate {
     
-    func onR5StreamStatus(stream: R5Stream!, withStatus statusCode: Int32, withMessage msg: String!) {
+    func onR5StreamStatus(_ stream: R5Stream!, withStatus statusCode: Int32, withMessage msg: String!) {
         NSLog("Status: %s ", r5_string_for_status(statusCode))
         let s =  String(format: "Status: %s (%@)",  r5_string_for_status(statusCode), msg)
         
-        ALToastView.toastInView(self.view, withText:s)
+        ALToastView.toast(in: self.view, withText:s)
     }
     
     var currentView : R5VideoViewController? = nil
@@ -70,28 +70,28 @@ class BaseTest: UIViewController , R5StreamDelegate {
         
     }
     
-    func setupPublisher(connection: R5Connection){
+    func setupPublisher(_ connection: R5Connection){
         
         self.publishStream = R5Stream(connection: connection)
         self.publishStream!.delegate = self
         
         if(Testbed.getParameter("video_on") as! Bool){
             // Attach the video from camera to stream
-            let videoDevice = AVCaptureDevice.devicesWithMediaType(AVMediaTypeVideo).last as? AVCaptureDevice
+            let videoDevice = AVCaptureDevice.devices(withMediaType: AVMediaTypeVideo).last as? AVCaptureDevice
             
             let camera = R5Camera(device: videoDevice, andBitRate: Int32(Testbed.getParameter("bitrate") as! Int))
-            camera.width = Int32(Testbed.getParameter("camera_width") as! Int)
-            camera.height = Int32(Testbed.getParameter("camera_height") as! Int)
-            camera.orientation = 90
+            camera?.width = Int32(Testbed.getParameter("camera_width") as! Int)
+            camera?.height = Int32(Testbed.getParameter("camera_height") as! Int)
+            camera?.orientation = 90
             self.publishStream!.attachVideo(camera)
         }
         if(Testbed.getParameter("audio_on") as! Bool){
             // Attach the audio from microphone to stream
-            let audioDevice = AVCaptureDevice.defaultDeviceWithMediaType(AVMediaTypeAudio)
+            let audioDevice = AVCaptureDevice.defaultDevice(withMediaType: AVMediaTypeAudio)
             let microphone = R5Microphone(device: audioDevice)
-            microphone.bitrate = 32
-            microphone.device = audioDevice;
-            NSLog("Got device %@", audioDevice)
+            microphone?.bitrate = 32
+            microphone?.device = audioDevice;
+            NSLog("Got device %@", audioDevice!)
             self.publishStream!.attachAudio(microphone)
         }
 
@@ -110,11 +110,11 @@ class BaseTest: UIViewController , R5StreamDelegate {
         
     }
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         
         //this is just to have a white background to the example
         let backView : UIView = UIView(frame: self.view.frame);
-        backView.backgroundColor = UIColor.whiteColor();
+        backView.backgroundColor = UIColor.white;
         self.view.addSubview(backView);
         
     }
@@ -136,7 +136,7 @@ class BaseTest: UIViewController , R5StreamDelegate {
         return currentView!
     }
     
-    func getNewR5VideoViewController(rect : CGRect) -> R5VideoViewController{
+    func getNewR5VideoViewController(_ rect : CGRect) -> R5VideoViewController{
         
         let view : UIView = UIView(frame: rect)
         

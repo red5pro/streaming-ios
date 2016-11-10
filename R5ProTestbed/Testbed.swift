@@ -35,70 +35,70 @@ class Testbed: NSObject {
         return (Testbed.tests?.count)!
     }
     
-    static func testAtIndex(index : Int)-> NSDictionary?{
+    static func testAtIndex(_ index : Int)-> NSDictionary?{
      
         return tests![index]
     }
     
     
-    static func setHost(ip : String){
+    static func setHost(_ ip : String){
         Testbed.parameters?.setValue(ip, forKey: "host")
     }
     
-    static func setStreamName(name : String){
+    static func setStreamName(_ name : String){
         Testbed.parameters?.setValue(name, forKey: "stream1")
     }
     
-    static func setStream1Name(name : String){
+    static func setStream1Name(_ name : String){
         Testbed.parameters?.setValue(name, forKey: "stream1")
     }
     
-    static func setStream2Name(name : String){
+    static func setStream2Name(_ name : String){
         Testbed.parameters?.setValue(name, forKey: "stream2")
     }
     
-    static func setDebug(on : Bool){
+    static func setDebug(_ on : Bool){
         Testbed.parameters?.setValue(on, forKey: "debug_view")
     }
     
-    static func setVideo(on : Bool){
+    static func setVideo(_ on : Bool){
         Testbed.parameters?.setValue(on, forKey: "video_on")
     }
     
-    static func setAudio(on : Bool){
+    static func setAudio(_ on : Bool){
         Testbed.parameters?.setValue(on, forKey: "audio_on")
     }
     
-    static func setLocalOverrides(params : NSMutableDictionary?){
+    static func setLocalOverrides(_ params : NSMutableDictionary?){
         Testbed.localParameters = params
     }
     
-    static func getParameter(param : String)->AnyObject?{
+    static func getParameter(_ param : String)->AnyObject?{
         
         if(Testbed.localParameters != nil){
             if(Testbed.localParameters?[param] != nil){
-                return Testbed.localParameters?[param]
+                return Testbed.localParameters?[param] as AnyObject?
             }
         }
         
-        return Testbed.parameters?[param]
+        return Testbed.parameters?[param] as AnyObject?
     }
 
     
     func loadTests(){
         
-        let path = NSBundle.mainBundle().pathForResource("tests", ofType: "plist")
+        let path = Bundle.main.path(forResource: "tests", ofType: "plist")
         
         Testbed.dictionary = NSMutableDictionary(contentsOfFile: path!)//readDictionaryFromFile(path!)
         Testbed.tests = Array<NSMutableDictionary>()
         
-        for (_, myValue) in (Testbed.dictionary!.valueForKey("Tests") as? NSDictionary)! {
+        for (_, myValue) in (Testbed.dictionary!.value(forKey: "Tests") as? NSDictionary)! {
             Testbed.tests?.append(myValue as! NSMutableDictionary)
                 
         }
         
         
-        Testbed.tests!.sortInPlace({(dic1 : NSMutableDictionary, dic2 : NSMutableDictionary)->Bool in
+        Testbed.tests!.sort(by: {(dic1 : NSMutableDictionary, dic2 : NSMutableDictionary)->Bool in
             
             if(dic1["name"] as! String == "Home"){
                 return true
@@ -110,7 +110,7 @@ class Testbed: NSObject {
             
             })
         
-        Testbed.parameters = Testbed.dictionary!.valueForKey("GlobalProperties") as? NSMutableDictionary
+        Testbed.parameters = Testbed.dictionary!.value(forKey: "GlobalProperties") as? NSMutableDictionary
         
         
     }
