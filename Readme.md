@@ -66,6 +66,9 @@ Once you have modified your settings, you can run the application for simulator 
 | **[No View](R5ProTestbed/Tests/SubscribeNoView)**
 | *A proof of using an audio only stream without attaching it to a view.*
 |
+| **[Reconnect](R5ProTestbed/Tests/SubscribeReconnect)**
+| *An example of reconnecting to a stream on a connection error.*
+|
 | **[Remote Call](R5ProTestbed/Tests/RemoteCall)**
 | *The subscribe portion of the remote call example - receives the remote call.* 
 | 
