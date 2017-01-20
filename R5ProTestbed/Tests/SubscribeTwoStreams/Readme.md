@@ -1,4 +1,4 @@
-#Two Way Video Chat
+#Subscribe To Two Streams
 
 This example demonstrates Subscribing to two different sources at once.
 
