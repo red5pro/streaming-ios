@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4838028E1E4115130098F5B7 /* PublishPauseTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4838028D1E4115130098F5B7 /* PublishPauseTest.swift */; };
 		485345071C23528400D409F3 /* PublishStreamImageTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 485345061C23528400D409F3 /* PublishStreamImageTest.swift */; };
 		485345091C23552F00D409F3 /* CameraSwapTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 485345081C23552F00D409F3 /* CameraSwapTest.swift */; };
 		4874D59D1C2216DB00A98102 /* SubscribeTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4874D59C1C2216DB00A98102 /* SubscribeTest.swift */; };
@@ -49,6 +50,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4838028D1E4115130098F5B7 /* PublishPauseTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PublishPauseTest.swift; path = Tests/PublishPause/PublishPauseTest.swift; sourceTree = "<group>"; };
 		485345061C23528400D409F3 /* PublishStreamImageTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PublishStreamImageTest.swift; path = Tests/PublishStreamImage/PublishStreamImageTest.swift; sourceTree = "<group>"; };
 		485345081C23552F00D409F3 /* CameraSwapTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CameraSwapTest.swift; path = Tests/CameraSwap/CameraSwapTest.swift; sourceTree = "<group>"; };
 		4874D59C1C2216DB00A98102 /* SubscribeTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SubscribeTest.swift; path = Tests/Subscribe/SubscribeTest.swift; sourceTree = "<group>"; };
@@ -167,6 +169,7 @@
 		48DFEDC91C21BE0B0040B624 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				4838028D1E4115130098F5B7 /* PublishPauseTest.swift */,
 				48BB1D801CED140D00D915E5 /* SubscribeSetSizeTest.swift */,
 				48DFEDD61C21C2540040B624 /* BaseTest.swift */,
 				48DFEDCC1C21BF0A0040B624 /* PublishTest.swift */,
@@ -294,6 +297,7 @@
 				4874ECD01C483FDA002BDA6D /* SubscribeStreamImageTest.swift in Sources */,
 				485345091C23552F00D409F3 /* CameraSwapTest.swift in Sources */,
 				92EA19DA1CE13717006B3A97 /* PublishCustomSourceTest.swift in Sources */,
+				4838028E1E4115130098F5B7 /* PublishPauseTest.swift in Sources */,
 				48DFEDD71C21C2540040B624 /* BaseTest.swift in Sources */,
 				926794F91D061942004B0BCD /* RecordedTest.swift in Sources */,
 				48DFEDCD1C21BF0A0040B624 /* PublishTest.swift in Sources */,
