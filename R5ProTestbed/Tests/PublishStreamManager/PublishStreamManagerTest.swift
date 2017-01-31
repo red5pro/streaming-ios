@@ -20,8 +20,8 @@ class PublishStreamManagerTest: BaseTest {
         
         setupDefaultR5VideoViewController()
         
-        // url format https://{streammanagerhost}:{port}/streammanager/api/1.0/event/{scopeName}/{streamName}?action=broadcast
-        let urlString = "http://" + (Testbed.getParameter("host") as! String) + ":5080/streammanager/api/1.0/event/" +
+        // url format https://{streammanagerhost}:{port}/streammanager/api/2.0/event/{scopeName}/{streamName}?action=broadcast
+        let urlString = "http://" + (Testbed.getParameter("host") as! String) + ":5080/streammanager/api/2.0/event/" +
             (Testbed.getParameter("context") as! String) + "/" +
             (Testbed.getParameter("stream1") as! String) + "?action=broadcast"
             

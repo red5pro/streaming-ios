@@ -45,7 +45,6 @@
 @property int bitrate;              //!< bitrate in kbps
 @property R5AudioController *audioController; //!< Audio Controller for recording.  Defaults to shared instance.
 
-
 /**
  *  A microphone input for R5Stream
  *

@@ -17,12 +17,13 @@ extern "C" {
 #ifdef IS_IOS
 #include <pthread.h> 
 #endif
+
     
 #define STRINGIFY_(s) #s
 #define STRINGIFY(s) STRINGIFY_(s)
-      
+    
 #define R5PRO_MAJOR_VERSION         2
-#define R5PRO_MINOR_VERSION         0
+#define R5PRO_MINOR_VERSION         1
 #define R5PRO_REVISION              0
 #define R5PRO_BUILD                 0
     
@@ -66,7 +67,6 @@ extern "C" {
 #define LOGE(M, ...) if(r5_get_log_level() <= (int)r5_log_level_error) LOG(M, ##__VA_ARGS__);
 #endif
 
-
 #define check_mem(A) check((A), "Out of memory.")
 
     /**
@@ -90,7 +90,11 @@ extern "C" {
         r5_status_connection_close,     //!< The connection is fully closed.  Wait for this before releasing assets.
         r5_status_start_streaming,      //!< Streaming content has begun as a publisher or subscriber
         r5_status_stop_streaming,       //!< Streaming content has stopped.
-        r5_status_netstatus             //!< A netstatus event has been received from the server.
+        r5_status_netstatus,            //!< A netstatus event has been received from the server.
+        r5_status_audio_mute,           //!< Publisher has muted their audio stream
+        r5_status_audio_unmute,         //!< Publisher has unmuted their audio stream
+        r5_status_video_mute,           //!< Publisher has muted their video stream
+        r5_status_video_unmute          //!< Publisher has unmuted their video stream
     };
     
     /**
