@@ -140,7 +140,7 @@ class CustomVideoSource : R5VideoSource {
             //push the sample buffer to the encoder with type r5_media_type_video_custom
             //if(!self.pauseEncoding){
                 self.encoder.encodeFrame( buffer, of: r5_media_type_video_custom );
-            }
+            //}
             
             //increment our timestamp
             self.PTS = CMTimeAdd(self.PTS, self.frameDuration);
@@ -149,3 +149,4 @@ class CustomVideoSource : R5VideoSource {
             free(rgbPixels);
         }
     }
+}
