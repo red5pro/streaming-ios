@@ -138,7 +138,7 @@ class CustomVideoSource : R5VideoSource {
                                                         &buffer);
             
             //push the sample buffer to the encoder with type r5_media_type_video_custom
-            if(!self.pauseEncoding){
+            //if(!self.pauseEncoding){
                 self.encoder.encodeFrame( buffer, of: r5_media_type_video_custom );
             }
             
@@ -149,4 +149,3 @@ class CustomVideoSource : R5VideoSource {
             free(rgbPixels);
         }
     }
-}
