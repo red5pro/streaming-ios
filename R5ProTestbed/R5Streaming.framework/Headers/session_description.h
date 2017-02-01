@@ -53,6 +53,8 @@ extern "C" {
     int sdp_parse(session_description* session,
                   const char* data, int length);
     
+    int has_audio(session_description* session);
+    int has_video(session_description* session);
     
     const char* get_media_format_value(media_description* m, const char*key);
     void set_media_format_value(media_description* m, const char*key, const char*value);

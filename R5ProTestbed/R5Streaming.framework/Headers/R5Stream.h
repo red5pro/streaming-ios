@@ -64,6 +64,9 @@ enum R5StreamMode{
  */
 @property NSObject *client;
 
+@property BOOL pauseAudio;
+
+@property BOOL pauseVideo;
 
 /**
  *  Initialize the stream.  The connection is *not* established.
@@ -200,7 +203,10 @@ enum R5StreamMode{
  *  START_STREAMING |   null
  *  STOP_STREAMING  |   null
  *  NET_STATUS      |   "NetStream.Play.PublishNotify" - publisher started<br/>"NetStream.Play.UnpublishNotify" - publisher stopped<br/>"NetStream.Play.StreamDry" - Keep Alive while no publisher publishing
- *
+ *  AUDIO_MUTE      |   null
+ *  AUDIO_UNMUTE    |   null
+ *  VIDEO_MUTE      |   null
+ *  VIDEO_UNMUTE    |   null
  *
  */
 -(void)onR5StreamStatus:(R5Stream *)stream withStatus:(int) statusCode withMessage:(NSString*)msg;
