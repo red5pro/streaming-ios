@@ -2,17 +2,18 @@
 
 With clustering, we need to determine which red5 pro instance the client will use. The other examples used a static configuration ip for streaming endpoints. Basic clustering uses more than one stream endpoint for subscribers. Advanced clustering uses more than one endpoint for publishers also.
 
-With the Stream Manager, our configuration ip will be used similarly for publishers and subscribers. Both publishers and subscribers will call a web service to receive the ip that should be used.
+With the Stream Manager, our configuration IP will be used similarly for publishers and subscribers. Both publishers and subscribers will call a web service to receive the IP that should be used. Since this is an HTTP call, you can use a DNS Name for the `host` value. 
 
 ###Example Code
 - ***[BaseTest.swift](../BaseTest.swift)***
 - ***[SubscribeStreamManagerTest.swft](SubscribeStreamManagerTest.swft)***
 
 ###Setup
-In order to subscribe, you first need to connect to the autoscaling Stream Manager. The Stream Manager will know which edges are active and provide the one that you need to subscribe from.
+In order to subscribe, you first need to connect to the autoscaling Stream Manager. The Stream Manager will know which edges are active and provide the one that you need to subscribe from. **Note** that the URL has been changed to `api/2.0` - if you are running stream manager with a server build that is older than 2.1.0, you should modify that to `1.0`
+
 
 ```Swift
-let urlString = "https://" + (Testbed.getParameter("host") as! String) + ":5080/streammanager/api/1.0/event/" +
+let urlString = "https://" + (Testbed.getParameter("host") as! String) + ":5080/streammanager/api/2.0/event/" +
 	Testbed.getParameter("context") as! String + "/" +
 	Testbed.getParameter("stream1") as! String + "?action=subscribe"
         

@@ -1,16 +1,18 @@
 {
-  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "DC7F46286BABB1E7799F2C699656855D2AE74077",
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "5B4CD5ADA002148EF8926F8EFCE007DCA4027DDF",
   "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
 
   },
   "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
     "DC7F46286BABB1E7799F2C699656855D2AE74077" : 0,
-    "15C55C8AB61EA81651E461AB17DC0E083B9C3718" : 0
+    "15C55C8AB61EA81651E461AB17DC0E083B9C3718" : 0,
+    "5B4CD5ADA002148EF8926F8EFCE007DCA4027DDF" : 9223372036854775807
   },
   "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "6C0F4670-3F5B-4F41-933B-E0E7F0DA8FF3",
   "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
     "DC7F46286BABB1E7799F2C699656855D2AE74077" : "ios-streaming-testbed\/",
-    "15C55C8AB61EA81651E461AB17DC0E083B9C3718" : "red5pro-core-streaming-library\/"
+    "15C55C8AB61EA81651E461AB17DC0E083B9C3718" : "red5pro-core-streaming-library\/",
+    "5B4CD5ADA002148EF8926F8EFCE007DCA4027DDF" : "streaming-ios\/"
   },
   "DVTSourceControlWorkspaceBlueprintNameKey" : "R5ProTestbed",
   "DVTSourceControlWorkspaceBlueprintVersion" : 204,
@@ -20,6 +22,11 @@
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/infrared5\/red5pro-core-streaming-library.git",
       "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "15C55C8AB61EA81651E461AB17DC0E083B9C3718"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/red5pro\/streaming-ios.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "5B4CD5ADA002148EF8926F8EFCE007DCA4027DDF"
     },
     {
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/infrared5\/ios-streaming-testbed.git",
