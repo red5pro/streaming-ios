@@ -30,7 +30,7 @@ Once you have modified your settings, you can run the application for simulator 
 | **[Camera Swap](R5ProTestbed/Tests/CameraSwap)**
 | *Touch the screen to swap which camera is being used! erify with flash, android, or other iOS device running subscribe test that camera is swapping properly and no rendering problems occur.* 
 |
-| **[Mute/Umute](R5ProTestbed/Tests/PublishPause)**
+| **[Mute/Unmute](R5ProTestbed/Tests/PublishPause)**
 | *Touch the screen to toggle between sending Audio & Video, sending just Video, sending just Audio, and sending no Audio or Video. Turning off and on the media sources is considered mute and unmute events, respecitively* 
 |
 | **[Custom Video Source](R5ProTestbed/Tests/PublishCustomSource)**
