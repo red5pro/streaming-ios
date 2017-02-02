@@ -54,7 +54,7 @@ class PublishPauseTest: BaseTest {
         if(hasAudio && hasVideo){
             self.publishStream?.pauseAudio = true
             self.publishStream?.pauseVideo = false
-             ALToastView.toast(in: self.view, withText:"Pausing Audio")
+            ALToastView.toast(in: self.view, withText:"Pausing Audio")
             
         }else if(hasVideo && !hasAudio){
             self.publishStream?.pauseVideo = true
