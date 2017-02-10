@@ -11,6 +11,8 @@ import R5Streaming
 
 @objc(SubscribeTest)
 class SubscribeTest: BaseTest {
+    
+    var current_rotation = 0;
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,11 +42,27 @@ class SubscribeTest: BaseTest {
 
     }
     
-    
-    func onMetaData(_ data : String){
+    func updateOrientation(value: Int) {
+        
+        if current_rotation == value {
+            return
+        }
+        
+        current_rotation = value
+        currentView?.view.layer.transform = CATransform3DMakeRotation(CGFloat(value), 0.0, 0.0, 0.0);
         
     }
     
+    func onMetaData(data : String) {
+        
+        let props = data.characters.split(separator: ";").map(String.init)
+        props.forEach { (value: String) in
+            let kv = value.characters.split(separator: "=").map(String.init)
+            if (kv[0] == "orientation") {
+                updateOrientation(value: Int(kv[1])!)
+            }
+        }
+        
+    }
     
-
 }

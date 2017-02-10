@@ -127,6 +127,17 @@
 			<key>class</key>
 			<string>PublishPauseTest</string>
 		</dict>
+		<key>publish - Device Orientation</key>
+		<dict>
+			<key>description</key>
+			<string>Orientation based on device</string>
+			<key>Local Properties</key>
+			<dict/>
+			<key>name</key>
+			<string>Publish - Device Orientation</string>
+			<key>class</key>
+			<string>PublishDeviceOrientationTest</string>
+		</dict>
 		<key>publish - Orientation</key>
 		<dict>
 			<key>description</key>
