@@ -48,11 +48,6 @@ class SubscribeTest: BaseTest {
             return
         }
         
-        let rotateAnimation = CABasicAnimation(keyPath: "transform.rotation")
-        rotateAnimation.fromValue = current_rotation
-        rotateAnimation.toValue = CGFloat(value)
-        rotateAnimation.duration = 0
-        
         current_rotation = value
         currentView?.view.layer.transform = CATransform3DMakeRotation(CGFloat(value), 0.0, 0.0, 0.0);
         
