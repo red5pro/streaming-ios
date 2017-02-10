@@ -39,8 +39,11 @@ Once you have modified your settings, you can run the application for simulator 
 | **[Image Capture](R5ProTestbed/Tests/PublishStreamImage)**
 | *Touch the publish stream to take a screen shot that is displayed!* 
 |
+| **[Device Orientation](R5ProTestbed/Tests/PublishDeviceOrientation)**
+| *Rotate the device to update the orientation of the broadcast stream.  Verify with browser-based players (WebRTC, Flash, HLS), Android, or other iOS device running subscribe test that image is rotating properly and no rendering problems occur.*
+|
 | **[Orientation](R5ProTestbed/Tests/PublishOrientation)**
-| *Touch the screen to rotate the output video 90 degrees.  Verify with flash, android, or other iOS device running subscribe test that image is rotating properly and no rendering problems occur.*    
+| *Touch the screen to rotate the output video 90 degrees.  Verify with browser-based players (WebRTC, Flash, HLS), Android, or other iOS device running subscribe test that image is rotating properly and no rendering problems occur.*    
 |
 | **[Record](R5ProTestbed/Tests/Recorded)**
 | *A publish example that records stream data on the server.*
