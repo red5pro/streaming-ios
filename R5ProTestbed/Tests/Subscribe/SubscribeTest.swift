@@ -11,6 +11,8 @@ import R5Streaming
 
 @objc(SubscribeTest)
 class SubscribeTest: BaseTest {
+    
+    var current_rotation = 0;
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,7 +42,6 @@ class SubscribeTest: BaseTest {
 
     }
     
-    
     func updateOrientation(value: Int) {
         
         if current_rotation == value {
@@ -68,5 +69,5 @@ class SubscribeTest: BaseTest {
         }
         
     }
-
+    
 }
