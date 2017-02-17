@@ -33,7 +33,6 @@
 		48DFEDD71C21C2540040B624 /* BaseTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48DFEDD61C21C2540040B624 /* BaseTest.swift */; };
 		48DFEDD91C21C5940040B624 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48DFEDD81C21C5940040B624 /* OpenAL.framework */; };
 		48DFEDDB1C21C5AB0040B624 /* libstdc++.6.0.9.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 48DFEDDA1C21C5AB0040B624 /* libstdc++.6.0.9.tbd */; };
-		48DFEDDD1C21E91E0040B624 /* tests.plist in Resources */ = {isa = PBXBuildFile; fileRef = 48DFEDDC1C21E91E0040B624 /* tests.plist */; };
 		48DFEDDF1C21EA780040B624 /* Testbed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48DFEDDE1C21EA780040B624 /* Testbed.swift */; };
 		926794F51D061900004B0BCD /* PublishRemoteCallTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926794F41D061900004B0BCD /* PublishRemoteCallTest.swift */; };
 		926794F71D06191E004B0BCD /* PublishStreamManagerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926794F61D06191E004B0BCD /* PublishStreamManagerTest.swift */; };
@@ -48,6 +47,7 @@
 		92EA19DD1CE137DD006B3A97 /* CustomVideoSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92EA19DC1CE137DD006B3A97 /* CustomVideoSource.swift */; };
 		92EAA9DB1D0734EA00B2CE46 /* SubscribeAutoReconnectTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92EAA9DA1D0734EA00B2CE46 /* SubscribeAutoReconnectTest.swift */; };
 		92F9A0681D020BA100F49644 /* R5Streaming.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48DFEDC51C21BBDB0040B624 /* R5Streaming.framework */; };
+		E1878B951E578B8F00118560 /* tests.plist in Resources */ = {isa = PBXBuildFile; fileRef = E1878B941E578B8F00118560 /* tests.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -82,7 +82,6 @@
 		48DFEDD61C21C2540040B624 /* BaseTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseTest.swift; path = Tests/BaseTest.swift; sourceTree = "<group>"; };
 		48DFEDD81C21C5940040B624 /* OpenAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenAL.framework; path = System/Library/Frameworks/OpenAL.framework; sourceTree = SDKROOT; };
 		48DFEDDA1C21C5AB0040B624 /* libstdc++.6.0.9.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.6.0.9.tbd"; path = "usr/lib/libstdc++.6.0.9.tbd"; sourceTree = SDKROOT; };
-		48DFEDDC1C21E91E0040B624 /* tests.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = tests.plist; sourceTree = "<group>"; };
 		48DFEDDE1C21EA780040B624 /* Testbed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Testbed.swift; sourceTree = "<group>"; };
 		926794F41D061900004B0BCD /* PublishRemoteCallTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PublishRemoteCallTest.swift; path = Tests/RemoteCall/PublishRemoteCallTest.swift; sourceTree = "<group>"; };
 		926794F61D06191E004B0BCD /* PublishStreamManagerTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PublishStreamManagerTest.swift; path = Tests/PublishStreamManager/PublishStreamManagerTest.swift; sourceTree = "<group>"; };
@@ -96,6 +95,7 @@
 		92EA19D91CE13717006B3A97 /* PublishCustomSourceTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PublishCustomSourceTest.swift; path = Tests/PublishCustomSource/PublishCustomSourceTest.swift; sourceTree = "<group>"; };
 		92EA19DC1CE137DD006B3A97 /* CustomVideoSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomVideoSource.swift; path = Tests/PublishCustomSource/CustomVideoSource.swift; sourceTree = "<group>"; };
 		92EAA9DA1D0734EA00B2CE46 /* SubscribeAutoReconnectTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SubscribeAutoReconnectTest.swift; path = Tests/SubscribeReconnect/SubscribeAutoReconnectTest.swift; sourceTree = "<group>"; };
+		E1878B941E578B8F00118560 /* tests.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = tests.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -161,8 +161,8 @@
 				48DFEDB41C21BBC60040B624 /* Assets.xcassets */,
 				48DFEDB61C21BBC60040B624 /* LaunchScreen.storyboard */,
 				48DFEDB91C21BBC60040B624 /* Info.plist */,
-				48DFEDDC1C21E91E0040B624 /* tests.plist */,
 				48DFEDDE1C21EA780040B624 /* Testbed.swift */,
+				E1878B941E578B8F00118560 /* tests.plist */,
 				4874D5A01C221CCF00A98102 /* R5ProTestbed-Bridging-Header.h */,
 			);
 			path = R5ProTestbed;
@@ -266,8 +266,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				48DFEDDD1C21E91E0040B624 /* tests.plist in Resources */,
 				48DFEDB81C21BBC60040B624 /* LaunchScreen.storyboard in Resources */,
+				E1878B951E578B8F00118560 /* tests.plist in Resources */,
 				48DFEDB51C21BBC60040B624 /* Assets.xcassets in Resources */,
 				48BF80B11C245D29000E996E /* Info-100.png in Resources */,
 				48DFEDB31C21BBC60040B624 /* Main.storyboard in Resources */,
