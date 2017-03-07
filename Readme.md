@@ -1,20 +1,29 @@
 # Red5 Pro iOS Streaming Testbed
 
-This repository contains a simple project with a number of examples that can be used for testing and reference.  
+This repository contains a simple project with a number of examples that can be used for testing and reference.
 
-##Requirements
+## Requirements
 
-You will need a functional, running Red5 Pro server web- (or locally-) accessible for the client to connect to.
+* [Red5 Pro Server](#red5-pro-server)
+* [Red5 Pro SDK License Key](#red5-pro-sdk-license-key)
 
-For more information visit [Red5Pro.com](http://red5pro.com).
+### Red5 Pro Server
+You will need a functional, running Red5 Pro server web- (or locally-) accessible for the client to connect to. If you already have a [Red5 Pro Account](https://account.red5pro.com), you can find the Red5 Pro Server download at [https://account.red5pro.com/download](https://account.red5pro.com/download).
 
-##Setup
+> For more information visit [Red5Pro.com](https://red5pro.com).
 
-You will need to modify **/Red5ProTestbed/tests.plist (the domain value)** to point to your server instance's IP address.  If you do not, the examples will not function when you build. If you are running the server locally, then your machine and mobile device need to be on the same wifi network. 
+### Red5 Pro SDK License Key
+A Red5 Pro SDK License Key is required to use the iOS Mobile SDK. If you already have a [Red5 Pro Account](https://account.red5pro.com), you can find your Red5 Pro SDK License Key at [https://account.red5pro.com/overview](https://account.red5pro.com/overview).
 
-Once you have modified your settings, you can run the application for simulator or device. 
+> You will need to copy the `SDK License` into the `license_key` property field of the [tests.plist](R5ProTestbed/tests.plist).
 
-***Note: Publishing does not currently work on simulator!***
+## Setup
+
+You will need to modify **/Red5ProTestbed/tests.plist (the domain value)** to point to your `host` server instance's IP address and update the `license_key` property to that of your Red5 Pro SDK License.  If you do not, the examples will not function when you build. If you are running the server locally, then your machine and mobile device need to be on the same WiFi network. 
+
+Once you have modified your settings, you can run the application for simulator or device.
+
+> ***Note: Publishing does not currently work on simulator!***
 
 ##Examples
 

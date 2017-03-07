@@ -5,13 +5,13 @@
 	<key>GlobalProperties</key>
 	<dict>
 		<key>license_key</key>
-		<string>DEDH-IJQ5-Z6SP-KHV7</string>
+		<string></string>
 		<key>server_port</key>
 		<string>5080</string>
 		<key>bitrate</key>
 		<integer>750</integer>
 		<key>host</key>
-		<string>10.0.0.10</string>
+		<string>0.0.0.0</string>
 		<key>buffer_time</key>
 		<real>0.2</real>
 		<key>port</key>
