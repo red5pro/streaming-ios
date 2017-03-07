@@ -29,7 +29,7 @@ class SubscribeRemoteCallTest: BaseTest {
         currentView?.attach(subscribeStream)
         
         
-        self.subscribeStream!.play(Testbed.getParameter("stream1") as! String)
+        self.subscribeStream!.play(Testbed.getParameter(param: "stream1") as! String)
         
     }
     

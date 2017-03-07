@@ -40,12 +40,22 @@
  */
 -(void)call:(NSString*)method withReturn:(NSString*)returnMethod withParam:(NSString*)param;
 
+/*
+ *  Start a connection with a remote shared object
+ */
+-(void)connectToSharedObject:(NSString*)name;
+
+/*
+ *  Send a message through the Shared Object interface
+ */
+-(void)sharedObjectSend:(NSString*)message;
+
 /**
  *  Get the connection context associated with this context
  *
  *  @return A client connection context.
  */
--(client_ctx*)context ;
+-(client_ctx*)context;
 
 
 @end

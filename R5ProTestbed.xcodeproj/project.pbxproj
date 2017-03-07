@@ -15,6 +15,7 @@
 		4874D59F1C221B9500A98102 /* AdaptiveBitrateControllerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4874D59E1C221B9500A98102 /* AdaptiveBitrateControllerTest.swift */; };
 		4874D5A31C221CD000A98102 /* ALToastView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4874D5A21C221CD000A98102 /* ALToastView.m */; };
 		4874ECD01C483FDA002BDA6D /* SubscribeStreamImageTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4874ECCF1C483FDA002BDA6D /* SubscribeStreamImageTest.swift */; };
+		487CDBC21E6E4401007FC4EA /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 487CDBC11E6E4401007FC4EA /* libz.tbd */; };
 		48BB1D811CED140D00D915E5 /* SubscribeSetSizeTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48BB1D801CED140D00D915E5 /* SubscribeSetSizeTest.swift */; };
 		48BF80AE1C245AA7000E996E /* PublishOrientationTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48BF80AD1C245AA7000E996E /* PublishOrientationTest.swift */; };
 		48BF80B11C245D29000E996E /* Info-100.png in Resources */ = {isa = PBXBuildFile; fileRef = 48BF80B01C245D29000E996E /* Info-100.png */; };
@@ -61,6 +62,7 @@
 		4874D5A11C221CD000A98102 /* ALToastView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALToastView.h; sourceTree = "<group>"; };
 		4874D5A21C221CD000A98102 /* ALToastView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALToastView.m; sourceTree = "<group>"; };
 		4874ECCF1C483FDA002BDA6D /* SubscribeStreamImageTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SubscribeStreamImageTest.swift; path = Tests/SubscribeStreamImage/SubscribeStreamImageTest.swift; sourceTree = "<group>"; };
+		487CDBC11E6E4401007FC4EA /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		48BB1D801CED140D00D915E5 /* SubscribeSetSizeTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubscribeSetSizeTest.swift; sourceTree = "<group>"; };
 		48BF80AD1C245AA7000E996E /* PublishOrientationTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PublishOrientationTest.swift; path = Tests/PublishOrientation/PublishOrientationTest.swift; sourceTree = "<group>"; };
 		48BF80B01C245D29000E996E /* Info-100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Info-100.png"; sourceTree = "<group>"; };
@@ -103,9 +105,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				487CDBC21E6E4401007FC4EA /* libz.tbd in Frameworks */,
 				48DFEDDB1C21C5AB0040B624 /* libstdc++.6.0.9.tbd in Frameworks */,
-				48DFEDD91C21C5940040B624 /* OpenAL.framework in Frameworks */,
 				48DFEDD31C21BF370040B624 /* libiconv.2.4.0.tbd in Frameworks */,
+				48DFEDD91C21C5940040B624 /* OpenAL.framework in Frameworks */,
 				48DFEDD11C21BF320040B624 /* QuartzCore.framework in Frameworks */,
 				48DFEDCF1C21BF2D0040B624 /* CoreFoundation.framework in Frameworks */,
 				92F9A0681D020BA100F49644 /* R5Streaming.framework in Frameworks */,
@@ -115,6 +118,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		487CDBC01E6E4401007FC4EA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				487CDBC11E6E4401007FC4EA /* libz.tbd */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		48BF80AF1C245D0B000E996E /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -135,6 +146,7 @@
 				48DFEDAA1C21BBC60040B624 /* R5ProTestbed */,
 				48BF80AF1C245D0B000E996E /* Resources */,
 				48DFEDA91C21BBC60040B624 /* Products */,
+				487CDBC01E6E4401007FC4EA /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};

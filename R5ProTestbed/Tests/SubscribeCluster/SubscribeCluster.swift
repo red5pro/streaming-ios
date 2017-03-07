@@ -16,7 +16,7 @@ class SubscribeCluster: BaseTest {
         
         super.viewDidAppear(animated)
         
-        let urlString = "http://" + (Testbed.getParameter("host") as! String) + ":5080/cluster"
+        let urlString = "http://" + (Testbed.getParameter(param: "host") as! String) + ":5080/cluster"
         
         NSURLConnection.sendAsynchronousRequest(
             NSURLRequest( url: NSURL(string: urlString)! as URL ) as URLRequest,
@@ -38,10 +38,10 @@ class SubscribeCluster: BaseTest {
                 //   Setup a configuration object for our connection
                 let config = R5Configuration()
                 config.host = ip
-                config.port = Int32(Testbed.getParameter("port") as! Int)
-                config.contextName = Testbed.getParameter("context") as! String
+                config.port = Int32(Testbed.getParameter(param: "port") as! Int)
+                config.contextName = Testbed.getParameter(param: "context") as! String
                 config.`protocol` = 1;
-                config.buffer_time = Testbed.getParameter("buffer_time") as! Float
+                config.buffer_time = Testbed.getParameter(param: "buffer_time") as! Float
                 
                 //   Create a new connection using the configuration above
                 let connection = R5Connection(config: config)
@@ -62,7 +62,7 @@ class SubscribeCluster: BaseTest {
                     self.currentView?.attach(self.subscribeStream)
                     
                     //   Start subscribing!!
-                    self.subscribeStream!.play(Testbed.getParameter("stream1") as! String)
+                    self.subscribeStream!.play(Testbed.getParameter(param: "stream1") as! String)
                     
                     let label = UILabel(frame: CGRect(x: 0, y: self.view.frame.height-24, width: self.view.frame.width, height: 24))
                     label.textAlignment = NSTextAlignment.left

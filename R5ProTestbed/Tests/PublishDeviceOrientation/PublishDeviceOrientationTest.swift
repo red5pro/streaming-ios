@@ -36,7 +36,7 @@ class PublishDeviceOrientationTest: BaseTest {
         self.currentView!.attach(publishStream!)
         
         
-        self.publishStream!.publish(Testbed.getParameter("stream1") as! String, type: R5RecordTypeLive)
+        self.publishStream!.publish(Testbed.getParameter(param: "stream1") as! String, type: R5RecordTypeLive)
         
         NotificationCenter.default.addObserver(self, selector: #selector(PublishDeviceOrientationTest.rotated), name: NSNotification.Name.UIDeviceOrientationDidChange, object: nil)
         

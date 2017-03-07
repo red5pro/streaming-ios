@@ -33,7 +33,7 @@ class PublishCustomSourceTest : BaseTest {
         self.publishStream!.attachVideo(videoSource);
         
             
-        if(Testbed.getParameter("audio_on") as! Bool){
+        if(Testbed.getParameter(param: "audio_on") as! Bool){
             // Attach the audio from microphone to stream
             let audioDevice = AVCaptureDevice.defaultDevice(withMediaType: AVMediaTypeAudio)
             let microphone = R5Microphone(device: audioDevice)
@@ -49,6 +49,6 @@ class PublishCustomSourceTest : BaseTest {
         self.currentView!.attach(publishStream!)
         
         
-        self.publishStream!.publish(Testbed.getParameter("stream1") as! String, type: R5RecordTypeLive)
+        self.publishStream!.publish(Testbed.getParameter(param: "stream1") as! String, type: R5RecordTypeLive)
     }
 }

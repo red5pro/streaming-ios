@@ -21,9 +21,9 @@ class PublishStreamManagerTest: BaseTest {
         setupDefaultR5VideoViewController()
         
         // url format https://{streammanagerhost}:{port}/streammanager/api/2.0/event/{scopeName}/{streamName}?action=broadcast
-        let urlString = "http://" + (Testbed.getParameter("host") as! String) + ":5080/streammanager/api/2.0/event/" +
-            (Testbed.getParameter("context") as! String) + "/" +
-            (Testbed.getParameter("stream1") as! String) + "?action=broadcast"
+        let urlString = "http://" + (Testbed.getParameter(param: "host") as! String) + ":5080/streammanager/api/2.0/event/" +
+            (Testbed.getParameter(param: "context") as! String) + "/" +
+            (Testbed.getParameter(param: "stream1") as! String) + "?action=broadcast"
             
         
         NSURLConnection.sendAsynchronousRequest(
@@ -55,10 +55,10 @@ class PublishStreamManagerTest: BaseTest {
                 //   Setup a configuration object for our connection
                 let config = R5Configuration()
                 config.host = ip
-                config.port = Int32(Testbed.getParameter("port") as! Int)
-                config.contextName = Testbed.getParameter("context") as! String
+                config.port = Int32(Testbed.getParameter(param: "port") as! Int)
+                config.contextName = Testbed.getParameter(param: "context") as! String
                 config.`protocol` = 1;
-                config.buffer_time = Testbed.getParameter("buffer_time") as! Float
+                config.buffer_time = Testbed.getParameter(param: "buffer_time") as! Float
                 
                 //   Create a new connection using the configuration above
                 let connection = R5Connection(config: config)
@@ -71,7 +71,7 @@ class PublishStreamManagerTest: BaseTest {
                     
                     self.currentView!.attach(self.publishStream!)
                     
-                    self.publishStream!.publish(Testbed.getParameter("stream1") as! String, type: R5RecordTypeLive)
+                    self.publishStream!.publish(Testbed.getParameter(param: "stream1") as! String, type: R5RecordTypeLive)
                     
                     let label = UILabel(frame: CGRect(x: 0, y: self.view.frame.height-24, width: self.view.frame.width, height: 24))
                     label.textAlignment = NSTextAlignment.left

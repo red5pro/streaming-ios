@@ -50,11 +50,12 @@ class BaseTest: UIViewController , R5StreamDelegate {
     func getConfig()->R5Configuration{
         // Set up the configuration
         let config = R5Configuration()
-        config.host = Testbed.getParameter("host") as! String
-        config.port = Int32(Testbed.getParameter("port") as! Int)
-        config.contextName = Testbed.getParameter("context") as! String
+        config.host = Testbed.getParameter(param: "host") as! String
+        config.port = Int32(Testbed.getParameter(param: "port") as! Int)
+        config.contextName = Testbed.getParameter(param: "context") as! String
         config.`protocol` = 1;
-        config.buffer_time = Testbed.getParameter("buffer_time") as! Float
+        config.buffer_time = Testbed.getParameter(param: "buffer_time") as! Float
+        config.licenseKey = Testbed.getParameter(param: "license_key") as! String
         return config
     }
     
@@ -75,17 +76,17 @@ class BaseTest: UIViewController , R5StreamDelegate {
         self.publishStream = R5Stream(connection: connection)
         self.publishStream!.delegate = self
         
-        if(Testbed.getParameter("video_on") as! Bool){
+        if(Testbed.getParameter(param: "video_on") as! Bool){
             // Attach the video from camera to stream
             let videoDevice = AVCaptureDevice.devices(withMediaType: AVMediaTypeVideo).last as? AVCaptureDevice
             
-            let camera = R5Camera(device: videoDevice, andBitRate: Int32(Testbed.getParameter("bitrate") as! Int))
-            camera?.width = Int32(Testbed.getParameter("camera_width") as! Int)
-            camera?.height = Int32(Testbed.getParameter("camera_height") as! Int)
+            let camera = R5Camera(device: videoDevice, andBitRate: Int32(Testbed.getParameter(param: "bitrate") as! Int))
+            camera?.width = Int32(Testbed.getParameter(param: "camera_width") as! Int)
+            camera?.height = Int32(Testbed.getParameter(param: "camera_height") as! Int)
             camera?.orientation = 90
             self.publishStream!.attachVideo(camera)
         }
-        if(Testbed.getParameter("audio_on") as! Bool){
+        if(Testbed.getParameter(param: "audio_on") as! Bool){
             // Attach the audio from microphone to stream
             let audioDevice = AVCaptureDevice.defaultDevice(withMediaType: AVMediaTypeAudio)
             let microphone = R5Microphone(device: audioDevice)
@@ -129,7 +130,7 @@ class BaseTest: UIViewController , R5StreamDelegate {
         
         r5View.showPreview(true)
 
-        r5View.showDebugInfo(Testbed.getParameter("debug_view") as! Bool)
+        r5View.showDebugInfo(Testbed.getParameter(param: "debug_view") as! Bool)
 
         currentView = r5View;
         

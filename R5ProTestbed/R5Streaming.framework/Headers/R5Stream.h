@@ -32,15 +32,15 @@ enum R5StreamMode{
     r5_stream_mode_idle,
     r5_stream_mode_streaming,
     r5_stream_mode_publishing
-    
+
 };
 
 /**
  *  @brief The main stream class of Red5Pro.  Utilizes the #R5Connection to connect and communicate with a server instance.
  */
 @interface R5Stream : NSObject{
-    
-    
+
+
 }
 
 /**
@@ -192,7 +192,7 @@ enum R5StreamMode{
  *  @param msg        A string description of the event.
  *
  *
- * 
+ *
  *  Status Code     |  Msg
  *  -----------     | ------------
  *  CONNECTED       |   null
@@ -207,6 +207,8 @@ enum R5StreamMode{
  *  AUDIO_UNMUTE    |   null
  *  VIDEO_MUTE      |   null
  *  VIDEO_UNMUTE    |   null
+ *  LICENSE_ERROR   |   null
+ *  LICENSE_VALID   |   null
  *
  */
 -(void)onR5StreamStatus:(R5Stream *)stream withStatus:(int) statusCode withMessage:(NSString*)msg;

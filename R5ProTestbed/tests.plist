@@ -4,6 +4,10 @@
 <dict>
 	<key>GlobalProperties</key>
 	<dict>
+		<key>license_key</key>
+		<string></string>
+		<key>server_port</key>
+		<string>5080</string>
 		<key>bitrate</key>
 		<integer>750</integer>
 		<key>host</key>

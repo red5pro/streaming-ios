@@ -18,23 +18,20 @@ extern "C" {
 #include <pthread.h> 
 #endif
 
-    
 #define STRINGIFY_(s) #s
 #define STRINGIFY(s) STRINGIFY_(s)
-    
-#define R5PRO_MAJOR_VERSION         2
-#define R5PRO_MINOR_VERSION         1
+
+#define R5PRO_MAJOR_VERSION         3
+#define R5PRO_MINOR_VERSION         0
 #define R5PRO_REVISION              0
-#define R5PRO_BUILD                 0
+#define R5PRO_BUILD                 2
     
 #define R5PRO_VERSION               STRINGIFY(R5PRO_MAJOR_VERSION.R5PRO_MINOR_VERSION.R5PRO_REVISION.R5PRO_BUILD)
 #define R5PRO_VERSION_ISRELEASE     0
 #define R5PRO_VERSION_CHECK(maj, min) ((maj==MYLIB_MAJOR_VERSION) && (min<=MYLIB_MINOR_VERSION))
-    
-    
+      
 #define SEC_TO_NANO 1e9
 #define SEC_TO_MS 1e3 
-
 
 #if defined(__APPLE__) && defined(__MACH__)
 /* Apple OSX and iOS (Darwin). ------------------------------ */
@@ -68,7 +65,7 @@ extern "C" {
 #endif
 
 #define check_mem(A) check((A), "Out of memory.")
-
+    
     /**
      * Logging level for R5 Pro API
      */
@@ -82,7 +79,7 @@ extern "C" {
     /**
      * Status code for an R5Stream/R5Connection
      */
-    enum r5_status{
+    enum r5_status {
         r5_status_connected,            //!< A connection with the server has been established.  Streaming has *not* started yet.
         r5_status_disconnected,         //!< The connection with the server has been lost.
         r5_status_connection_error,     //!< There was an error with the connection.
@@ -94,7 +91,9 @@ extern "C" {
         r5_status_audio_mute,           //!< Publisher has muted their audio stream
         r5_status_audio_unmute,         //!< Publisher has unmuted their audio stream
         r5_status_video_mute,           //!< Publisher has muted their video stream
-        r5_status_video_unmute          //!< Publisher has unmuted their video stream
+        r5_status_video_unmute,         //!< Publisher has unmuted their video stream
+        r5_status_license_error,        //!< An error in validating the SDK license.
+        r5_status_license_valid         //!< The license key provided for the SDK is deemed valid.
     };
     
     /**
@@ -164,7 +163,10 @@ extern "C" {
      *
      *  @return if build is valid or not
      */
-    int r5_valid_license();
+    int requires_sdk_license();
+    int r5_valid_license(client_ctx* ctx, const void* license);
+    void r5_validate_license(client_ctx* ctx, const char* license, const char* stream_name, int publish_type);
+    void r5_cancel_license_validation();
     
     /**
      *  @return The current logging level for the R5 Pro library
@@ -211,9 +213,7 @@ extern "C" {
      *  @return stats object with current state
      */
     r5_stats *r5_client_stats(client_ctx* client);
-    
-    
-    
+ 
     
 #ifdef __cplusplus
 }

@@ -59,7 +59,7 @@ class MasterViewController: UITableViewController {
         if segue.identifier == "showDetail" {
             if let indexPath = self.tableView.indexPathForSelectedRow {
               
-                let object = Testbed.testAtIndex((indexPath as NSIndexPath).row)
+                let object = Testbed.testAtIndex(index: (indexPath as NSIndexPath).row)
                 let controller = (segue.destination as! UINavigationController).topViewController as! DetailViewController
                 controller.detailItem = object
                 controller.navigationItem.leftBarButtonItem = self.splitViewController?.displayModeButtonItem
@@ -85,7 +85,7 @@ class MasterViewController: UITableViewController {
 
 
         let index: Int = indexPath.row
-        let dict: NSDictionary = Testbed.testAtIndex(index)!
+        let dict: NSDictionary = Testbed.testAtIndex(index: index)!
         let name: String = dict.value(forKey: "name") as! String
         cell.textLabel!.text = name
         return cell

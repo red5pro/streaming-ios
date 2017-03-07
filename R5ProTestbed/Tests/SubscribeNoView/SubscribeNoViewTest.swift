@@ -20,7 +20,7 @@ class SubscribeNoViewTest: BaseTest {
         let connection = R5Connection(config: config)
         self.subscribeStream = R5Stream(connection: connection)
         
-        self.subscribeStream!.play(Testbed.getParameter("stream1") as! String)
+        self.subscribeStream!.play(Testbed.getParameter(param: "stream1") as! String)
     }
     
 }

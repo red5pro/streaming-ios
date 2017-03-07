@@ -21,6 +21,7 @@ FOUNDATION_EXPORT const unsigned char R5StreamingVersionString[];
 #import <R5Streaming/R5Stream.h>
 #import <R5Streaming/R5Configuration.h>
 #import <R5Streaming/R5AdaptiveBitrateController.h>
+#import <R5Streaming/R5SharedObject.h>
 #import <R5Streaming/publish.h>
 #import <R5Streaming/global.h>
 #import <R5Streaming/connection.h>

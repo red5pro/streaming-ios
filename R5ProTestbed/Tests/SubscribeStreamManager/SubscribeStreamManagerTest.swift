@@ -21,9 +21,9 @@ class SubscribeStreamManagerTest: BaseTest {
         setupDefaultR5VideoViewController()
         
         // url format https://{streammanagerhost}:{port}/streammanager/api/2.0/event/{scopeName}/{streamName}?action=subscribe
-        let urlString = "http://" + (Testbed.getParameter("host") as! String) + ":5080/streammanager/api/2.0/event/" +
-            (Testbed.getParameter("context") as! String) + "/" +
-            (Testbed.getParameter("stream1") as! String) + "?action=subscribe"
+        let urlString = "http://" + (Testbed.getParameter(param: "host") as! String) + ":5080/streammanager/api/2.0/event/" +
+            (Testbed.getParameter(param: "context") as! String) + "/" +
+            (Testbed.getParameter(param: "stream1") as! String) + "?action=subscribe"
         
         NSURLConnection.sendAsynchronousRequest(
             URLRequest( url: URL(string: urlString)! ),
@@ -59,10 +59,10 @@ class SubscribeStreamManagerTest: BaseTest {
                 //   Setup a configuration object for our connection
                 let config = R5Configuration()
                 config.host = ip
-                config.port = Int32(Testbed.getParameter("port") as! Int)
-                config.contextName = Testbed.getParameter("context") as! String
+                config.port = Int32(Testbed.getParameter(param: "port") as! Int)
+                config.contextName = Testbed.getParameter(param: "context") as! String
                 config.`protocol` = 1;
-                config.buffer_time = Testbed.getParameter("buffer_time") as! Float
+                config.buffer_time = Testbed.getParameter(param: "buffer_time") as! Float
                 
                 //   Create a new connection using the configuration above
                 let connection = R5Connection(config: config)
@@ -76,7 +76,7 @@ class SubscribeStreamManagerTest: BaseTest {
                     
                     self.currentView?.attach(self.subscribeStream)
                     
-                    self.subscribeStream!.play(Testbed.getParameter("stream1") as! String)
+                    self.subscribeStream!.play(Testbed.getParameter(param: "stream1") as! String)
                     
                     let label = UILabel(frame: CGRect(x: 0, y: self.view.frame.height-24, width: self.view.frame.width, height: 24))
                     label.textAlignment = NSTextAlignment.left
