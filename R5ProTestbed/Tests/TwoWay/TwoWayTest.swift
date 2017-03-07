@@ -30,7 +30,7 @@ class TwoWayTest: BaseTest {
         
         publishView!.showPreview(true)
         
-        publishView!.showDebugInfo(Testbed.getParameter("debug_view") as! Bool)
+        publishView!.showDebugInfo(Testbed.getParameter(param: "debug_view") as! Bool)
         
         // Set up the configuration
         let config = getConfig()
@@ -47,7 +47,7 @@ class TwoWayTest: BaseTest {
         publishView?.view.frame = newFrame
         
         self.publishStream?.client = self;
-        self.publishStream!.publish(Testbed.getParameter("stream1") as! String, type: R5RecordTypeLive)
+        self.publishStream!.publish(Testbed.getParameter(param: "stream1") as! String, type: R5RecordTypeLive)
     }
     
     func subscribeBegin()
@@ -63,7 +63,7 @@ class TwoWayTest: BaseTest {
             
             currentView?.attach(subscribeStream)
             
-            self.subscribeStream!.play(Testbed.getParameter("stream2") as! String)
+            self.subscribeStream!.play(Testbed.getParameter(param: "stream2") as! String)
         }
     }
     
@@ -97,7 +97,7 @@ class TwoWayTest: BaseTest {
         
         for i in 0..<names.count {
             
-            if( Testbed.getParameter("stream2") as! String == names[i] as! String )
+            if( Testbed.getParameter(param: "stream2") as! String == names[i] as! String )
             {
                 subscribeBegin()
                 return

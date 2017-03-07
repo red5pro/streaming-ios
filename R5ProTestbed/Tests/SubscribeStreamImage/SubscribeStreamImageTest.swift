@@ -31,7 +31,7 @@ class SubscribeStreamImageTest: BaseTest {
         currentView?.attach(subscribeStream)
         
         
-        self.subscribeStream!.play(Testbed.getParameter("stream1") as! String)
+        self.subscribeStream!.play(Testbed.getParameter(param: "stream1") as! String)
         
         let tap : UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(SubscribeStreamImageTest.handleSingleTap(recognizer:)))
         

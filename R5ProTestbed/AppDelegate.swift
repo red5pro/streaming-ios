@@ -23,7 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
         let t = Testbed.sharedInstance
         
         let d = Testbed.dictionary
-        NSLog((Testbed.testAtIndex(0)?.description)!)
+        NSLog((Testbed.testAtIndex(index: 0)?.description)!)
         //NSLog(Testbed.sharedInstance.testWithId("publish")!.description)
         
         let splitViewController = self.window!.rootViewController as! UISplitViewController
