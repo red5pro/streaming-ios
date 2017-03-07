@@ -5,13 +5,13 @@
 	<key>GlobalProperties</key>
 	<dict>
 		<key>license_key</key>
-		<string></string>
+		<string>DEDH-IJQ5-Z6SP-KHV7</string>
 		<key>server_port</key>
 		<string>5080</string>
 		<key>bitrate</key>
 		<integer>750</integer>
 		<key>host</key>
-		<string>0.0.0.0</string>
+		<string>10.0.0.10</string>
 		<key>buffer_time</key>
 		<real>0.2</real>
 		<key>port</key>
@@ -185,6 +185,17 @@
 			<string>Publish - Stream Manager</string>
 			<key>class</key>
 			<string>PublishStreamManagerTest</string>
+		</dict>
+		<key>Shared Object</key>
+		<dict>
+			<key>description</key>
+			<string>An example of communicating information through shared objects</string>
+			<key>LocalProperties</key>
+			<dict/>
+			<key>name</key>
+			<string>SharedObject</string>
+			<key>class</key>
+			<string>SharedObjectTest</string>
 		</dict>
 		<key>subscribe</key>
 		<dict>

@@ -19,6 +19,7 @@ class SubscribeNoViewTest: BaseTest {
         // Set up the connection and stream
         let connection = R5Connection(config: config)
         self.subscribeStream = R5Stream(connection: connection)
+        self.subscribeStream!.delegate = self
         
         self.subscribeStream!.play(Testbed.getParameter(param: "stream1") as! String)
     }

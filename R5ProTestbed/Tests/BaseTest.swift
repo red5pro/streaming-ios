@@ -9,6 +9,19 @@
 import UIKit
 import R5Streaming
 
+enum AccessError: Error {
+    case error(message: String)
+}
+
+extension AccessError: LocalizedError {
+    public var errorDescription: String? {
+        switch self {
+        case .error:
+            return NSLocalizedString("Unable to fetch stream for action subscribe.", comment: "Access Error")
+        }
+    }
+}
+
 @objc(BaseTest)
 class BaseTest: UIViewController , R5StreamDelegate {
     
@@ -107,7 +120,7 @@ class BaseTest: UIViewController , R5StreamDelegate {
         
         r5_set_log_level((Int32)(r5_log_level_debug.rawValue))
         
-        self.view.autoresizesSubviews = true
+        self.view.autoresizesSubviews = false
         
     }
     
@@ -127,6 +140,7 @@ class BaseTest: UIViewController , R5StreamDelegate {
         
         
         view.addSubview(r5View.view)
+        r5View.setFrame(self.view.bounds)
         
         r5View.showPreview(true)
 
@@ -147,4 +161,17 @@ class BaseTest: UIViewController , R5StreamDelegate {
         return r5View;
     }
 
+    
+    open override var shouldAutorotate:Bool {
+        get {
+            return true
+        }
+    }
+    
+    open override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        get {
+            return [UIInterfaceOrientationMask.all]
+        }
+    }
+    
 }

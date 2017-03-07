@@ -31,7 +31,7 @@ class SubscribeTest: BaseTest {
         let connection = R5Connection(config: config)
         self.subscribeStream = R5Stream(connection: connection)
         self.subscribeStream!.delegate = self
-        self.subscribeStream?.client = self;
+        self.subscribeStream?.client = self
         
         currentView?.attach(subscribeStream)
         
