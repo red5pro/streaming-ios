@@ -22,19 +22,23 @@
 		</data>
 		<key>Headers/R5Configuration.h</key>
 		<data>
-		PGvXo+880HvO/HGzQzRgMw5yhDU=
+		ayhHKE+hlqjVCQ2EXKK2LMO6/0g=
 		</data>
 		<key>Headers/R5Connection.h</key>
 		<data>
-		318NWc1x+HDhhglr7LvCzLETT1M=
+		4+oHk4TcQgqdaJ/NrjW2N9RGYrw=
+		</data>
+		<key>Headers/R5SharedObject.h</key>
+		<data>
+		c4bhnuE+abttmFWsOo1GSdP2Wcs=
 		</data>
 		<key>Headers/R5Stream.h</key>
 		<data>
-		otqD+0Q2vE1OLto1/C3asbFpM8A=
+		hF5K6B5wPLcP6ppPzVmSETXrR48=
 		</data>
 		<key>Headers/R5Streaming.h</key>
 		<data>
-		5tMO9dkjFygcrpxRVB1YNsNujqI=
+		V6rEgBWf93QO461WaRKjEYShtXY=
 		</data>
 		<key>Headers/R5VideoSource.h</key>
 		<data>
@@ -54,7 +58,7 @@
 		</data>
 		<key>Headers/global.h</key>
 		<data>
-		n0sck/BWVBMf/xmobDWBiYexfJk=
+		nlkkfsILo40SthJuwhdFEwgeucI=
 		</data>
 		<key>Headers/parse_util.h</key>
 		<data>
@@ -70,7 +74,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		PxgO05bKo8/4bB7YjWlChC3uLmI=
+		cGNA208Y+mZqox22Ki9kbYHhqVY=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -80,192 +84,77 @@
 	<key>files2</key>
 	<dict>
 		<key>Headers/AVEncoder.h</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			8Log7+R7VxvLOYPBz3r6SUn0oBA=
-			</data>
-			<key>hash2</key>
-			<data>
-			cFG17s09Ph4iII5M/A6mY4ykeJnFyY4nxgJvTDD9Vt4=
-			</data>
-		</dict>
+		<data>
+		8Log7+R7VxvLOYPBz3r6SUn0oBA=
+		</data>
 		<key>Headers/R5AdaptiveBitrateController.h</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			zkFmrYT2RgXT+k0nJjfaf3anZDg=
-			</data>
-			<key>hash2</key>
-			<data>
-			3HxkVJPZTr9XMgKHRm6TfyzxpFZNB1OA67FvX2RWTSk=
-			</data>
-		</dict>
+		<data>
+		zkFmrYT2RgXT+k0nJjfaf3anZDg=
+		</data>
 		<key>Headers/R5AudioController.h</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			gVzo2gSrI60/+RcX0w+XE4OHsj0=
-			</data>
-			<key>hash2</key>
-			<data>
-			kas9kMU7ly73ilQpq+aWMJBtEHmTqqdClKVLRXT9Ifo=
-			</data>
-		</dict>
+		<data>
+		gVzo2gSrI60/+RcX0w+XE4OHsj0=
+		</data>
 		<key>Headers/R5Camera.h</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			l9hv1fBWMfPUB4KNmMl5pepx4Hg=
-			</data>
-			<key>hash2</key>
-			<data>
-			MVQdDznXH3Yp8R+8s2g19saO7OzG7mlK3uJD/sDN74M=
-			</data>
-		</dict>
+		<data>
+		l9hv1fBWMfPUB4KNmMl5pepx4Hg=
+		</data>
 		<key>Headers/R5Configuration.h</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			PGvXo+880HvO/HGzQzRgMw5yhDU=
-			</data>
-			<key>hash2</key>
-			<data>
-			QiEprpIWI43BEytmg8BU+4psAIHZHJJIKg/2ZkriRbM=
-			</data>
-		</dict>
+		<data>
+		ayhHKE+hlqjVCQ2EXKK2LMO6/0g=
+		</data>
 		<key>Headers/R5Connection.h</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			318NWc1x+HDhhglr7LvCzLETT1M=
-			</data>
-			<key>hash2</key>
-			<data>
-			i+O7cC53so74aIA6iHa8GumZq9paBOfp9ly3t2B5vZk=
-			</data>
-		</dict>
+		<data>
+		4+oHk4TcQgqdaJ/NrjW2N9RGYrw=
+		</data>
+		<key>Headers/R5SharedObject.h</key>
+		<data>
+		c4bhnuE+abttmFWsOo1GSdP2Wcs=
+		</data>
 		<key>Headers/R5Stream.h</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			otqD+0Q2vE1OLto1/C3asbFpM8A=
-			</data>
-			<key>hash2</key>
-			<data>
-			UZn1IP8aN67UC/tYGQw6mRM/1fKc5y3DhQNYn4O8hSU=
-			</data>
-		</dict>
+		<data>
+		hF5K6B5wPLcP6ppPzVmSETXrR48=
+		</data>
 		<key>Headers/R5Streaming.h</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			5tMO9dkjFygcrpxRVB1YNsNujqI=
-			</data>
-			<key>hash2</key>
-			<data>
-			Tw4Z8PdjDpbSTitvRzNo/oaoqL8w7d6iIfIJBobOV/g=
-			</data>
-		</dict>
+		<data>
+		V6rEgBWf93QO461WaRKjEYShtXY=
+		</data>
 		<key>Headers/R5VideoSource.h</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			/lgE7qKnXh14mMztT+mKEiVj2BY=
-			</data>
-			<key>hash2</key>
-			<data>
-			j8Z1tJN9xS2axAm4OivnfSG+XKL5GtmvxPmoQA66x6k=
-			</data>
-		</dict>
+		<data>
+		/lgE7qKnXh14mMztT+mKEiVj2BY=
+		</data>
 		<key>Headers/R5VideoViewController.h</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			DeVd0/m0/2Q2kgpHTxiklagoBuA=
-			</data>
-			<key>hash2</key>
-			<data>
-			xteNIWcwbR14oHehX6MRNv248vqPcqn0+LWTAEQEpt0=
-			</data>
-		</dict>
+		<data>
+		DeVd0/m0/2Q2kgpHTxiklagoBuA=
+		</data>
 		<key>Headers/codec_facade.h</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			I4bc/dY/Vk0Hp7Q5FZ7uH50sgwo=
-			</data>
-			<key>hash2</key>
-			<data>
-			aDB4dOs+nVvM0k9piC/N20g+AeYSs3678wHpTR8IFKU=
-			</data>
-		</dict>
+		<data>
+		I4bc/dY/Vk0Hp7Q5FZ7uH50sgwo=
+		</data>
 		<key>Headers/connection.h</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			buT40SKAyKh5T8NU3JJL8/1LbcI=
-			</data>
-			<key>hash2</key>
-			<data>
-			aeSRSev3jEq6OppEeDQBP+JGxjjnJr6jTrF7UMC8+g8=
-			</data>
-		</dict>
+		<data>
+		buT40SKAyKh5T8NU3JJL8/1LbcI=
+		</data>
 		<key>Headers/global.h</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			n0sck/BWVBMf/xmobDWBiYexfJk=
-			</data>
-			<key>hash2</key>
-			<data>
-			Q1lAxKjjc0jtKKKE4ZkQ6VRe8/D/VHLRKRCToJOzbW4=
-			</data>
-		</dict>
+		<data>
+		nlkkfsILo40SthJuwhdFEwgeucI=
+		</data>
 		<key>Headers/parse_util.h</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			qim3pDyB769D7HIsKpi+kbLoo5g=
-			</data>
-			<key>hash2</key>
-			<data>
-			qb0EZtoE9hj5C5KnFtDvC5VUqinnrAQOseGzB+EvUeg=
-			</data>
-		</dict>
+		<data>
+		qim3pDyB769D7HIsKpi+kbLoo5g=
+		</data>
 		<key>Headers/publish.h</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			GHAFWpgHOeKbClEH4Ow2L4KqW8k=
-			</data>
-			<key>hash2</key>
-			<data>
-			2ZqkxDvHdmevoiwEll1B4rl99AUu0Mz00W0gdfJQ8iA=
-			</data>
-		</dict>
+		<data>
+		GHAFWpgHOeKbClEH4Ow2L4KqW8k=
+		</data>
 		<key>Headers/session_description.h</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			i7hqkqy77Ce5s4kUa5utkuj6UUA=
-			</data>
-			<key>hash2</key>
-			<data>
-			EfSbZ7s34pdKhl/JJPBwFxPB7IASRf1mGjTITMjaEdE=
-			</data>
-		</dict>
+		<data>
+		i7hqkqy77Ce5s4kUa5utkuj6UUA=
+		</data>
 		<key>Modules/module.modulemap</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			tOdhB530EnW1VsyDpGfQPObaxh4=
-			</data>
-			<key>hash2</key>
-			<data>
-			uGUmiTtd5DDGwLrPyK1zdlwwSBue48L9b7SfgqmXg/w=
-			</data>
-		</dict>
+		<data>
+		tOdhB530EnW1VsyDpGfQPObaxh4=
+		</data>
 	</dict>
 	<key>rules</key>
 	<dict>
@@ -284,11 +173,6 @@
 			<true/>
 			<key>weight</key>
 			<real>1100</real>
-		</dict>
-		<key>^Base\.lproj/</key>
-		<dict>
-			<key>weight</key>
-			<real>1010</real>
 		</dict>
 		<key>^version.plist$</key>
 		<true/>
@@ -334,11 +218,6 @@
 			<true/>
 			<key>weight</key>
 			<real>1100</real>
-		</dict>
-		<key>^Base\.lproj/</key>
-		<dict>
-			<key>weight</key>
-			<real>1010</real>
 		</dict>
 		<key>^Info\.plist$</key>
 		<dict>

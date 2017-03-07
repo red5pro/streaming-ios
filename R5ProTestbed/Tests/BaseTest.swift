@@ -9,6 +9,19 @@
 import UIKit
 import R5Streaming
 
+enum AccessError: Error {
+    case error(message: String)
+}
+
+extension AccessError: LocalizedError {
+    public var errorDescription: String? {
+        switch self {
+        case .error:
+            return NSLocalizedString("Unable to fetch stream for action subscribe.", comment: "Access Error")
+        }
+    }
+}
+
 @objc(BaseTest)
 class BaseTest: UIViewController , R5StreamDelegate {
     
@@ -50,11 +63,12 @@ class BaseTest: UIViewController , R5StreamDelegate {
     func getConfig()->R5Configuration{
         // Set up the configuration
         let config = R5Configuration()
-        config.host = Testbed.getParameter("host") as! String
-        config.port = Int32(Testbed.getParameter("port") as! Int)
-        config.contextName = Testbed.getParameter("context") as! String
+        config.host = Testbed.getParameter(param: "host") as! String
+        config.port = Int32(Testbed.getParameter(param: "port") as! Int)
+        config.contextName = Testbed.getParameter(param: "context") as! String
         config.`protocol` = 1;
-        config.buffer_time = Testbed.getParameter("buffer_time") as! Float
+        config.buffer_time = Testbed.getParameter(param: "buffer_time") as! Float
+        config.licenseKey = Testbed.getParameter(param: "license_key") as! String
         return config
     }
     
@@ -75,17 +89,17 @@ class BaseTest: UIViewController , R5StreamDelegate {
         self.publishStream = R5Stream(connection: connection)
         self.publishStream!.delegate = self
         
-        if(Testbed.getParameter("video_on") as! Bool){
+        if(Testbed.getParameter(param: "video_on") as! Bool){
             // Attach the video from camera to stream
             let videoDevice = AVCaptureDevice.devices(withMediaType: AVMediaTypeVideo).last as? AVCaptureDevice
             
-            let camera = R5Camera(device: videoDevice, andBitRate: Int32(Testbed.getParameter("bitrate") as! Int))
-            camera?.width = Int32(Testbed.getParameter("camera_width") as! Int)
-            camera?.height = Int32(Testbed.getParameter("camera_height") as! Int)
+            let camera = R5Camera(device: videoDevice, andBitRate: Int32(Testbed.getParameter(param: "bitrate") as! Int))
+            camera?.width = Int32(Testbed.getParameter(param: "camera_width") as! Int)
+            camera?.height = Int32(Testbed.getParameter(param: "camera_height") as! Int)
             camera?.orientation = 90
             self.publishStream!.attachVideo(camera)
         }
-        if(Testbed.getParameter("audio_on") as! Bool){
+        if(Testbed.getParameter(param: "audio_on") as! Bool){
             // Attach the audio from microphone to stream
             let audioDevice = AVCaptureDevice.defaultDevice(withMediaType: AVMediaTypeAudio)
             let microphone = R5Microphone(device: audioDevice)
@@ -106,7 +120,7 @@ class BaseTest: UIViewController , R5StreamDelegate {
         
         r5_set_log_level((Int32)(r5_log_level_debug.rawValue))
         
-        self.view.autoresizesSubviews = true
+        self.view.autoresizesSubviews = false
         
     }
     
@@ -126,10 +140,11 @@ class BaseTest: UIViewController , R5StreamDelegate {
         
         
         view.addSubview(r5View.view)
+        r5View.setFrame(self.view.bounds)
         
         r5View.showPreview(true)
 
-        r5View.showDebugInfo(Testbed.getParameter("debug_view") as! Bool)
+        r5View.showDebugInfo(Testbed.getParameter(param: "debug_view") as! Bool)
 
         currentView = r5View;
         
@@ -146,4 +161,17 @@ class BaseTest: UIViewController , R5StreamDelegate {
         return r5View;
     }
 
+    
+    open override var shouldAutorotate:Bool {
+        get {
+            return true
+        }
+    }
+    
+    open override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        get {
+            return [UIInterfaceOrientationMask.all]
+        }
+    }
+    
 }

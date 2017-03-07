@@ -29,7 +29,7 @@ class SubscribeTwoStreams: BaseTest {
         firstView = getNewR5VideoViewController(CGRect( x: 0, y: 0, width: screenSize.width, height: screenSize.height / 2 ))
         self.addChildViewController(firstView!)
         view.addSubview((firstView?.view)!)
-        firstView?.showDebugInfo(Testbed.getParameter("debug_view") as! Bool)
+        firstView?.showDebugInfo(Testbed.getParameter(param: "debug_view") as! Bool)
         
         firstView?.view.center = CGPoint( x: screenSize.width/2, y: screenSize.height/4 )
         
@@ -44,7 +44,7 @@ class SubscribeTwoStreams: BaseTest {
         
         self.subscribeStream!.audioController = R5AudioController(mode: R5AudioControllerModeStandardIO)
         
-        self.subscribeStream!.play(Testbed.getParameter("stream1") as! String)
+        self.subscribeStream!.play(Testbed.getParameter(param: "stream1") as! String)
         
         
         let connection2 = R5Connection(config: config)
@@ -56,7 +56,7 @@ class SubscribeTwoStreams: BaseTest {
         secondView = getNewR5VideoViewController(CGRect( x: 0, y: screenSize.height / 2, width: screenSize.width, height: screenSize.height / 2 ))
         self.addChildViewController(secondView!)
         view.addSubview((secondView?.view)!)
-        secondView?.showDebugInfo(Testbed.getParameter("debug_view") as! Bool)
+        secondView?.showDebugInfo(Testbed.getParameter(param: "debug_view") as! Bool)
         
         secondView?.view.center = CGPoint( x: screenSize.width/2, y: 3 * (screenSize.height/4) )
         
@@ -64,7 +64,7 @@ class SubscribeTwoStreams: BaseTest {
         
         self.subscribeStream2?.audioController = R5AudioController(mode: R5AudioControllerModeEchoCancellation)
         
-        self.subscribeStream2?.play(Testbed.getParameter("stream2") as! String)
+        self.subscribeStream2?.play(Testbed.getParameter(param: "stream2") as! String)
     }
     
     func onMetaData(_ data : String){

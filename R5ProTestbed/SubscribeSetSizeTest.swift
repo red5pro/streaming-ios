@@ -24,7 +24,7 @@ class SubscribeSetSizeTest: BaseTest {
         
         currentView?.attach(subscribeStream)
         
-        self.subscribeStream!.play(Testbed.getParameter("stream1") as! String)
+        self.subscribeStream!.play(Testbed.getParameter(param: "stream1") as! String)
         
         
         let tap : UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(SubscribeSetSizeTest.handleSingleTap(_:)))
@@ -42,7 +42,7 @@ class SubscribeSetSizeTest: BaseTest {
         
         r5View.showPreview(true)
         
-        r5View.showDebugInfo(Testbed.getParameter("debug_view") as! Bool)
+        r5View.showDebugInfo(Testbed.getParameter(param: "debug_view") as! Bool)
         
         currentView = r5View;
 

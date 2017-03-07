@@ -35,45 +35,53 @@ class Testbed: NSObject {
         return (Testbed.tests?.count)!
     }
     
-    static func testAtIndex(_ index : Int)-> NSDictionary?{
+    static func testAtIndex(index : Int)-> NSDictionary?{
      
         return tests![index]
     }
     
     
-    static func setHost(_ ip : String){
+    static func setHost(ip : String){
         Testbed.parameters?.setValue(ip, forKey: "host")
     }
     
-    static func setStreamName(_ name : String){
+    static func setServerPort(port : String) {
+        Testbed.parameters?.setValue(port, forKey: "server_port")
+    }
+    
+    static func setStreamName(name : String){
         Testbed.parameters?.setValue(name, forKey: "stream1")
     }
     
-    static func setStream1Name(_ name : String){
+    static func setStream1Name(name : String){
         Testbed.parameters?.setValue(name, forKey: "stream1")
     }
     
-    static func setStream2Name(_ name : String){
+    static func setStream2Name(name : String){
         Testbed.parameters?.setValue(name, forKey: "stream2")
     }
     
-    static func setDebug(_ on : Bool){
+    static func setDebug(on : Bool){
         Testbed.parameters?.setValue(on, forKey: "debug_view")
     }
     
-    static func setVideo(_ on : Bool){
+    static func setVideo(on : Bool){
         Testbed.parameters?.setValue(on, forKey: "video_on")
     }
     
-    static func setAudio(_ on : Bool){
+    static func setAudio(on : Bool){
         Testbed.parameters?.setValue(on, forKey: "audio_on")
     }
     
-    static func setLocalOverrides(_ params : NSMutableDictionary?){
+    static func setLocalOverrides(params : NSMutableDictionary?){
         Testbed.localParameters = params
     }
     
-    static func getParameter(_ param : String)->AnyObject?{
+    static func setLicenseKey(value: String) {
+        Testbed.parameters?.setValue(value, forKey: "license_key");
+    }
+    
+    static func getParameter(param : String)->AnyObject?{
         
         if(Testbed.localParameters != nil){
             if(Testbed.localParameters?[param] != nil){
