@@ -87,6 +87,22 @@
 			<key>class</key>
 			<string>AdaptiveBitrateControllerTest</string>
 		</dict>
+		<key>publish - Auth</key>
+		<dict>
+			<key>description</key>
+			<string>An authenticated publish example.</string>
+			<key>LocalProperties</key>
+			<dict>
+				<key>username</key>
+				<string>testuser</string>
+				<key>password</key>
+				<string>testpass</string>
+			</dict>
+			<key>name</key>
+			<string>Publish - Auth</string>
+			<key>class</key>
+			<string>PublishAuthTest</string>
+		</dict>
 		<key>publish - Camera Swap</key>
 		<dict>
 			<key>description</key>

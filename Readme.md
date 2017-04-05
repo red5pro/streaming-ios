@@ -25,9 +25,9 @@ Once you have modified your settings, you can run the application for simulator 
 
 > ***Note: Publishing does not currently work on simulator!***
 
-##Examples
+## Examples
 
-###[Publishing](R5ProTestbed/Tests/Publish)
+### [Publishing](R5ProTestbed/Tests/Publish)
 
 | **[1080p](R5ProTestbed/Tests/Publish)**                 
 | :-----
@@ -35,6 +35,9 @@ Once you have modified your settings, you can run the application for simulator 
 |
 | **[ABR](R5ProTestbed/Tests/AdaptiveBitrate)**
 | *A high bitrate publisher with AdaptiveBitrateController*   
+|
+| **[Authentication](R5ProTestbed/Tests/PublishAuth)**
+| *Enforce authentication before publishing*   
 |
 | **[Camera Swap](R5ProTestbed/Tests/CameraSwap)**
 | *Touch the screen to swap which camera is being used! erify with flash, android, or other iOS device running subscribe test that camera is swapping properly and no rendering problems occur.* 
@@ -66,7 +69,7 @@ Once you have modified your settings, you can run the application for simulator 
 | **[Two Way](R5ProTestbed/Tests/TwoWay)**
 | *An example of simultaneously publishing while subscribing - allowing a conversation. Includes stream detection and auto-connection.*
 
-###[Subscribing](R5ProTestbed/Tests/Subscribe)
+### [Subscribing](R5ProTestbed/Tests/Subscribe)
 
 | **[Aspect Ratio](R5ProTestbed/Tests/SubscribeAspectRatio)**
 | :----
@@ -94,8 +97,7 @@ Once you have modified your settings, you can run the application for simulator 
 | *An example of subscribing to multiple streams at once, useful for subscribing to a presentation hosted by two people using a Two Way connection.*
 
 
-     
-##Notes
+## Notes
 
 1. For some of the above examples you will need two devices (a publisher, and a subscriber). You can also use a web browser to subscribe or publish via Flash, http://your_red5_pro_server_ip:5080/live.
 2. You can see a list of active streams by navigating to http://your_red5_pro_server_ip:5080/live/subscribe.jsp (will need to refresh this page after you have started publishing).

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		482282591E4E47C80073F26C /* PublishDeviceOrientationTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 482282581E4E47C80073F26C /* PublishDeviceOrientationTest.swift */; };
+		48271C901E952DB200FC6332 /* PublishAuthTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48271C8F1E952DB200FC6332 /* PublishAuthTest.swift */; };
 		4838028E1E4115130098F5B7 /* PublishPauseTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4838028D1E4115130098F5B7 /* PublishPauseTest.swift */; };
 		485345071C23528400D409F3 /* PublishStreamImageTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 485345061C23528400D409F3 /* PublishStreamImageTest.swift */; };
 		485345091C23552F00D409F3 /* CameraSwapTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 485345081C23552F00D409F3 /* CameraSwapTest.swift */; };
@@ -54,6 +55,7 @@
 
 /* Begin PBXFileReference section */
 		482282581E4E47C80073F26C /* PublishDeviceOrientationTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PublishDeviceOrientationTest.swift; path = Tests/PublishDeviceOrientation/PublishDeviceOrientationTest.swift; sourceTree = "<group>"; };
+		48271C8F1E952DB200FC6332 /* PublishAuthTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PublishAuthTest.swift; path = Tests/PublishAuth/PublishAuthTest.swift; sourceTree = "<group>"; };
 		4838028D1E4115130098F5B7 /* PublishPauseTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PublishPauseTest.swift; path = Tests/PublishPause/PublishPauseTest.swift; sourceTree = "<group>"; };
 		485345061C23528400D409F3 /* PublishStreamImageTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PublishStreamImageTest.swift; path = Tests/PublishStreamImage/PublishStreamImageTest.swift; sourceTree = "<group>"; };
 		485345081C23552F00D409F3 /* CameraSwapTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CameraSwapTest.swift; path = Tests/CameraSwap/CameraSwapTest.swift; sourceTree = "<group>"; };
@@ -185,6 +187,7 @@
 		48DFEDC91C21BE0B0040B624 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				48271C8F1E952DB200FC6332 /* PublishAuthTest.swift */,
 				487CDBC31E6F1A39007FC4EA /* SharedObjectTest.swift */,
 				482282581E4E47C80073F26C /* PublishDeviceOrientationTest.swift */,
 				4838028D1E4115130098F5B7 /* PublishPauseTest.swift */,
@@ -321,6 +324,7 @@
 				926794F91D061942004B0BCD /* RecordedTest.swift in Sources */,
 				487CDBC41E6F1A39007FC4EA /* SharedObjectTest.swift in Sources */,
 				48DFEDCD1C21BF0A0040B624 /* PublishTest.swift in Sources */,
+				48271C901E952DB200FC6332 /* PublishAuthTest.swift in Sources */,
 				92EAA9DB1D0734EA00B2CE46 /* SubscribeAutoReconnectTest.swift in Sources */,
 				928B1CBD1CBC0DC5002C66BA /* SubscribeStreamManagerTest.swift in Sources */,
 				4874D59D1C2216DB00A98102 /* SubscribeTest.swift in Sources */,
