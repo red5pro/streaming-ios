@@ -99,7 +99,7 @@
 				<string>testpass</string>
 			</dict>
 			<key>name</key>
-			<string>Publish - Auth</string>
+			<string>Publish - Authentication</string>
 			<key>class</key>
 			<string>PublishAuthTest</string>
 		</dict>
@@ -235,6 +235,22 @@
 			<string>Subscribe - Aspect Ratio</string>
 			<key>class</key>
 			<string>SubscribeAspectRatioTest</string>
+		</dict>
+		<key>subscribe - Auth</key>
+		<dict>
+			<key>description</key>
+			<string>An authenticated subscribe example.</string>
+			<key>LocalProperties</key>
+			<dict>
+				<key>username</key>
+				<string>testuser</string>
+				<key>password</key>
+				<string>testpass</string>
+			</dict>
+			<key>name</key>
+			<string>Subscribe - Authentication</string>
+			<key>class</key>
+			<string>SubscribeAuthTest</string>
 		</dict>
 		<key>subscribe - Cluster</key>
 		<dict>
