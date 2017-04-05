@@ -1,8 +1,6 @@
 # Publisher Authentication using Red5 Pro
 This is an example of authenticating a Broadcast for stream playback.
 
-**Please refer to the [Basic Publisher Documentation](../publisher/README.md) to learn more about the basic setup.**
-
 ### Example Code
 - ***[BaseTest.swift](../BaseTest.swift)***
 - ***[PublishAuthTest.swift](PublishAuthTest.swift)***
