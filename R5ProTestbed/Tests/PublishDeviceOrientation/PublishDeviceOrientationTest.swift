@@ -54,15 +54,17 @@ class PublishDeviceOrientationTest: BaseTest {
         let cam = self.publishStream?.getVideoSource() as! R5Camera
         let orientation = UIApplication.shared.statusBarOrientation;
         
-        switch (orientation) {
-            case UIInterfaceOrientation.portrait:
-                cam.orientation = 90;
-            case UIInterfaceOrientation.portraitUpsideDown:
-                cam.orientation = 270;
-            case UIInterfaceOrientation.landscapeLeft:
-                cam.orientation = 0;
-            case UIInterfaceOrientation.landscapeRight:
+        switch UIDevice.current.orientation {
+            case .landscapeLeft:
                 cam.orientation = 180;
+            case .landscapeRight:
+                cam.orientation = 0;
+            case .portrait:
+                cam.orientation = 90;
+            case .portraitUpsideDown:
+                cam.orientation = 270;
+            case .unknown:
+                cam.orientation = 90;
             default:
                 cam.orientation = 90;
         }
