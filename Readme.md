@@ -59,12 +59,16 @@ Once you have modified your settings, you can run the application for simulator 
 |
 | **[Remote Call](R5ProTestbed/Tests/RemoteCall)**
 | *The publish portion of the remote call example - sends the remote call.*
-| 
+|
 | **[Stream Manager](R5ProTestbed/Tests/PublishStreamManager)**
 | *A publish example that connects with a server cluster using a Stream Manger*
 |
 | **[Two Way](R5ProTestbed/Tests/TwoWay)**
 | *An example of simultaneously publishing while subscribing - allowing a conversation. Includes stream detection and auto-connection.*
+|
+| **[Shared Object](R5ProTestbed/Tests/SharedObject)** - For publishing and subscribing
+| *To run the test, you will need at least two devices running the "Shared Object" example. Start example on one device and then on another; same stream name. Type and exchange messages between devices.*
+| 
 
 ###[Subscribing](R5ProTestbed/Tests/Subscribe)
 
