@@ -32,40 +32,40 @@ Once you have modified your settings, you can run the application for simulator 
 | **[1080p](R5ProTestbed/Tests/Publish)**                 
 | :---
 | *A high quality publisher. Note that this is the publish test with a non-default 'bitrate' and camera size values set in tests.plist* 
-|
+
 | **[ABR](R5ProTestbed/Tests/AdaptiveBitrate)**
 | *A high bitrate publisher with AdaptiveBitrateController*   
-|
+
 | **[Camera Swap](R5ProTestbed/Tests/CameraSwap)**
 | *Touch the screen to swap which camera is being used! erify with flash, android, or other iOS device running subscribe test that camera is swapping properly and no rendering problems occur.* 
-|
+
 | **[Mute/Unmute](R5ProTestbed/Tests/PublishPause)**
 | *Touch the screen to toggle between sending Audio & Video, sending just Video, sending just Audio, and sending no Audio or Video. Turning off and on the media sources is considered mute and unmute events, respecitively* 
-|
+
 | **[Custom Video Source](R5ProTestbed/Tests/PublishCustomSource)**
 | *Uses a custom controller to supply video data to the publisher.*
-|
+
 | **[Image Capture](R5ProTestbed/Tests/PublishStreamImage)**
 | *Touch the publish stream to take a screen shot that is displayed!* 
-|
+
 | **[Device Orientation](R5ProTestbed/Tests/PublishDeviceOrientation)**
 | *Rotate the device to update the orientation of the broadcast stream.  Verify with browser-based players (WebRTC, Flash, HLS), Android, or other iOS device running subscribe test that image is rotating properly and no rendering problems occur.*
-|
+
 | **[Orientation](R5ProTestbed/Tests/PublishOrientation)**
 | *Touch the screen to rotate the output video 90 degrees.  Verify with browser-based players (WebRTC, Flash, HLS), Android, or other iOS device running subscribe test that image is rotating properly and no rendering problems occur.*    
-|
+
 | **[Record](R5ProTestbed/Tests/Recorded)**
 | *A publish example that records stream data on the server.*
-|
+
 | **[Remote Call](R5ProTestbed/Tests/RemoteCall)**
 | *The publish portion of the remote call example - sends the remote call.*
-| 
+
 | **[Stream Manager](R5ProTestbed/Tests/PublishStreamManager)**
 | *A publish example that connects with a server cluster using a Stream Manger*
-|
+
 | **[Two Way](R5ProTestbed/Tests/TwoWay)**
 | *An example of simultaneously publishing while subscribing - allowing a conversation. Includes stream detection and auto-connection.*
-|
+
 | **[Shared Object](R5ProTestbed/Tests/SharedObject)** - For publishing and subscribing
 | *To run the test, you will need at least two devices running the "Shared Object" example. Start example on one device and then on another; same stream name. Type and exchange messages between devices.*
 
