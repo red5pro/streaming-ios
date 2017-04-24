@@ -30,7 +30,7 @@ Once you have modified your settings, you can run the application for simulator 
 ###[Publishing](R5ProTestbed/Tests/Publish)
 
 | **[1080p](R5ProTestbed/Tests/Publish)**                 
-| :-----
+| :---
 | *A high quality publisher. Note that this is the publish test with a non-default 'bitrate' and camera size values set in tests.plist* 
 |
 | **[ABR](R5ProTestbed/Tests/AdaptiveBitrate)**
@@ -72,7 +72,7 @@ Once you have modified your settings, you can run the application for simulator 
 ###[Subscribing](R5ProTestbed/Tests/Subscribe)
 
 | **[Aspect Ratio](R5ProTestbed/Tests/SubscribeAspectRatio)**
-| :----
+| :---
 | *Change the fill mode of the stream.  scale to fill, scale to fit, scale fill.  Aspect ratio should be maintained on first 2.*  
 |
 | **[Cluster](R5ProTestbed/Tests/SubscribeCluster)** 
