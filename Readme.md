@@ -59,7 +59,7 @@ Once you have modified your settings, you can run the application for simulator 
 |
 | **[Remote Call](R5ProTestbed/Tests/RemoteCall)**
 | *The publish portion of the remote call example - sends the remote call.*
-|
+| 
 | **[Stream Manager](R5ProTestbed/Tests/PublishStreamManager)**
 | *A publish example that connects with a server cluster using a Stream Manger*
 |
