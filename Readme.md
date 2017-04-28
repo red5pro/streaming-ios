@@ -36,7 +36,7 @@ Once you have modified your settings, you can run the application for simulator 
 | **[ABR](R5ProTestbed/Tests/AdaptiveBitrate)**
 | *A high bitrate publisher with AdaptiveBitrateController*   
 | 
-| **[ABR](R5ProTestbed/Tests/PublishAuth)**
+| **[Authentication](R5ProTestbed/Tests/PublishAuth)**
 | *An example of publishing a stream as an authenticated user*   
 | 
 | **[Camera Swap](R5ProTestbed/Tests/CameraSwap)**
@@ -81,7 +81,7 @@ Once you have modified your settings, you can run the application for simulator 
 | :----
 | *Change the fill mode of the stream.  scale to fill, scale to fit, scale fill.  Aspect ratio should be maintained on first 2.*  
 | 
-| **[ABR](R5ProTestbed/Tests/SubscribeAuth)**
+| **[Authentication](R5ProTestbed/Tests/SubscribeAuth)**
 | *An example of subscribing to a stream as an authenticated user*   
 | 
 | **[Cluster](R5ProTestbed/Tests/SubscribeCluster)** 
