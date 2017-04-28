@@ -1,5 +1,5 @@
 //
-//  PublishStreamImageTest.swift
+//  SubscribeReceiveSendTest.swift
 //  R5ProTestbed
 //
 //  Created by Andy Zupko on 12/17/15.

@@ -1,6 +1,6 @@
-#Stream Send
+# Stream Send
 
-###Example Code
+### Example Code
 - ***[PublishSendTest.swift](PublishSendTest.swift)***
 - ***[SubscribeReceiveSendTest.swift](SubscribeReceiveSendTest.swift)***
 
