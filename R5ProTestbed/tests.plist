@@ -191,6 +191,17 @@
 			<key>class</key>
 			<string>PublishRemoteCallTest</string>
 		</dict>
+		<key>publish - Stream Send</key>
+		<dict>
+			<key>description</key>
+			<string>A publish example that makes a stream send</string>
+			<key>LocalProperties</key>
+			<dict/>
+			<key>name</key>
+			<string>Publish - Stream Send</string>
+			<key>class</key>
+			<string>PublishSendTest</string>
+		</dict>
 		<key>publish - Stream Manager</key>
 		<dict>
 			<key>description</key>
@@ -301,6 +312,17 @@
 			<string>Subscribe - Remote Call</string>
 			<key>class</key>
 			<string>SubscribeRemoteCallTest</string>
+		</dict>
+		<key>subscribe - Stream Send</key>
+		<dict>
+			<key>description</key>
+			<string>A subscribe example that receives stream send events</string>
+			<key>LocalProperties</key>
+			<dict/>
+			<key>name</key>
+			<string>Subscribe - Stream Send</string>
+			<key>class</key>
+			<string>SubscribeReceiveSendTest</string>
 		</dict>
 		<key>subscribe - Stream Manager</key>
 		<dict>
