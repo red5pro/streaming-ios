@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		481B156D1EB380F20038A187 /* PublishAuthTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 481B156C1EB380F20038A187 /* PublishAuthTest.swift */; };
 		481B156F1EB380FE0038A187 /* SubscribeAuthTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 481B156E1EB380FE0038A187 /* SubscribeAuthTest.swift */; };
+		481B15761EB390600038A187 /* PublishSendTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 481B15741EB390600038A187 /* PublishSendTest.swift */; };
+		481B15771EB390600038A187 /* SubscribeReceiveSendTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 481B15751EB390600038A187 /* SubscribeReceiveSendTest.swift */; };
 		482282591E4E47C80073F26C /* PublishDeviceOrientationTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 482282581E4E47C80073F26C /* PublishDeviceOrientationTest.swift */; };
 		4838028E1E4115130098F5B7 /* PublishPauseTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4838028D1E4115130098F5B7 /* PublishPauseTest.swift */; };
 		485345071C23528400D409F3 /* PublishStreamImageTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 485345061C23528400D409F3 /* PublishStreamImageTest.swift */; };
@@ -57,6 +59,8 @@
 /* Begin PBXFileReference section */
 		481B156C1EB380F20038A187 /* PublishAuthTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PublishAuthTest.swift; path = Tests/PublishAuth/PublishAuthTest.swift; sourceTree = "<group>"; };
 		481B156E1EB380FE0038A187 /* SubscribeAuthTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SubscribeAuthTest.swift; path = Tests/SubscribeAuth/SubscribeAuthTest.swift; sourceTree = "<group>"; };
+		481B15741EB390600038A187 /* PublishSendTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PublishSendTest.swift; path = Tests/SubscribeReceiveSend/PublishSendTest.swift; sourceTree = "<group>"; };
+		481B15751EB390600038A187 /* SubscribeReceiveSendTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SubscribeReceiveSendTest.swift; path = Tests/SubscribeReceiveSend/SubscribeReceiveSendTest.swift; sourceTree = "<group>"; };
 		482282581E4E47C80073F26C /* PublishDeviceOrientationTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PublishDeviceOrientationTest.swift; path = Tests/PublishDeviceOrientation/PublishDeviceOrientationTest.swift; sourceTree = "<group>"; };
 		4838028D1E4115130098F5B7 /* PublishPauseTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PublishPauseTest.swift; path = Tests/PublishPause/PublishPauseTest.swift; sourceTree = "<group>"; };
 		485345061C23528400D409F3 /* PublishStreamImageTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PublishStreamImageTest.swift; path = Tests/PublishStreamImage/PublishStreamImageTest.swift; sourceTree = "<group>"; };
@@ -189,6 +193,8 @@
 		48DFEDC91C21BE0B0040B624 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				481B15741EB390600038A187 /* PublishSendTest.swift */,
+				481B15751EB390600038A187 /* SubscribeReceiveSendTest.swift */,
 				481B156E1EB380FE0038A187 /* SubscribeAuthTest.swift */,
 				481B156C1EB380F20038A187 /* PublishAuthTest.swift */,
 				487CDBC31E6F1A39007FC4EA /* SharedObjectTest.swift */,
@@ -303,6 +309,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				48DFEDB01C21BBC60040B624 /* DetailViewController.swift in Sources */,
+				481B15761EB390600038A187 /* PublishSendTest.swift in Sources */,
 				48BF80B31C246F6D000E996E /* SubscribeAspectRatioTest.swift in Sources */,
 				4874D5A31C221CD000A98102 /* ALToastView.m in Sources */,
 				48DFEDAE1C21BBC60040B624 /* MasterViewController.swift in Sources */,
@@ -335,6 +342,7 @@
 				48BB1D811CED140D00D915E5 /* SubscribeSetSizeTest.swift in Sources */,
 				485345071C23528400D409F3 /* PublishStreamImageTest.swift in Sources */,
 				926794F71D06191E004B0BCD /* PublishStreamManagerTest.swift in Sources */,
+				481B15771EB390600038A187 /* SubscribeReceiveSendTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
