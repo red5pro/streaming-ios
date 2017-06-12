@@ -50,9 +50,18 @@
 				<false/>
 			</dict>
 			<key>name</key>
-			<string>Publish</string>
+			<string>Publish - Audio Only</string>
 			<key>class</key>
 			<string>PublishTest</string>
+		</dict>
+		<key>subscribe</key>
+		<dict>
+			<key>LocalProperties</key>
+			<dict/>
+			<key>name</key>
+			<string>Subscribe</string>
+			<key>class</key>
+			<string>SubscribeTest</string>
 		</dict>
 	</dict>
 </dict>
