@@ -27,6 +27,7 @@
 		926FB6F21EE6FAD80030F75A /* Testbed.m in Sources */ = {isa = PBXBuildFile; fileRef = 926FB6F11EE6FAD80030F75A /* Testbed.m */; };
 		926FB6F61EE716390030F75A /* BaseTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 926FB6F51EE716390030F75A /* BaseTest.m */; };
 		926FB6FA1EE719610030F75A /* ALToastView.m in Sources */ = {isa = PBXBuildFile; fileRef = 926FB6F71EE717740030F75A /* ALToastView.m */; };
+		929E3E881EEEEC9B00F2D1E0 /* SubscribeTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 929E3E871EEEEC9B00F2D1E0 /* SubscribeTest.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,6 +61,8 @@
 		926FB6F51EE716390030F75A /* BaseTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BaseTest.m; path = Tests/BaseTest.m; sourceTree = "<group>"; };
 		926FB6F71EE717740030F75A /* ALToastView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALToastView.m; sourceTree = "<group>"; };
 		926FB6F91EE7178E0030F75A /* ALToastView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ALToastView.h; sourceTree = "<group>"; };
+		929E3E861EEEEBA300F2D1E0 /* SubscribeTest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SubscribeTest.h; path = Tests/Subscribe/SubscribeTest.h; sourceTree = "<group>"; };
+		929E3E871EEEEC9B00F2D1E0 /* SubscribeTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SubscribeTest.m; path = Tests/Subscribe/SubscribeTest.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,12 +151,22 @@
 		926FB6F31EE714B70030F75A /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				926FB6F41EE7150A0030F75A /* BaseTest.h */,
+				929E3E851EEEE9DC00F2D1E0 /* headers */,
 				926FB6F51EE716390030F75A /* BaseTest.m */,
-				924371091EE75C3600C4A32C /* PublishTest.h */,
 				9243710A1EE75C4B00C4A32C /* PublishTest.m */,
+				929E3E871EEEEC9B00F2D1E0 /* SubscribeTest.m */,
 			);
 			name = Tests;
+			sourceTree = "<group>";
+		};
+		929E3E851EEEE9DC00F2D1E0 /* headers */ = {
+			isa = PBXGroup;
+			children = (
+				926FB6F41EE7150A0030F75A /* BaseTest.h */,
+				924371091EE75C3600C4A32C /* PublishTest.h */,
+				929E3E861EEEEBA300F2D1E0 /* SubscribeTest.h */,
+			);
+			name = headers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -233,6 +246,7 @@
 				926FB6F61EE716390030F75A /* BaseTest.m in Sources */,
 				924371071EE7370900C4A32C /* Home.m in Sources */,
 				926D0B391EE5B40D00DF810E /* AppDelegate.m in Sources */,
+				929E3E881EEEEC9B00F2D1E0 /* SubscribeTest.m in Sources */,
 				926D0B3C1EE5B40D00DF810E /* MasterViewController.m in Sources */,
 				926FB6F21EE6FAD80030F75A /* Testbed.m in Sources */,
 				9243710B1EE75C4B00C4A32C /* PublishTest.m in Sources */,
