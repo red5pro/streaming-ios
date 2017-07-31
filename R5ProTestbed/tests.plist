@@ -109,6 +109,17 @@
 			<key>class</key>
 			<string>PublishCustomSourceTest</string>
 		</dict>
+		<key>publish - HQ Audio</key>
+		<dict>
+			<key>description</key>
+			<string>A publish example with high quality audio</string>
+			<key>LocalProperties</key>
+			<dict/>
+			<key>name</key>
+			<string>Publish - HQ Audio</string>
+			<key>class</key>
+			<string>PublishHQAudioTest</string>
+		</dict>
 		<key>publish - Image Capture</key>
 		<dict>
 			<key>description</key>

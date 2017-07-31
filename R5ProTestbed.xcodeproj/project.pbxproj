@@ -19,6 +19,7 @@
 		4874D59F1C221B9500A98102 /* AdaptiveBitrateControllerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4874D59E1C221B9500A98102 /* AdaptiveBitrateControllerTest.swift */; };
 		4874D5A31C221CD000A98102 /* ALToastView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4874D5A21C221CD000A98102 /* ALToastView.m */; };
 		4874ECD01C483FDA002BDA6D /* SubscribeStreamImageTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4874ECCF1C483FDA002BDA6D /* SubscribeStreamImageTest.swift */; };
+		487C888F1F2F8AB2004157B6 /* PublishHQAudioTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 487C888E1F2F8AB2004157B6 /* PublishHQAudioTest.swift */; };
 		487CDBC21E6E4401007FC4EA /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 487CDBC11E6E4401007FC4EA /* libz.tbd */; };
 		487CDBC41E6F1A39007FC4EA /* SharedObjectTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 487CDBC31E6F1A39007FC4EA /* SharedObjectTest.swift */; };
 		48BB1D811CED140D00D915E5 /* SubscribeSetSizeTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48BB1D801CED140D00D915E5 /* SubscribeSetSizeTest.swift */; };
@@ -71,6 +72,7 @@
 		4874D5A11C221CD000A98102 /* ALToastView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALToastView.h; sourceTree = "<group>"; };
 		4874D5A21C221CD000A98102 /* ALToastView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALToastView.m; sourceTree = "<group>"; };
 		4874ECCF1C483FDA002BDA6D /* SubscribeStreamImageTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SubscribeStreamImageTest.swift; path = Tests/SubscribeStreamImage/SubscribeStreamImageTest.swift; sourceTree = "<group>"; };
+		487C888E1F2F8AB2004157B6 /* PublishHQAudioTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PublishHQAudioTest.swift; path = Tests/PublishHQAudio/PublishHQAudioTest.swift; sourceTree = "<group>"; };
 		487CDBC11E6E4401007FC4EA /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		487CDBC31E6F1A39007FC4EA /* SharedObjectTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SharedObjectTest.swift; path = Tests/SharedObject/SharedObjectTest.swift; sourceTree = "<group>"; };
 		48BB1D801CED140D00D915E5 /* SubscribeSetSizeTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubscribeSetSizeTest.swift; sourceTree = "<group>"; };
@@ -193,6 +195,7 @@
 		48DFEDC91C21BE0B0040B624 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				487C888E1F2F8AB2004157B6 /* PublishHQAudioTest.swift */,
 				481B15741EB390600038A187 /* PublishSendTest.swift */,
 				481B15751EB390600038A187 /* SubscribeReceiveSendTest.swift */,
 				481B156E1EB380FE0038A187 /* SubscribeAuthTest.swift */,
@@ -321,6 +324,7 @@
 				4874D59F1C221B9500A98102 /* AdaptiveBitrateControllerTest.swift in Sources */,
 				48DFEDAC1C21BBC60040B624 /* AppDelegate.swift in Sources */,
 				48DFEDDF1C21EA780040B624 /* Testbed.swift in Sources */,
+				487C888F1F2F8AB2004157B6 /* PublishHQAudioTest.swift in Sources */,
 				48BF80AE1C245AA7000E996E /* PublishOrientationTest.swift in Sources */,
 				92EA19DD1CE137DD006B3A97 /* CustomVideoSource.swift in Sources */,
 				926794FB1D061968004B0BCD /* SubscribeCluster.swift in Sources */,
