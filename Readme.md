@@ -54,8 +54,8 @@ Once you have modified your settings, you can run the application for simulator 
 | **[Device Orientation](R5ProTestbed/Tests/PublishDeviceOrientation)**
 | *Rotate the device to update the orientation of the broadcast stream.  Verify with browser-based players (WebRTC, Flash, HLS), Android, or other iOS device running subscribe test that image is rotating properly and no rendering problems occur.*
 | 
-| **[Orientation](R5ProTestbed/Tests/PublishOrientation)**
-| *Touch the screen to rotate the output video 90 degrees.  Verify with browser-based players (WebRTC, Flash, HLS), Android, or other iOS device running subscribe test that image is rotating properly and no rendering problems occur.*    
+| **[High Quality Audio](R5ProTestbed/Tests/PublishHQAudio)**
+| *`R5Microphone.sampleRate` is set to 44100 (the default is 16000).*    
 | 
 | **[Record](R5ProTestbed/Tests/Recorded)**
 | *A publish example that records stream data on the server.*

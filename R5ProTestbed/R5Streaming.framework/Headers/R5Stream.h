@@ -174,6 +174,8 @@ enum R5StreamMode{
  */
 -(void)updateStreamMeta;
 
+-(void)setFrameListener:(void (^)(uint8_t *, int, int))listenerBlock;
+
 
 @end
 
