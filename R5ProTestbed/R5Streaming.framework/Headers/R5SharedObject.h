@@ -3,7 +3,7 @@
 //  red5streaming
 //
 //  Created by David Heimann on 1/13/17.
-//  Copyright © 2017 Andy Zupko. All rights reserved.
+//  Copyright © 2017 Infrared5. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
