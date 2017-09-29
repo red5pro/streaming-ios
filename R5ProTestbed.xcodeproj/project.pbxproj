@@ -43,6 +43,7 @@
 		48DFEDD91C21C5940040B624 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48DFEDD81C21C5940040B624 /* OpenAL.framework */; };
 		48DFEDDB1C21C5AB0040B624 /* libstdc++.6.0.9.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 48DFEDDA1C21C5AB0040B624 /* libstdc++.6.0.9.tbd */; };
 		48DFEDDF1C21EA780040B624 /* Testbed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48DFEDDE1C21EA780040B624 /* Testbed.swift */; };
+		9209F4A91F7EE38500A90080 /* PublishLocalRecordTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9209F4A81F7EE38500A90080 /* PublishLocalRecordTest.swift */; };
 		926794F51D061900004B0BCD /* PublishRemoteCallTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926794F41D061900004B0BCD /* PublishRemoteCallTest.swift */; };
 		926794F71D06191E004B0BCD /* PublishStreamManagerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926794F61D06191E004B0BCD /* PublishStreamManagerTest.swift */; };
 		926794F91D061942004B0BCD /* RecordedTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926794F81D061942004B0BCD /* RecordedTest.swift */; };
@@ -101,6 +102,7 @@
 		48DFEDD81C21C5940040B624 /* OpenAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenAL.framework; path = System/Library/Frameworks/OpenAL.framework; sourceTree = SDKROOT; };
 		48DFEDDA1C21C5AB0040B624 /* libstdc++.6.0.9.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.6.0.9.tbd"; path = "usr/lib/libstdc++.6.0.9.tbd"; sourceTree = SDKROOT; };
 		48DFEDDE1C21EA780040B624 /* Testbed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Testbed.swift; sourceTree = "<group>"; };
+		9209F4A81F7EE38500A90080 /* PublishLocalRecordTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PublishLocalRecordTest.swift; path = Tests/PublishLocalRecord/PublishLocalRecordTest.swift; sourceTree = "<group>"; };
 		926794F41D061900004B0BCD /* PublishRemoteCallTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PublishRemoteCallTest.swift; path = Tests/RemoteCall/PublishRemoteCallTest.swift; sourceTree = "<group>"; };
 		926794F61D06191E004B0BCD /* PublishStreamManagerTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PublishStreamManagerTest.swift; path = Tests/PublishStreamManager/PublishStreamManagerTest.swift; sourceTree = "<group>"; };
 		926794F81D061942004B0BCD /* RecordedTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RecordedTest.swift; path = Tests/Recorded/RecordedTest.swift; sourceTree = "<group>"; };
@@ -203,6 +205,7 @@
 		48DFEDC91C21BE0B0040B624 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				9209F4A81F7EE38500A90080 /* PublishLocalRecordTest.swift */,
 				487C888E1F2F8AB2004157B6 /* PublishHQAudioTest.swift */,
 				481B15741EB390600038A187 /* PublishSendTest.swift */,
 				481B15751EB390600038A187 /* SubscribeReceiveSendTest.swift */,
@@ -322,6 +325,7 @@
 				48DFEDB01C21BBC60040B624 /* DetailViewController.swift in Sources */,
 				481B15761EB390600038A187 /* PublishSendTest.swift in Sources */,
 				48BF80B31C246F6D000E996E /* SubscribeAspectRatioTest.swift in Sources */,
+				9209F4A91F7EE38500A90080 /* PublishLocalRecordTest.swift in Sources */,
 				4874D5A31C221CD000A98102 /* ALToastView.m in Sources */,
 				48DFEDAE1C21BBC60040B624 /* MasterViewController.swift in Sources */,
 				92CC78091CB6F8DD00CD4352 /* SubscribeTwoStreams.swift in Sources */,
