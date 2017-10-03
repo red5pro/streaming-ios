@@ -3,7 +3,7 @@
 //  R5Streaming
 //
 //  Created by Andy Zupko on 9/25/14.
-//  Copyright (c) 2014 Andy Zupko. All rights reserved.
+//  Copyright (c) 2014 Infrared5. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
@@ -27,3 +27,4 @@ FOUNDATION_EXPORT const unsigned char R5StreamingVersionString[];
 #import <R5Streaming/connection.h>
 #import <R5Streaming/codec_facade.h>
 #import <R5Streaming/session_description.h>
+#import <R5Streaming/R5BandwidthDetection.h>
