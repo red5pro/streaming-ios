@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		480C6B931F7BDE7F009E943F /* VideoToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 480C6B921F7BDE7F009E943F /* VideoToolbox.framework */; };
+		480C6B951F7BDE85009E943F /* libbz2.1.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 480C6B941F7BDE85009E943F /* libbz2.1.0.tbd */; };
 		481B156D1EB380F20038A187 /* PublishAuthTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 481B156C1EB380F20038A187 /* PublishAuthTest.swift */; };
 		481B156F1EB380FE0038A187 /* SubscribeAuthTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 481B156E1EB380FE0038A187 /* SubscribeAuthTest.swift */; };
 		481B15761EB390600038A187 /* PublishSendTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 481B15741EB390600038A187 /* PublishSendTest.swift */; };
@@ -41,6 +43,7 @@
 		48DFEDD91C21C5940040B624 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48DFEDD81C21C5940040B624 /* OpenAL.framework */; };
 		48DFEDDB1C21C5AB0040B624 /* libstdc++.6.0.9.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 48DFEDDA1C21C5AB0040B624 /* libstdc++.6.0.9.tbd */; };
 		48DFEDDF1C21EA780040B624 /* Testbed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48DFEDDE1C21EA780040B624 /* Testbed.swift */; };
+		9209F4A91F7EE38500A90080 /* PublishLocalRecordTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9209F4A81F7EE38500A90080 /* PublishLocalRecordTest.swift */; };
 		926794F51D061900004B0BCD /* PublishRemoteCallTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926794F41D061900004B0BCD /* PublishRemoteCallTest.swift */; };
 		926794F71D06191E004B0BCD /* PublishStreamManagerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926794F61D06191E004B0BCD /* PublishStreamManagerTest.swift */; };
 		926794F91D061942004B0BCD /* RecordedTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926794F81D061942004B0BCD /* RecordedTest.swift */; };
@@ -58,6 +61,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		480C6B921F7BDE7F009E943F /* VideoToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = VideoToolbox.framework; path = System/Library/Frameworks/VideoToolbox.framework; sourceTree = SDKROOT; };
+		480C6B941F7BDE85009E943F /* libbz2.1.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libbz2.1.0.tbd; path = usr/lib/libbz2.1.0.tbd; sourceTree = SDKROOT; };
 		481B156C1EB380F20038A187 /* PublishAuthTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PublishAuthTest.swift; path = Tests/PublishAuth/PublishAuthTest.swift; sourceTree = "<group>"; };
 		481B156E1EB380FE0038A187 /* SubscribeAuthTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SubscribeAuthTest.swift; path = Tests/SubscribeAuth/SubscribeAuthTest.swift; sourceTree = "<group>"; };
 		481B15741EB390600038A187 /* PublishSendTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PublishSendTest.swift; path = Tests/SubscribeReceiveSend/PublishSendTest.swift; sourceTree = "<group>"; };
@@ -97,6 +102,7 @@
 		48DFEDD81C21C5940040B624 /* OpenAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenAL.framework; path = System/Library/Frameworks/OpenAL.framework; sourceTree = SDKROOT; };
 		48DFEDDA1C21C5AB0040B624 /* libstdc++.6.0.9.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.6.0.9.tbd"; path = "usr/lib/libstdc++.6.0.9.tbd"; sourceTree = SDKROOT; };
 		48DFEDDE1C21EA780040B624 /* Testbed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Testbed.swift; sourceTree = "<group>"; };
+		9209F4A81F7EE38500A90080 /* PublishLocalRecordTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PublishLocalRecordTest.swift; path = Tests/PublishLocalRecord/PublishLocalRecordTest.swift; sourceTree = "<group>"; };
 		926794F41D061900004B0BCD /* PublishRemoteCallTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PublishRemoteCallTest.swift; path = Tests/RemoteCall/PublishRemoteCallTest.swift; sourceTree = "<group>"; };
 		926794F61D06191E004B0BCD /* PublishStreamManagerTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PublishStreamManagerTest.swift; path = Tests/PublishStreamManager/PublishStreamManagerTest.swift; sourceTree = "<group>"; };
 		926794F81D061942004B0BCD /* RecordedTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RecordedTest.swift; path = Tests/Recorded/RecordedTest.swift; sourceTree = "<group>"; };
@@ -117,6 +123,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				480C6B951F7BDE85009E943F /* libbz2.1.0.tbd in Frameworks */,
+				480C6B931F7BDE7F009E943F /* VideoToolbox.framework in Frameworks */,
 				487CDBC21E6E4401007FC4EA /* libz.tbd in Frameworks */,
 				48DFEDDB1C21C5AB0040B624 /* libstdc++.6.0.9.tbd in Frameworks */,
 				48DFEDD31C21BF370040B624 /* libiconv.2.4.0.tbd in Frameworks */,
@@ -133,6 +141,8 @@
 		487CDBC01E6E4401007FC4EA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				480C6B941F7BDE85009E943F /* libbz2.1.0.tbd */,
+				480C6B921F7BDE7F009E943F /* VideoToolbox.framework */,
 				487CDBC11E6E4401007FC4EA /* libz.tbd */,
 			);
 			name = Frameworks;
@@ -195,6 +205,7 @@
 		48DFEDC91C21BE0B0040B624 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				9209F4A81F7EE38500A90080 /* PublishLocalRecordTest.swift */,
 				487C888E1F2F8AB2004157B6 /* PublishHQAudioTest.swift */,
 				481B15741EB390600038A187 /* PublishSendTest.swift */,
 				481B15751EB390600038A187 /* SubscribeReceiveSendTest.swift */,
@@ -314,6 +325,7 @@
 				48DFEDB01C21BBC60040B624 /* DetailViewController.swift in Sources */,
 				481B15761EB390600038A187 /* PublishSendTest.swift in Sources */,
 				48BF80B31C246F6D000E996E /* SubscribeAspectRatioTest.swift in Sources */,
+				9209F4A91F7EE38500A90080 /* PublishLocalRecordTest.swift in Sources */,
 				4874D5A31C221CD000A98102 /* ALToastView.m in Sources */,
 				48DFEDAE1C21BBC60040B624 /* MasterViewController.swift in Sources */,
 				92CC78091CB6F8DD00CD4352 /* SubscribeTwoStreams.swift in Sources */,

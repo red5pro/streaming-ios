@@ -131,6 +131,17 @@
 			<key>class</key>
 			<string>PublishStreamImageTest</string>
 		</dict>
+		<key>publish - Local Recording</key>
+		<dict>
+			<key>description</key>
+			<string>Run this example to record a copy of the stream to your device&apos;s camera roll</string>
+			<key>LocalProperties</key>
+			<dict/>
+			<key>name</key>
+			<string>Publish - Local Recording</string>
+			<key>class</key>
+			<string>PublishLocalRecordTest</string>
+		</dict>
 		<key>publish - Pause</key>
 		<dict>
 			<key>description</key>

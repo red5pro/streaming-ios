@@ -3,7 +3,7 @@
 //  red5streaming
 //
 //  Created by Andy Zupko on 8/28/15.
-//  Copyright (c) 2015 Andy Zupko. All rights reserved.
+//  Copyright (c) 2015 Infrared5. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
