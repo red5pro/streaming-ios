@@ -57,6 +57,9 @@ Once you have modified your settings, you can run the application for simulator 
 | **[High Quality Audio](R5ProTestbed/Tests/PublishHQAudio)**
 | *`R5Microphone.sampleRate` is set to 44100 (the default is 16000).*    
 | -
+| **[Local Record](R5ProTestbed/Tests/PublishLocalRecord)**
+| *A publish example that records stream data locally on the device.*    
+| -
 | **[Record](R5ProTestbed/Tests/Recorded)**
 | *A publish example that records stream data on the server.*
 | -
