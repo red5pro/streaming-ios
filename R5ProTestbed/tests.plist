@@ -5,13 +5,13 @@
 	<key>GlobalProperties</key>
 	<dict>
 		<key>license_key</key>
-		<string>ACGE-4UMR-UHM4-RVJR</string>
+		<string></string>
 		<key>server_port</key>
 		<string>5080</string>
 		<key>bitrate</key>
 		<integer>750</integer>
 		<key>host</key>
-		<string>webrtc.red5.org</string>
+		<string>0.0.0.0</string>
 		<key>buffer_time</key>
 		<real>0.5</real>
 		<key>port</key>
