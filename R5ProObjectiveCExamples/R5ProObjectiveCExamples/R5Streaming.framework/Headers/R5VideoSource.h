@@ -3,13 +3,13 @@
 //  red5streaming
 //
 //  Created by Andy Zupko on 2/4/15.
-//  Copyright (c) 2015 Andy Zupko. All rights reserved.
+//  Copyright (c) 2015 Infrared5. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 #import <AVFoundation/AVFoundation.h>
 #import "AVEncoder.h"
-
+#import "FileWriter.h"
 
 typedef int (^source_handler_t)(NSArray* data, double pts);
 typedef int (^source_param_handler_t)(NSData* params);
@@ -28,6 +28,7 @@ typedef int (^source_param_handler_t)(NSData* params);
 
 @property int fps;                  //!< Frame rate to record at
 @property AVEncoder *encoder;//!< Hardware encoder set by the VideoSource.  Pass frames to the encoder to continue to socket
+@property FileWriter *writer;
 
 @property BOOL adaptiveBitRate;
 
@@ -56,6 +57,13 @@ typedef int (^source_param_handler_t)(NSData* params);
  *  @param paramsHandler parameters of the encoding used for setting up the codec
  */
 - (void) encodeWithBlock:(source_handler_t) block onParams: (source_param_handler_t) paramsHandler;
+
+/**
+ *  Records captured data to local device
+ */
+-(void)attatchRecorder:(FileWriter*)fileWriter;
+
+-(void)detatchRecorder;
 
 /**
  *  A dictionary formatted with the following keys:

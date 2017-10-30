@@ -3,7 +3,7 @@
 //  Red5Pro
 //
 //  Created by Andy Zupko on 9/16/14.
-//  Copyright (c) 2014 Andy Zupko. All rights reserved.
+//  Copyright (c) 2014 Infrared5. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
@@ -174,6 +174,12 @@ enum R5StreamMode{
  */
 -(void)updateStreamMeta;
 
+-(void)setFrameListener:(void (^)(uint8_t *, int, int))listenerBlock;
+
+-(void)recordWithName:(NSString*)fileName;
+
+-(void)endLocalRecord;
+
 
 @end
 
@@ -202,13 +208,15 @@ enum R5StreamMode{
  *  CLOSE           |   null
  *  START_STREAMING |   null
  *  STOP_STREAMING  |   null
- *  NET_STATUS      |   "NetStream.Play.PublishNotify" - publisher started<br/>"NetStream.Play.UnpublishNotify" - publisher stopped<br/>"NetStream.Play.StreamDry" - Keep Alive while no publisher publishing
+ *  NET_STATUS      |   "NetStream.Play.PublishNotify" - publisher started<br/>"NetStream.Play.UnpublishNotify" - publisher stopped<br/>"NetStream.Play.StreamDry" - Keep Alive while no publisher publishing<br/>"NetStream.Play.InSufficientBW.Audio" - subscriber does not have enough bandwidth to accept audio in stream<br/>"NetStream.Play.InSufficientBW.Video" - subsceiber does not have enough bandwidth to accept video in stream<br/>"NetStream.Play.SufficientBW.Audio" - subscriber has regained enough bandwidth to consume audio<br/>"NetStream.Play.SufficientBW.Video" - subscriber has regained enough bandwidth to consume video
  *  AUDIO_MUTE      |   null
  *  AUDIO_UNMUTE    |   null
  *  VIDEO_MUTE      |   null
  *  VIDEO_UNMUTE    |   null
  *  LICENSE_ERROR   |   null
  *  LICENSE_VALID   |   null
+ *  BUFFER_FLUSH_START  |   null
+ *  BUFFER_FLUSH_EMPTY  |   null
  *
  */
 -(void)onR5StreamStatus:(R5Stream *)stream withStatus:(int) statusCode withMessage:(NSString*)msg;

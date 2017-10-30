@@ -3,7 +3,7 @@
 //  red5streaming
 //
 //  Created by Andy Zupko on 10/30/14.
-//  Copyright (c) 2014 Andy Zupko. All rights reserved.
+//  Copyright (c) 2014 Infrared5. All rights reserved.
 //
 
 #ifndef __red5streaming__codec_facade__
