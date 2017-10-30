@@ -5,21 +5,21 @@
 	<key>GlobalProperties</key>
 	<dict>
 		<key>license_key</key>
-		<string></string>
+		<string>ACGE-4UMR-UHM4-RVJR</string>
 		<key>server_port</key>
 		<string>5080</string>
 		<key>bitrate</key>
 		<integer>750</integer>
 		<key>host</key>
-		<string>0.0.0.0</string>
+		<string>50.56.81.179</string>
 		<key>buffer_time</key>
 		<real>0.5</real>
 		<key>port</key>
 		<integer>8554</integer>
 		<key>stream1</key>
-		<string>stream1</string>
+		<string>jesstream1</string>
 		<key>stream2</key>
-		<string>stream2</string>
+		<string>jesstream2</string>
 		<key>context</key>
 		<string>live</string>
 		<key>camera_width</key>

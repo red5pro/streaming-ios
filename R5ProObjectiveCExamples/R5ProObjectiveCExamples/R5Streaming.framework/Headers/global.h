@@ -3,7 +3,7 @@
 //  Red5Pro
 //
 //  Created by Andy Zupko on 9/15/14.
-//  Copyright (c) 2014 Andy Zupko. All rights reserved.
+//  Copyright (c) 2014 Infrared5. All rights reserved.
 //
 
 #ifndef Red5Pro_global_h
@@ -21,8 +21,8 @@ extern "C" {
 #define STRINGIFY_(s) #s
 #define STRINGIFY(s) STRINGIFY_(s)
 
-#define R5PRO_MAJOR_VERSION         3
-#define R5PRO_MINOR_VERSION         4
+#define R5PRO_MAJOR_VERSION         4
+#define R5PRO_MINOR_VERSION         0
 #define R5PRO_REVISION              0
 #define R5PRO_BUILD                 0
     
@@ -93,7 +93,9 @@ extern "C" {
         r5_status_video_mute,           //!< Publisher has muted their video stream
         r5_status_video_unmute,         //!< Publisher has unmuted their video stream
         r5_status_license_error,        //!< An error in validating the SDK license.
-        r5_status_license_valid         //!< The license key provided for the SDK is deemed valid.
+        r5_status_license_valid,        //!< The license key provided for the SDK is deemed valid.
+        r5_status_buffer_flush_start,   //!< Publisher has started flushing queued packets post-broadcast.
+        r5_status_buffer_flush_empty    //!< Publisher has completed flushing queued packets post-broadcast.
     };
     
     /**

@@ -8,57 +8,69 @@
 		<data>
 		8Log7+R7VxvLOYPBz3r6SUn0oBA=
 		</data>
+		<key>Headers/FileWriter.h</key>
+		<data>
+		ZkFmoIzZD+0s4v8numzOWN5KFgs=
+		</data>
 		<key>Headers/R5AdaptiveBitrateController.h</key>
 		<data>
-		zkFmrYT2RgXT+k0nJjfaf3anZDg=
+		We/zs2ViO3QpKdjVRCQMJs44JxY=
 		</data>
 		<key>Headers/R5AudioController.h</key>
 		<data>
-		gVzo2gSrI60/+RcX0w+XE4OHsj0=
+		AuTvupG+koxeLa9MtHNr3uR6LmA=
+		</data>
+		<key>Headers/R5BandwidthDetection.h</key>
+		<data>
+		LGV+5jMiP2+VfuobdM9+jWA5kng=
+		</data>
+		<key>Headers/R5BandwidthURLConnection.h</key>
+		<data>
+		M2go4MJ3hcrtRyUOFSvGxZWGwzI=
 		</data>
 		<key>Headers/R5Camera.h</key>
 		<data>
-		l9hv1fBWMfPUB4KNmMl5pepx4Hg=
+		FxbJua/xAnYHXoQXG35bDGjQc7k=
 		</data>
 		<key>Headers/R5Configuration.h</key>
 		<data>
-		ayhHKE+hlqjVCQ2EXKK2LMO6/0g=
+		+PbhI67u/RlOMuVkOjhL8VwaRJc=
 		</data>
 		<key>Headers/R5Connection.h</key>
 		<data>
-		4+oHk4TcQgqdaJ/NrjW2N9RGYrw=
+		4YctQKoB+GB8cZ6sJJoSSSo3OnE=
 		</data>
 		<key>Headers/R5SharedObject.h</key>
 		<data>
-		c4bhnuE+abttmFWsOo1GSdP2Wcs=
+		iYFfMaBKp5ZEnpKByhD6TOu5kBE=
 		</data>
 		<key>Headers/R5Stream.h</key>
 		<data>
-		hF5K6B5wPLcP6ppPzVmSETXrR48=
+		Rv/1t/tcdkPetW8uWaSPt7F6F1g=
 		</data>
 		<key>Headers/R5Streaming.h</key>
 		<data>
-		V6rEgBWf93QO461WaRKjEYShtXY=
+		VWRfofCWdKWkxrOcESY/3ufpdrk=
 		</data>
 		<key>Headers/R5VideoSource.h</key>
 		<data>
-		/lgE7qKnXh14mMztT+mKEiVj2BY=
+		vMottf4DYSd5d4+tLY5+++jyngg=
 		</data>
 		<key>Headers/R5VideoViewController.h</key>
 		<data>
-		DeVd0/m0/2Q2kgpHTxiklagoBuA=
+		XUJP4lBls4Z48UPI6jReJv6zUOA=
 		</data>
 		<key>Headers/codec_facade.h</key>
 		<data>
-		I4bc/dY/Vk0Hp7Q5FZ7uH50sgwo=
+		I7Wb0th1VPsKi5NTzg3wGVS07Ec=
 		</data>
 		<key>Headers/connection.h</key>
 		<data>
-		buT40SKAyKh5T8NU3JJL8/1LbcI=
+		kRJbGDyFzQt/5yxIEs90O4PEkyQ=
 		</data>
 		<key>Headers/global.h</key>
 		<data>
-		g6rGGxpJ+c1TaUMCpCrJSs1uBIw=
+		Nw3CCIKPBu8FVJCbyS9P1hscuFY=
 		</data>
 		<key>Headers/parse_util.h</key>
 		<data>
@@ -66,15 +78,15 @@
 		</data>
 		<key>Headers/publish.h</key>
 		<data>
-		GHAFWpgHOeKbClEH4Ow2L4KqW8k=
+		uqAQITuW5ggRpKS2m+a+MxMNa6Y=
 		</data>
 		<key>Headers/session_description.h</key>
 		<data>
-		i7hqkqy77Ce5s4kUa5utkuj6UUA=
+		IqPWtxVBenjdQ7DvczkW3P7tAdY=
 		</data>
 		<key>Info.plist</key>
 		<data>
-		cGNA208Y+mZqox22Ki9kbYHhqVY=
+		+tmSOkHZLHsa2+Vh1P1Cu9w/6aE=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -87,57 +99,69 @@
 		<data>
 		8Log7+R7VxvLOYPBz3r6SUn0oBA=
 		</data>
+		<key>Headers/FileWriter.h</key>
+		<data>
+		ZkFmoIzZD+0s4v8numzOWN5KFgs=
+		</data>
 		<key>Headers/R5AdaptiveBitrateController.h</key>
 		<data>
-		zkFmrYT2RgXT+k0nJjfaf3anZDg=
+		We/zs2ViO3QpKdjVRCQMJs44JxY=
 		</data>
 		<key>Headers/R5AudioController.h</key>
 		<data>
-		gVzo2gSrI60/+RcX0w+XE4OHsj0=
+		AuTvupG+koxeLa9MtHNr3uR6LmA=
+		</data>
+		<key>Headers/R5BandwidthDetection.h</key>
+		<data>
+		LGV+5jMiP2+VfuobdM9+jWA5kng=
+		</data>
+		<key>Headers/R5BandwidthURLConnection.h</key>
+		<data>
+		M2go4MJ3hcrtRyUOFSvGxZWGwzI=
 		</data>
 		<key>Headers/R5Camera.h</key>
 		<data>
-		l9hv1fBWMfPUB4KNmMl5pepx4Hg=
+		FxbJua/xAnYHXoQXG35bDGjQc7k=
 		</data>
 		<key>Headers/R5Configuration.h</key>
 		<data>
-		ayhHKE+hlqjVCQ2EXKK2LMO6/0g=
+		+PbhI67u/RlOMuVkOjhL8VwaRJc=
 		</data>
 		<key>Headers/R5Connection.h</key>
 		<data>
-		4+oHk4TcQgqdaJ/NrjW2N9RGYrw=
+		4YctQKoB+GB8cZ6sJJoSSSo3OnE=
 		</data>
 		<key>Headers/R5SharedObject.h</key>
 		<data>
-		c4bhnuE+abttmFWsOo1GSdP2Wcs=
+		iYFfMaBKp5ZEnpKByhD6TOu5kBE=
 		</data>
 		<key>Headers/R5Stream.h</key>
 		<data>
-		hF5K6B5wPLcP6ppPzVmSETXrR48=
+		Rv/1t/tcdkPetW8uWaSPt7F6F1g=
 		</data>
 		<key>Headers/R5Streaming.h</key>
 		<data>
-		V6rEgBWf93QO461WaRKjEYShtXY=
+		VWRfofCWdKWkxrOcESY/3ufpdrk=
 		</data>
 		<key>Headers/R5VideoSource.h</key>
 		<data>
-		/lgE7qKnXh14mMztT+mKEiVj2BY=
+		vMottf4DYSd5d4+tLY5+++jyngg=
 		</data>
 		<key>Headers/R5VideoViewController.h</key>
 		<data>
-		DeVd0/m0/2Q2kgpHTxiklagoBuA=
+		XUJP4lBls4Z48UPI6jReJv6zUOA=
 		</data>
 		<key>Headers/codec_facade.h</key>
 		<data>
-		I4bc/dY/Vk0Hp7Q5FZ7uH50sgwo=
+		I7Wb0th1VPsKi5NTzg3wGVS07Ec=
 		</data>
 		<key>Headers/connection.h</key>
 		<data>
-		buT40SKAyKh5T8NU3JJL8/1LbcI=
+		kRJbGDyFzQt/5yxIEs90O4PEkyQ=
 		</data>
 		<key>Headers/global.h</key>
 		<data>
-		g6rGGxpJ+c1TaUMCpCrJSs1uBIw=
+		Nw3CCIKPBu8FVJCbyS9P1hscuFY=
 		</data>
 		<key>Headers/parse_util.h</key>
 		<data>
@@ -145,11 +169,11 @@
 		</data>
 		<key>Headers/publish.h</key>
 		<data>
-		GHAFWpgHOeKbClEH4Ow2L4KqW8k=
+		uqAQITuW5ggRpKS2m+a+MxMNa6Y=
 		</data>
 		<key>Headers/session_description.h</key>
 		<data>
-		i7hqkqy77Ce5s4kUa5utkuj6UUA=
+		IqPWtxVBenjdQ7DvczkW3P7tAdY=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
