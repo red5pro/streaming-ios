@@ -42,6 +42,15 @@
 			<key>name</key>
 			<string>Home</string>
 		</dict>
+		<key>publish</key>
+		<dict>
+			<key>LocalProperties</key>
+			<dict/>
+			<key>name</key>
+			<string>Publish</string>
+			<key>class</key>
+			<string>PublishTest</string>
+		</dict>
 		<key>publish - Audio Only</key>
 		<dict>
 			<key>LocalProperties</key>
