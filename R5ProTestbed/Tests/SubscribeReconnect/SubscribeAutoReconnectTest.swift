@@ -50,8 +50,6 @@ class SubscribeAutoReconnectTest: BaseTest {
         
         super.onR5StreamStatus(stream, withStatus: statusCode, withMessage: msg)
         
- 
-        
         if(statusCode == Int32(r5_status_connection_error.rawValue)){
             
             //we can assume it failed here!
@@ -61,6 +59,19 @@ class SubscribeAutoReconnectTest: BaseTest {
             DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + Double(Int64(2.0 * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC)) { () -> Void in
                 self.Subscribe()
             }
+            
+        }
+        else if (statusCode == Int32(r5_status_netstatus.rawValue) && msg == "NetStream.Play.UnpublishNotify") {
+            
+            // publisher stopped broadcast. let's resume autoconnect logic.
+            
+            NSLog("Publisher stopped broadcast. Let's reconnect.")
+            
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + Double(Int64(2.0 * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC)) { () ->
+                Void in
+                self.Subscribe()
+            }
+            
         }
         
     }

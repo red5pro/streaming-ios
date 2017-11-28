@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>GlobalProperties</key>
+	<dict>
+		<key>license_key</key>
+		<string>ACGE-4UMR-UHM4-RVJR</string>
+		<key>server_port</key>
+		<string>5080</string>
+		<key>bitrate</key>
+		<integer>750</integer>
+		<key>host</key>
+		<string>50.56.81.179</string>
+		<key>buffer_time</key>
+		<real>0.5</real>
+		<key>port</key>
+		<integer>8554</integer>
+		<key>stream1</key>
+		<string>jesstream1</string>
+		<key>stream2</key>
+		<string>jesstream2</string>
+		<key>context</key>
+		<string>live</string>
+		<key>camera_width</key>
+		<integer>640</integer>
+		<key>camera_height</key>
+		<integer>360</integer>
+		<key>debug_view</key>
+		<true/>
+		<key>video_on</key>
+		<true/>
+		<key>audio_on</key>
+		<true/>
+	</dict>
+	<key>Tests</key>
+	<dict>
+		<key>home</key>
+		<dict>
+			<key>class</key>
+			<string>Home</string>
+			<key>name</key>
+			<string>Home</string>
+		</dict>
+		<key>publish</key>
+		<dict>
+			<key>LocalProperties</key>
+			<dict/>
+			<key>name</key>
+			<string>Publish</string>
+			<key>class</key>
+			<string>PublishTest</string>
+		</dict>
+		<key>publish - Audio Only</key>
+		<dict>
+			<key>LocalProperties</key>
+			<dict>
+				<key>video_on</key>
+				<false/>
+			</dict>
+			<key>name</key>
+			<string>Publish - Audio Only</string>
+			<key>class</key>
+			<string>PublishTest</string>
+		</dict>
+		<key>subscribe</key>
+		<dict>
+			<key>LocalProperties</key>
+			<dict/>
+			<key>name</key>
+			<string>Subscribe</string>
+			<key>class</key>
+			<string>SubscribeTest</string>
+		</dict>
+	</dict>
+</dict>
+</plist>
