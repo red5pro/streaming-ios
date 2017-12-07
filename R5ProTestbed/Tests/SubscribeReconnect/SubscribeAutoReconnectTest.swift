@@ -12,7 +12,15 @@ import R5Streaming
 @objc(SubscribeAutoReconnectTest)
 class SubscribeAutoReconnectTest: BaseTest {
     
+    var finished = false
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        self.finished = true
+        super.viewWillDisappear(animated)
+    }
+    
     override func viewDidLoad() {
+        self.finished = false
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
@@ -39,10 +47,7 @@ class SubscribeAutoReconnectTest: BaseTest {
         
         currentView?.attach(subscribeStream)
         
-        
         self.subscribeStream!.play(Testbed.getParameter(param: "stream1") as! String)
-        
-
         
     }
     
@@ -53,10 +58,14 @@ class SubscribeAutoReconnectTest: BaseTest {
         if(statusCode == Int32(r5_status_connection_error.rawValue)){
             
             //we can assume it failed here!
-        
+            
             NSLog("Connection error")
             
-            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + Double(Int64(2.0 * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC)) { () -> Void in
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+                if self.finished {
+                    return
+                }
+                NSLog("Subscribing again!!")
                 self.Subscribe()
             }
             
@@ -64,23 +73,30 @@ class SubscribeAutoReconnectTest: BaseTest {
         else if (statusCode == Int32(r5_status_netstatus.rawValue) && msg == "NetStream.Play.UnpublishNotify") {
             
             // publisher stopped broadcast. let's resume autoconnect logic.
-            
-            NSLog("Publisher stopped broadcast. Let's reconnect.")
-            
-            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + Double(Int64(2.0 * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC)) { () ->
-                Void in
+            let view = currentView
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+                if(self.subscribeStream != nil) {
+                    view?.attach(nil)
+                    self.subscribeStream!.stop()
+                    self.subscribeStream = nil
+                }
+                
+                if self.finished {
+                    return
+                }
+                NSLog("Subscribing again!!")
                 self.Subscribe()
             }
-            
         }
         
     }
     
     
-    func onMetaData(_ data : String){
+    func onMetaData(data : String){
         
     }
     
     
     
 }
+
