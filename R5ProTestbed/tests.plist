@@ -72,15 +72,15 @@
 		<key>publish - ABR</key>
 		<dict>
 			<key>description</key>
-			<string>A high quality publisher with AdaptiveBitrateController</string>
+			<string>A publisher with AdaptiveBitrateController</string>
 			<key>LocalProperties</key>
 			<dict>
 				<key>camera_width</key>
-				<integer>1920</integer>
+				<integer>640</integer>
 				<key>camera_height</key>
-				<integer>1080</integer>
+				<integer>360</integer>
 				<key>bitrate</key>
-				<integer>4800</integer>
+				<integer>1000</integer>
 			</dict>
 			<key>name</key>
 			<string>Publish - ABR</string>
