@@ -1,0 +1,6 @@
+framework module R5Streaming {
+  umbrella header "R5Streaming.h"
+
+  export *
+  module * { export * }
+}
