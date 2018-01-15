@@ -144,18 +144,31 @@ class DetailViewController: UIViewController, UITextFieldDelegate, UINavigationC
 
     
     override func viewWillDisappear(_ animated: Bool) {
-     
        closeCurrentTest()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated);
     }
     
     func closeCurrentTest(){
         
-        if(r5ViewController != nil){
+        if( r5ViewController != nil ){
             r5ViewController!.closeTest()
+            r5ViewController = nil
         }
-        r5ViewController = nil
         
-        
+    }
+    
+    var shouldClose:Bool{
+        get{
+            if(r5ViewController != nil){
+                return (r5ViewController?.shouldClose)!
+            }
+            else{
+                return true
+            }
+        }
     }
 
     override func viewDidLoad() {

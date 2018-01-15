@@ -1,24 +1,29 @@
 //
-//  AdaptiveBitrateControllerTest.swift
+//  PublishOrientationTest.swift
 //  R5ProTestbed
 //
-//  Created by Andy Zupko on 12/16/15.
+//  Created by Andy Zupko on 12/18/15.
 //  Copyright © 2015 Infrared5. All rights reserved.
 //
 
 import UIKit
 import R5Streaming
 
-@objc(AdaptiveBitrateControllerTest)
-class AdaptiveBitrateControllerTest: BaseTest {
-    
-    var controller : R5AdaptiveBitrateController? = nil
+@objc(PublishAspectTest)
+class PublishAspectTest: BaseTest {
 
     override func viewDidAppear(_ animated: Bool) {
         
         super.viewDidAppear(animated)
-
+        
+        AVAudioSession.sharedInstance().requestRecordPermission { (gotPerm: Bool) -> Void in
+            
+        };
+        
+        
         setupDefaultR5VideoViewController()
+        
+        
         
         // Set up the configuration
         let config = getConfig()
@@ -30,16 +35,28 @@ class AdaptiveBitrateControllerTest: BaseTest {
         
         self.currentView!.attach(publishStream!)
         
-        //The Adaptive bitrate controller!
-        controller = R5AdaptiveBitrateController()
-        controller?.attach(to: self.publishStream!)
-        controller?.requiresVideo = Testbed.getParameter(param: "video_on") as! Bool
+        self.currentView?.scaleMode = r5_scale_fill
         
         
         self.publishStream!.publish(Testbed.getParameter(param: "stream1") as! String, type: R5RecordTypeLive)
         
         
+        let tap : UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(PublishScaleModeTest.handleSingleTap(recognizer:)))
         
+        self.view.addGestureRecognizer(tap)
+        
+    }
+    
+    func handleSingleTap(recognizer : UITapGestureRecognizer) {
+        
+        
+        var nextMode = (currentView?.scaleMode.rawValue)! + 1;
+        if(nextMode == 3){
+            nextMode = 0;
+        }
+        
+        currentView?.scaleMode = r5_scale_mode(nextMode);
+
     }
     
     override func onR5StreamStatus(_ stream: R5Stream!, withStatus statusCode: Int32, withMessage msg: String!) {
@@ -50,16 +67,6 @@ class AdaptiveBitrateControllerTest: BaseTest {
         else if (Int(statusCode) == Int(r5_status_buffer_flush_empty.rawValue)) {
             NotificationCenter.default.post(Notification(name: Notification.Name("BufferFlushComplete")))
         }
-    }
-    
-    override func closeTest() {
-        
-        if (controller != nil) {
-            controller?.close();
-        }
-        
-        super.closeTest()
-        
     }
 
 }

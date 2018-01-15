@@ -27,14 +27,18 @@
 		<key>NSAllowsArbitraryLoads</key>
 		<true/>
 	</dict>
-	<key>NSPhotoLibraryUsageDescription</key>
-	<string>Photo Library access required to save video</string>
-	<key>NSPhotoLibraryAddUsageDescription</key>
-	<string>Photo Library access required to save video</string>
 	<key>NSCameraUsageDescription</key>
 	<string>Red5 Pro uses your camera for live streaming</string>
 	<key>NSMicrophoneUsageDescription</key>
 	<string>Red5 Pro uses your microphone for live streaming</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>Photo Library access required to save video</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Photo Library access required to save video</string>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>audio</string>
+	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
