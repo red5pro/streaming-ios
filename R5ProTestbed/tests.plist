@@ -17,9 +17,9 @@
 		<key>port</key>
 		<integer>8554</integer>
 		<key>stream1</key>
-		<string>stream1</string>
+		<string>jesstream1</string>
 		<key>stream2</key>
-		<string>stream2</string>
+		<string>jesstream2</string>
 		<key>context</key>
 		<string>live</string>
 		<key>camera_width</key>
@@ -86,6 +86,17 @@
 			<string>Publish - ABR</string>
 			<key>class</key>
 			<string>AdaptiveBitrateControllerTest</string>
+		</dict>
+		<key>publish - Aspect Ratio</key>
+		<dict>
+			<key>description</key>
+			<string>A publish example that modifies the scale mode of its preview display</string>
+			<key>LocalProperties</key>
+			<dict/>
+			<key>name</key>
+			<string>Publish - Aspect Ratio</string>
+			<key>class</key>
+			<string>PublishAspectTest</string>
 		</dict>
 		<key>publish - Camera Swap</key>
 		<dict>
@@ -281,6 +292,17 @@
 			<string>Subscribe - Authentication</string>
 			<key>class</key>
 			<string>SubscribeAuthTest</string>
+		</dict>
+		<key>subscribe - Background</key>
+		<dict>
+			<key>description</key>
+			<string>A subscriber example that continues to run while the app is in the background</string>
+			<key>LocalProperties</key>
+			<dict/>
+			<key>name</key>
+			<string>Subscribe - Background</string>
+			<key>class</key>
+			<string>SubscribeBackgroundTest</string>
 		</dict>
 		<key>subscribe - Cluster</key>
 		<dict>

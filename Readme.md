@@ -19,7 +19,7 @@ A Red5 Pro SDK License Key is required to use the iOS Mobile SDK. If you already
 
 ## Setup
 
-You will need to modify **/Red5ProTestbed/tests.plist (the domain value)** to point to your `host` server instance's IP address and update the `license_key` property to that of your Red5 Pro SDK License.  If you do not, the examples will not function when you build. If you are running the server locally, then your machine and mobile device need to be on the same WiFi network. 
+You will need to modify **/Red5ProTestbed/tests.plist (the domain value)** to point to your `host` server instance's IP address and update the `license_key` property to that of your Red5 Pro SDK License.  If you do not, the examples will not function when you build. If you are running the server locally, then your machine and mobile device need to be on the same WiFi network.
 
 Once you have modified your settings, you can run the application for simulator or device.
 
@@ -31,25 +31,28 @@ Once you have modified your settings, you can run the application for simulator 
 
 | **[1080p](R5ProTestbed/Tests/Publish)**
 | :-----
-| *A high quality publisher. Note that this is the publish test with a non-default 'bitrate' and camera size values set in tests.plist* 
+| *A high quality publisher. Note that this is the publish test with a non-default 'bitrate' and camera size values set in tests.plist*
 | -
 | **[ABR](R5ProTestbed/Tests/AdaptiveBitrate)**
 | *A high bitrate publisher with AdaptiveBitrateController*   
+| -
+| **[Aspect Ratio](R5ProTestbed/Tests/PublishAspect)**
+| *A publish example that includes modifying the scale mode of the preview display*
 | -
 | **[Authentication](R5ProTestbed/Tests/PublishAuth)**
 | *An example of publishing a stream as an authenticated user*   
 | -
 | **[Camera Swap](R5ProTestbed/Tests/CameraSwap)**
-| *Touch the screen to swap which camera is being used! erify with flash, android, or other iOS device running subscribe test that camera is swapping properly and no rendering problems occur.* 
+| *Touch the screen to swap which camera is being used! erify with flash, android, or other iOS device running subscribe test that camera is swapping properly and no rendering problems occur.*
 | -
 | **[Mute/Unmute](R5ProTestbed/Tests/PublishPause)**
-| *Touch the screen to toggle between sending Audio & Video, sending just Video, sending just Audio, and sending no Audio or Video. Turning off and on the media sources is considered mute and unmute events, respecitively* 
+| *Touch the screen to toggle between sending Audio & Video, sending just Video, sending just Audio, and sending no Audio or Video. Turning off and on the media sources is considered mute and unmute events, respecitively*
 | -
 | **[Custom Video Source](R5ProTestbed/Tests/PublishCustomSource)**
 | *Uses a custom controller to supply video data to the publisher.*
 | -
 | **[Image Capture](R5ProTestbed/Tests/PublishStreamImage)**
-| *Touch the publish stream to take a screen shot that is displayed!* 
+| *Touch the publish stream to take a screen shot that is displayed!*
 | -
 | **[Device Orientation](R5ProTestbed/Tests/PublishDeviceOrientation)**
 | *Rotate the device to update the orientation of the broadcast stream.  Verify with browser-based players (WebRTC, Flash, HLS), Android, or other iOS device running subscribe test that image is rotating properly and no rendering problems occur.*
@@ -87,8 +90,11 @@ Once you have modified your settings, you can run the application for simulator 
 | **[Authentication](R5ProTestbed/Tests/SubscribeAuth)**
 | *An example of subscribing to a stream as an authenticated user*   
 | -
-| **[Cluster](R5ProTestbed/Tests/SubscribeCluster)** 
-| *An example of conecting to a cluster server.*
+| **[Background](R5ProTestbed/Tests/SubscribeBackground)**
+| *A subscribing example that can continue when the app moves into the background*
+| -
+| **[Cluster](R5ProTestbed/Tests/SubscribeCluster)**
+| *An example of connecting to a cluster server.*
 | -
 | **[Image Capture](R5ProTestbed/Tests/SubscribeStreamImage)**
 | *Touch the subscribe stream to take a screen shot that is displayed!*
@@ -100,10 +106,10 @@ Once you have modified your settings, you can run the application for simulator 
 | *An example of reconnecting to a stream on a connection error.*
 | -
 | **[Remote Call](R5ProTestbed/Tests/RemoteCall)**
-| *The subscribe portion of the remote call example - receives the remote call.* 
+| *The subscribe portion of the remote call example - receives the remote call.*
 | -
 | **[Stream Manager](R5ProTestbed/Tests/SubscribeStreamManager)**
-| *A subscribe example that connects with a server cluster using a Stream Manger* 
+| *A subscribe example that connects with a server cluster using a Stream Manger*
 | -
 | **[Two Streams](R5ProTestbed/Tests/SubscribeTwoStreams)**
 | *An example of subscribing to multiple streams at once, useful for subscribing to a presentation hosted by two people using a Two Way connection.*
