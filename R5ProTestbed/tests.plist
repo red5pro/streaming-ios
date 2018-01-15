@@ -87,6 +87,17 @@
 			<key>class</key>
 			<string>AdaptiveBitrateControllerTest</string>
 		</dict>
+		<key>publish - Aspect Ratio</key>
+		<dict>
+			<key>description</key>
+			<string>A publish example that modifies the scale mode of its preview display</string>
+			<key>LocalProperties</key>
+			<dict/>
+			<key>name</key>
+			<string>Publish - Aspect Ratio</string>
+			<key>class</key>
+			<string>PublishAspectTest</string>
+		</dict>
 		<key>publish - Camera Swap</key>
 		<dict>
 			<key>description</key>
@@ -281,6 +292,17 @@
 			<string>Subscribe - Authentication</string>
 			<key>class</key>
 			<string>SubscribeAuthTest</string>
+		</dict>
+		<key>subscribe - Background</key>
+		<dict>
+			<key>description</key>
+			<string>A subscriber example that continues to run while the app is in the background</string>
+			<key>LocalProperties</key>
+			<dict/>
+			<key>name</key>
+			<string>Subscribe - Background</string>
+			<key>class</key>
+			<string>SubscribeBackgroundTest</string>
 		</dict>
 		<key>subscribe - Cluster</key>
 		<dict>
