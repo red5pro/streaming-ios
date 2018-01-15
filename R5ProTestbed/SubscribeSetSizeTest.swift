@@ -35,7 +35,7 @@ class SubscribeSetSizeTest: BaseTest {
     
     func setupR5VideoViewController() -> R5VideoViewController{
         
-        let r5View : R5VideoViewController = getNewR5VideoViewController(self.view.frame);
+        let r5View : R5VideoViewController = getNewR5VideoViewController(rect: self.view.frame);
         self.addChildViewController(r5View);
         
                view.addSubview(r5View.view)
