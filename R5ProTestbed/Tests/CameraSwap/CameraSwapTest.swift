@@ -28,7 +28,7 @@ class CameraSwapTest: BaseTest {
         // Set up the connection and stream
         let connection = R5Connection(config: config)
         
-        setupPublisher(connection!)
+        setupPublisher(connection: connection!)
         // show preview and debug info
         
         self.currentView!.attach(publishStream!)

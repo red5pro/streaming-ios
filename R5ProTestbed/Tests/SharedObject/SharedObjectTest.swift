@@ -104,7 +104,7 @@ class SharedObjectTest: BaseTest, UITextViewDelegate {
                 DispatchQueue.main.async {
                     
                     if(shouldPublish){
-                        self.setupPublisher(connection!)
+                        self.setupPublisher(connection: connection!)
                         self.currentView!.attach(self.publishStream!)
                         self.publishStream!.publish(Testbed.getParameter(param: "stream1") as! String, type: R5RecordTypeLive)
                         self.addMessage(message: "Begining Publish")

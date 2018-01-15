@@ -26,7 +26,7 @@ class SubscribeTwoStreams: BaseTest {
         
         let screenSize = self.view.bounds.size
         
-        firstView = getNewR5VideoViewController(CGRect( x: 0, y: 0, width: screenSize.width, height: screenSize.height / 2 ))
+        firstView = getNewR5VideoViewController(rect: CGRect( x: 0, y: 0, width: screenSize.width, height: screenSize.height / 2 ))
         self.addChildViewController(firstView!)
         view.addSubview((firstView?.view)!)
         firstView?.showDebugInfo(Testbed.getParameter(param: "debug_view") as! Bool)
@@ -53,7 +53,7 @@ class SubscribeTwoStreams: BaseTest {
         self.subscribeStream2!.delegate = self
         self.subscribeStream2?.client = self;
         
-        secondView = getNewR5VideoViewController(CGRect( x: 0, y: screenSize.height / 2, width: screenSize.width, height: screenSize.height / 2 ))
+        secondView = getNewR5VideoViewController(rect: CGRect( x: 0, y: screenSize.height / 2, width: screenSize.width, height: screenSize.height / 2 ))
         self.addChildViewController(secondView!)
         view.addSubview((secondView?.view)!)
         secondView?.showDebugInfo(Testbed.getParameter(param: "debug_view") as! Bool)

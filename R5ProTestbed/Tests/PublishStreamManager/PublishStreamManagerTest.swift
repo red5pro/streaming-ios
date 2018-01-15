@@ -90,7 +90,7 @@ class PublishStreamManagerTest: BaseTest {
             //   UI updates must be asynchronous
             DispatchQueue.main.async(execute: {
                 //   Create our new stream that will utilize that connection
-                self.setupPublisher(connection!)
+                self.setupPublisher(connection: connection!)
                 // show preview and debug info
                 
                 self.currentView!.attach(self.publishStream!)

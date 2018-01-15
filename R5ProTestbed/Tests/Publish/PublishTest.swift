@@ -29,7 +29,7 @@ class PublishTest: BaseTest {
         // Set up the connection and stream
         let connection = R5Connection(config: config)
         
-        setupPublisher(connection!)
+        setupPublisher(connection: connection!)
         // show preview and debug info
        // self.publishStream?.getVideoSource().fps = 2;
         self.currentView!.attach(publishStream!)
