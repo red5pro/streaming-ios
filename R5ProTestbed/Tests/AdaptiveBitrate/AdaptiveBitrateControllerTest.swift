@@ -35,10 +35,17 @@ class AdaptiveBitrateControllerTest: BaseTest {
         controller?.attach(to: self.publishStream!)
         controller?.requiresVideo = Testbed.getParameter(param: "video_on") as! Bool
         
-        
         self.publishStream!.publish(Testbed.getParameter(param: "stream1") as! String, type: R5RecordTypeLive)
         
+    }
+    
+    override func closeTest() {
         
+        if (controller != nil) {
+            controller?.close();
+        }
+        
+        super.closeTest()
         
     }
     
