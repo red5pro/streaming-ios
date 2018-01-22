@@ -30,6 +30,8 @@
     self.subscribeStream.client = self;
     
     [self.currentView attachStream:self.subscribeStream];
+    
+    [self.subscribeStream play:[Testbed getParameter:@"stream1"]];
 }
 
 -(void) updateOrientation:(int)value {
