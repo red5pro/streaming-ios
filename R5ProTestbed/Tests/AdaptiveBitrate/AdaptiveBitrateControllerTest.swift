@@ -39,16 +39,6 @@ class AdaptiveBitrateControllerTest: BaseTest {
         
     }
     
-    override func closeTest() {
-        
-        if (controller != nil) {
-            controller?.close();
-        }
-        
-        super.closeTest()
-        
-    }
-    
     override func onR5StreamStatus(_ stream: R5Stream!, withStatus statusCode: Int32, withMessage msg: String!) {
         super.onR5StreamStatus(stream, withStatus: statusCode, withMessage: msg)
         if (Int(statusCode) == Int(r5_status_buffer_flush_start.rawValue)) {
