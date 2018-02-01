@@ -32,7 +32,7 @@
     
     [self.currentView attachStream:self.publishStream];
     
-    [self.publishStream publish:[Testbed getParameter:@"stream1"] type:R5RecordTypeLive];
+    [self.publishStream publish:[Testbed getParameter:@"stream1"] type:R5RecordTypeRecord];
 }
 
 @end

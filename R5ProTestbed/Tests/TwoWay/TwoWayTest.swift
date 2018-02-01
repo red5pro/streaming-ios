@@ -23,7 +23,7 @@ class TwoWayTest: BaseTest {
         setupDefaultR5VideoViewController()
         
         
-        publishView = getNewR5VideoViewController(self.view.frame);
+        publishView = getNewR5VideoViewController(rect: self.view.frame);
         self.addChildViewController(publishView!);
         
         view.addSubview(publishView!.view)
@@ -37,13 +37,13 @@ class TwoWayTest: BaseTest {
         // Set up the connection and stream
         let connection = R5Connection(config: config)
         
-        setupPublisher(connection!)
+        setupPublisher(connection: connection!)
         // show preview and debug info
         
         publishView!.attach(publishStream!)
         
-        let screenSize = self.view.bounds.size
-        let newFrame = CGRect( x: screenSize.width * (3/5), y: screenSize.height * (3/5), width: screenSize.width * (2/5), height: screenSize.height * (2/5) )
+        let screenSize = UIScreen.main.bounds.size
+        let newFrame = CGRect(x: screenSize.width * (3/5), y: screenSize.height * (3/5), width: screenSize.width * (2/5), height: screenSize.height * (2/5) )
         publishView?.view.frame = newFrame
         
         self.publishStream?.client = self;
@@ -51,6 +51,11 @@ class TwoWayTest: BaseTest {
     }
     
     func subscribeBegin()
+    {
+        performSelector(onMainThread: #selector(TwoWayTest.subscribeTrigger), with: nil, waitUntilDone: false)
+    }
+    
+    func subscribeTrigger()
     {
         if( subscribeStream == nil )
         {
@@ -66,14 +71,27 @@ class TwoWayTest: BaseTest {
             self.subscribeStream!.play(Testbed.getParameter(param: "stream2") as! String)
         }
     }
-    
+    var failCount: Int = 0;
     override func onR5StreamStatus(_ stream: R5Stream!, withStatus statusCode: Int32, withMessage msg: String!) {
         
         if(stream == self.publishStream){
             
             if(Int(statusCode) == Int(r5_status_start_streaming.rawValue)){
                 
-                self.timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(TwoWayTest.getStreams), userInfo: nil, repeats: false)
+                self.timer = Timer.scheduledTimer(timeInterval: 2.5, target: self, selector: #selector(TwoWayTest.getStreams), userInfo: nil, repeats: false)
+            }
+        }
+        
+        if(stream == self.subscribeStream){
+            if(Int(statusCode) == Int(r5_status_connection_error.rawValue)){
+                failCount += 1
+                if(failCount < 4){
+                    self.timer = Timer.scheduledTimer(timeInterval: 2.5, target: self, selector: #selector(TwoWayTest.subscribeBegin), userInfo: nil, repeats: false)
+                    self.subscribeStream = nil
+                }
+                else{
+                    print("The other stream appears to be invalid")
+                }
             }
         }
     }
@@ -82,7 +100,7 @@ class TwoWayTest: BaseTest {
         publishStream?.connection.call("streams.getLiveStreams", withReturn: "onGetLiveStreams", withParam: nil)
     }
     
-    func onGetLiveStreams (_ streams : String){
+    func onGetLiveStreams (streams : String){
         
         NSLog("Got streams: " + streams)
         
@@ -107,7 +125,7 @@ class TwoWayTest: BaseTest {
         self.timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(TwoWayTest.getStreams), userInfo: nil, repeats: false)
     }
     
-    func onMetaData(_ data : String){
+    func onMetaData(data : String){
         
     }
 }

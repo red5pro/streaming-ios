@@ -68,7 +68,15 @@
     _publishStream.delegate = self;
     
     if( [[Testbed getParameter:@"video_on"] boolValue] ){
+        // Attach the video from camera to stream
+        AVCaptureDevice *videoDevice = [[AVCaptureDevice devicesWithMediaType:AVMediaTypeVideo] lastObject];
         
+        R5Camera *camera = [ [R5Camera alloc] initWithDevice:videoDevice andBitRate:[[Testbed getParameter:@"bitrate"] intValue] ];
+        
+        camera.width = [[Testbed getParameter:@"camera_width"] intValue];
+        camera.height = [[Testbed getParameter:@"camera_height"] intValue];
+        camera.orientation = 90;
+        [self.publishStream attachVideo:camera];
     }
     if ( [[Testbed getParameter:@"audio_on"] boolValue] ) {
         AVCaptureDevice* audioDevice = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeAudio];

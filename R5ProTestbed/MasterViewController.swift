@@ -86,7 +86,7 @@ class MasterViewController: UITableViewController,UINavigationControllerDelegate
     
     func appMovedToBackground() {
         
-        if !self.isBlockOnAccessGrant {
+        if (!self.isBlockOnAccessGrant && (detailViewController == nil || (detailViewController?.shouldClose)!)) {
             let _ = navigationController?.popViewController(animated: false)
         }
         
@@ -117,10 +117,10 @@ class MasterViewController: UITableViewController,UINavigationControllerDelegate
             if let indexPath = self.tableView.indexPathForSelectedRow {
               
                 let object = Testbed.testAtIndex(index: indexPath.row)
-                let controller = (segue.destination as! UINavigationController).topViewController as! DetailViewController
-                controller.detailItem = object
-                controller.navigationItem.leftBarButtonItem = self.splitViewController?.displayModeButtonItem
-                controller.navigationItem.leftItemsSupplementBackButton = true
+                detailViewController = ((segue.destination as! UINavigationController).topViewController as! DetailViewController)
+                detailViewController!.detailItem = object
+                detailViewController!.navigationItem.leftBarButtonItem = self.splitViewController?.displayModeButtonItem
+                detailViewController!.navigationItem.leftItemsSupplementBackButton = true
             }
         }
     }

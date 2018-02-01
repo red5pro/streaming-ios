@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		480C6B931F7BDE7F009E943F /* VideoToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 480C6B921F7BDE7F009E943F /* VideoToolbox.framework */; };
+		480C6B951F7BDE85009E943F /* libbz2.1.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 480C6B941F7BDE85009E943F /* libbz2.1.0.tbd */; };
 		481B156D1EB380F20038A187 /* PublishAuthTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 481B156C1EB380F20038A187 /* PublishAuthTest.swift */; };
 		481B156F1EB380FE0038A187 /* SubscribeAuthTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 481B156E1EB380FE0038A187 /* SubscribeAuthTest.swift */; };
 		481B15761EB390600038A187 /* PublishSendTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 481B15741EB390600038A187 /* PublishSendTest.swift */; };
@@ -19,6 +21,7 @@
 		4874D59F1C221B9500A98102 /* AdaptiveBitrateControllerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4874D59E1C221B9500A98102 /* AdaptiveBitrateControllerTest.swift */; };
 		4874D5A31C221CD000A98102 /* ALToastView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4874D5A21C221CD000A98102 /* ALToastView.m */; };
 		4874ECD01C483FDA002BDA6D /* SubscribeStreamImageTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4874ECCF1C483FDA002BDA6D /* SubscribeStreamImageTest.swift */; };
+		487C888F1F2F8AB2004157B6 /* PublishHQAudioTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 487C888E1F2F8AB2004157B6 /* PublishHQAudioTest.swift */; };
 		487CDBC21E6E4401007FC4EA /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 487CDBC11E6E4401007FC4EA /* libz.tbd */; };
 		487CDBC41E6F1A39007FC4EA /* SharedObjectTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 487CDBC31E6F1A39007FC4EA /* SharedObjectTest.swift */; };
 		48BB1D811CED140D00D915E5 /* SubscribeSetSizeTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48BB1D801CED140D00D915E5 /* SubscribeSetSizeTest.swift */; };
@@ -40,6 +43,7 @@
 		48DFEDD91C21C5940040B624 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48DFEDD81C21C5940040B624 /* OpenAL.framework */; };
 		48DFEDDB1C21C5AB0040B624 /* libstdc++.6.0.9.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 48DFEDDA1C21C5AB0040B624 /* libstdc++.6.0.9.tbd */; };
 		48DFEDDF1C21EA780040B624 /* Testbed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48DFEDDE1C21EA780040B624 /* Testbed.swift */; };
+		9209F4A91F7EE38500A90080 /* PublishLocalRecordTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9209F4A81F7EE38500A90080 /* PublishLocalRecordTest.swift */; };
 		926794F51D061900004B0BCD /* PublishRemoteCallTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926794F41D061900004B0BCD /* PublishRemoteCallTest.swift */; };
 		926794F71D06191E004B0BCD /* PublishStreamManagerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926794F61D06191E004B0BCD /* PublishStreamManagerTest.swift */; };
 		926794F91D061942004B0BCD /* RecordedTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926794F81D061942004B0BCD /* RecordedTest.swift */; };
@@ -47,6 +51,8 @@
 		926794FD1D061983004B0BCD /* SubscribeRemoteCallTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926794FC1D061983004B0BCD /* SubscribeRemoteCallTest.swift */; };
 		926794FF1D06199E004B0BCD /* TwoWayTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926794FE1D06199E004B0BCD /* TwoWayTest.swift */; };
 		928B1CBD1CBC0DC5002C66BA /* SubscribeStreamManagerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928B1CBC1CBC0DC5002C66BA /* SubscribeStreamManagerTest.swift */; };
+		92A642E3200D40AC00882600 /* PublishAspectTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A642E2200D40AC00882600 /* PublishAspectTest.swift */; };
+		92A642E5200D416600882600 /* SubscribeBackgroundTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A642E4200D416500882600 /* SubscribeBackgroundTest.swift */; };
 		92CC78091CB6F8DD00CD4352 /* SubscribeTwoStreams.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92CC78081CB6F8DD00CD4352 /* SubscribeTwoStreams.swift */; };
 		92E13BF41CDD165800DA5783 /* SubscribeNoViewTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E13BF31CDD165800DA5783 /* SubscribeNoViewTest.swift */; };
 		92EA19DA1CE13717006B3A97 /* PublishCustomSourceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92EA19D91CE13717006B3A97 /* PublishCustomSourceTest.swift */; };
@@ -57,6 +63,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		480C6B921F7BDE7F009E943F /* VideoToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = VideoToolbox.framework; path = System/Library/Frameworks/VideoToolbox.framework; sourceTree = SDKROOT; };
+		480C6B941F7BDE85009E943F /* libbz2.1.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libbz2.1.0.tbd; path = usr/lib/libbz2.1.0.tbd; sourceTree = SDKROOT; };
 		481B156C1EB380F20038A187 /* PublishAuthTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PublishAuthTest.swift; path = Tests/PublishAuth/PublishAuthTest.swift; sourceTree = "<group>"; };
 		481B156E1EB380FE0038A187 /* SubscribeAuthTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SubscribeAuthTest.swift; path = Tests/SubscribeAuth/SubscribeAuthTest.swift; sourceTree = "<group>"; };
 		481B15741EB390600038A187 /* PublishSendTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PublishSendTest.swift; path = Tests/SubscribeReceiveSend/PublishSendTest.swift; sourceTree = "<group>"; };
@@ -71,6 +79,7 @@
 		4874D5A11C221CD000A98102 /* ALToastView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALToastView.h; sourceTree = "<group>"; };
 		4874D5A21C221CD000A98102 /* ALToastView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALToastView.m; sourceTree = "<group>"; };
 		4874ECCF1C483FDA002BDA6D /* SubscribeStreamImageTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SubscribeStreamImageTest.swift; path = Tests/SubscribeStreamImage/SubscribeStreamImageTest.swift; sourceTree = "<group>"; };
+		487C888E1F2F8AB2004157B6 /* PublishHQAudioTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PublishHQAudioTest.swift; path = Tests/PublishHQAudio/PublishHQAudioTest.swift; sourceTree = "<group>"; };
 		487CDBC11E6E4401007FC4EA /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		487CDBC31E6F1A39007FC4EA /* SharedObjectTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SharedObjectTest.swift; path = Tests/SharedObject/SharedObjectTest.swift; sourceTree = "<group>"; };
 		48BB1D801CED140D00D915E5 /* SubscribeSetSizeTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubscribeSetSizeTest.swift; sourceTree = "<group>"; };
@@ -95,6 +104,7 @@
 		48DFEDD81C21C5940040B624 /* OpenAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenAL.framework; path = System/Library/Frameworks/OpenAL.framework; sourceTree = SDKROOT; };
 		48DFEDDA1C21C5AB0040B624 /* libstdc++.6.0.9.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.6.0.9.tbd"; path = "usr/lib/libstdc++.6.0.9.tbd"; sourceTree = SDKROOT; };
 		48DFEDDE1C21EA780040B624 /* Testbed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Testbed.swift; sourceTree = "<group>"; };
+		9209F4A81F7EE38500A90080 /* PublishLocalRecordTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PublishLocalRecordTest.swift; path = Tests/PublishLocalRecord/PublishLocalRecordTest.swift; sourceTree = "<group>"; };
 		926794F41D061900004B0BCD /* PublishRemoteCallTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PublishRemoteCallTest.swift; path = Tests/RemoteCall/PublishRemoteCallTest.swift; sourceTree = "<group>"; };
 		926794F61D06191E004B0BCD /* PublishStreamManagerTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PublishStreamManagerTest.swift; path = Tests/PublishStreamManager/PublishStreamManagerTest.swift; sourceTree = "<group>"; };
 		926794F81D061942004B0BCD /* RecordedTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RecordedTest.swift; path = Tests/Recorded/RecordedTest.swift; sourceTree = "<group>"; };
@@ -102,6 +112,8 @@
 		926794FC1D061983004B0BCD /* SubscribeRemoteCallTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SubscribeRemoteCallTest.swift; path = Tests/RemoteCall/SubscribeRemoteCallTest.swift; sourceTree = "<group>"; };
 		926794FE1D06199E004B0BCD /* TwoWayTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TwoWayTest.swift; path = Tests/TwoWay/TwoWayTest.swift; sourceTree = "<group>"; };
 		928B1CBC1CBC0DC5002C66BA /* SubscribeStreamManagerTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SubscribeStreamManagerTest.swift; path = Tests/SubscribeStreamManager/SubscribeStreamManagerTest.swift; sourceTree = "<group>"; };
+		92A642E2200D40AC00882600 /* PublishAspectTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PublishAspectTest.swift; path = Tests/PublishAspect/PublishAspectTest.swift; sourceTree = "<group>"; };
+		92A642E4200D416500882600 /* SubscribeBackgroundTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SubscribeBackgroundTest.swift; path = Tests/SubscribeBackground/SubscribeBackgroundTest.swift; sourceTree = "<group>"; };
 		92CC78081CB6F8DD00CD4352 /* SubscribeTwoStreams.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SubscribeTwoStreams.swift; path = Tests/SubscribeTwoStreams/SubscribeTwoStreams.swift; sourceTree = "<group>"; };
 		92E13BF31CDD165800DA5783 /* SubscribeNoViewTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SubscribeNoViewTest.swift; path = Tests/SubscribeNoView/SubscribeNoViewTest.swift; sourceTree = "<group>"; };
 		92EA19D91CE13717006B3A97 /* PublishCustomSourceTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PublishCustomSourceTest.swift; path = Tests/PublishCustomSource/PublishCustomSourceTest.swift; sourceTree = "<group>"; };
@@ -115,6 +127,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				480C6B951F7BDE85009E943F /* libbz2.1.0.tbd in Frameworks */,
+				480C6B931F7BDE7F009E943F /* VideoToolbox.framework in Frameworks */,
 				487CDBC21E6E4401007FC4EA /* libz.tbd in Frameworks */,
 				48DFEDDB1C21C5AB0040B624 /* libstdc++.6.0.9.tbd in Frameworks */,
 				48DFEDD31C21BF370040B624 /* libiconv.2.4.0.tbd in Frameworks */,
@@ -131,6 +145,8 @@
 		487CDBC01E6E4401007FC4EA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				480C6B941F7BDE85009E943F /* libbz2.1.0.tbd */,
+				480C6B921F7BDE7F009E943F /* VideoToolbox.framework */,
 				487CDBC11E6E4401007FC4EA /* libz.tbd */,
 			);
 			name = Frameworks;
@@ -193,6 +209,9 @@
 		48DFEDC91C21BE0B0040B624 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				92A642E2200D40AC00882600 /* PublishAspectTest.swift */,
+				9209F4A81F7EE38500A90080 /* PublishLocalRecordTest.swift */,
+				487C888E1F2F8AB2004157B6 /* PublishHQAudioTest.swift */,
 				481B15741EB390600038A187 /* PublishSendTest.swift */,
 				481B15751EB390600038A187 /* SubscribeReceiveSendTest.swift */,
 				481B156E1EB380FE0038A187 /* SubscribeAuthTest.swift */,
@@ -213,6 +232,7 @@
 				926794F61D06191E004B0BCD /* PublishStreamManagerTest.swift */,
 				4874D59C1C2216DB00A98102 /* SubscribeTest.swift */,
 				48BF80B21C246F6D000E996E /* SubscribeAspectRatioTest.swift */,
+				92A642E4200D416500882600 /* SubscribeBackgroundTest.swift */,
 				926794FA1D061968004B0BCD /* SubscribeCluster.swift */,
 				92E13BF31CDD165800DA5783 /* SubscribeNoViewTest.swift */,
 				92EAA9DA1D0734EA00B2CE46 /* SubscribeAutoReconnectTest.swift */,
@@ -267,6 +287,11 @@
 						CreatedOnToolsVersion = 7.2;
 						DevelopmentTeam = E964K44BWW;
 						LastSwiftMigration = 0800;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -308,19 +333,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				92A642E5200D416600882600 /* SubscribeBackgroundTest.swift in Sources */,
 				48DFEDB01C21BBC60040B624 /* DetailViewController.swift in Sources */,
 				481B15761EB390600038A187 /* PublishSendTest.swift in Sources */,
 				48BF80B31C246F6D000E996E /* SubscribeAspectRatioTest.swift in Sources */,
+				9209F4A91F7EE38500A90080 /* PublishLocalRecordTest.swift in Sources */,
 				4874D5A31C221CD000A98102 /* ALToastView.m in Sources */,
 				48DFEDAE1C21BBC60040B624 /* MasterViewController.swift in Sources */,
 				92CC78091CB6F8DD00CD4352 /* SubscribeTwoStreams.swift in Sources */,
 				92E13BF41CDD165800DA5783 /* SubscribeNoViewTest.swift in Sources */,
 				926794FF1D06199E004B0BCD /* TwoWayTest.swift in Sources */,
+				92A642E3200D40AC00882600 /* PublishAspectTest.swift in Sources */,
 				48DFEDD51C21C18F0040B624 /* Home.swift in Sources */,
 				926794FD1D061983004B0BCD /* SubscribeRemoteCallTest.swift in Sources */,
 				4874D59F1C221B9500A98102 /* AdaptiveBitrateControllerTest.swift in Sources */,
 				48DFEDAC1C21BBC60040B624 /* AppDelegate.swift in Sources */,
 				48DFEDDF1C21EA780040B624 /* Testbed.swift in Sources */,
+				487C888F1F2F8AB2004157B6 /* PublishHQAudioTest.swift in Sources */,
 				48BF80AE1C245AA7000E996E /* PublishOrientationTest.swift in Sources */,
 				92EA19DD1CE137DD006B3A97 /* CustomVideoSource.swift in Sources */,
 				926794FB1D061968004B0BCD /* SubscribeCluster.swift in Sources */,
