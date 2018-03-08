@@ -180,6 +180,7 @@ enum R5StreamMode{
 -(void)updateStreamMeta;
 
 -(void)setFrameListener:(void (^)(uint8_t *, int, int))listenerBlock;
+-(void)setPlaybackAudioHandler:(void (^)(uint8_t *, int, double))handlerBlock;
 
 -(void)recordWithName:(NSString*)fileName;
 

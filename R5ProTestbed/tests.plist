@@ -17,9 +17,9 @@
 		<key>port</key>
 		<integer>8554</integer>
 		<key>stream1</key>
-		<string>jesstream1</string>
+		<string>stream1</string>
 		<key>stream2</key>
-		<string>jesstream2</string>
+		<string>stream2</string>
 		<key>context</key>
 		<string>live</string>
 		<key>camera_width</key>
