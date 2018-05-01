@@ -114,6 +114,17 @@
 			<key>class</key>
 			<string>PublishAuthTest</string>
 		</dict>
+		<key>publish - Background</key>
+		<dict>
+			<key>description</key>
+			<string>An example of publishing that continues to serve audio when the app is in the background</string>
+			<key>LocalProperties</key>
+			<dict/>
+			<key>name</key>
+			<string>Publish - Background</string>
+			<key>class</key>
+			<string>PublishBackgroundTest</string>
+		</dict>
 		<key>publish - Camera Swap</key>
 		<dict>
 			<key>description</key>
