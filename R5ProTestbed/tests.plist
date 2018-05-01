@@ -98,6 +98,22 @@
 			<key>class</key>
 			<string>PublishAspectTest</string>
 		</dict>
+		<key>publish - Auth</key>
+		<dict>
+			<key>description</key>
+			<string>An authenticated publish example.</string>
+			<key>LocalProperties</key>
+			<dict>
+				<key>username</key>
+				<string>testuser</string>
+				<key>password</key>
+				<string>testpass</string>
+			</dict>
+			<key>name</key>
+			<string>Publish - Authentication</string>
+			<key>class</key>
+			<string>PublishAuthTest</string>
+		</dict>
 		<key>publish - Camera Swap</key>
 		<dict>
 			<key>description</key>
@@ -119,6 +135,17 @@
 			<string>Publish - Custom Video Source</string>
 			<key>class</key>
 			<string>PublishCustomSourceTest</string>
+		</dict>
+		<key>publish - Device Orientation</key>
+		<dict>
+			<key>description</key>
+			<string>Orientation based on device</string>
+			<key>Local Properties</key>
+			<dict/>
+			<key>name</key>
+			<string>Publish - Device Orientation</string>
+			<key>class</key>
+			<string>PublishDeviceOrientationTest</string>
 		</dict>
 		<key>publish - HQ Audio</key>
 		<dict>
@@ -153,28 +180,6 @@
 			<key>class</key>
 			<string>PublishLocalRecordTest</string>
 		</dict>
-		<key>publish - Pause</key>
-		<dict>
-			<key>description</key>
-			<string>Touch the publish stream to pause audio and video</string>
-			<key>LocalProperties</key>
-			<dict/>
-			<key>name</key>
-			<string>Publish - Pause</string>
-			<key>class</key>
-			<string>PublishPauseTest</string>
-		</dict>
-		<key>publish - Device Orientation</key>
-		<dict>
-			<key>description</key>
-			<string>Orientation based on device</string>
-			<key>Local Properties</key>
-			<dict/>
-			<key>name</key>
-			<string>Publish - Device Orientation</string>
-			<key>class</key>
-			<string>PublishDeviceOrientationTest</string>
-		</dict>
 		<key>publish - Orientation</key>
 		<dict>
 			<key>description</key>
@@ -185,6 +190,17 @@
 			<string>Publish - Orientation Change</string>
 			<key>class</key>
 			<string>PublishOrientationTest</string>
+		</dict>
+		<key>publish - Pause</key>
+		<dict>
+			<key>description</key>
+			<string>Touch the publish stream to pause audio and video</string>
+			<key>LocalProperties</key>
+			<dict/>
+			<key>name</key>
+			<string>Publish - Pause</string>
+			<key>class</key>
+			<string>PublishPauseTest</string>
 		</dict>
 		<key>publish - Record</key>
 		<dict>
@@ -197,22 +213,6 @@
 			<key>class</key>
 			<string>RecordedTest</string>
 		</dict>
-		<key>publish - Auth</key>
-		<dict>
-			<key>description</key>
-			<string>An authenticated publish example.</string>
-			<key>LocalProperties</key>
-			<dict>
-				<key>username</key>
-				<string>testuser</string>
-				<key>password</key>
-				<string>testpass</string>
-			</dict>
-			<key>name</key>
-			<string>Publish - Authentication</string>
-			<key>class</key>
-			<string>PublishAuthTest</string>
-		</dict>
 		<key>publish - Remote Call</key>
 		<dict>
 			<key>description</key>
@@ -224,17 +224,6 @@
 			<key>class</key>
 			<string>PublishRemoteCallTest</string>
 		</dict>
-		<key>publish - Stream Send</key>
-		<dict>
-			<key>description</key>
-			<string>A publish example that makes a stream send</string>
-			<key>LocalProperties</key>
-			<dict/>
-			<key>name</key>
-			<string>Publish - Stream Send</string>
-			<key>class</key>
-			<string>PublishSendTest</string>
-		</dict>
 		<key>publish - Stream Manager</key>
 		<dict>
 			<key>description</key>
@@ -245,6 +234,17 @@
 			<string>Publish - Stream Manager</string>
 			<key>class</key>
 			<string>PublishStreamManagerTest</string>
+		</dict>
+		<key>publish - Stream Send</key>
+		<dict>
+			<key>description</key>
+			<string>A publish example that makes a stream send</string>
+			<key>LocalProperties</key>
+			<dict/>
+			<key>name</key>
+			<string>Publish - Stream Send</string>
+			<key>class</key>
+			<string>PublishSendTest</string>
 		</dict>
 		<key>Shared Object</key>
 		<dict>
@@ -276,6 +276,17 @@
 			<string>Subscribe - Aspect Ratio</string>
 			<key>class</key>
 			<string>SubscribeAspectRatioTest</string>
+		</dict>
+		<key>subscribe - Audio Delay</key>
+		<dict>
+			<key>description</key>
+			<string>Captures the raw audio from the stream and delays it with a custom buffer implementation</string>
+			<key>LocalProperties</key>
+			<dict/>
+			<key>name</key>
+			<string>Subscribe - Audio Delay</string>
+			<key>class</key>
+			<string>SubscribeAudioDelayTest</string>
 		</dict>
 		<key>subscribe - Auth</key>
 		<dict>
@@ -357,17 +368,6 @@
 			<key>class</key>
 			<string>SubscribeRemoteCallTest</string>
 		</dict>
-		<key>subscribe - Stream Send</key>
-		<dict>
-			<key>description</key>
-			<string>A subscribe example that receives stream send events</string>
-			<key>LocalProperties</key>
-			<dict/>
-			<key>name</key>
-			<string>Subscribe - Stream Send</string>
-			<key>class</key>
-			<string>SubscribeReceiveSendTest</string>
-		</dict>
 		<key>subscribe - Stream Manager</key>
 		<dict>
 			<key>description</key>
@@ -378,6 +378,17 @@
 			<string>Subscribe - Stream Manager</string>
 			<key>class</key>
 			<string>SubscribeStreamManagerTest</string>
+		</dict>
+		<key>subscribe - Stream Send</key>
+		<dict>
+			<key>description</key>
+			<string>A subscribe example that receives stream send events</string>
+			<key>LocalProperties</key>
+			<dict/>
+			<key>name</key>
+			<string>Subscribe - Stream Send</string>
+			<key>class</key>
+			<string>SubscribeReceiveSendTest</string>
 		</dict>
 		<key>subscribe - Two Streams</key>
 		<dict>
