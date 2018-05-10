@@ -35,6 +35,9 @@ enum R5StreamMode{
 
 };
 
+extern NSString *const R5RecordVideoBitRateKey;
+extern NSString *const R5RecordAudioBitRateKey;
+
 /**
  *  @brief The main stream class of Red5Pro.  Utilizes the #R5Connection to connect and communicate with a server instance.
  */
@@ -179,10 +182,32 @@ enum R5StreamMode{
  */
 -(void)updateStreamMeta;
 
+/**
+ *  Sets a block to receive frame data from the renderer, Use R5VideoView instead where possible
+ *  @param listenerBlock The block of code to recieve the frame data
+ *
+ *  The parameters that the block receives are:
+ *  uint8_t*    A pointer to an array of color data in RGB format - three values per pixel.
+ *              Note, this pointer is managed by the SDK, freeing it will likely cause problems.
+ *  int         The width of the image described by the array.
+ *  int         The height of the image described by the array.
+ */
 -(void)setFrameListener:(void (^)(uint8_t *, int, int))listenerBlock;
+
+/**
+ *  Sets a handler to receive and optionally manipulate the audio stream data coming in for playback before sending to output.
+ *  @param handlerBlock The block of code to recieve the audio data
+ *
+ *  The parameters that the block receives are:
+ *  uint8_t*    A pointer to an array of samples of raw audio. This serves as both input and output, any modification to the array will modify the audio sent to the speakers.
+ *              Note, this pointer is managed by the SDK, freeing it will likely cause problems.
+ *  int         The number of samples in the array - each sample is a single uint8 value.
+ *  double      The time since the stream began playing audio, in milliseconds.
+ */
 -(void)setPlaybackAudioHandler:(void (^)(uint8_t *, int, double))handlerBlock;
 
 -(void)recordWithName:(NSString*)fileName;
+-(void)recordWithName:(NSString*)fileName withProps:(NSDictionary*)properties;
 
 -(void)endLocalRecord;
 

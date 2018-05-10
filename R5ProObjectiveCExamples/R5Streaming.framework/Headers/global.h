@@ -22,8 +22,7 @@ extern "C" {
 #define STRINGIFY(s) STRINGIFY_(s)
 
 #define R5PRO_MAJOR_VERSION         4
-#define R5PRO_MINOR_VERSION         2
-#define R5PRO_REVISION              0
+#define R5PRO_MINOR_VERSION         6
 #define R5PRO_REVISION              0
 #define R5PRO_BUILD                 0
     
@@ -96,7 +95,8 @@ extern "C" {
         r5_status_license_error,        //!< An error in validating the SDK license.
         r5_status_license_valid,        //!< The license key provided for the SDK is deemed valid.
         r5_status_buffer_flush_start,   //!< Publisher has started flushing queued packets post-broadcast.
-        r5_status_buffer_flush_empty    //!< Publisher has completed flushing queued packets post-broadcast.
+        r5_status_buffer_flush_empty,   //!< Publisher has completed flushing queued packets post-broadcast.
+        r5_status_video_render_start    //!< Subscriber has rendered first video frame.
     };
     
     /**
@@ -169,7 +169,7 @@ extern "C" {
     int requires_sdk_license();
     int r5_valid_license(client_ctx* ctx, const void* license);
     void r5_validate_license(client_ctx* ctx, const char* license, const char* stream_name, int publish_type);
-    void r5_cancel_license_validation();
+    void r5_cancel_license_validation(client_ctx* ctx);
     
     /**
      *  @return The current logging level for the R5 Pro library

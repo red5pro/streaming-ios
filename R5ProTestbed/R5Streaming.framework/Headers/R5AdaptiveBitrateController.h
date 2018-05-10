@@ -57,5 +57,6 @@ R5AdaptiveBitrateController *controller = [[R5AdaptiveBitrateController alloc] i
     -(void) setBitrateLevelAndMaintain:(int)value; //!< Specify the current level desired and disable the timer check. Call :resume to start timer check again.
     -(NSArray *) getBitrateLevelValues; //!< Returns the list of bitrate values for the levels used in determinig quality of stream.
     -(void) setBitrateLevelValues:(NSArray *)values; //!< Explicitly define the set of bitrate levels. USE WITH CAUTION.
+    -(void) setUpdateDelay:(double)value; //!< Set update frequency of the controller in seconds
 
 @end

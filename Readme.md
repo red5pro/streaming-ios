@@ -42,26 +42,29 @@ Once you have modified your settings, you can run the application for simulator 
 | **[Authentication](R5ProTestbed/Tests/PublishAuth)**
 | *An example of publishing a stream as an authenticated user*   
 | -
+| **[Background](R5ProTestbed/Tests/PublishBackground)**
+| *An example that continues to publish audio while the app is in the background*
+| -
 | **[Camera Swap](R5ProTestbed/Tests/CameraSwap)**
 | *Touch the screen to swap which camera is being used! erify with flash, android, or other iOS device running subscribe test that camera is swapping properly and no rendering problems occur.*
-| -
-| **[Mute/Unmute](R5ProTestbed/Tests/PublishPause)**
-| *Touch the screen to toggle between sending Audio & Video, sending just Video, sending just Audio, and sending no Audio or Video. Turning off and on the media sources is considered mute and unmute events, respecitively*
 | -
 | **[Custom Video Source](R5ProTestbed/Tests/PublishCustomSource)**
 | *Uses a custom controller to supply video data to the publisher.*
 | -
-| **[Image Capture](R5ProTestbed/Tests/PublishStreamImage)**
-| *Touch the publish stream to take a screen shot that is displayed!*
-| -
 | **[Device Orientation](R5ProTestbed/Tests/PublishDeviceOrientation)**
 | *Rotate the device to update the orientation of the broadcast stream.  Verify with browser-based players (WebRTC, Flash, HLS), Android, or other iOS device running subscribe test that image is rotating properly and no rendering problems occur.*
+| -
+| **[Image Capture](R5ProTestbed/Tests/PublishStreamImage)**
+| *Touch the publish stream to take a screen shot that is displayed!*
 | -
 | **[High Quality Audio](R5ProTestbed/Tests/PublishHQAudio)**
 | *`R5Microphone.sampleRate` is set to 44100 (the default is 16000).*    
 | -
 | **[Local Record](R5ProTestbed/Tests/PublishLocalRecord)**
 | *A publish example that records stream data locally on the device.*    
+| -
+| **[Mute/Unmute](R5ProTestbed/Tests/PublishPause)**
+| *Touch the screen to toggle between sending Audio & Video, sending just Video, sending just Audio, and sending no Audio or Video. Turning off and on the media sources is considered mute and unmute events, respecitively*
 | -
 | **[Record](R5ProTestbed/Tests/Recorded)**
 | *A publish example that records stream data on the server.*
@@ -86,6 +89,9 @@ Once you have modified your settings, you can run the application for simulator 
 | **[Aspect Ratio](R5ProTestbed/Tests/SubscribeAspectRatio)**
 | :----
 | *Change the fill mode of the stream.  scale to fill, scale to fit, scale fill.  Aspect ratio should be maintained on first 2.*  
+| -
+| **[Audio Delay](R5ProTestbed/Tests/SubscribeAudioDelay)**
+| *Captures the raw audio from the stream and delays it with a custom buffer implementation*   
 | -
 | **[Authentication](R5ProTestbed/Tests/SubscribeAuth)**
 | *An example of subscribing to a stream as an authenticated user*   

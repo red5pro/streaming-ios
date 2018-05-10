@@ -53,6 +53,9 @@
  */
 -(void)setFrame:(CGRect) frame;
 
+-(void)pauseRender;
+-(void)resumeRender;
+
 /**
  * Scaling mode of the rendering view for subscribing streams
  */
