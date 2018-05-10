@@ -50,6 +50,7 @@
 		926794FB1D061968004B0BCD /* SubscribeCluster.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926794FA1D061968004B0BCD /* SubscribeCluster.swift */; };
 		926794FD1D061983004B0BCD /* SubscribeRemoteCallTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926794FC1D061983004B0BCD /* SubscribeRemoteCallTest.swift */; };
 		926794FF1D06199E004B0BCD /* TwoWayTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926794FE1D06199E004B0BCD /* TwoWayTest.swift */; };
+		9278C9AC2098B09300861C79 /* SubscribeAudioDelayTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9278C9AB2098B09300861C79 /* SubscribeAudioDelayTest.swift */; };
 		9278C9B02098E1BE00861C79 /* PublishBackgroundTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9278C9AF2098E1BE00861C79 /* PublishBackgroundTest.swift */; };
 		928B1CBD1CBC0DC5002C66BA /* SubscribeStreamManagerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928B1CBC1CBC0DC5002C66BA /* SubscribeStreamManagerTest.swift */; };
 		92A642E3200D40AC00882600 /* PublishAspectTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A642E2200D40AC00882600 /* PublishAspectTest.swift */; };
@@ -112,6 +113,7 @@
 		926794FA1D061968004B0BCD /* SubscribeCluster.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SubscribeCluster.swift; path = Tests/SubscribeCluster/SubscribeCluster.swift; sourceTree = "<group>"; };
 		926794FC1D061983004B0BCD /* SubscribeRemoteCallTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SubscribeRemoteCallTest.swift; path = Tests/RemoteCall/SubscribeRemoteCallTest.swift; sourceTree = "<group>"; };
 		926794FE1D06199E004B0BCD /* TwoWayTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TwoWayTest.swift; path = Tests/TwoWay/TwoWayTest.swift; sourceTree = "<group>"; };
+		9278C9AB2098B09300861C79 /* SubscribeAudioDelayTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SubscribeAudioDelayTest.swift; path = Tests/SubscribeAudioDelay/SubscribeAudioDelayTest.swift; sourceTree = "<group>"; };
 		9278C9AF2098E1BE00861C79 /* PublishBackgroundTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PublishBackgroundTest.swift; path = Tests/PublishBackground/PublishBackgroundTest.swift; sourceTree = "<group>"; };
 		928B1CBC1CBC0DC5002C66BA /* SubscribeStreamManagerTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SubscribeStreamManagerTest.swift; path = Tests/SubscribeStreamManager/SubscribeStreamManagerTest.swift; sourceTree = "<group>"; };
 		92A642E2200D40AC00882600 /* PublishAspectTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PublishAspectTest.swift; path = Tests/PublishAspect/PublishAspectTest.swift; sourceTree = "<group>"; };
@@ -232,6 +234,7 @@
 				487CDBC31E6F1A39007FC4EA /* SharedObjectTest.swift */,
 				4874D59C1C2216DB00A98102 /* SubscribeTest.swift */,
 				48BF80B21C246F6D000E996E /* SubscribeAspectRatioTest.swift */,
+				9278C9AB2098B09300861C79 /* SubscribeAudioDelayTest.swift */,
 				481B156E1EB380FE0038A187 /* SubscribeAuthTest.swift */,
 				92EAA9DA1D0734EA00B2CE46 /* SubscribeAutoReconnectTest.swift */,
 				92A642E4200D416500882600 /* SubscribeBackgroundTest.swift */,
@@ -356,6 +359,7 @@
 				487C888F1F2F8AB2004157B6 /* PublishHQAudioTest.swift in Sources */,
 				48BF80AE1C245AA7000E996E /* PublishOrientationTest.swift in Sources */,
 				92EA19DD1CE137DD006B3A97 /* CustomVideoSource.swift in Sources */,
+				9278C9AC2098B09300861C79 /* SubscribeAudioDelayTest.swift in Sources */,
 				926794FB1D061968004B0BCD /* SubscribeCluster.swift in Sources */,
 				926794F51D061900004B0BCD /* PublishRemoteCallTest.swift in Sources */,
 				4874ECD01C483FDA002BDA6D /* SubscribeStreamImageTest.swift in Sources */,

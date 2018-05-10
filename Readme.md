@@ -90,6 +90,9 @@ Once you have modified your settings, you can run the application for simulator 
 | :----
 | *Change the fill mode of the stream.  scale to fill, scale to fit, scale fill.  Aspect ratio should be maintained on first 2.*  
 | -
+| **[Audio Delay](R5ProTestbed/Tests/SubscribeAudioDelay)**
+| *Captures the raw audio from the stream and delays it with a custom buffer implementation*   
+| -
 | **[Authentication](R5ProTestbed/Tests/SubscribeAuth)**
 | *An example of subscribing to a stream as an authenticated user*   
 | -

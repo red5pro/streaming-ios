@@ -288,6 +288,17 @@
 			<key>class</key>
 			<string>SubscribeAspectRatioTest</string>
 		</dict>
+		<key>subscribe - Audio Delay</key>
+		<dict>
+			<key>description</key>
+			<string>Captures the raw audio from the stream and delays it with a custom buffer implementation</string>
+			<key>LocalProperties</key>
+			<dict/>
+			<key>name</key>
+			<string>Subscribe - Audio Delay</string>
+			<key>class</key>
+			<string>SubscribeAudioDelayTest</string>
+		</dict>
 		<key>subscribe - Auth</key>
 		<dict>
 			<key>description</key>
