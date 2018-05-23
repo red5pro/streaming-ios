@@ -32,6 +32,8 @@
 		<true/>
 		<key>audio_on</key>
 		<true/>
+		<key>fps</key>
+		<integer>15</integer>
 	</dict>
 	<key>Tests</key>
 	<dict>

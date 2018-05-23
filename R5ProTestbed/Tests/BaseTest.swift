@@ -102,6 +102,7 @@ class BaseTest: UIViewController , R5StreamDelegate {
            
             camera?.width = Int32(Testbed.getParameter(param: "camera_width") as! Int)
             camera?.height = Int32(Testbed.getParameter(param: "camera_height") as! Int)
+            camera?.fps = Int32(Testbed.getParameter(param: "fps") as! Int)
             camera?.orientation = 90
             self.publishStream!.attachVideo(camera)
         }
