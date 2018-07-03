@@ -17,19 +17,18 @@ class TwoWayStreamManagerTest: BaseTest {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        requestServer("broadcast") { (url) in
-            publishTo(url: url)
-        }
+        requestServer(Testbed.getParameter(param: "stream1") as! String, action: "broadcast", resolve: { (url) in
+            self.publishTo(url: url)
+        })
         callForStreamList()
     }
     
-    func requestServer(_ action: String, resolve: @escaping (_ ip: String) -> Void) {
+    func requestServer(_ streamName: String, action: String, resolve: @escaping (_ ip: String) -> Void) {
         
         let port = (Testbed.getParameter(param: "server_port") as! String)
         let portURI = port == "80" ? "" : ":" + port
         let originURI = "http://" + (Testbed.getParameter(param: "host") as! String) + portURI + "/streammanager/api/2.0/event/" +
-            (Testbed.getParameter(param: "context") as! String) + "/" +
-            (Testbed.getParameter(param: "stream1") as! String) + "?action=" + action
+            (Testbed.getParameter(param: "context") as! String) + "/" + streamName + "?action=" + action
         
         NSURLConnection.sendAsynchronousRequest(
             NSURLRequest( url: NSURL(string: originURI)! as URL ) as URLRequest,
@@ -37,12 +36,9 @@ class TwoWayStreamManagerTest: BaseTest {
             completionHandler:{ (response: URLResponse?, data: Data?, error: Error?) -> Void in
                 
                 if ((error) != nil) {
-                    print(error)
+                    print(error!)
                     return
                 }
-                
-                //   Convert our response to a usable NSString
-                let dataAsString = NSString( data: data!, encoding: String.Encoding.utf8.rawValue)
                 
                 //   The string above is in JSON format, we specifically need the serverAddress value
                 var json: [String: AnyObject]
@@ -54,7 +50,6 @@ class TwoWayStreamManagerTest: BaseTest {
                 }
                 
                 if let ip = json["serverAddress"] as? String {
-                    NSLog("Retrieved %@ from %@, of which the usable IP is %@", dataAsString!, url, ip);
                     resolve(ip)
                 }
                 else if let errorMessage = json["errorMessage"] as? String {
@@ -86,8 +81,8 @@ class TwoWayStreamManagerTest: BaseTest {
                     
                     for dict:Dictionary<String, String> in list {
                         if(dict["name"] == (Testbed.getParameter(param: "stream2") as! String)){
-                            requestServer("subscribe", resolve: { (url) in
-                                subscribeTo(url: url)
+                            self.requestServer(Testbed.getParameter(param: "stream2") as! String, action: "subscribe", resolve: { (url) in
+                                self.subscribeTo(url: url)
                             })
                             return
                         }
@@ -99,7 +94,7 @@ class TwoWayStreamManagerTest: BaseTest {
                 }
             }
             
-            delayCallForList()
+            self.delayCallForList()
         })
     }
     
@@ -123,7 +118,7 @@ class TwoWayStreamManagerTest: BaseTest {
             let label = UILabel(frame: CGRect(x: 0, y: self.view.frame.height-24, width: self.view.frame.width, height: 24))
             label.textAlignment = NSTextAlignment.left
             label.backgroundColor = UIColor.lightGray
-            label.text = "Pub Connected to: " + ip!
+            label.text = "Pub Connected to: " + url
             self.view.addSubview(label)
         })
     }
@@ -138,18 +133,17 @@ class TwoWayStreamManagerTest: BaseTest {
         //   UI updates must be on the main queue
         DispatchQueue.main.async(execute: {
             //   Create our new stream that will utilize that connection
-            let connection = R5Connection(config: config)
             self.subscribeStream = R5Stream(connection: connection)
             
             // show preview and debug info
-            currentView?.attach(subscribeStream)
+            self.currentView?.attach(self.subscribeStream!)
             
             self.subscribeStream!.play(Testbed.getParameter(param: "stream2") as! String)
             
             let label = UILabel(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 24))
             label.textAlignment = NSTextAlignment.left
             label.backgroundColor = UIColor.lightGray
-            label.text = "Sub Connected to: " + ip!
+            label.text = "Sub Connected to: " + url
             self.view.addSubview(label)
         })
     }

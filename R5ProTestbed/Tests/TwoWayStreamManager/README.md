@@ -16,8 +16,7 @@ In order to stream, you first need to connect to the origin server's Stream Mana
 
 ```Swift
 let originURI = "http://" + (Testbed.getParameter(param: "host") as! String) + portURI + "/streammanager/api/2.0/event/" +
-    (Testbed.getParameter(param: "context") as! String) + "/" +
-    (Testbed.getParameter(param: "stream1") as! String) + "?action=" + action
+            (Testbed.getParameter(param: "context") as! String) + "/" + streamName + "?action=" + action
 
 NSURLConnection.sendAsynchronousRequest(
     NSURLRequest( url: NSURL(string: originURI)! as URL ) as URLRequest,
@@ -41,7 +40,7 @@ do{
 if let ip = json["serverAddress"] as? String {
 ```
 <sup>
-[TwoWayStreamManagerTest.swift #49](TwoWayStreamManagerTest.swift#L49)
+[TwoWayStreamManagerTest.swift #45](TwoWayStreamManagerTest.swift#L45)
 </sup>
 
 ###Knowing When to Subscribe
@@ -54,7 +53,7 @@ let request = URLRequest.init(url: URL.init(string: url)!)
 NSURLConnection.sendAsynchronousRequest(request, queue: OperationQueue.init(), completionHandler: { (response: URLResponse?, data: Data?, error: Error?) -> Void in
 ```
 <sup>
-[TwoWayStreamManagerTest.swift #74](TwoWayStreamManagerTest.swift#L74)
+[TwoWayStreamManagerTest.swift #69](TwoWayStreamManagerTest.swift#L69)
 </sup>
 
 Like using `streams.jsp` on a solo server, on success this returns a JSON array of dictionaries. For our purposes, the only property we care about in the dictionary is `name` - as we need to compare it against the name we've set up to subscribe to.
@@ -66,7 +65,7 @@ for dict:Dictionary<String, String> in list {
   if(dict["name"] == (Testbed.getParameter(param: "stream2") as! String)){
 ```
 <sup>
-[TwoWayStreamManagerTest.swift #85](TwoWayStreamManagerTest.swift#L85)
+[TwoWayStreamManagerTest.swift #80](TwoWayStreamManagerTest.swift#L80)
 </sup>
 
 For more information on this and other parts of the Stream Manager API, see our dcumentation [here](https://www.red5pro.com/docs/autoscale/streammanagerapi-v2.html)
