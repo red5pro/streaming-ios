@@ -78,6 +78,9 @@ Once you have modified your settings, you can run the application for simulator 
 | **[Two Way](R5ProTestbed/Tests/TwoWay)**
 | *An example of simultaneously publishing while subscribing - allowing a conversation. Includes stream detection and auto-connection.*
 | -
+| **[Two Way - Stream Manager](R5ProTestbed/Tests/TwoWayStreamManager)**
+| *The two way example, modified to work with a stream manager. Includes stream detection and auto-connection.*
+| -
 | **[Shared Object](R5ProTestbed/Tests/SharedObject)**
 | *An example of sending data and messages between clients through remote shared objects.*
 | -
