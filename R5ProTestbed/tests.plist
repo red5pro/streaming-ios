@@ -125,6 +125,17 @@
 			<key>class</key>
 			<string>PublishBackgroundTest</string>
 		</dict>
+		<key>publish - Bandwidth Upload Detection</key>
+		<dict>
+			<key>description</key>
+			<string>An example that tests the upload speed between the device and server before publishing</string>
+			<key>LocalProperties</key>
+			<dict/>
+			<key>name</key>
+			<string>Publish - Bandwidth Upload Detection</string>
+			<key>class</key>
+			<string>BandwidthDetectionUploadOnlyTest</string>
+		</dict>
 		<key>publish - Camera Swap</key>
 		<dict>
 			<key>description</key>
@@ -325,6 +336,39 @@
 			<string>Subscribe - Background</string>
 			<key>class</key>
 			<string>SubscribeBackgroundTest</string>
+		</dict>
+		<key>publish - Bandwidth Test</key>
+		<dict>
+			<key>description</key>
+			<string>An example that tests the upload speed between the device and server before publishing</string>
+			<key>LocalProperties</key>
+			<dict/>
+			<key>name</key>
+			<string>Publish - Bandwidth Upload Detection</string>
+			<key>class</key>
+			<string>BandwidthDetectionUploadOnlyTest</string>
+		</dict>
+		<key>publish - Bandwidth Download Detection</key>
+		<dict>
+			<key>description</key>
+			<string>An example that tests the download speed between the device and server before publishing</string>
+			<key>LocalProperties</key>
+			<dict/>
+			<key>name</key>
+			<string>Publish - Bandwidth Download Detection</string>
+			<key>class</key>
+			<string>BandwidthDetectionDownloadOnlyTest</string>
+		</dict>
+		<key>publish - Bandwidth Dual Detection</key>
+		<dict>
+			<key>description</key>
+			<string>An example that tests both the download and upload speed between the device and server before publishing</string>
+			<key>LocalProperties</key>
+			<dict/>
+			<key>name</key>
+			<string>Publish - Bandwidth Dual Detection</string>
+			<key>class</key>
+			<string>BandwidthDetectionTest</string>
 		</dict>
 		<key>subscribe - Cluster</key>
 		<dict>
