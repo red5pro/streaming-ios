@@ -72,7 +72,7 @@ class BaseTest: UIViewController , R5StreamDelegate {
         config.port = Int32(Testbed.getParameter(param: "port") as! Int)
         config.contextName = Testbed.getParameter(param: "context") as! String
         config.`protocol` = 1;
-        config.buffer_time = Testbed.getParameter(param: "buffer_time") as! Float
+        config.buffer_time = (Testbed.getParameter(param: "buffer_time")?.floatValue)!
         config.licenseKey = Testbed.getParameter(param: "license_key") as! String
         return config
     }
