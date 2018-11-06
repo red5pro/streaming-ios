@@ -60,6 +60,10 @@
 		92EA19DA1CE13717006B3A97 /* PublishCustomSourceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92EA19D91CE13717006B3A97 /* PublishCustomSourceTest.swift */; };
 		92EA19DD1CE137DD006B3A97 /* CustomVideoSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92EA19DC1CE137DD006B3A97 /* CustomVideoSource.swift */; };
 		92EAA9DB1D0734EA00B2CE46 /* SubscribeAutoReconnectTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92EAA9DA1D0734EA00B2CE46 /* SubscribeAutoReconnectTest.swift */; };
+		92EBEF02212F1B4E003B72FB /* BandwidthDetectionTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92EBEF01212F1B4E003B72FB /* BandwidthDetectionTest.swift */; };
+		92EBEF04212F1B59003B72FB /* BandwidthDetectionDownloadOnlyTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92EBEF03212F1B59003B72FB /* BandwidthDetectionDownloadOnlyTest.swift */; };
+		92EBEF06212F1B64003B72FB /* SubscriberBandwidthTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92EBEF05212F1B63003B72FB /* SubscriberBandwidthTest.swift */; };
+		92EBEF08212F1B6F003B72FB /* BandwidthDetectionUploadOnlyTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92EBEF07212F1B6F003B72FB /* BandwidthDetectionUploadOnlyTest.swift */; };
 		92F9A0681D020BA100F49644 /* R5Streaming.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48DFEDC51C21BBDB0040B624 /* R5Streaming.framework */; };
 		E1878B951E578B8F00118560 /* tests.plist in Resources */ = {isa = PBXBuildFile; fileRef = E1878B941E578B8F00118560 /* tests.plist */; };
 /* End PBXBuildFile section */
@@ -123,6 +127,10 @@
 		92EA19D91CE13717006B3A97 /* PublishCustomSourceTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PublishCustomSourceTest.swift; path = Tests/PublishCustomSource/PublishCustomSourceTest.swift; sourceTree = "<group>"; };
 		92EA19DC1CE137DD006B3A97 /* CustomVideoSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomVideoSource.swift; path = Tests/PublishCustomSource/CustomVideoSource.swift; sourceTree = "<group>"; };
 		92EAA9DA1D0734EA00B2CE46 /* SubscribeAutoReconnectTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SubscribeAutoReconnectTest.swift; path = Tests/SubscribeReconnect/SubscribeAutoReconnectTest.swift; sourceTree = "<group>"; };
+		92EBEF01212F1B4E003B72FB /* BandwidthDetectionTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BandwidthDetectionTest.swift; path = Tests/BandwidthDetection/BandwidthDetectionTest.swift; sourceTree = "<group>"; };
+		92EBEF03212F1B59003B72FB /* BandwidthDetectionDownloadOnlyTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BandwidthDetectionDownloadOnlyTest.swift; path = Tests/BandwidthDetectionDownloadOnly/BandwidthDetectionDownloadOnlyTest.swift; sourceTree = "<group>"; };
+		92EBEF05212F1B63003B72FB /* SubscriberBandwidthTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SubscriberBandwidthTest.swift; path = Tests/SubscribeBandwidth/SubscriberBandwidthTest.swift; sourceTree = "<group>"; };
+		92EBEF07212F1B6F003B72FB /* BandwidthDetectionUploadOnlyTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BandwidthDetectionUploadOnlyTest.swift; path = Tests/BandwidthDetectionUploadOnly/BandwidthDetectionUploadOnlyTest.swift; sourceTree = "<group>"; };
 		E1878B941E578B8F00118560 /* tests.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = tests.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -219,6 +227,7 @@
 				92A642E2200D40AC00882600 /* PublishAspectTest.swift */,
 				481B156C1EB380F20038A187 /* PublishAuthTest.swift */,
 				9278C9AF2098E1BE00861C79 /* PublishBackgroundTest.swift */,
+				92EBEF07212F1B6F003B72FB /* BandwidthDetectionUploadOnlyTest.swift */,
 				485345081C23552F00D409F3 /* CameraSwapTest.swift */,
 				92EA19D91CE13717006B3A97 /* PublishCustomSourceTest.swift */,
 				482282581E4E47C80073F26C /* PublishDeviceOrientationTest.swift */,
@@ -238,6 +247,9 @@
 				481B156E1EB380FE0038A187 /* SubscribeAuthTest.swift */,
 				92EAA9DA1D0734EA00B2CE46 /* SubscribeAutoReconnectTest.swift */,
 				92A642E4200D416500882600 /* SubscribeBackgroundTest.swift */,
+				92EBEF05212F1B63003B72FB /* SubscriberBandwidthTest.swift */,
+				92EBEF03212F1B59003B72FB /* BandwidthDetectionDownloadOnlyTest.swift */,
+				92EBEF01212F1B4E003B72FB /* BandwidthDetectionTest.swift */,
 				926794FA1D061968004B0BCD /* SubscribeCluster.swift */,
 				92E13BF31CDD165800DA5783 /* SubscribeNoViewTest.swift */,
 				481B15751EB390600038A187 /* SubscribeReceiveSendTest.swift */,
@@ -352,6 +364,7 @@
 				926794FF1D06199E004B0BCD /* TwoWayTest.swift in Sources */,
 				92A642E3200D40AC00882600 /* PublishAspectTest.swift in Sources */,
 				48DFEDD51C21C18F0040B624 /* Home.swift in Sources */,
+				92EBEF06212F1B64003B72FB /* SubscriberBandwidthTest.swift in Sources */,
 				926794FD1D061983004B0BCD /* SubscribeRemoteCallTest.swift in Sources */,
 				4874D59F1C221B9500A98102 /* AdaptiveBitrateControllerTest.swift in Sources */,
 				48DFEDAC1C21BBC60040B624 /* AppDelegate.swift in Sources */,
@@ -359,6 +372,7 @@
 				487C888F1F2F8AB2004157B6 /* PublishHQAudioTest.swift in Sources */,
 				48BF80AE1C245AA7000E996E /* PublishOrientationTest.swift in Sources */,
 				92EA19DD1CE137DD006B3A97 /* CustomVideoSource.swift in Sources */,
+				92EBEF08212F1B6F003B72FB /* BandwidthDetectionUploadOnlyTest.swift in Sources */,
 				9278C9AC2098B09300861C79 /* SubscribeAudioDelayTest.swift in Sources */,
 				926794FB1D061968004B0BCD /* SubscribeCluster.swift in Sources */,
 				926794F51D061900004B0BCD /* PublishRemoteCallTest.swift in Sources */,
@@ -373,6 +387,7 @@
 				487CDBC41E6F1A39007FC4EA /* SharedObjectTest.swift in Sources */,
 				48DFEDCD1C21BF0A0040B624 /* PublishTest.swift in Sources */,
 				481B156D1EB380F20038A187 /* PublishAuthTest.swift in Sources */,
+				92EBEF04212F1B59003B72FB /* BandwidthDetectionDownloadOnlyTest.swift in Sources */,
 				92EAA9DB1D0734EA00B2CE46 /* SubscribeAutoReconnectTest.swift in Sources */,
 				928B1CBD1CBC0DC5002C66BA /* SubscribeStreamManagerTest.swift in Sources */,
 				4874D59D1C2216DB00A98102 /* SubscribeTest.swift in Sources */,
@@ -380,6 +395,7 @@
 				485345071C23528400D409F3 /* PublishStreamImageTest.swift in Sources */,
 				926794F71D06191E004B0BCD /* PublishStreamManagerTest.swift in Sources */,
 				481B15771EB390600038A187 /* SubscribeReceiveSendTest.swift in Sources */,
+				92EBEF02212F1B4E003B72FB /* BandwidthDetectionTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
