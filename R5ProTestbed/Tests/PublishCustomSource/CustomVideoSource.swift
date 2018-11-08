@@ -48,7 +48,9 @@ class CustomVideoSource : R5VideoSource {
     override func stopVideoCapture() {
         
         //stop the capture!
-        self.timer!.invalidate();
+        self.timer!.invalidate()
+        //stop the encoder!
+        super.stopVideoCapture()
     }
     
     func capturePixels( _ time:Timer ){
