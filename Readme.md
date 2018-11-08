@@ -51,6 +51,9 @@ Once you have modified your settings, you can run the application for simulator 
 | **[Camera Swap](R5ProTestbed/Tests/CameraSwap)**
 | *Touch the screen to swap which camera is being used! Verify with flash, android, or other iOS device running subscribe test that camera is swapping properly and no rendering problems occur.*
 | -
+| **[Custom Audio Source](R5ProTestbed/Tests/PublishCustomMic)**
+| *Uses a custom controller to modify audio data for the publisher.*
+| -
 | **[Custom Video Source](R5ProTestbed/Tests/PublishCustomSource)**
 | *Uses a custom controller to supply video data to the publisher.*
 | -
