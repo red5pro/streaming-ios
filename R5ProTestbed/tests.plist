@@ -467,6 +467,17 @@
 			<key>class</key>
 			<string>TwoWayTest</string>
 		</dict>
+		<key>TwoWay - Stream Manager</key>
+		<dict>
+			<key>description</key>
+			<string>Publish and subscribe simultaneously through a stream manager</string>
+			<key>LocalProperties</key>
+			<dict/>
+			<key>name</key>
+			<string>Two Way - Stream Manager</string>
+			<key>class</key>
+			<string>TwoWayStreamManagerTest</string>
+		</dict>
 	</dict>
 </dict>
 </plist>
