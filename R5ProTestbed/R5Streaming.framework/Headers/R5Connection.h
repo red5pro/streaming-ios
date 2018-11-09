@@ -32,6 +32,11 @@
 -(id)initWithConfig:(R5Configuration*) configuration;
 
 /**
+ * De-initialize the connection.
+ */
+-(void)invalidate;
+
+/**
  *  Make a connection call RPC to the server
  *
  *  @param method Method name to call
@@ -49,6 +54,13 @@
  *  Send a message through the Shared Object interface
  */
 -(void)sharedObjectSend:(NSString*)message;
+
+/**
+ *  Request to switch the stream received on the current connection.
+ * @param app The webapp context the target stream is being streamed in. e.g., "live".
+ * @param streamName The new target stream name to request playback.
+ */
+-(void)switchStream:(NSString*)app name:(NSString*)streamName;
 
 /**
  *  Get the connection context associated with this context

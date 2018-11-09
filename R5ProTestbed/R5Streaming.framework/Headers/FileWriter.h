@@ -18,6 +18,8 @@
 -(id)initWithFileName:(NSString*)fileName properties:(NSDictionary*)props;
 -(id)initWithFileName:(NSString*)fileName properties:(NSDictionary*)props withVideo:(BOOL)vidFlag withAduio:(BOOL)audFlag;
 
+-(void)specifySaveAlbum:(NSString*)album;
+
 -(void)writeFrame:(CMSampleBufferRef)sampleBuffer;
 -(void)writeAudio:(CMSampleBufferRef)sampleBuffer;
 -(void)writeAudio:(NSData*)data withTime:(double)pts andRate:(int)rate;
