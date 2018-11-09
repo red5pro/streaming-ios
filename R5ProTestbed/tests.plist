@@ -32,6 +32,8 @@
 		<true/>
 		<key>audio_on</key>
 		<true/>
+		<key>fps</key>
+		<integer>15</integer>
 	</dict>
 	<key>Tests</key>
 	<dict>
@@ -466,6 +468,17 @@
 			<string>Two Way</string>
 			<key>class</key>
 			<string>TwoWayTest</string>
+		</dict>
+		<key>TwoWay - Stream Manager</key>
+		<dict>
+			<key>description</key>
+			<string>Publish and subscribe simultaneously through a stream manager</string>
+			<key>LocalProperties</key>
+			<dict/>
+			<key>name</key>
+			<string>Two Way - Stream Manager</string>
+			<key>class</key>
+			<string>TwoWayStreamManagerTest</string>
 		</dict>
 	</dict>
 </dict>

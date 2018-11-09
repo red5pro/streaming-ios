@@ -21,8 +21,8 @@ extern "C" {
 #define STRINGIFY_(s) #s
 #define STRINGIFY(s) STRINGIFY_(s)
 
-#define R5PRO_MAJOR_VERSION         4
-#define R5PRO_MINOR_VERSION         6
+#define R5PRO_MAJOR_VERSION         5
+#define R5PRO_MINOR_VERSION         2
 #define R5PRO_REVISION              0
 #define R5PRO_BUILD                 0
     
@@ -96,7 +96,8 @@ extern "C" {
         r5_status_license_valid,        //!< The license key provided for the SDK is deemed valid.
         r5_status_buffer_flush_start,   //!< Publisher has started flushing queued packets post-broadcast.
         r5_status_buffer_flush_empty,   //!< Publisher has completed flushing queued packets post-broadcast.
-        r5_status_video_render_start    //!< Subscriber has rendered first video frame.
+        r5_status_video_render_start,   //!< Subscriber has rendered first video frame.
+        r5_status_abr_level_change      //!< ABR Publisher has changed broadcast level.
     };
     
     /**
