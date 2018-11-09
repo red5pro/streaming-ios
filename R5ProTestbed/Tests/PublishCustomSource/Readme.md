@@ -42,13 +42,16 @@ override func startVideoCapture() {
 [CustomVideoSource.swift #38](CustomVideoSource.swift#38)
 </sup>
 
-Handle the stop of the rendering call also be handled in `R5VideoSource.stopVideoCapture`.
+Handle the stop of the rendering call in `R5VideoSource.stopVideoCapture`. NOTE: It's important to call the parent's function in this override - that handles closing the encoder.
 
 ```Swift
 override func stopVideoCapture() {
-        
+
 	//stop the capture!
-	self.timer!.invalidate();
+	self.timer!.invalidate()
+
+  //stop the encoder!
+  super.stopVideoCapture()
 }
 ```
 <sup>
@@ -90,7 +93,7 @@ Once the bytes have been set to their desired RGB values, we create a `CVPixelBu
 ```Swift
 // Create a pixel buffer
 var pixelBuffer: CVPixelBuffer?;
-            
+
 //Create a pixel buffer to hold our bytes with RGB format
 var result: OSStatus = CVPixelBufferCreateWithBytes(kCFAllocatorDefault,
                                                     Int(frameSize.width),
@@ -111,14 +114,14 @@ Next, we can create the buffer information that is needed.  The video format inf
 
 ```Swift
 var videoInfo: CMVideoFormatDescriptionRef?;
-            
+
 //Create a description for the pixel buffer
 result = CMVideoFormatDescriptionCreateForImageBuffer(kCFAllocatorDefault, pixelBuffer!, &videoInfo);
-            
+
 if(result != kCVReturnSuccess) {
 	NSLog("Failed to create video info");
 }
-            
+
 //Only PTS is needed for the encoder - leave everything else invalid if you want
 var timingInfo: CMSampleTimingInfo = kCMTimingInfoInvalid;
 timingInfo.duration = kCMTimeInvalid;
@@ -133,7 +136,7 @@ Next, we can create our `CMSampleBufferRef` using the `CVPixelBufferRef`, `video
 
 ```Swift
 var buffer: CMSampleBufferRef?;
-            
+
 //Create the sample buffer for the pixel buffer
 result = CMSampleBufferCreateForImageBuffer(kCFAllocatorDefault,
                                             pixelBuffer!,
@@ -153,10 +156,10 @@ The last thing to do is pass the buffer to our encoder, which is part of the `R5
 if(!self.pauseEncoding){
 	self.encoder.encodeFrame( buffer, ofType: r5_media_type_video_custom );
 }
-            
+
 //increment our timestamp
 self.PTS = CMTimeAdd(self.PTS, self.frameDuration);
-            
+
 //free all our content
 free(rgbPixels);
 ```

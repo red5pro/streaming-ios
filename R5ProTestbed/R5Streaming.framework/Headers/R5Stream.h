@@ -37,6 +37,7 @@ enum R5StreamMode{
 
 extern NSString *const R5RecordVideoBitRateKey;
 extern NSString *const R5RecordAudioBitRateKey;
+extern NSString *const R5RecordAlbumName;
 
 /**
  *  @brief The main stream class of Red5Pro.  Utilizes the #R5Connection to connect and communicate with a server instance.
@@ -67,8 +68,14 @@ extern NSString *const R5RecordAudioBitRateKey;
  */
 @property NSObject *client;
 
+/**
+ * Flag to "mute" audio for Publishing.
+ */
 @property BOOL pauseAudio;
 
+/**
+ * Flag to "mute" video for Publishing.
+ */
 @property BOOL pauseVideo;
 
 /**

@@ -45,8 +45,14 @@ Once you have modified your settings, you can run the application for simulator 
 | **[Background](R5ProTestbed/Tests/PublishBackground)**
 | *An example that continues to publish audio while the app is in the background*
 | -
+| **[Bandwidth Detection - Upload](R5ProTestbed/Tests/BandwidthDetectionUploadOnly)**
+| *An example that tests the upload speed between the device and server before publishing.*   
+| -
 | **[Camera Swap](R5ProTestbed/Tests/CameraSwap)**
-| *Touch the screen to swap which camera is being used! erify with flash, android, or other iOS device running subscribe test that camera is swapping properly and no rendering problems occur.*
+| *Touch the screen to swap which camera is being used! Verify with flash, android, or other iOS device running subscribe test that camera is swapping properly and no rendering problems occur.*
+| -
+| **[Custom Audio Source](R5ProTestbed/Tests/PublishCustomMic)**
+| *Uses a custom controller to modify audio data for the publisher.*
 | -
 | **[Custom Video Source](R5ProTestbed/Tests/PublishCustomSource)**
 | *Uses a custom controller to supply video data to the publisher.*
@@ -78,6 +84,9 @@ Once you have modified your settings, you can run the application for simulator 
 | **[Two Way](R5ProTestbed/Tests/TwoWay)**
 | *An example of simultaneously publishing while subscribing - allowing a conversation. Includes stream detection and auto-connection.*
 | -
+| **[Two Way - Stream Manager](R5ProTestbed/Tests/TwoWayStreamManager)**
+| *The two way example, modified to work with a stream manager. Includes stream detection and auto-connection.*
+| -
 | **[Shared Object](R5ProTestbed/Tests/SharedObject)**
 | *An example of sending data and messages between clients through remote shared objects.*
 | -
@@ -98,6 +107,15 @@ Once you have modified your settings, you can run the application for simulator 
 | -
 | **[Background](R5ProTestbed/Tests/SubscribeBackground)**
 | *A subscribing example that can continue when the app moves into the background*
+| -
+| **[Bandwidth Test](R5ProTestbed/Tests/SubscribeBandwidth)**
+| *Detect Insufficient and Sufficient BW flags.  Test on a poor network using a publisher that has high video quality. Video should become sporadic or stop altogether.  The screen will darken when no video is being received.*   
+| -
+| **[Bandwidth Detection - Download](R5ProTestbed/Tests/BandwidthDetectionDownloadOnly)**
+| *An example that tests the download speed between the device and server before subscribing.*  
+| -
+| **[Bandwidth Detection - Dual](R5ProTestbed/Tests/BandwidthDetection)**
+| *An example that tests both the upload and download speeds between the device and server before subscribing.*
 | -
 | **[Cluster](R5ProTestbed/Tests/SubscribeCluster)**
 | *An example of connecting to a cluster server.*

@@ -31,7 +31,7 @@ class BaseTest: UIViewController , R5StreamDelegate {
         ALToastView.toast(in: self.view, withText:s)
         
         if (Int(statusCode) == Int(r5_status_disconnected.rawValue)) {
-            self.removeFromParentViewController()
+            self.cleanup()
         }
     }
     
@@ -41,7 +41,7 @@ class BaseTest: UIViewController , R5StreamDelegate {
     var subscribeStream : R5Stream? = nil
     
     required init () {
-       
+        
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -49,10 +49,25 @@ class BaseTest: UIViewController , R5StreamDelegate {
         super.init(coder: aDecoder)
     }
     
+    func cleanup () {
+        if( self.publishStream != nil ) {
+            self.publishStream!.client = nil
+            self.publishStream?.delegate = nil
+            self.publishStream = nil
+        }
+        
+        if( self.subscribeStream != nil ) {
+            self.subscribeStream?.client = nil
+            self.subscribeStream?.delegate = nil
+            self.subscribeStream = nil
+        }
+        self.removeFromParentViewController()
+    }
+    
     func closeTest(){
         
         NSLog("closing view")
-
+        
         if( self.publishStream != nil ){
             self.publishStream!.stop()
         }
@@ -62,7 +77,7 @@ class BaseTest: UIViewController , R5StreamDelegate {
         }
         
         // Moved to status disconnect, due to publisher emptying queue buffer on bad connections.
-//        self.removeFromParentViewController()
+        //        self.removeFromParentViewController()
     }
     
     func getConfig()->R5Configuration{
@@ -99,9 +114,10 @@ class BaseTest: UIViewController , R5StreamDelegate {
             let videoDevice = AVCaptureDevice.devices(withMediaType: AVMediaTypeVideo).last as? AVCaptureDevice
             
             let camera = R5Camera(device: videoDevice, andBitRate: Int32(Testbed.getParameter(param: "bitrate") as! Int))
-           
+            
             camera?.width = Int32(Testbed.getParameter(param: "camera_width") as! Int)
             camera?.height = Int32(Testbed.getParameter(param: "camera_height") as! Int)
+            camera?.fps = Int32(Testbed.getParameter(param: "fps") as! Int)
             camera?.orientation = 90
             self.publishStream!.attachVideo(camera)
         }
@@ -114,7 +130,7 @@ class BaseTest: UIViewController , R5StreamDelegate {
             NSLog("Got device %@", String(describing: audioDevice?.localizedName))
             self.publishStream!.attachAudio(microphone)
         }
-
+        
     }
     
     override func viewDidLoad() {
@@ -150,9 +166,9 @@ class BaseTest: UIViewController , R5StreamDelegate {
         r5View.setFrame(self.view.bounds)
         
         r5View.showPreview(true)
-
+        
         r5View.showDebugInfo(Testbed.getParameter(param: "debug_view") as! Bool)
-
+        
         currentView = r5View;
         
         return currentView!
@@ -179,5 +195,5 @@ class BaseTest: UIViewController , R5StreamDelegate {
             return [UIInterfaceOrientationMask.all]
         }
     }
-
+    
 }
