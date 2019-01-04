@@ -118,7 +118,7 @@ class SubscribeStreamManagerTest: BaseTest {
         
         let port = (Testbed.getParameter(param: "server_port") as! String)
         let portURI = port == "80" ? "" : ":" + port
-        let edgeURI = (Testbed.getParameter(param: "host") as! String) + portURI + "/streammanager/api/2.0/event/" +
+        let edgeURI = (Testbed.getParameter(param: "host") as! String) + portURI + "/streammanager/api/3.1/event/" +
             (Testbed.getParameter(param: "context") as! String) + "/" +
             (Testbed.getParameter(param: "stream1") as! String) + "?action=subscribe"
         let httpString = "http://" + edgeURI
