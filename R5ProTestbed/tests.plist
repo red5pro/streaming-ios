@@ -34,6 +34,8 @@
 		<true/>
 		<key>fps</key>
 		<integer>15</integer>
+		<key>sm_version</key>
+		<string>3.1</string>
 	</dict>
 	<key>Tests</key>
 	<dict>
