@@ -117,7 +117,8 @@ class PublishStreamManagerTest: BaseTest {
         
         let port = (Testbed.getParameter(param: "server_port") as! String)
         let portURI = port == "80" ? "" : ":" + port
-        let originURI = (Testbed.getParameter(param: "host") as! String) + portURI + "/streammanager/api/2.0/event/" +
+        let version = (Testbed.getParameter(param: "sm_version") as! String)
+        let originURI = (Testbed.getParameter(param: "host") as! String) + portURI + "/streammanager/api/" + version + "/event/" +
             (Testbed.getParameter(param: "context") as! String) + "/" +
             (Testbed.getParameter(param: "stream1") as! String) + "?action=broadcast"
         let httpString = "http://" + originURI

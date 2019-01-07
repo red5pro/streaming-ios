@@ -20,59 +20,58 @@ The `Streams API` of the Red5 Pro Server can be found in the default location of
 
 ```javascript
 func findStreams() {
-        let domain = Testbed.getParameter(param: "host") as! String
-        let app = Testbed.getParameter(param: "context") as! String
-        let port = Testbed.getParameter(param: "server_port") as! String
-        let urlPath = "http://" + domain + ":" + port + "/" + app + "/streams.jsp"
-        let streamName = Testbed.getParameter(param: "stream1") as! String
+    let domain = Testbed.getParameter(param: "host") as! String
+    let app = Testbed.getParameter(param: "context") as! String
+    let urlPath = "http://" + domain + ":5080" + "/" + app + "/streams.jsp"
+    let streamName = Testbed.getParameter(param: "stream1") as! String
 
-        var request = URLRequest(url: URL(string: urlPath)!)
-        request.addValue("application/json", forHTTPHeaderField: "Accept")
-        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+    var request = URLRequest(url: URL(string: urlPath)!)
+    request.addValue("application/json", forHTTPHeaderField: "Accept")
+    request.addValue("application/json", forHTTPHeaderField: "Content-Type")
 
-        let session = URLSession.shared
+    let session = URLSession.shared
 
-        NSLog("Requesting stream list...")
+    NSLog("Requesting stream list...")
 
-        session.dataTask(with: request) {data, response, err in
+    session.dataTask(with: request) {data, response, err in
 
-            if err == nil {
+        if err == nil {
+//                let resut = data as String
+            do {
 
-                do {
+                NSLog("Stream list received...")
+                //   Convert our response to a usable NSString
+                let list = try JSONSerialization.jsonObject(with: data!) as! Array<Dictionary<String, String>>;
 
-                    NSLog("Stream list received...")
-                    //   Convert our response to a usable NSString
-                    let list = try JSONSerialization.jsonObject(with: data!) as! Array<Dictionary<String, String>>;
-
-                    var exists: Bool = false;
-                    for dict:Dictionary<String, String> in list {
-                        if(dict["name"] == streamName){
-                            exists = true;
-                            break;
-                        }
+                var exists: Bool = false;
+                for dict:Dictionary<String, String> in list {
+                    if(dict["name"] == streamName){
+                        exists = true;
+                        break;
                     }
+                }
 
-                    DispatchQueue.main.async {
-                        if (exists) {
-                            NSLog("Publisher exists, let's try connecting...")
-                            self.Subscribe(streamName)
-                        }
-                        else {
-                            NSLog("Publisher does not exist.")
-                            self.reconnect()
-                        }
+                DispatchQueue.main.async {
+                    if (exists) {
+                        NSLog("Publisher exists, let's try connecting...")
+                        self.Subscribe(streamName)
                     }
-
+                    else {
+                        NSLog("Publisher does not exist.")
+                        self.reconnect()
+                    }
                 }
-                catch let error as NSError {
-                    NSLog(error.localizedFailureReason!)
-                }
-            }
-            else {
-                NSLog(err!.localizedDescription)
-            }
 
-      }.resume()
+            }
+            catch let error as NSError {
+                NSLog(error.localizedFailureReason!)
+            }
+        }
+        else {
+            NSLog(err!.localizedDescription)
+        }
+
+    }.resume()
 
 }
 ```
@@ -128,4 +127,3 @@ override func onR5StreamStatus(_ stream: R5Stream!, withStatus statusCode: Int32
 <sup>
 [SubscribeAutoreconnectTest.java #114](SubscribeAutoreconnectTest.java#L114)
 </sup>
-
