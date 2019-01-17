@@ -9,11 +9,13 @@ With the Stream Manager, our configuration IP will be used similarly for publish
 - ***[SubscribeStreamManagerTest.swft](SubscribeStreamManagerTest.swft)***
 
 ###Setup
-In order to subscribe, you first need to connect to the autoscaling Stream Manager. The Stream Manager will know which edges are active and provide the one that you need to subscribe from. **Note** that the URL has been changed to `api/2.0` - if you are running stream manager with a server build that is older than 2.1.0, you should modify that to `1.0`
+In order to subscribe, you first need to connect to the autoscaling Stream Manager. The Stream Manager will know which edges are active and provide the one that you need to subscribe from.
+
+**Note:** you will need to start the stream on the main thread.
 
 
 ```Swift
-let urlString = "https://" + (Testbed.getParameter("host") as! String) + ":5080/streammanager/api/2.0/event/" +
+let urlString = "https://" + (Testbed.getParameter("host") as! String) + ":5080/streammanager/api/3.1/event/" +
 	Testbed.getParameter("context") as! String + "/" +
 	Testbed.getParameter("stream1") as! String + "?action=subscribe"
         
