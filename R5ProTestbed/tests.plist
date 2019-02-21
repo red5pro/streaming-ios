@@ -352,6 +352,17 @@
 			<key>class</key>
 			<string>SubscribeBackgroundTest</string>
 		</dict>
+		<key>subscribe - Telephony Interrupt</key>
+		<dict>
+			<key>description</key>
+			<string>A subscriber example that responds to publisher telephony interrupt.</string>
+			<key>LocalProperties</key>
+			<dict/>
+			<key>name</key>
+			<string>Subscribe - Telephony Interrupt</string>
+			<key>class</key>
+			<string>SubscribeTelephonyInterruptTest</string>
+		</dict>
 		<key>publish - Bandwidth Test</key>
 		<dict>
 			<key>description</key>
