@@ -40,8 +40,6 @@ Once you have modified your settings, you can run the application for simulator 
 | *An example of publishing a stream as an authenticated user*   
 | **[Background](R5ProTestbed/Tests/PublishBackground)**
 | *An example that continues to publish audio while the app is in the background*
-| **[Telephony Interrupt](R5ProTestbed/Tests/PublishTelephonyInterrupt)**
-| *An example on `"gracefully"` handling interrupts while broadcasting - such as receiving an declining a phone call**
 | **[Bandwidth Detection - Upload](R5ProTestbed/Tests/BandwidthDetectionUploadOnly)**
 | *An example that tests the upload speed between the device and server before publishing.*   
 | **[Camera Swap](R5ProTestbed/Tests/CameraSwap)**
@@ -66,6 +64,8 @@ Once you have modified your settings, you can run the application for simulator 
 | *The publish portion of the remote call example - sends the remote call.*
 | **[Stream Manager](R5ProTestbed/Tests/PublishStreamManager)**
 | *A publish example that connects with a server cluster using a Stream Manger*
+| **[Telephony Interrupt](R5ProTestbed/Tests/PublishTelephonyInterrupt)**
+| *An example on `"gracefully"` handling interrupts while broadcasting - such as receiving an declining a phone call*
 | **[Two Way](R5ProTestbed/Tests/TwoWay)**
 | *An example of simultaneously publishing while subscribing - allowing a conversation. Includes stream detection and auto-connection.*
 | **[Two Way - Stream Manager](R5ProTestbed/Tests/TwoWayStreamManager)**
@@ -86,8 +86,6 @@ Once you have modified your settings, you can run the application for simulator 
 | *An example of subscribing to a stream as an authenticated user*   
 | **[Background](R5ProTestbed/Tests/SubscribeBackground)**
 | *A subscribing example that can continue when the app moves into the background*
-| **[Telephony Interrupt](R5ProTestbed/Tests/SubscribeTelephonyInterrupt)**
-| *An example on `"gracefully"` responding to interrupts while subscribed to a broadcasting - such as the publisher receiving an declining a phone call**
 | **[Bandwidth Test](R5ProTestbed/Tests/SubscribeBandwidth)**
 | *Detect Insufficient and Sufficient BW flags.  Test on a poor network using a publisher that has high video quality. Video should become sporadic or stop altogether.  The screen will darken when no video is being received.*   
 | **[Bandwidth Detection - Download](R5ProTestbed/Tests/BandwidthDetectionDownloadOnly)**
@@ -106,13 +104,14 @@ Once you have modified your settings, you can run the application for simulator 
 | *The subscribe portion of the remote call example - receives the remote call.*
 | **[Stream Manager](R5ProTestbed/Tests/SubscribeStreamManager)**
 | *A subscribe example that connects with a server cluster using a Stream Manger*
+| **[Telephony Interrupt](R5ProTestbed/Tests/SubscribeTelephonyInterrupt)**
+| *An example on `"gracefully"` responding to interrupts while subscribed to a broadcasting - such as the publisher receiving an declining a phone call*
 | **[Two Streams](R5ProTestbed/Tests/SubscribeTwoStreams)**
 | *An example of subscribing to multiple streams at once, useful for subscribing to a presentation hosted by two people using a Two Way connection.*
 
 ## Notes
 
-1. For some of the above examples you will need two devices (a publisher, and a subscriber). You can also use a web browser to subscribe or publish via Flash, http://your_red5_pro_server_ip:5080/live.
-2. You can see a list of active streams by navigating to http://your_red5_pro_server_ip:5080/live/subscribe.jsp (will need to refresh this page after you have started publishing).
-3. Click on the *flash* link to view the published stream in your browser.
+1. For some of the above examples you will need two devices (a publisher, and a subscriber). You can also use a web browser to subscribe or publish via Flash, `http://<your_red5_pro_server>:5080/live`.
+2. You can see a list of active streams by navigating to `http://your_red5_pro_server:5080/live/subscribe.jsp` (will need to refresh this page after you have started publishing).
 
 [![Analytics](https://ga-beacon.appspot.com/UA-59819838-3/red5pro/streaming-ios?pixel)](https://github.com/igrigorik/ga-beacon)
