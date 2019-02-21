@@ -231,6 +231,7 @@
 				92A642E2200D40AC00882600 /* PublishAspectTest.swift */,
 				481B156C1EB380F20038A187 /* PublishAuthTest.swift */,
 				9278C9AF2098E1BE00861C79 /* PublishBackgroundTest.swift */,
+				480A8793221EA8A500474724 /* PublishTelephonyInterruptTest.swift */,
 				92EBEF07212F1B6F003B72FB /* BandwidthDetectionUploadOnlyTest.swift */,
 				485345081C23552F00D409F3 /* CameraSwapTest.swift */,
 				92EA19D91CE13717006B3A97 /* PublishCustomSourceTest.swift */,
@@ -264,7 +265,6 @@
 				92CC78081CB6F8DD00CD4352 /* SubscribeTwoStreams.swift */,
 				926794FE1D06199E004B0BCD /* TwoWayTest.swift */,
 				927FA28920EBCD2D00F16228 /* TwoWayStreamManagerTest.swift */,
-				480A8793221EA8A500474724 /* PublishTelephonyInterruptTest.swift */,
 			);
 			name = Tests;
 			sourceTree = "<group>";
