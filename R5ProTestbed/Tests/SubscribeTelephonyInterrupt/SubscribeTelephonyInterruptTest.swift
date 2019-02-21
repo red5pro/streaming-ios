@@ -28,14 +28,22 @@ class SubscribeTelephonyInterruptTest: BaseTest {
             // publisher has unpublished. possibly from background/interrupt.
             if (publisherIsInBackground) {
                 publisherIsDisconnected = true
+                // Begin reconnect sequence...
+                let view = currentView
+                DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+                    if(self.subscribeStream != nil) {
+                        view?.attach(nil)
+                        self.subscribeStream?.delegate = nil;
+                        self.subscribeStream!.stop()
+                    }
+                    self.reconnect()
+                }
             }
             
         }
     }
     
     func Subscribe(_ name: String) {
-        
-        setupDefaultR5VideoViewController()
         
         let config = getConfig()
         // Set up the connection and stream
@@ -53,22 +61,31 @@ class SubscribeTelephonyInterruptTest: BaseTest {
     func publisherBackground(msg: String) {
         NSLog("(publisherBackground) the msg: %@", msg)
         publisherIsInBackground = true
-        ALToastView.toast(in: self.view, withText:"publishBackground: \(msg)")
+        ALToastView.toast(in: self.view, withText:"Publish Background")
     }
     
     func publisherForeground(msg: String) {
         NSLog("(publisherForeground) the msg: %@", msg)
         publisherIsInBackground = false
-        ALToastView.toast(in: self.view, withText:"publisherForeground: \(msg)")
+        ALToastView.toast(in: self.view, withText:"Publisher Foreground")
     }
     
     func publisherInterrupt(msg: String) {
+        // Most likely will not receive this...
         NSLog("(publisherInterrupt) the msg: %@", msg)
         publisherIsDisconnected = true
-        ALToastView.toast(in: self.view, withText:"publisherInterrupt: \(msg)")
+        ALToastView.toast(in: self.view, withText:"Publisher Interrupt")
         
         // Begin reconnect sequence...
-        reconnect()
+        let view = currentView
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+            if(self.subscribeStream != nil) {
+                view?.attach(nil)
+                self.subscribeStream?.delegate = nil;
+                self.subscribeStream!.stop()
+            }
+            self.reconnect()
+        }
     }
     
     func findStreams() {
@@ -139,10 +156,15 @@ class SubscribeTelephonyInterruptTest: BaseTest {
         super.viewWillDisappear(animated)
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        setupDefaultR5VideoViewController()
+        findStreams()
+    }
+    
     override func viewDidLoad() {
         self.finished = false
         super.viewDidLoad()
-        findStreams()
     }
     
 }
