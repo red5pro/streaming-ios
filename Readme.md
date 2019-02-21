@@ -32,64 +32,44 @@ Once you have modified your settings, you can run the application for simulator 
 | **[1080p](R5ProTestbed/Tests/Publish)**
 | :-----
 | *A high quality publisher. Note that this is the publish test with a non-default 'bitrate' and camera size values set in tests.plist*
-| -
 | **[ABR](R5ProTestbed/Tests/AdaptiveBitrate)**
 | *A high bitrate publisher with AdaptiveBitrateController*   
-| -
 | **[Aspect Ratio](R5ProTestbed/Tests/PublishAspect)**
 | *A publish example that includes modifying the scale mode of the preview display*
-| -
 | **[Authentication](R5ProTestbed/Tests/PublishAuth)**
 | *An example of publishing a stream as an authenticated user*   
-| -
 | **[Background](R5ProTestbed/Tests/PublishBackground)**
 | *An example that continues to publish audio while the app is in the background*
-| -
 | **[Bandwidth Detection - Upload](R5ProTestbed/Tests/BandwidthDetectionUploadOnly)**
 | *An example that tests the upload speed between the device and server before publishing.*   
-| -
 | **[Camera Swap](R5ProTestbed/Tests/CameraSwap)**
 | *Touch the screen to swap which camera is being used! Verify with flash, android, or other iOS device running subscribe test that camera is swapping properly and no rendering problems occur.*
-| -
 | **[Custom Audio Source](R5ProTestbed/Tests/PublishCustomMic)**
 | *Uses a custom controller to modify audio data for the publisher.*
-| -
 | **[Custom Video Source](R5ProTestbed/Tests/PublishCustomSource)**
 | *Uses a custom controller to supply video data to the publisher.*
-| -
 | **[Device Orientation](R5ProTestbed/Tests/PublishDeviceOrientation)**
 | *Rotate the device to update the orientation of the broadcast stream.  Verify with browser-based players (WebRTC, Flash, HLS), Android, or other iOS device running subscribe test that image is rotating properly and no rendering problems occur.*
-| -
 | **[Image Capture](R5ProTestbed/Tests/PublishStreamImage)**
 | *Touch the publish stream to take a screen shot that is displayed!*
-| -
 | **[High Quality Audio](R5ProTestbed/Tests/PublishHQAudio)**
 | *`R5Microphone.sampleRate` is set to 44100 (the default is 16000).*    
-| -
 | **[Local Record](R5ProTestbed/Tests/PublishLocalRecord)**
 | *A publish example that records stream data locally on the device.*    
-| -
 | **[Mute/Unmute](R5ProTestbed/Tests/PublishPause)**
 | *Touch the screen to toggle between sending Audio & Video, sending just Video, sending just Audio, and sending no Audio or Video. Turning off and on the media sources is considered mute and unmute events, respecitively*
-| -
 | **[Record](R5ProTestbed/Tests/Recorded)**
 | *A publish example that records stream data on the server.*
-| -
 | **[Remote Call](R5ProTestbed/Tests/RemoteCall)**
 | *The publish portion of the remote call example - sends the remote call.*
-| -
 | **[Stream Manager](R5ProTestbed/Tests/PublishStreamManager)**
 | *A publish example that connects with a server cluster using a Stream Manger*
-| -
 | **[Two Way](R5ProTestbed/Tests/TwoWay)**
 | *An example of simultaneously publishing while subscribing - allowing a conversation. Includes stream detection and auto-connection.*
-| -
 | **[Two Way - Stream Manager](R5ProTestbed/Tests/TwoWayStreamManager)**
 | *The two way example, modified to work with a stream manager. Includes stream detection and auto-connection.*
-| -
 | **[Shared Object](R5ProTestbed/Tests/SharedObject)**
 | *An example of sending data and messages between clients through remote shared objects.*
-| -
 | **[Send/Recieve](R5ProTestbed/Tests/SubscribeReceiveSend)**
 | *An example of sending data and messages from a Broadcaster to N-Subscribers.*
 
