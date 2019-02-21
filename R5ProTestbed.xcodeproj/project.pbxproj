@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		480A8794221EA8A500474724 /* PublishTelephonyInterruptTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 480A8793221EA8A500474724 /* PublishTelephonyInterruptTest.swift */; };
 		480C6B931F7BDE7F009E943F /* VideoToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 480C6B921F7BDE7F009E943F /* VideoToolbox.framework */; };
 		480C6B951F7BDE85009E943F /* libbz2.1.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 480C6B941F7BDE85009E943F /* libbz2.1.0.tbd */; };
 		481B156D1EB380F20038A187 /* PublishAuthTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 481B156C1EB380F20038A187 /* PublishAuthTest.swift */; };
@@ -70,6 +71,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		480A8793221EA8A500474724 /* PublishTelephonyInterruptTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PublishTelephonyInterruptTest.swift; path = Tests/PublishTelephonyInterrupt/PublishTelephonyInterruptTest.swift; sourceTree = "<group>"; };
 		480C6B921F7BDE7F009E943F /* VideoToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = VideoToolbox.framework; path = System/Library/Frameworks/VideoToolbox.framework; sourceTree = SDKROOT; };
 		480C6B941F7BDE85009E943F /* libbz2.1.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libbz2.1.0.tbd; path = usr/lib/libbz2.1.0.tbd; sourceTree = SDKROOT; };
 		481B156C1EB380F20038A187 /* PublishAuthTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PublishAuthTest.swift; path = Tests/PublishAuth/PublishAuthTest.swift; sourceTree = "<group>"; };
@@ -262,6 +264,7 @@
 				92CC78081CB6F8DD00CD4352 /* SubscribeTwoStreams.swift */,
 				926794FE1D06199E004B0BCD /* TwoWayTest.swift */,
 				927FA28920EBCD2D00F16228 /* TwoWayStreamManagerTest.swift */,
+				480A8793221EA8A500474724 /* PublishTelephonyInterruptTest.swift */,
 			);
 			name = Tests;
 			sourceTree = "<group>";
@@ -369,6 +372,7 @@
 				48DFEDD51C21C18F0040B624 /* Home.swift in Sources */,
 				92EBEF06212F1B64003B72FB /* SubscriberBandwidthTest.swift in Sources */,
 				926794FD1D061983004B0BCD /* SubscribeRemoteCallTest.swift in Sources */,
+				480A8794221EA8A500474724 /* PublishTelephonyInterruptTest.swift in Sources */,
 				4874D59F1C221B9500A98102 /* AdaptiveBitrateControllerTest.swift in Sources */,
 				48DFEDAC1C21BBC60040B624 /* AppDelegate.swift in Sources */,
 				48DFEDDF1C21EA780040B624 /* Testbed.swift in Sources */,
