@@ -42,12 +42,18 @@ class PublishTelephonyInterruptTest: PublishTest {
     @objc func willResignActive(_ notification: Notification) {
         publishStream?.pauseVideo = true
         
+        let streamName = Testbed.getParameter(param: "stream1") as? String
+        publishStream?.send("publisherBackground", withParam: "streamName=\(streamName)")
+        
         self.tap = UITapGestureRecognizer(target: self, action: #selector(PublishSendTest.handleSingleTap(recognizer:)))
         self.view.addGestureRecognizer(self.tap!)
     }
     
     @objc func willEnterForeground(_ notification: Notification) {
         publishStream?.pauseVideo = false
+        
+        let streamName = Testbed.getParameter(param: "stream1") as? String
+        publishStream?.send("publisherForeground", withParam: "streamName=\(streamName)")
         
         hasReturnedToForeground = true
         if (tap != nil) {
