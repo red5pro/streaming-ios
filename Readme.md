@@ -81,6 +81,9 @@ Once you have modified your settings, you can run the application for simulator 
 | **[Stream Manager](R5ProTestbed/Tests/PublishStreamManager)**
 | *A publish example that connects with a server cluster using a Stream Manger*
 | -
+| **[Stream Manager Transcoder](R5ProTestbed/Tests/PublishStreamManagerTranscode)**
+| *A publish example that uses transcoding broadcast over Stream Manager.*
+| -
 | **[Two Way](R5ProTestbed/Tests/TwoWay)**
 | *An example of simultaneously publishing while subscribing - allowing a conversation. Includes stream detection and auto-connection.*
 | -
