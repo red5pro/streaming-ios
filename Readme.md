@@ -66,6 +66,8 @@ Once you have modified your settings, you can run the application for simulator 
 | *A publish example that connects with a server cluster using a Stream Manger*
 | **[Telephony Interrupt](R5ProTestbed/Tests/PublishTelephonyInterrupt)**
 | *An example on `"gracefully"` handling interrupts while broadcasting - such as receiving an declining a phone call*
+| **[Stream Manager Transcoder](R5ProTestbed/Tests/PublishStreamManagerTranscode)**
+| *A publish example that uses transcoding broadcast over Stream Manager.*
 | **[Two Way](R5ProTestbed/Tests/TwoWay)**
 | *An example of simultaneously publishing while subscribing - allowing a conversation. Includes stream detection and auto-connection.*
 | **[Two Way - Stream Manager](R5ProTestbed/Tests/TwoWayStreamManager)**

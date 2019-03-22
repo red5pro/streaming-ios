@@ -272,6 +272,17 @@
 			<key>class</key>
 			<string>PublishStreamManagerTest</string>
 		</dict>
+		<key>publish - Stream Manager Transcoder</key>
+		<dict>
+			<key>description</key>
+			<string>A publish example that uses transcoding broadcast over Stream Manager.</string>
+			<key>LocalProperties</key>
+			<dict/>
+			<key>name</key>
+			<string>Publish - Stream Manager Transcoder</string>
+			<key>class</key>
+			<string>PublishStreamManagerTranscodeTest</string>
+		</dict>
 		<key>publish - Stream Send</key>
 		<dict>
 			<key>description</key>
