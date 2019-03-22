@@ -129,6 +129,17 @@
 			<key>class</key>
 			<string>PublishBackgroundTest</string>
 		</dict>
+		<key>publish - Telephony Interrupt</key>
+		<dict>
+			<key>description</key>
+			<string>An example of publishing that responds to telephony-based interrupts.</string>
+			<key>LocalProperties</key>
+			<dict/>
+			<key>name</key>
+			<string>Publish - Telephony Interrupt</string>
+			<key>class</key>
+			<string>PublishTelephonyInterruptTest</string>
+		</dict>
 		<key>publish - Bandwidth Upload Detection</key>
 		<dict>
 			<key>description</key>
@@ -261,6 +272,17 @@
 			<key>class</key>
 			<string>PublishStreamManagerTest</string>
 		</dict>
+		<key>publish - Stream Manager Transcoder</key>
+		<dict>
+			<key>description</key>
+			<string>A publish example that uses transcoding broadcast over Stream Manager.</string>
+			<key>LocalProperties</key>
+			<dict/>
+			<key>name</key>
+			<string>Publish - Stream Manager Transcoder</string>
+			<key>class</key>
+			<string>PublishStreamManagerTranscodeTest</string>
+		</dict>
 		<key>publish - Stream Send</key>
 		<dict>
 			<key>description</key>
@@ -340,6 +362,17 @@
 			<string>Subscribe - Background</string>
 			<key>class</key>
 			<string>SubscribeBackgroundTest</string>
+		</dict>
+		<key>subscribe - Telephony Interrupt</key>
+		<dict>
+			<key>description</key>
+			<string>A subscriber example that responds to publisher telephony interrupt.</string>
+			<key>LocalProperties</key>
+			<dict/>
+			<key>name</key>
+			<string>Subscribe - Telephony Interrupt</string>
+			<key>class</key>
+			<string>SubscribeTelephonyInterruptTest</string>
 		</dict>
 		<key>publish - Bandwidth Test</key>
 		<dict>
