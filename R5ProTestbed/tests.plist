@@ -184,6 +184,17 @@
 			<key>class</key>
 			<string>PublishDeviceOrientationTest</string>
 		</dict>
+		<key>publish - Encrypted</key>
+		<dict>
+			<key>description</key>
+			<string>An example that encrypts all traffic between the device and server.</string>
+			<key>LocalProperties</key>
+			<dict/>
+			<key>name</key>
+			<string>Publish - Encrypted</string>
+			<key>class</key>
+			<string>PublishEncryptedTest</string>
+		</dict>
 		<key>publish - HQ Audio</key>
 		<dict>
 			<key>description</key>
@@ -418,6 +429,17 @@
 			<key>class</key>
 			<string>SubscribeCluster</string>
 		</dict>
+		<key>subscribe - Encrypted</key>
+		<dict>
+			<key>description</key>
+			<string>An example that encrypts all traffic between the device and server.</string>
+			<key>LocalProperties</key>
+			<dict/>
+			<key>name</key>
+			<string>Subscribe - Encrypted</string>
+			<key>class</key>
+			<string>SubscribeEncryptedTest</string>
+		</dict>
 		<key>subscribe - Image Capture</key>
 		<dict>
 			<key>description</key>
@@ -428,6 +450,26 @@
 			<string>Subscribe - ImageCapture</string>
 			<key>class</key>
 			<string>SubscribeStreamImageTest</string>
+		</dict>
+		<key>subscribe - Metal View</key>
+		<dict>
+			<key>LocalProperties</key>
+			<dict/>
+			<key>name</key>
+			<string>Subscribe - Metal View</string>
+			<key>class</key>
+			<string>SubscribeMetalViewTest</string>
+		</dict>
+		<key>subscribe - Mute Audio</key>
+		<dict>
+			<key>description</key>
+			<string>Allows toggle of mute playback</string>
+			<key>LocalProperties</key>
+			<dict/>
+			<key>name</key>
+			<string>Subscribe - Mute Audio</string>
+			<key>class</key>
+			<string>SubscribeMuteTest</string>
 		</dict>
 		<key>subscribe - No View</key>
 		<dict>
@@ -459,6 +501,17 @@
 			<string>Subscribe - Remote Call</string>
 			<key>class</key>
 			<string>SubscribeRemoteCallTest</string>
+		</dict>
+		<key>subscribe - Set Volume</key>
+		<dict>
+			<key>description</key>
+			<string>Simple example to toggle volume on and off for subscriber</string>
+			<key>LocalProperties</key>
+			<dict/>
+			<key>name</key>
+			<string>Subscribe - Set Volume</string>
+			<key>class</key>
+			<string>SubscribeSetVolumeTest</string>
 		</dict>
 		<key>subscribe - Stream Manager</key>
 		<dict>
