@@ -17,6 +17,7 @@ FOUNDATION_EXPORT const unsigned char R5StreamingVersionString[];
 // In this header, you should import all the public headers of your framework using statements like #import <R5Streaming/PublicHeader.h>
 
 #import <R5Streaming/R5VideoViewController.h>
+#import <R5Streaming/R5MetalVideoViewController.h>
 #import <R5Streaming/R5Connection.h>
 #import <R5Streaming/R5Stream.h>
 #import <R5Streaming/R5Configuration.h>
