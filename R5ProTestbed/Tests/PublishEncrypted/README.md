@@ -1,5 +1,7 @@
 #Adding security to Red5 Pro streams
-While a lot of streaming applications are intended to be as public as possible, many are intended for more descrete audiences - or decidedly confidential. For those situations, SRTP can give a piece of mind that traffic can't be spyed on uninvited. 
+While a lot of streaming applications are intended to be as public as possible, many are intended for more descrete audiences - or decidedly confidential. For those situations, SRTP can give a piece of mind that traffic can't be spyed on uninvited.
+
+**NOTE:** SRTP Support requires Red5 Pro Server version 5.5.0 or higher
 
 ###Example Code
 - ***[BaseTest.swift](../BaseTest.swift)***
