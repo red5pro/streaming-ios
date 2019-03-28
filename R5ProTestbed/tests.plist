@@ -453,6 +453,8 @@
 		</dict>
 		<key>subscribe - Metal View</key>
 		<dict>
+			<key>description</key>
+			<string>Uses a metal based view to display a stream</string>
 			<key>LocalProperties</key>
 			<dict/>
 			<key>name</key>
@@ -505,7 +507,7 @@
 		<key>subscribe - Set Volume</key>
 		<dict>
 			<key>description</key>
-			<string>Simple example to toggle volume on and off for subscriber</string>
+			<string>Shows setting the playback volume for the stream</string>
 			<key>LocalProperties</key>
 			<dict/>
 			<key>name</key>

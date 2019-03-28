@@ -50,6 +50,8 @@ Once you have modified your settings, you can run the application for simulator 
 | *Uses a custom controller to supply video data to the publisher.*
 | **[Device Orientation](R5ProTestbed/Tests/PublishDeviceOrientation)**
 | *Rotate the device to update the orientation of the broadcast stream.  Verify with browser-based players (WebRTC, Flash, HLS), Android, or other iOS device running subscribe test that image is rotating properly and no rendering problems occur.*
+| **[Encrypted](R5ProTestbed/Tests/PublishEncrypted)**
+| *An example that encrypts all traffic between the device and server.*
 | **[Image Capture](R5ProTestbed/Tests/PublishStreamImage)**
 | *Touch the publish stream to take a screen shot that is displayed!*
 | **[High Quality Audio](R5ProTestbed/Tests/PublishHQAudio)**
@@ -96,14 +98,22 @@ Once you have modified your settings, you can run the application for simulator 
 | *An example that tests both the upload and download speeds between the device and server before subscribing.*
 | **[Cluster](R5ProTestbed/Tests/SubscribeCluster)**
 | *An example of connecting to a cluster server.*
+| **[Encrypted](R5ProTestbed/Tests/SubscribeEncrypted)**
+| *An example that encrypts all traffic between the device and server.*
 | **[Image Capture](R5ProTestbed/Tests/SubscribeStreamImage)**
 | *Touch the subscribe stream to take a screen shot that is displayed!*
+| **[Metal View](R5ProTestbed/Tests/SubscribeMetalView)**
+| *Uses a metal based view to display a stream.*
+| **[Mute](R5ProTestbed/Tests/SubscribeMute)**
+| *Allows toggle of mute playback.*
 | **[No View](R5ProTestbed/Tests/SubscribeNoView)**
 | *A proof of using an audio only stream without attaching it to a view.*
 | **[Reconnect](R5ProTestbed/Tests/SubscribeReconnect)**
 | *An example of reconnecting to a stream on a connection error.*
 | **[Remote Call](R5ProTestbed/Tests/RemoteCall)**
 | *The subscribe portion of the remote call example - receives the remote call.*
+| **[Set Volume](R5ProTestbed/Tests/SubscribeSetVolume)**
+| *Shows setting the playback volume for the stream.*
 | **[Stream Manager](R5ProTestbed/Tests/SubscribeStreamManager)**
 | *A subscribe example that connects with a server cluster using a Stream Manger*
 | **[Telephony Interrupt](R5ProTestbed/Tests/SubscribeTelephonyInterrupt)**
