@@ -52,6 +52,11 @@
 		926794FB1D061968004B0BCD /* SubscribeCluster.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926794FA1D061968004B0BCD /* SubscribeCluster.swift */; };
 		926794FD1D061983004B0BCD /* SubscribeRemoteCallTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926794FC1D061983004B0BCD /* SubscribeRemoteCallTest.swift */; };
 		926794FF1D06199E004B0BCD /* TwoWayTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926794FE1D06199E004B0BCD /* TwoWayTest.swift */; };
+		926EB660224D3C8300715EF7 /* PublishEncryptedTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926EB65F224D3C8200715EF7 /* PublishEncryptedTest.swift */; };
+		926EB662224D475A00715EF7 /* SubscribeEncryptedTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926EB661224D475900715EF7 /* SubscribeEncryptedTest.swift */; };
+		926EB664224D477800715EF7 /* SubscribeMetalViewTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926EB663224D477800715EF7 /* SubscribeMetalViewTest.swift */; };
+		926EB666224D4AA800715EF7 /* SubscribeMuteTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926EB665224D4AA800715EF7 /* SubscribeMuteTest.swift */; };
+		926EB668224D4AB300715EF7 /* SubscribeSetVolumeTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926EB667224D4AB300715EF7 /* SubscribeSetVolumeTest.swift */; };
 		9278C9AC2098B09300861C79 /* SubscribeAudioDelayTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9278C9AB2098B09300861C79 /* SubscribeAudioDelayTest.swift */; };
 		9278C9B02098E1BE00861C79 /* PublishBackgroundTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9278C9AF2098E1BE00861C79 /* PublishBackgroundTest.swift */; };
 		927FA28A20EBCD2D00F16228 /* TwoWayStreamManagerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927FA28920EBCD2D00F16228 /* TwoWayStreamManagerTest.swift */; };
@@ -123,6 +128,11 @@
 		926794FA1D061968004B0BCD /* SubscribeCluster.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SubscribeCluster.swift; path = Tests/SubscribeCluster/SubscribeCluster.swift; sourceTree = "<group>"; };
 		926794FC1D061983004B0BCD /* SubscribeRemoteCallTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SubscribeRemoteCallTest.swift; path = Tests/RemoteCall/SubscribeRemoteCallTest.swift; sourceTree = "<group>"; };
 		926794FE1D06199E004B0BCD /* TwoWayTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TwoWayTest.swift; path = Tests/TwoWay/TwoWayTest.swift; sourceTree = "<group>"; };
+		926EB65F224D3C8200715EF7 /* PublishEncryptedTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PublishEncryptedTest.swift; path = Tests/PublishEncrypted/PublishEncryptedTest.swift; sourceTree = "<group>"; };
+		926EB661224D475900715EF7 /* SubscribeEncryptedTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SubscribeEncryptedTest.swift; path = Tests/SubscribeEncrypted/SubscribeEncryptedTest.swift; sourceTree = "<group>"; };
+		926EB663224D477800715EF7 /* SubscribeMetalViewTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SubscribeMetalViewTest.swift; path = Tests/SubscribeMetalView/SubscribeMetalViewTest.swift; sourceTree = "<group>"; };
+		926EB665224D4AA800715EF7 /* SubscribeMuteTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SubscribeMuteTest.swift; path = Tests/SubscribeMuteAudio/SubscribeMuteTest.swift; sourceTree = "<group>"; };
+		926EB667224D4AB300715EF7 /* SubscribeSetVolumeTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SubscribeSetVolumeTest.swift; path = Tests/SubscribeSetVolume/SubscribeSetVolumeTest.swift; sourceTree = "<group>"; };
 		9278C9AB2098B09300861C79 /* SubscribeAudioDelayTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SubscribeAudioDelayTest.swift; path = Tests/SubscribeAudioDelay/SubscribeAudioDelayTest.swift; sourceTree = "<group>"; };
 		9278C9AF2098E1BE00861C79 /* PublishBackgroundTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PublishBackgroundTest.swift; path = Tests/PublishBackground/PublishBackgroundTest.swift; sourceTree = "<group>"; };
 		927FA28920EBCD2D00F16228 /* TwoWayStreamManagerTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TwoWayStreamManagerTest.swift; path = Tests/TwoWayStreamManager/TwoWayStreamManagerTest.swift; sourceTree = "<group>"; };
@@ -240,6 +250,7 @@
 				485345081C23552F00D409F3 /* CameraSwapTest.swift */,
 				92EA19D91CE13717006B3A97 /* PublishCustomSourceTest.swift */,
 				482282581E4E47C80073F26C /* PublishDeviceOrientationTest.swift */,
+				926EB65F224D3C8200715EF7 /* PublishEncryptedTest.swift */,
 				487C888E1F2F8AB2004157B6 /* PublishHQAudioTest.swift */,
 				9209F4A81F7EE38500A90080 /* PublishLocalRecordTest.swift */,
 				48BF80AD1C245AA7000E996E /* PublishOrientationTest.swift */,
@@ -262,10 +273,14 @@
 				92EBEF03212F1B59003B72FB /* BandwidthDetectionDownloadOnlyTest.swift */,
 				92EBEF01212F1B4E003B72FB /* BandwidthDetectionTest.swift */,
 				926794FA1D061968004B0BCD /* SubscribeCluster.swift */,
+				926EB661224D475900715EF7 /* SubscribeEncryptedTest.swift */,
+				926EB663224D477800715EF7 /* SubscribeMetalViewTest.swift */,
+				926EB665224D4AA800715EF7 /* SubscribeMuteTest.swift */,
 				92E13BF31CDD165800DA5783 /* SubscribeNoViewTest.swift */,
 				481B15751EB390600038A187 /* SubscribeReceiveSendTest.swift */,
 				926794FC1D061983004B0BCD /* SubscribeRemoteCallTest.swift */,
 				48BB1D801CED140D00D915E5 /* SubscribeSetSizeTest.swift */,
+				926EB667224D4AB300715EF7 /* SubscribeSetVolumeTest.swift */,
 				4874ECCF1C483FDA002BDA6D /* SubscribeStreamImageTest.swift */,
 				928B1CBC1CBC0DC5002C66BA /* SubscribeStreamManagerTest.swift */,
 				92CC78081CB6F8DD00CD4352 /* SubscribeTwoStreams.swift */,
@@ -373,6 +388,7 @@
 				48DFEDAE1C21BBC60040B624 /* MasterViewController.swift in Sources */,
 				92CC78091CB6F8DD00CD4352 /* SubscribeTwoStreams.swift in Sources */,
 				92E13BF41CDD165800DA5783 /* SubscribeNoViewTest.swift in Sources */,
+				926EB666224D4AA800715EF7 /* SubscribeMuteTest.swift in Sources */,
 				926794FF1D06199E004B0BCD /* TwoWayTest.swift in Sources */,
 				92A642E3200D40AC00882600 /* PublishAspectTest.swift in Sources */,
 				48DFEDD51C21C18F0040B624 /* Home.swift in Sources */,
@@ -397,15 +413,19 @@
 				481B156F1EB380FE0038A187 /* SubscribeAuthTest.swift in Sources */,
 				4838028E1E4115130098F5B7 /* PublishPauseTest.swift in Sources */,
 				482282591E4E47C80073F26C /* PublishDeviceOrientationTest.swift in Sources */,
+				926EB668224D4AB300715EF7 /* SubscribeSetVolumeTest.swift in Sources */,
 				48DFEDD71C21C2540040B624 /* BaseTest.swift in Sources */,
 				926794F91D061942004B0BCD /* RecordedTest.swift in Sources */,
 				487CDBC41E6F1A39007FC4EA /* SharedObjectTest.swift in Sources */,
 				48DFEDCD1C21BF0A0040B624 /* PublishTest.swift in Sources */,
+				926EB660224D3C8300715EF7 /* PublishEncryptedTest.swift in Sources */,
+				926EB664224D477800715EF7 /* SubscribeMetalViewTest.swift in Sources */,
 				481B156D1EB380F20038A187 /* PublishAuthTest.swift in Sources */,
 				92EBEF04212F1B59003B72FB /* BandwidthDetectionDownloadOnlyTest.swift in Sources */,
 				92EAA9DB1D0734EA00B2CE46 /* SubscribeAutoReconnectTest.swift in Sources */,
 				928B1CBD1CBC0DC5002C66BA /* SubscribeStreamManagerTest.swift in Sources */,
 				4874D59D1C2216DB00A98102 /* SubscribeTest.swift in Sources */,
+				926EB662224D475A00715EF7 /* SubscribeEncryptedTest.swift in Sources */,
 				48BB1D811CED140D00D915E5 /* SubscribeSetSizeTest.swift in Sources */,
 				485345071C23528400D409F3 /* PublishStreamImageTest.swift in Sources */,
 				926794F71D06191E004B0BCD /* PublishStreamManagerTest.swift in Sources */,
