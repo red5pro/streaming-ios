@@ -118,6 +118,17 @@
 			<key>class</key>
 			<string>PublishAuthTest</string>
 		</dict>
+		<key>publish - AV Category</key>
+		<dict>
+			<key>description</key>
+			<string></string>
+			<key>LocalProperties</key>
+			<dict/>
+			<key>name</key>
+			<string>Publish- AV Category</string>
+			<key>class</key>
+			<string>PublishAVCategoryTest</string>
+		</dict>
 		<key>publish - Background</key>
 		<dict>
 			<key>description</key>
