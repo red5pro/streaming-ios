@@ -39,15 +39,22 @@ class PublishRemoteCallTest: BaseTest {
     
     override func onR5StreamStatus(_ stream: R5Stream!, withStatus statusCode: Int32, withMessage msg: String!) {
         
-        if(Int(statusCode) == Int(r5_status_start_streaming.rawValue)){
-            
-            let tap : UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(PublishRemoteCallTest.handleSingleTap(_:)))
-            
+        super.onR5StreamStatus(stream, withStatus: statusCode, withMessage: msg)
+        
+        if(Int(statusCode) == Int(r5_status_start_streaming.rawValue)) {
+            let tap : UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(PublishRemoteCallTest.handleSingleTap(recognizer:)))
             self.view.addGestureRecognizer(tap)
         }
+        else if (Int(statusCode) == Int(r5_status_buffer_flush_start.rawValue)) {
+            NotificationCenter.default.post(Notification(name: Notification.Name("BufferFlushStart")))
+        }
+        else if (Int(statusCode) == Int(r5_status_buffer_flush_empty.rawValue)) {
+            NotificationCenter.default.post(Notification(name: Notification.Name("BufferFlushComplete")))
+        }
+        
     }
     
-    func handleSingleTap(_ recognizer : UITapGestureRecognizer) {
+    @objc func handleSingleTap(recognizer : UITapGestureRecognizer) {
         
         var sendString : String = "";
         let touchLoc = recognizer.location(ofTouch: 0, in: self.view)
@@ -59,6 +66,5 @@ class PublishRemoteCallTest: BaseTest {
         
         publishStream?.send("whateverFunctionName", withParam: sendString)
     }
-    
     
 }

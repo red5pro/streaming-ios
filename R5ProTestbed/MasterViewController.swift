@@ -51,7 +51,7 @@ class MasterViewController: UITableViewController,UINavigationControllerDelegate
         
         self.splitViewController!.preferredPrimaryColumnWidthFraction = 0.2
         self.view.autoresizesSubviews = true
-        self.splitViewController!.preferredDisplayMode = UISplitViewControllerDisplayMode.allVisible
+        self.splitViewController!.preferredDisplayMode = UISplitViewController.DisplayMode.allVisible
         self.navigationController?.delegate = self
 
         // Do any additional setup after loading the view, typically from a nib.
@@ -65,15 +65,15 @@ class MasterViewController: UITableViewController,UINavigationControllerDelegate
         }
         
         let notificationCenter = NotificationCenter.default
-        notificationCenter.addObserver(self, selector: #selector(appMovedToBackground), name: Notification.Name.UIApplicationWillResignActive, object: nil)
+        notificationCenter.addObserver(self, selector: #selector(appMovedToBackground), name: UIApplication.willResignActiveNotification, object: nil)
         
-        if AVCaptureDevice.authorizationStatus(forMediaType: AVMediaTypeAudio) == .notDetermined {
+        if AVCaptureDevice.authorizationStatus(for: AVMediaType.audio) == .notDetermined {
             
             self.isBlockOnAccessGrant = true
             
-            AVCaptureDevice.requestAccess(forMediaType: AVMediaTypeVideo, completionHandler: { (videoGranted: Bool) in
+            AVCaptureDevice.requestAccess(for: AVMediaType.video, completionHandler: { (videoGranted: Bool) in
                 
-                    AVCaptureDevice.requestAccess(forMediaType: AVMediaTypeAudio, completionHandler: { (audioGranted: Bool) in
+                    AVCaptureDevice.requestAccess(for: AVMediaType.audio, completionHandler: { (audioGranted: Bool) in
                         
                             self.isBlockOnAccessGrant = false
                 
@@ -84,7 +84,7 @@ class MasterViewController: UITableViewController,UINavigationControllerDelegate
 
     }
     
-    func appMovedToBackground() {
+    @objc func appMovedToBackground() {
         
         if (!self.isBlockOnAccessGrant && (detailViewController == nil || (detailViewController?.shouldClose)!)) {
             let _ = navigationController?.popViewController(animated: false)
@@ -147,7 +147,7 @@ class MasterViewController: UITableViewController,UINavigationControllerDelegate
         return false
     }
 
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
     }
 
 }

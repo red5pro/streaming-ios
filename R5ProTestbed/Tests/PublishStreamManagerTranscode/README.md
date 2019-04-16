@@ -24,7 +24,7 @@ To do so, the broadcast most locate the server address of the Transcoder using t
 In order to publish using the transcoder, you need to request to endpoint for the transcoder from the Stream Manager just as you would in accessing the Origin endpoint in a normal Stream Manager request for broadcast. To do so, append the `transcode=true` query param on the end of the API request.
 
 ```Swift
-let urlString = "https://" + (Testbed.getParameter("host") as! String) + ":5080/streammanager/api/1.0/event/" +
+let urlString = "https://" + (Testbed.getParameter("host") as! String) + ":5080/streammanager/api/3.1/event/" +
   Testbed.getParameter("context") as! String + "/" +
   Testbed.getParameter("stream1") as! String + "?action=broadcast&transcode=true"
 

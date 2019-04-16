@@ -31,15 +31,12 @@ class SubscribeTest: BaseTest {
         let connection = R5Connection(config: config)
         self.subscribeStream = R5Stream(connection: connection)
         self.subscribeStream!.delegate = self
-        self.subscribeStream?.client = self
+        self.subscribeStream?.client = self;
         
         currentView?.attach(subscribeStream)
         
-        
         self.subscribeStream!.play(Testbed.getParameter(param: "stream1") as! String)
         
-        
-
     }
     
     func updateOrientation(value: Int) {
@@ -53,7 +50,7 @@ class SubscribeTest: BaseTest {
         
     }
     
-    func onMetaData(data : String) {
+    @objc func onMetaData(data : String) {
         
         let props = data.characters.split(separator: ";").map(String.init)
         props.forEach { (value: String) in
@@ -63,6 +60,24 @@ class SubscribeTest: BaseTest {
             }
         }
         
+    }
+    
+    override func onR5StreamStatus(_ stream: R5Stream!, withStatus statusCode: Int32, withMessage msg: String!) {
+        super.onR5StreamStatus(stream, withStatus: statusCode, withMessage: msg)
+
+        if( Int(statusCode) == Int(r5_status_start_streaming.rawValue) ){
+            
+            let session : AVAudioSession = AVAudioSession.sharedInstance()
+            let cat = session.category
+            let opt = session.categoryOptions
+            
+            let s =  String(format: "AV: %@ (%d)",  cat.rawValue, opt.rawValue)
+            ALToastView.toast(in: self.view, withText:s)
+            
+//            self.subscribeStream?.setFrameListener({data, width, height in
+//                uncomment for frameListener stress testing
+//            })
+        }
     }
     
 }

@@ -40,7 +40,7 @@ class SubscribeMetalViewTest: BaseTest {
         metalView = R5MetalVideoViewController();
         metalView!.view = view;
         
-        self.addChildViewController(metalView!)
+        self.addChild(metalView!)
         self.view.addSubview(metalView!.view)
         
         metalView?.setFrame(self.view.bounds)
