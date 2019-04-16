@@ -28,13 +28,13 @@ class SubscribeAspectRatioTest: BaseTest {
         self.subscribeStream!.play(Testbed.getParameter(param: "stream1") as! String)
         
         
-        let tap : UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(SubscribeAspectRatioTest.handleSingleTap(_:)))
+        let tap : UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(SubscribeAspectRatioTest.handleSingleTap(recognizer:)))
         
         self.view.addGestureRecognizer(tap)
         
     }
     
-    func handleSingleTap(_ recognizer : UITapGestureRecognizer) {
+    @objc func handleSingleTap(recognizer : UITapGestureRecognizer) {
         
         var nextMode = (currentView?.scaleMode.rawValue)! + 1;
         if(nextMode == 3){

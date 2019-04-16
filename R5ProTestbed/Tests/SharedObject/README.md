@@ -1,13 +1,13 @@
 # Shared Objects
 
-This example demonstrates the use of Remote Shared Objects, which provides a mechanism to share and persist information across mutiple clients in real time, as well as sending messages to all clients that are connected to the object.
+This example demonstrates the use of Remote Shared Objects, which provides a mechanism to share and persist information across multiple clients in real time, as well as sending messages to all clients that are connected to the object.
 
 ### Example Code
 - ***[BaseTest.swift](../BaseTest.swift)***
 - ***[SharedObjectTest.swift](SharedObjectTest.swift)***
 
 ### Setup
-Use of Shared objects requires an active stream - either publishing or subscribing. The content of the stream isn't important to the shared object itself, even a muted audio-only stream will be enough. Also, which stream you are connected to isn't important to which shared object you access, meaning that clients across multiple streams can use the same object, or there could be multiple overlapping objects in the same stream.
+Use of Shared objects requires an active stream - either publishing or subscribing. The content of the stream isn't important to the shared object itself, even a muted audio-only stream will be enough. Also, which stream you are connected to isn't important to which shared object you access, meaning that clients across multiple streams can use the same object, or there could be multiple objects accessed through a single stream.
 
 To run the test, you will need at least two devices running the "Shared Object" example. This example searches active streams for the stream name set as 'stream1' in tests.plist. If a client doesn't find an active stream with that name, it will begin publishing that stream, while any device that finds the published stream will subscribe to it.
 
@@ -30,7 +30,7 @@ override func onR5StreamStatus( _ stream: R5Stream!, withStatus statusCode: Int3
     }
 ```
 <sup>
-[SharedObjectTest.swift #132](../SharedObjectTest.swift#L132)
+[SharedObjectTest.swift #132](SharedObjectTest.swift#L132)
 </sup>
 
 Instantiating a new R5SharedObject requires a name and the connection used for your stream. After that it will connect and notify the object set as its client that it has connected successfully.
@@ -40,7 +40,7 @@ sObject = R5SharedObject(name:"sharedChatTest", connection: stream?.connection);
 sObject?.client = self;
 ```
 <sup>
-[SharedObjectTest.swift #145](../SharedObjectTest.swift#L145)
+[SharedObjectTest.swift #145](SharedObjectTest.swift#L145)
 </sup>
 
 Once connected successfully, the shared object will attempt to call `onSharedObjectConnect` on the client object - passing a dictionary with the object's current state as a parameter.
@@ -59,7 +59,7 @@ thisUser = (objectValue["count"] != nil) ? (objectValue["count"] as! Int) + 1 : 
 sObject?.setProperty("count", withValue: (objectValue["count"] != nil ? (objectValue["count"] as! Int) + 1 : 1) as NSNumber)
 ```
 <sup>
-[SharedObjectTest.swift #150](../SharedObjectTest.swift#L150)
+[SharedObjectTest.swift #150](SharedObjectTest.swift#L150)
 </sup>
 
 When one client calls `setProperty` other clients will be notified through `onUpdateProperty` with a dictionary that holds the single key/value pair that has updated.
@@ -71,7 +71,7 @@ func onUpdateProperty( propertyInfo: [AnyHashable: Any] ) {
 }
 ```
 <sup>
-[SharedObjectTest.swift #175](../SharedObjectTest.swift#L175)
+[SharedObjectTest.swift #175](SharedObjectTest.swift#L175)
 </sup>
 
 Note that the read-only data property of the R5SharedObject which holds the current state of the remote object is updated before a method is called on the client.
@@ -87,7 +87,7 @@ let messageOut : [AnyHashable:Any] = [ "user":String(thisUser), "message":(chatI
 sObject?.send("messageTransmit", withParams: messageOut)
 ```
 <sup>
-[SharedObjectTest.swift #165](../SharedObjectTest.swift#L165)
+[SharedObjectTest.swift #165](SharedObjectTest.swift#L165)
 </sup>
 
 Which is received by:
@@ -99,7 +99,7 @@ func messageTransmit( messageIn: [AnyHashable: Any] ){
   let message : String = messageIn["message"] as! String
 ```
 <sup>
-[SharedObjectTest.swift #180](../SharedObjectTest.swift#L180)
+[SharedObjectTest.swift #180](SharedObjectTest.swift#L180)
 </sup>
 
 Like with the parameters of the object, as long as the dictionary sent parses into JSON, the structure of the object is up to you, and it will reach the other clients in whole as it was sent.

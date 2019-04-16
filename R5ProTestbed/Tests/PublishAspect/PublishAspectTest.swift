@@ -47,7 +47,7 @@ class PublishAspectTest: BaseTest {
         
     }
     
-    func handleSingleTap(recognizer : UITapGestureRecognizer) {
+    @objc func handleSingleTap(recognizer : UITapGestureRecognizer) {
         
         
         var nextMode = (currentView?.scaleMode.rawValue)! + 1;

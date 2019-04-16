@@ -32,8 +32,8 @@ class DetailViewController: UIViewController, UITextFieldDelegate, UINavigationC
     }
     
     @IBAction func onChangeLicense(_ sender: AnyObject) {
-        let alert = UIAlertController(title: "Red5 Pro SDK", message: "Enter In Your SDK License", preferredStyle: UIAlertControllerStyle.alert)
-        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: {(action: UIAlertAction!) in
+        let alert = UIAlertController(title: "Red5 Pro SDK", message: "Enter In Your SDK License", preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: {(action: UIAlertAction!) in
             let field = alert.textFields?[0]
             let entry = field?.text
             if (entry != "") {
@@ -41,7 +41,7 @@ class DetailViewController: UIViewController, UITextFieldDelegate, UINavigationC
                 self.licenseText.text = entry
             }
         }))
-        alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.default, handler:nil))
+        alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.default, handler:nil))
         alert.addTextField(configurationHandler: {(textField: UITextField!) in
             textField.placeholder = "Enter SDK License:"
             textField.autocapitalizationType = UITextAutocapitalizationType.allCharacters
@@ -101,8 +101,8 @@ class DetailViewController: UIViewController, UITextFieldDelegate, UINavigationC
             
             if(self.detailItem!["description"] != nil){
 
-                let navButton = UIBarButtonItem(title: "Info", style: UIBarButtonItemStyle.plain, target: self, action: #selector(DetailViewController.showInfo))
-                navButton.imageInsets = UIEdgeInsetsMake(10, 10, 10, 10);
+                let navButton = UIBarButtonItem(title: "Info", style: UIBarButtonItem.Style.plain, target: self, action: #selector(DetailViewController.showInfo))
+                navButton.imageInsets = UIEdgeInsets.init(top: 10, left: 10, bottom: 10, right: 10);
 
                 navigationItem.rightBarButtonItem =    navButton
             }
@@ -117,7 +117,7 @@ class DetailViewController: UIViewController, UITextFieldDelegate, UINavigationC
             if(!(mClass is Home.Type)){
                 r5ViewController  = mClass.init()
 
-                self.addChildViewController(r5ViewController!)
+                self.addChild(r5ViewController!)
                 self.view.addSubview(r5ViewController!.view)
     
                 //r5ViewController!.view.autoresizesSubviews = false
@@ -129,7 +129,7 @@ class DetailViewController: UIViewController, UITextFieldDelegate, UINavigationC
     
     }
     
-    func showInfo(){
+    @objc func showInfo(){
         let alert = UIAlertView()
         alert.title = "Info"
         alert.message = self.detailItem!["description"] as? String
@@ -177,6 +177,15 @@ class DetailViewController: UIViewController, UITextFieldDelegate, UINavigationC
         self.configureView()
         //self.view.autoresizesSubviews = true
         self.navigationController?.delegate = self
+        
+        // [TA] Testing RPRO-4691 to allow fro deactivation of record and resume of previous set category.
+//        do {
+//            try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryAmbient, with: AVAudioSessionCategoryOptions.defaultToSpeaker)
+//            try AVAudioSession.sharedInstance().setActive(true)
+//        }
+//        catch {
+//            //
+//        }
         
     }
 

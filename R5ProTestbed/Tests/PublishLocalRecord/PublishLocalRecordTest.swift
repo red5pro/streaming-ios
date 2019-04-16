@@ -15,7 +15,12 @@ class PublishLocalRecordTest: PublishTest {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        self.publishStream!.record(withName: "fileTest")
+        let vidRate = (Testbed.getParameter(param: "bitrate") as! Int)*2
+        let props = [R5RecordVideoBitRateKey: vidRate,
+                     R5RecordAudioBitRateKey: 32,
+                     R5RecordAlbumName: "r5Pro"] as [String : Any]
+        
+        self.publishStream!.record(withName: "fileTest", withProps: props)
     }
     
 }
