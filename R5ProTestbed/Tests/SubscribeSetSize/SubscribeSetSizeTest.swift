@@ -11,7 +11,7 @@ import R5Streaming
 
 @objc(SubscribeSetSizeTest)
 class SubscribeSetSizeTest: BaseTest {
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
         setupR5VideoViewController()
@@ -22,12 +22,12 @@ class SubscribeSetSizeTest: BaseTest {
         self.subscribeStream = R5Stream(connection: connection)
         self.subscribeStream!.delegate = self
         
-        currentView?.attachStream(subscribeStream)
+        currentView?.attach(subscribeStream)
         
-        self.subscribeStream!.play(Testbed.getParameter("stream1") as! String)
+        self.subscribeStream!.play(Testbed.getParameter(param: "stream1") as! String)
         
         
-        let tap : UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "handleSingleTap:")
+        let tap : UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(SubscribeSetSizeTest.handleSingleTap(recognizer:)))
         
         self.view.addGestureRecognizer(tap)
         
@@ -35,14 +35,14 @@ class SubscribeSetSizeTest: BaseTest {
     
     func setupR5VideoViewController() -> R5VideoViewController{
         
-        let r5View : R5VideoViewController = getNewR5VideoViewController(self.view.frame);
-        self.addChildViewController(r5View);
+        let r5View : R5VideoViewController = getNewR5VideoViewController(rect: self.view.frame);
+        self.addChild(r5View);
         
                view.addSubview(r5View.view)
         
         r5View.showPreview(true)
         
-        r5View.showDebugInfo(Testbed.getParameter("debug_view") as! Bool)
+        r5View.showDebugInfo(Testbed.getParameter(param: "debug_view") as! Bool)
         
         currentView = r5View;
 
@@ -51,7 +51,7 @@ class SubscribeSetSizeTest: BaseTest {
         return currentView!
     }
     
-    func handleSingleTap(recognizer : UITapGestureRecognizer) {
+    @objc func handleSingleTap(recognizer : UITapGestureRecognizer) {
         
             currentView!.setFrame(CGRect(x: 100, y: 100, width: 200, height: 200));
         

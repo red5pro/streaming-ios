@@ -21,8 +21,8 @@ class CustomVideoSource : R5VideoSource {
         let fpsVal: Int32 = 15;
         
         //setup simple timestamp calculation
-        self.frameDuration = CMTimeMakeWithSeconds(0.1, fpsVal);
-        self.PTS = kCMTimeZero;
+        self.frameDuration = CMTimeMakeWithSeconds(0.1, preferredTimescale: fpsVal);
+        self.PTS = CMTime.zero;
         self.timer = nil;
         
         super.init();
@@ -49,11 +49,12 @@ class CustomVideoSource : R5VideoSource {
         
         //stop the capture!
         self.timer!.invalidate()
+        
         //stop the encoder!
         super.stopVideoCapture()
     }
     
-    func capturePixels( _ time:Timer ){
+    @objc func capturePixels( time:Timer ){
         
         //make sure encoding layer is ready for input!
         if(self.encoder != nil){
@@ -106,7 +107,7 @@ class CustomVideoSource : R5VideoSource {
                                                                 rgbPixels,
                                                                 Int(frameSize.width) * componentsPerPixel,
                                                                 nil,
-                                                                &pixelBuffer,
+                                                                nil,
                                                                 nil,
                                                                 &pixelBuffer);
             
@@ -117,32 +118,32 @@ class CustomVideoSource : R5VideoSource {
             var videoInfo: CMVideoFormatDescription?;
             
             //Create a description for the pixel buffer
-            result = CMVideoFormatDescriptionCreateForImageBuffer(kCFAllocatorDefault, pixelBuffer!, &videoInfo);
+            result = CMVideoFormatDescriptionCreateForImageBuffer(allocator: kCFAllocatorDefault, imageBuffer: pixelBuffer!, formatDescriptionOut: &videoInfo);
             
             if(result != kCVReturnSuccess) {
                 NSLog("Failed to create video info");
             }
             
             //Only PTS is needed for the encoder - leave everything else invalid if you want
-            var timingInfo: CMSampleTimingInfo = kCMTimingInfoInvalid;
-            timingInfo.duration = kCMTimeInvalid;
-            timingInfo.decodeTimeStamp = kCMTimeInvalid;
+            var timingInfo: CMSampleTimingInfo = CMSampleTimingInfo.invalid;
+            timingInfo.duration = CMTime.invalid;
+            timingInfo.decodeTimeStamp = CMTime.invalid;
             timingInfo.presentationTimeStamp = self.PTS;
             
             var buffer: CMSampleBuffer?;
             
             //Create the sample buffer for the pixel buffer
-            result = CMSampleBufferCreateForImageBuffer(kCFAllocatorDefault,
-                                                        pixelBuffer!,
-                                                        true, nil, nil,
-                                                        videoInfo!,
-                                                        &timingInfo,
-                                                        &buffer);
+            result = CMSampleBufferCreateForImageBuffer(allocator: kCFAllocatorDefault,
+                                                        imageBuffer: pixelBuffer!,
+                                                        dataReady: true, makeDataReadyCallback: nil, refcon: nil,
+                                                        formatDescription: videoInfo!,
+                                                        sampleTiming: &timingInfo,
+                                                        sampleBufferOut: &buffer);
             
             //push the sample buffer to the encoder with type r5_media_type_video_custom
-            //if(!self.pauseEncoding){
-                self.encoder.encodeFrame( buffer, of: r5_media_type_video_custom );
-            //}
+            
+            self.encoder.encodeFrame( buffer, of: r5_media_type_video_custom );
+   
             
             //increment our timestamp
             self.PTS = CMTimeAdd(self.PTS, self.frameDuration);

@@ -38,7 +38,7 @@ class PublishPauseTest: BaseTest {
         self.publishStream!.publish(Testbed.getParameter(param: "stream1") as! String, type: R5RecordTypeLive)
         
         
-        let tap : UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(PublishPauseTest.handleSingleTap(_:)))
+        let tap : UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(PublishStreamImageTest.handleSingleTap(recognizer:)))
 
         self.view.addGestureRecognizer(tap)
 
@@ -46,7 +46,7 @@ class PublishPauseTest: BaseTest {
         
     }
 
-    func handleSingleTap(_ recognizer : UITapGestureRecognizer) {
+    func handleSingleTap(recognizer : UITapGestureRecognizer) {
 
         let hasAudio = !(self.publishStream?.pauseAudio)!;
         let hasVideo = !(self.publishStream?.pauseVideo)!;
@@ -54,7 +54,7 @@ class PublishPauseTest: BaseTest {
         if(hasAudio && hasVideo){
             self.publishStream?.pauseAudio = true
             self.publishStream?.pauseVideo = false
-            ALToastView.toast(in: self.view, withText:"Pausing Audio")
+             ALToastView.toast(in: self.view, withText:"Pausing Audio")
             
         }else if(hasVideo && !hasAudio){
             self.publishStream?.pauseVideo = true
@@ -70,6 +70,16 @@ class PublishPauseTest: BaseTest {
             ALToastView.toast(in: self.view, withText:"Resuming Audio/Video")
         }
    
+    }
+    
+    override func onR5StreamStatus(_ stream: R5Stream!, withStatus statusCode: Int32, withMessage msg: String!) {
+        super.onR5StreamStatus(stream, withStatus: statusCode, withMessage: msg)
+        if (Int(statusCode) == Int(r5_status_buffer_flush_start.rawValue)) {
+            NotificationCenter.default.post(Notification(name: Notification.Name("BufferFlushStart")))
+        }
+        else if (Int(statusCode) == Int(r5_status_buffer_flush_empty.rawValue)) {
+            NotificationCenter.default.post(Notification(name: Notification.Name("BufferFlushComplete")))
+        }
     }
 
 

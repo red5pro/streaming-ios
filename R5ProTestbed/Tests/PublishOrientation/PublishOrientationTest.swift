@@ -37,13 +37,13 @@ class PublishOrientationTest: BaseTest {
         self.publishStream!.publish(Testbed.getParameter(param: "stream1") as! String, type: R5RecordTypeLive)
         
         
-        let tap : UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(PublishOrientationTest.handleSingleTap(_:)))
+        let tap : UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(PublishOrientationTest.handleSingleTap(recognizer:)))
         
         self.view.addGestureRecognizer(tap)
         
     }
     
-    func handleSingleTap(_ recognizer : UITapGestureRecognizer) {
+    @objc func handleSingleTap(recognizer : UITapGestureRecognizer) {
         
         let cam = self.publishStream?.getVideoSource() as! R5Camera
         
@@ -53,6 +53,14 @@ class PublishOrientationTest: BaseTest {
         
     }
     
-
+    override func onR5StreamStatus(_ stream: R5Stream!, withStatus statusCode: Int32, withMessage msg: String!) {
+        super.onR5StreamStatus(stream, withStatus: statusCode, withMessage: msg)
+        if (Int(statusCode) == Int(r5_status_buffer_flush_start.rawValue)) {
+            NotificationCenter.default.post(Notification(name: Notification.Name("BufferFlushStart")))
+        }
+        else if (Int(statusCode) == Int(r5_status_buffer_flush_empty.rawValue)) {
+            NotificationCenter.default.post(Notification(name: Notification.Name("BufferFlushComplete")))
+        }
+    }
 
 }

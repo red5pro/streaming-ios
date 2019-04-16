@@ -1,5 +1,5 @@
 //
-//  SubscribeReceiveSendTest.swift
+//  PublishStreamImageTest.swift
 //  R5ProTestbed
 //
 //  Created by Andy Zupko on 12/17/15.
@@ -36,7 +36,7 @@ class SubscribeReceiveSendTest: BaseTest {
         
     }
     
-    func onStreamSend(msg : String){
+    @objc func onStreamSend(msg : String){
         NSLog("Received the msg: %@", msg)
         ALToastView.toast(in: self.view, withText:msg)
     }

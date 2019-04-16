@@ -67,7 +67,7 @@ class BandwidthDetectionTest: BaseTest {
         currentView?.view.layer.transform = CATransform3DMakeRotation(CGFloat(value), 0.0, 0.0, 0.0);
     }
 
-    func onMetaData(data : String) {
+    @objc func onMetaData(data : String) {
         let props = data.characters.split(separator: ";").map(String.init)
         props.forEach { (value: String) in
             let kv = value.characters.split(separator: "=").map(String.init)

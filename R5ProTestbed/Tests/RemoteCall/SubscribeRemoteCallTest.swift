@@ -33,7 +33,7 @@ class SubscribeRemoteCallTest: BaseTest {
         
     }
     
-    func whateverFunctionName(_ message: String){
+    @objc func whateverFunctionName(message: String){
         
         NSLog("Got this message: " + message)
         
