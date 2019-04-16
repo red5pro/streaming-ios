@@ -1,5 +1,5 @@
 //
-//  PublishSendTest.swift
+//  PublishStreamImageTest.swift
 //  R5ProTestbed
 //
 //  Created by Andy Zupko on 12/17/15.
@@ -47,7 +47,7 @@ class PublishSendTest: BaseTest {
         
     }
     
-    func handleSingleTap(recognizer : UITapGestureRecognizer) {
+    @objc func handleSingleTap(recognizer : UITapGestureRecognizer) {
         
         self.publishStream!.send("onStreamSend", withParam: "msg=test")
     }

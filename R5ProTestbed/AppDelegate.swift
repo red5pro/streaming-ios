@@ -12,18 +12,14 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDelegate {
 
     var window: UIWindow?
+    var flushBufferDialog: UIAlertController?
+    var requiresFlushBufferDialog: Bool? = false
 
 
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+    private func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         
-        
-        
-        
-        let t = Testbed.sharedInstance
-        
-        let d = Testbed.dictionary
-        NSLog((Testbed.testAtIndex(index: 0)?.description)!)
+
         //NSLog(Testbed.sharedInstance.testWithId("publish")!.description)
         
         let splitViewController = self.window!.rootViewController as! UISplitViewController
@@ -49,15 +45,47 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
 
     func applicationDidBecomeActive(_ application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+        NotificationCenter.default.addObserver(self, selector: #selector(onBufferFlushStart(_:)), name: Notification.Name(rawValue: "BufferFlushStart"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(onBufferFlushEmpty(_:)), name: Notification.Name(rawValue: "BufferFlushComplete"), object: nil)
     }
 
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
+    
+    func showFlushBufferDialog() {
+        if (requiresFlushBufferDialog)! {
+            let alert = UIAlertController(title: "Red5 Pro SDK", message: "Publisher Is Finishing Broadcast.\r\nPlease wait to start another broadcast.", preferredStyle: UIAlertController.Style.alert)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: { action in
+                self.flushBufferDialog = nil
+            }))
+            self.window!.rootViewController?.present(alert, animated: true, completion:nil)
+            flushBufferDialog = alert
+        }
+    }
+    
+    @objc func onBufferFlushStart(_ notification:Notification) {
+        // TODO: Start 500 ms timer to display process of flushing buffer from a finished broadcast.
+        requiresFlushBufferDialog = true
+        let deadlineTime = DispatchTime.now() + 0.5
+        DispatchQueue.main.asyncAfter(deadline: deadlineTime) {
+            self.showFlushBufferDialog()
+        }
+    }
+    
+    @objc func onBufferFlushEmpty(_ notification:Notification) {
+        // TODO: Remove any process display from `flush_start`.
+        requiresFlushBufferDialog = false
+        if (flushBufferDialog != nil) {
+            flushBufferDialog?.dismiss(animated: false, completion: {
+                self.flushBufferDialog = nil;
+            });
+        }
+    }
 
     // MARK: - Split view
 
-    func splitViewController(_ splitViewController: UISplitViewController, collapseSecondary secondaryViewController:UIViewController, onto primaryViewController:UIViewController) -> Bool {
+    func splitViewController(splitViewController: UISplitViewController, collapseSecondaryViewController secondaryViewController:UIViewController, ontoPrimaryViewController primaryViewController:UIViewController) -> Bool {
         guard let secondaryAsNavController = secondaryViewController as? UINavigationController else { return false }
         guard let topAsDetailController = secondaryAsNavController.topViewController as? DetailViewController else { return false }
         if topAsDetailController.detailItem == nil {

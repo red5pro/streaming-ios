@@ -63,7 +63,7 @@ class TwoWayStreamManagerTest: BaseTest {
         self.timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(callForStreamList), userInfo: nil, repeats: false)
     }
     
-    func callForStreamList(){
+    @objc func callForStreamList(){
         
         let domain = Testbed.getParameter(param: "host") as! String
         let url = "http://" + domain + ":5080/streammanager/api/2.0/event/list"

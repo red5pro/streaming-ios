@@ -26,12 +26,15 @@ extension AccessError: LocalizedError {
 class BaseTest: UIViewController , R5StreamDelegate {
     
     func onR5StreamStatus(_ stream: R5Stream!, withStatus statusCode: Int32, withMessage msg: String!) {
-        NSLog("Status: %s ", r5_string_for_status(statusCode))
         let s =  String(format: "Status: %s (%@)",  r5_string_for_status(statusCode), msg)
+        NSLog(s)
         ALToastView.toast(in: self.view, withText:s)
         
         if (Int(statusCode) == Int(r5_status_disconnected.rawValue)) {
             self.cleanup()
+        }
+        else if (Int(statusCode) == Int(r5_status_video_render_start.rawValue)) {
+            NSLog("SUPPORT-482 %@", msg);
         }
     }
     
@@ -41,7 +44,7 @@ class BaseTest: UIViewController , R5StreamDelegate {
     var subscribeStream : R5Stream? = nil
     
     required init () {
-        
+       
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -57,17 +60,17 @@ class BaseTest: UIViewController , R5StreamDelegate {
         }
         
         if( self.subscribeStream != nil ) {
-            self.subscribeStream?.client = nil
+            self.subscribeStream!.client = nil
             self.subscribeStream?.delegate = nil
             self.subscribeStream = nil
         }
-        self.removeFromParentViewController()
+        self.removeFromParent()
     }
     
     func closeTest(){
         
         NSLog("closing view")
-        
+
         if( self.publishStream != nil ){
             self.publishStream!.stop()
         }
@@ -77,7 +80,7 @@ class BaseTest: UIViewController , R5StreamDelegate {
         }
         
         // Moved to status disconnect, due to publisher emptying queue buffer on bad connections.
-        //        self.removeFromParentViewController()
+//        self.removeFromParentViewController()
     }
     
     func getConfig()->R5Configuration{
@@ -86,7 +89,7 @@ class BaseTest: UIViewController , R5StreamDelegate {
         config.host = Testbed.getParameter(param: "host") as! String
         config.port = Int32(Testbed.getParameter(param: "port") as! Int)
         config.contextName = Testbed.getParameter(param: "context") as! String
-        config.`protocol` = 1;
+        config.`protocol` = Int32(r5_rtsp.rawValue);
         config.buffer_time = (Testbed.getParameter(param: "buffer_time")?.floatValue)!
         config.licenseKey = Testbed.getParameter(param: "license_key") as! String
         return config
@@ -111,10 +114,10 @@ class BaseTest: UIViewController , R5StreamDelegate {
         
         if(Testbed.getParameter(param: "video_on") as! Bool){
             // Attach the video from camera to stream
-            let videoDevice = AVCaptureDevice.devices(withMediaType: AVMediaTypeVideo).last as? AVCaptureDevice
+            let videoDevice = AVCaptureDevice.devices(for: AVMediaType.video).last as? AVCaptureDevice
             
             let camera = R5Camera(device: videoDevice, andBitRate: Int32(Testbed.getParameter(param: "bitrate") as! Int))
-            
+           
             camera?.width = Int32(Testbed.getParameter(param: "camera_width") as! Int)
             camera?.height = Int32(Testbed.getParameter(param: "camera_height") as! Int)
             camera?.fps = Int32(Testbed.getParameter(param: "fps") as! Int)
@@ -123,14 +126,13 @@ class BaseTest: UIViewController , R5StreamDelegate {
         }
         if(Testbed.getParameter(param: "audio_on") as! Bool){
             // Attach the audio from microphone to stream
-            let audioDevice = AVCaptureDevice.defaultDevice(withMediaType: AVMediaTypeAudio)
+            let audioDevice = AVCaptureDevice.default(for: AVMediaType.audio)
             let microphone = R5Microphone(device: audioDevice)
             microphone?.bitrate = 32
-            microphone?.device = audioDevice;
             NSLog("Got device %@", String(describing: audioDevice?.localizedName))
             self.publishStream!.attachAudio(microphone)
         }
-        
+
     }
     
     override func viewDidLoad() {
@@ -148,6 +150,8 @@ class BaseTest: UIViewController , R5StreamDelegate {
     
     override func viewDidAppear(_ animated: Bool) {
         
+        super.viewDidAppear(animated)
+        
         //this is just to have a white background to the example
         let backView : UIView = UIView(frame: self.view.frame);
         backView.backgroundColor = UIColor.white;
@@ -157,19 +161,16 @@ class BaseTest: UIViewController , R5StreamDelegate {
     
     func setupDefaultR5VideoViewController() -> R5VideoViewController{
         
-        let r5View : R5VideoViewController = getNewR5VideoViewController(rect: self.view.frame);
-        self.addChildViewController(r5View);
+        currentView = getNewR5VideoViewController(rect: self.view.frame)
         
+        self.addChild(currentView!)
+        self.view.addSubview(currentView!.view)
         
-        view.addSubview(r5View.view)
+        currentView?.setFrame(self.view.bounds)
         
-        r5View.setFrame(self.view.bounds)
-        
-        r5View.showPreview(true)
-        
-        r5View.showDebugInfo(Testbed.getParameter(param: "debug_view") as! Bool)
-        
-        currentView = r5View;
+        currentView?.showPreview(true)
+
+        currentView?.showDebugInfo(Testbed.getParameter(param: "debug_view") as! Bool)
         
         return currentView!
     }
@@ -195,5 +196,5 @@ class BaseTest: UIViewController , R5StreamDelegate {
             return [UIInterfaceOrientationMask.all]
         }
     }
-    
+
 }

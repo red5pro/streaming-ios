@@ -33,19 +33,25 @@ class AdaptiveBitrateControllerTest: BaseTest {
         //The Adaptive bitrate controller!
         controller = R5AdaptiveBitrateController()
         controller?.attach(to: self.publishStream!)
-        controller?.requiresVideo = Testbed.getParameter(param: "video_on") as! Bool
+        controller?.requiresVideo = false //Testbed.getParameter(param: "video_on") as! Bool
+        
         
         self.publishStream!.publish(Testbed.getParameter(param: "stream1") as! String, type: R5RecordTypeLive)
+        
+        
         
     }
     
     override func onR5StreamStatus(_ stream: R5Stream!, withStatus statusCode: Int32, withMessage msg: String!) {
         super.onR5StreamStatus(stream, withStatus: statusCode, withMessage: msg)
-        if (Int(statusCode) == Int(r5_status_buffer_flush_start.rawValue)) {
-            NotificationCenter.default.post(Notification(name: Notification.Name("BufferFlushStart")))
-        }
-        else if (Int(statusCode) == Int(r5_status_buffer_flush_empty.rawValue)) {
-            NotificationCenter.default.post(Notification(name: Notification.Name("BufferFlushComplete")))
+        if (Int(statusCode) == Int(r5_status_abr_level_change.rawValue)) {
+            let level :Int32 = self.controller?.getBitrateLevel() ?? 0
+            if (level < 0) {
+                print("ABR Level Change: Video streaming paused.");
+            } else {
+                let levels :NSArray = self.controller?.getBitrateLevelValues() as! NSArray
+                print("ABR Level Change: level(\(level)), bitrate(\(levels[Int(level)]))")
+            }
         }
     }
     

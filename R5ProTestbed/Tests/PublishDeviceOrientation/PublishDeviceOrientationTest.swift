@@ -38,18 +38,18 @@ class PublishDeviceOrientationTest: BaseTest {
         
         self.publishStream!.publish(Testbed.getParameter(param: "stream1") as! String, type: R5RecordTypeLive)
         
-        NotificationCenter.default.addObserver(self, selector: #selector(PublishDeviceOrientationTest.rotated), name: NSNotification.Name.UIDeviceOrientationDidChange, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(PublishDeviceOrientationTest.rotated), name: UIDevice.orientationDidChangeNotification, object: nil)
         
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         
         super.viewWillDisappear(animated)
-        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIDeviceOrientationDidChange, object: nil)
+        NotificationCenter.default.removeObserver(self, name: UIDevice.orientationDidChangeNotification, object: nil)
         
     }
     
-    func rotated() {
+    @objc func rotated() {
         
         let cam = self.publishStream?.getVideoSource() as! R5Camera
         let orientation = UIApplication.shared.statusBarOrientation;
@@ -69,6 +69,16 @@ class PublishDeviceOrientationTest: BaseTest {
                 cam.orientation = 90;
         }
         
+    }
+    
+    override func onR5StreamStatus(_ stream: R5Stream!, withStatus statusCode: Int32, withMessage msg: String!) {
+        super.onR5StreamStatus(stream, withStatus: statusCode, withMessage: msg)
+        if (Int(statusCode) == Int(r5_status_buffer_flush_start.rawValue)) {
+            NotificationCenter.default.post(Notification(name: Notification.Name("BufferFlushStart")))
+        }
+        else if (Int(statusCode) == Int(r5_status_buffer_flush_empty.rawValue)) {
+            NotificationCenter.default.post(Notification(name: Notification.Name("BufferFlushComplete")))
+        }
     }
 
 }

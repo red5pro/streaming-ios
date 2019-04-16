@@ -42,14 +42,14 @@ class SubscribeMuteTest: BaseTest {
         let screenSize = UIScreen.main.bounds.size
         toggleBtn = UIButton(frame: CGRect(x: 0, y: screenSize.height - 38, width: screenSize.width, height: 34))
         toggleBtn?.backgroundColor = UIColor.darkGray
-        toggleBtn?.setTitle("Toggle Mute Audio", for: UIControlState.normal)
+        toggleBtn?.setTitle("Toggle Mute Audio", for: UIControl.State.normal)
         view.addSubview(toggleBtn!)
         let tap = UITapGestureRecognizer(target: self, action: #selector(toggleMute))
         toggleBtn?.addGestureRecognizer(tap)
 
     }
     
-    func toggleMute () {
+    @objc func toggleMute () {
         isMuted = !isMuted
         self.subscribeStream?.audioController.volume = isMuted ? 0 : 1
     }
@@ -65,7 +65,7 @@ class SubscribeMuteTest: BaseTest {
         
     }
     
-    func onMetaData(data : String) {
+    @objc func onMetaData(data : String) {
         
         let props = data.characters.split(separator: ";").map(String.init)
         props.forEach { (value: String) in
@@ -86,7 +86,7 @@ class SubscribeMuteTest: BaseTest {
             let cat = session.category
             let opt = session.categoryOptions
             
-            let s =  String(format: "AV: %@ (%d)",  cat.description, opt.rawValue)
+            let s =  String(format: "AV: %@ (%d)",  cat.rawValue, opt.rawValue)
             ALToastView.toast(in: self.view, withText:s)
             
 //            self.subscribeStream?.setFrameListener({data, width, height in

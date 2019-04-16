@@ -24,7 +24,7 @@ class TwoWayTest: BaseTest {
         
         
         publishView = getNewR5VideoViewController(rect: self.view.frame);
-        self.addChildViewController(publishView!);
+        self.addChild(publishView!);
         
         view.addSubview(publishView!.view)
         
@@ -50,12 +50,12 @@ class TwoWayTest: BaseTest {
         self.publishStream!.publish(Testbed.getParameter(param: "stream1") as! String, type: R5RecordTypeLive)
     }
     
-    func subscribeBegin()
+    @objc func subscribeBegin()
     {
         performSelector(onMainThread: #selector(TwoWayTest.subscribeTrigger), with: nil, waitUntilDone: false)
     }
     
-    func subscribeTrigger()
+    @objc func subscribeTrigger()
     {
         if( subscribeStream == nil )
         {
@@ -96,11 +96,11 @@ class TwoWayTest: BaseTest {
         }
     }
     
-    func getStreams (){
+    @objc func getStreams (){
         publishStream?.connection.call("streams.getLiveStreams", withReturn: "onGetLiveStreams", withParam: nil)
     }
     
-    func onGetLiveStreams (streams : String){
+    @objc func onGetLiveStreams (streams : String){
         
         NSLog("Got streams: " + streams)
         
@@ -125,7 +125,7 @@ class TwoWayTest: BaseTest {
         self.timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(TwoWayTest.getStreams), userInfo: nil, repeats: false)
     }
     
-    func onMetaData(data : String){
+    @objc func onMetaData(data : String){
         
     }
 }

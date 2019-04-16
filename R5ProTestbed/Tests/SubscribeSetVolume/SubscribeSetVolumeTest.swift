@@ -41,7 +41,7 @@ class SubscribeSetVolumeTest: BaseTest {
 
     }
     
-    func sliderValueDidChange(sender:UISlider!) {
+    @objc func sliderValueDidChange(sender:UISlider!) {
         self.subscribeStream?.audioController.volume = slider!.value / 100
     }
     

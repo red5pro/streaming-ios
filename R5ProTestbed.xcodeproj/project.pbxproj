@@ -563,7 +563,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "R5ProTestbed/R5ProTestbed-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.2;
 				VALID_ARCHS = "armv7 armv7s arm64";
 			};
 			name = Debug;
@@ -586,7 +586,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.infrared5.R5ProTestbed;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "R5ProTestbed/R5ProTestbed-Bridging-Header.h";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.2;
 				VALID_ARCHS = "armv7 armv7s arm64";
 			};
 			name = Release;

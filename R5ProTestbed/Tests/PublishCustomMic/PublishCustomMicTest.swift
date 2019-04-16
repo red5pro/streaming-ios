@@ -32,7 +32,7 @@ class PublishCustomMicTest : BaseTest {
         // Attach the custom source to the stream
         if(Testbed.getParameter(param: "video_on") as! Bool){
             // Attach the video from camera to stream
-            let videoDevice = AVCaptureDevice.devices(withMediaType: AVMediaTypeVideo).last as? AVCaptureDevice
+            let videoDevice = AVCaptureDevice.devices(for: AVMediaType.video).last as? AVCaptureDevice
             
             let camera = R5Camera(device: videoDevice, andBitRate: Int32(Testbed.getParameter(param: "bitrate") as! Int))
             
@@ -62,7 +62,7 @@ class GainWobbleMic : R5Microphone {
     var lastTime : Double = 0.0
     
     override init() {
-        let audioDevice = AVCaptureDevice.defaultDevice(withMediaType: AVMediaTypeAudio)
+        let audioDevice = AVCaptureDevice.default(for: AVMediaType.audio)
         super.init(device: audioDevice)
         bitrate = 32
         
