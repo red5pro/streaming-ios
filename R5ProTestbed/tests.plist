@@ -125,7 +125,7 @@
 			<key>LocalProperties</key>
 			<dict/>
 			<key>name</key>
-			<string>Publish- AV Category</string>
+			<string>Publish - AV Category</string>
 			<key>class</key>
 			<string>PublishAVCategoryTest</string>
 		</dict>
@@ -428,6 +428,17 @@
 			<string>Publish - Bandwidth Dual Detection</string>
 			<key>class</key>
 			<string>BandwidthDetectionTest</string>
+		</dict>
+		<key>subscribe - AV Category</key>
+		<dict>
+			<key>description</key>
+			<string></string>
+			<key>LocalProperties</key>
+			<dict/>
+			<key>name</key>
+			<string>Subscribe - AV Category</string>
+			<key>class</key>
+			<string>SubscribeAVCategoryTest</string>
 		</dict>
 		<key>subscribe - Cluster</key>
 		<dict>
