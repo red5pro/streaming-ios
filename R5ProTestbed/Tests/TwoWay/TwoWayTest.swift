@@ -52,7 +52,7 @@ class TwoWayTest: BaseTest {
     
     @objc func subscribeBegin()
     {
-        performSelector(onMainThread: #selector(TwoWayTest.subscribeTrigger), with: nil, waitUntilDone: false)
+        performSelector(onMainThread: #selector(subscribeTrigger), with: nil, waitUntilDone: false)
     }
     
     @objc func subscribeTrigger()
@@ -78,7 +78,7 @@ class TwoWayTest: BaseTest {
             
             if(Int(statusCode) == Int(r5_status_start_streaming.rawValue)){
                 
-                self.timer = Timer.scheduledTimer(timeInterval: 2.5, target: self, selector: #selector(TwoWayTest.getStreams), userInfo: nil, repeats: false)
+                self.timer = Timer.scheduledTimer(timeInterval: 2.5, target: self, selector: #selector(getStreams), userInfo: nil, repeats: false)
             }
         }
         
@@ -86,7 +86,7 @@ class TwoWayTest: BaseTest {
             if(Int(statusCode) == Int(r5_status_connection_error.rawValue)){
                 failCount += 1
                 if(failCount < 4){
-                    self.timer = Timer.scheduledTimer(timeInterval: 2.5, target: self, selector: #selector(TwoWayTest.subscribeBegin), userInfo: nil, repeats: false)
+                    self.timer = Timer.scheduledTimer(timeInterval: 2.5, target: self, selector: #selector(subscribeBegin), userInfo: nil, repeats: false)
                     self.subscribeStream = nil
                 }
                 else{
@@ -109,7 +109,7 @@ class TwoWayTest: BaseTest {
         do{
             names = try JSONSerialization.jsonObject(with: streams.data(using: String.Encoding.utf8)!, options: JSONSerialization.ReadingOptions.mutableContainers) as! NSArray
         } catch _ {
-            self.timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(TwoWayTest.getStreams), userInfo: nil, repeats: false)
+            self.timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(getStreams), userInfo: nil, repeats: false)
             return
         }
         
@@ -122,7 +122,7 @@ class TwoWayTest: BaseTest {
             }
         }
         
-        self.timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(TwoWayTest.getStreams), userInfo: nil, repeats: false)
+        self.timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(getStreams), userInfo: nil, repeats: false)
     }
     
     @objc func onMetaData(data : String){

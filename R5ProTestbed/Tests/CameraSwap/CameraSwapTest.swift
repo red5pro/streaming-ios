@@ -37,7 +37,7 @@ class CameraSwapTest: BaseTest {
         self.publishStream!.publish(Testbed.getParameter(param: "stream1") as! String, type: R5RecordTypeLive)
         
         
-        let tap : UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(CameraSwapTest.handleSingleTap(_:)))
+        let tap : UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleSingleTap(_:)))
         
         self.view.addGestureRecognizer(tap)
         

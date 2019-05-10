@@ -37,7 +37,7 @@ class PublishOrientationTest: BaseTest {
         self.publishStream!.publish(Testbed.getParameter(param: "stream1") as! String, type: R5RecordTypeLive)
         
         
-        let tap : UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(PublishOrientationTest.handleSingleTap(recognizer:)))
+        let tap : UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleSingleTap(recognizer:)))
         
         self.view.addGestureRecognizer(tap)
         
