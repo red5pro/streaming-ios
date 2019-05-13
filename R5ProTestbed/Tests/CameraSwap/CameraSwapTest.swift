@@ -43,7 +43,7 @@ class CameraSwapTest: BaseTest {
         
     }
     
-    func handleSingleTap(_ recognizer : UITapGestureRecognizer) {
+    @objc func handleSingleTap(_ recognizer : UITapGestureRecognizer) {
         
        //change which camera is being used!!!
         
@@ -52,12 +52,12 @@ class CameraSwapTest: BaseTest {
         var frontCamera : AVCaptureDevice?
         var backCamera : AVCaptureDevice?
         
-        for device in AVCaptureDevice.devices(withMediaType: AVMediaTypeVideo){
-            let device = device as! AVCaptureDevice
-            if frontCamera == nil && device.position == AVCaptureDevicePosition.front {
+        for device in AVCaptureDevice.devices(for: AVMediaType.video){
+            let device = device 
+            if frontCamera == nil && device.position == AVCaptureDevice.Position.front {
                 frontCamera = device
                 continue;
-            }else if backCamera == nil && device.position == AVCaptureDevicePosition.back{
+            }else if backCamera == nil && device.position == AVCaptureDevice.Position.back{
                 backCamera = device
             }
             
@@ -72,6 +72,16 @@ class CameraSwapTest: BaseTest {
         }
         
         
+    }
+    
+    override func onR5StreamStatus(_ stream: R5Stream!, withStatus statusCode: Int32, withMessage msg: String!) {
+        super.onR5StreamStatus(stream, withStatus: statusCode, withMessage: msg)
+        if (Int(statusCode) == Int(r5_status_buffer_flush_start.rawValue)) {
+            NotificationCenter.default.post(Notification(name: Notification.Name("BufferFlushStart")))
+        }
+        else if (Int(statusCode) == Int(r5_status_buffer_flush_empty.rawValue)) {
+            NotificationCenter.default.post(Notification(name: Notification.Name("BufferFlushComplete")))
+        }
     }
 
 

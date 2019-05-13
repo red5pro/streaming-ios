@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		480A8794221EA8A500474724 /* PublishTelephonyInterruptTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 480A8793221EA8A500474724 /* PublishTelephonyInterruptTest.swift */; };
+		480A8796221ED82D00474724 /* SubscribeTelephonyInterruptTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 480A8795221ED82D00474724 /* SubscribeTelephonyInterruptTest.swift */; };
 		480C6B931F7BDE7F009E943F /* VideoToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 480C6B921F7BDE7F009E943F /* VideoToolbox.framework */; };
 		480C6B951F7BDE85009E943F /* libbz2.1.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 480C6B941F7BDE85009E943F /* libbz2.1.0.tbd */; };
 		481B156D1EB380F20038A187 /* PublishAuthTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 481B156C1EB380F20038A187 /* PublishAuthTest.swift */; };
@@ -25,6 +27,7 @@
 		487CDBC21E6E4401007FC4EA /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 487CDBC11E6E4401007FC4EA /* libz.tbd */; };
 		487CDBC41E6F1A39007FC4EA /* SharedObjectTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 487CDBC31E6F1A39007FC4EA /* SharedObjectTest.swift */; };
 		48B79AE820C6E94E00AAE4E2 /* PublishZoomableTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B79AE720C6E94E00AAE4E2 /* PublishZoomableTest.swift */; };
+		48A7171B210A275C007C4AF7 /* PublishStreamManagerTranscodeTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48A7171A210A275C007C4AF7 /* PublishStreamManagerTranscodeTest.swift */; };
 		48BB1D811CED140D00D915E5 /* SubscribeSetSizeTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48BB1D801CED140D00D915E5 /* SubscribeSetSizeTest.swift */; };
 		48BF80AE1C245AA7000E996E /* PublishOrientationTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48BF80AD1C245AA7000E996E /* PublishOrientationTest.swift */; };
 		48BF80B11C245D29000E996E /* Info-100.png in Resources */ = {isa = PBXBuildFile; fileRef = 48BF80B01C245D29000E996E /* Info-100.png */; };
@@ -42,7 +45,6 @@
 		48DFEDD51C21C18F0040B624 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48DFEDD41C21C18F0040B624 /* Home.swift */; };
 		48DFEDD71C21C2540040B624 /* BaseTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48DFEDD61C21C2540040B624 /* BaseTest.swift */; };
 		48DFEDD91C21C5940040B624 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48DFEDD81C21C5940040B624 /* OpenAL.framework */; };
-		48DFEDDB1C21C5AB0040B624 /* libstdc++.6.0.9.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 48DFEDDA1C21C5AB0040B624 /* libstdc++.6.0.9.tbd */; };
 		48DFEDDF1C21EA780040B624 /* Testbed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48DFEDDE1C21EA780040B624 /* Testbed.swift */; };
 		9209F4A91F7EE38500A90080 /* PublishLocalRecordTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9209F4A81F7EE38500A90080 /* PublishLocalRecordTest.swift */; };
 		926794F51D061900004B0BCD /* PublishRemoteCallTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926794F41D061900004B0BCD /* PublishRemoteCallTest.swift */; };
@@ -51,21 +53,34 @@
 		926794FB1D061968004B0BCD /* SubscribeCluster.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926794FA1D061968004B0BCD /* SubscribeCluster.swift */; };
 		926794FD1D061983004B0BCD /* SubscribeRemoteCallTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926794FC1D061983004B0BCD /* SubscribeRemoteCallTest.swift */; };
 		926794FF1D06199E004B0BCD /* TwoWayTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926794FE1D06199E004B0BCD /* TwoWayTest.swift */; };
+		926EB660224D3C8300715EF7 /* PublishEncryptedTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926EB65F224D3C8200715EF7 /* PublishEncryptedTest.swift */; };
+		926EB662224D475A00715EF7 /* SubscribeEncryptedTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926EB661224D475900715EF7 /* SubscribeEncryptedTest.swift */; };
+		926EB664224D477800715EF7 /* SubscribeMetalViewTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926EB663224D477800715EF7 /* SubscribeMetalViewTest.swift */; };
+		926EB666224D4AA800715EF7 /* SubscribeMuteTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926EB665224D4AA800715EF7 /* SubscribeMuteTest.swift */; };
+		926EB668224D4AB300715EF7 /* SubscribeSetVolumeTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926EB667224D4AB300715EF7 /* SubscribeSetVolumeTest.swift */; };
 		9278C9AC2098B09300861C79 /* SubscribeAudioDelayTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9278C9AB2098B09300861C79 /* SubscribeAudioDelayTest.swift */; };
 		9278C9B02098E1BE00861C79 /* PublishBackgroundTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9278C9AF2098E1BE00861C79 /* PublishBackgroundTest.swift */; };
+		927FA28A20EBCD2D00F16228 /* TwoWayStreamManagerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927FA28920EBCD2D00F16228 /* TwoWayStreamManagerTest.swift */; };
 		928B1CBD1CBC0DC5002C66BA /* SubscribeStreamManagerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928B1CBC1CBC0DC5002C66BA /* SubscribeStreamManagerTest.swift */; };
 		92A642E3200D40AC00882600 /* PublishAspectTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A642E2200D40AC00882600 /* PublishAspectTest.swift */; };
 		92A642E5200D416600882600 /* SubscribeBackgroundTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A642E4200D416500882600 /* SubscribeBackgroundTest.swift */; };
+		92B54DCE2146D766001B0EE3 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 92B54DCD2146D766001B0EE3 /* libc++.tbd */; };
 		92CC78091CB6F8DD00CD4352 /* SubscribeTwoStreams.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92CC78081CB6F8DD00CD4352 /* SubscribeTwoStreams.swift */; };
 		92E13BF41CDD165800DA5783 /* SubscribeNoViewTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E13BF31CDD165800DA5783 /* SubscribeNoViewTest.swift */; };
 		92EA19DA1CE13717006B3A97 /* PublishCustomSourceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92EA19D91CE13717006B3A97 /* PublishCustomSourceTest.swift */; };
 		92EA19DD1CE137DD006B3A97 /* CustomVideoSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92EA19DC1CE137DD006B3A97 /* CustomVideoSource.swift */; };
 		92EAA9DB1D0734EA00B2CE46 /* SubscribeAutoReconnectTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92EAA9DA1D0734EA00B2CE46 /* SubscribeAutoReconnectTest.swift */; };
+		92EBEF02212F1B4E003B72FB /* BandwidthDetectionTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92EBEF01212F1B4E003B72FB /* BandwidthDetectionTest.swift */; };
+		92EBEF04212F1B59003B72FB /* BandwidthDetectionDownloadOnlyTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92EBEF03212F1B59003B72FB /* BandwidthDetectionDownloadOnlyTest.swift */; };
+		92EBEF06212F1B64003B72FB /* SubscriberBandwidthTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92EBEF05212F1B63003B72FB /* SubscriberBandwidthTest.swift */; };
+		92EBEF08212F1B6F003B72FB /* BandwidthDetectionUploadOnlyTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92EBEF07212F1B6F003B72FB /* BandwidthDetectionUploadOnlyTest.swift */; };
 		92F9A0681D020BA100F49644 /* R5Streaming.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48DFEDC51C21BBDB0040B624 /* R5Streaming.framework */; };
 		E1878B951E578B8F00118560 /* tests.plist in Resources */ = {isa = PBXBuildFile; fileRef = E1878B941E578B8F00118560 /* tests.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		480A8793221EA8A500474724 /* PublishTelephonyInterruptTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PublishTelephonyInterruptTest.swift; path = Tests/PublishTelephonyInterrupt/PublishTelephonyInterruptTest.swift; sourceTree = "<group>"; };
+		480A8795221ED82D00474724 /* SubscribeTelephonyInterruptTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SubscribeTelephonyInterruptTest.swift; path = Tests/SubscribeTelephonyInterrupt/SubscribeTelephonyInterruptTest.swift; sourceTree = "<group>"; };
 		480C6B921F7BDE7F009E943F /* VideoToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = VideoToolbox.framework; path = System/Library/Frameworks/VideoToolbox.framework; sourceTree = SDKROOT; };
 		480C6B941F7BDE85009E943F /* libbz2.1.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libbz2.1.0.tbd; path = usr/lib/libbz2.1.0.tbd; sourceTree = SDKROOT; };
 		481B156C1EB380F20038A187 /* PublishAuthTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PublishAuthTest.swift; path = Tests/PublishAuth/PublishAuthTest.swift; sourceTree = "<group>"; };
@@ -86,6 +101,7 @@
 		487CDBC11E6E4401007FC4EA /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		487CDBC31E6F1A39007FC4EA /* SharedObjectTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SharedObjectTest.swift; path = Tests/SharedObject/SharedObjectTest.swift; sourceTree = "<group>"; };
 		48B79AE720C6E94E00AAE4E2 /* PublishZoomableTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PublishZoomableTest.swift; path = Tests/PublishZoomable/PublishZoomableTest.swift; sourceTree = "<group>"; };
+		48A7171A210A275C007C4AF7 /* PublishStreamManagerTranscodeTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PublishStreamManagerTranscodeTest.swift; path = Tests/PublishStreamManagerTranscode/PublishStreamManagerTranscodeTest.swift; sourceTree = "<group>"; };
 		48BB1D801CED140D00D915E5 /* SubscribeSetSizeTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubscribeSetSizeTest.swift; sourceTree = "<group>"; };
 		48BF80AD1C245AA7000E996E /* PublishOrientationTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PublishOrientationTest.swift; path = Tests/PublishOrientation/PublishOrientationTest.swift; sourceTree = "<group>"; };
 		48BF80B01C245D29000E996E /* Info-100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Info-100.png"; sourceTree = "<group>"; };
@@ -106,7 +122,6 @@
 		48DFEDD41C21C18F0040B624 /* Home.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 		48DFEDD61C21C2540040B624 /* BaseTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseTest.swift; path = Tests/BaseTest.swift; sourceTree = "<group>"; };
 		48DFEDD81C21C5940040B624 /* OpenAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenAL.framework; path = System/Library/Frameworks/OpenAL.framework; sourceTree = SDKROOT; };
-		48DFEDDA1C21C5AB0040B624 /* libstdc++.6.0.9.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.6.0.9.tbd"; path = "usr/lib/libstdc++.6.0.9.tbd"; sourceTree = SDKROOT; };
 		48DFEDDE1C21EA780040B624 /* Testbed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Testbed.swift; sourceTree = "<group>"; };
 		9209F4A81F7EE38500A90080 /* PublishLocalRecordTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PublishLocalRecordTest.swift; path = Tests/PublishLocalRecord/PublishLocalRecordTest.swift; sourceTree = "<group>"; };
 		926794F41D061900004B0BCD /* PublishRemoteCallTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PublishRemoteCallTest.swift; path = Tests/RemoteCall/PublishRemoteCallTest.swift; sourceTree = "<group>"; };
@@ -115,16 +130,27 @@
 		926794FA1D061968004B0BCD /* SubscribeCluster.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SubscribeCluster.swift; path = Tests/SubscribeCluster/SubscribeCluster.swift; sourceTree = "<group>"; };
 		926794FC1D061983004B0BCD /* SubscribeRemoteCallTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SubscribeRemoteCallTest.swift; path = Tests/RemoteCall/SubscribeRemoteCallTest.swift; sourceTree = "<group>"; };
 		926794FE1D06199E004B0BCD /* TwoWayTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TwoWayTest.swift; path = Tests/TwoWay/TwoWayTest.swift; sourceTree = "<group>"; };
+		926EB65F224D3C8200715EF7 /* PublishEncryptedTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PublishEncryptedTest.swift; path = Tests/PublishEncrypted/PublishEncryptedTest.swift; sourceTree = "<group>"; };
+		926EB661224D475900715EF7 /* SubscribeEncryptedTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SubscribeEncryptedTest.swift; path = Tests/SubscribeEncrypted/SubscribeEncryptedTest.swift; sourceTree = "<group>"; };
+		926EB663224D477800715EF7 /* SubscribeMetalViewTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SubscribeMetalViewTest.swift; path = Tests/SubscribeMetalView/SubscribeMetalViewTest.swift; sourceTree = "<group>"; };
+		926EB665224D4AA800715EF7 /* SubscribeMuteTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SubscribeMuteTest.swift; path = Tests/SubscribeMuteAudio/SubscribeMuteTest.swift; sourceTree = "<group>"; };
+		926EB667224D4AB300715EF7 /* SubscribeSetVolumeTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SubscribeSetVolumeTest.swift; path = Tests/SubscribeSetVolume/SubscribeSetVolumeTest.swift; sourceTree = "<group>"; };
 		9278C9AB2098B09300861C79 /* SubscribeAudioDelayTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SubscribeAudioDelayTest.swift; path = Tests/SubscribeAudioDelay/SubscribeAudioDelayTest.swift; sourceTree = "<group>"; };
 		9278C9AF2098E1BE00861C79 /* PublishBackgroundTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PublishBackgroundTest.swift; path = Tests/PublishBackground/PublishBackgroundTest.swift; sourceTree = "<group>"; };
+		927FA28920EBCD2D00F16228 /* TwoWayStreamManagerTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TwoWayStreamManagerTest.swift; path = Tests/TwoWayStreamManager/TwoWayStreamManagerTest.swift; sourceTree = "<group>"; };
 		928B1CBC1CBC0DC5002C66BA /* SubscribeStreamManagerTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SubscribeStreamManagerTest.swift; path = Tests/SubscribeStreamManager/SubscribeStreamManagerTest.swift; sourceTree = "<group>"; };
 		92A642E2200D40AC00882600 /* PublishAspectTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PublishAspectTest.swift; path = Tests/PublishAspect/PublishAspectTest.swift; sourceTree = "<group>"; };
 		92A642E4200D416500882600 /* SubscribeBackgroundTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SubscribeBackgroundTest.swift; path = Tests/SubscribeBackground/SubscribeBackgroundTest.swift; sourceTree = "<group>"; };
+		92B54DCD2146D766001B0EE3 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 		92CC78081CB6F8DD00CD4352 /* SubscribeTwoStreams.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SubscribeTwoStreams.swift; path = Tests/SubscribeTwoStreams/SubscribeTwoStreams.swift; sourceTree = "<group>"; };
 		92E13BF31CDD165800DA5783 /* SubscribeNoViewTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SubscribeNoViewTest.swift; path = Tests/SubscribeNoView/SubscribeNoViewTest.swift; sourceTree = "<group>"; };
 		92EA19D91CE13717006B3A97 /* PublishCustomSourceTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PublishCustomSourceTest.swift; path = Tests/PublishCustomSource/PublishCustomSourceTest.swift; sourceTree = "<group>"; };
 		92EA19DC1CE137DD006B3A97 /* CustomVideoSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomVideoSource.swift; path = Tests/PublishCustomSource/CustomVideoSource.swift; sourceTree = "<group>"; };
 		92EAA9DA1D0734EA00B2CE46 /* SubscribeAutoReconnectTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SubscribeAutoReconnectTest.swift; path = Tests/SubscribeReconnect/SubscribeAutoReconnectTest.swift; sourceTree = "<group>"; };
+		92EBEF01212F1B4E003B72FB /* BandwidthDetectionTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BandwidthDetectionTest.swift; path = Tests/BandwidthDetection/BandwidthDetectionTest.swift; sourceTree = "<group>"; };
+		92EBEF03212F1B59003B72FB /* BandwidthDetectionDownloadOnlyTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BandwidthDetectionDownloadOnlyTest.swift; path = Tests/BandwidthDetectionDownloadOnly/BandwidthDetectionDownloadOnlyTest.swift; sourceTree = "<group>"; };
+		92EBEF05212F1B63003B72FB /* SubscriberBandwidthTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SubscriberBandwidthTest.swift; path = Tests/SubscribeBandwidth/SubscriberBandwidthTest.swift; sourceTree = "<group>"; };
+		92EBEF07212F1B6F003B72FB /* BandwidthDetectionUploadOnlyTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BandwidthDetectionUploadOnlyTest.swift; path = Tests/BandwidthDetectionUploadOnly/BandwidthDetectionUploadOnlyTest.swift; sourceTree = "<group>"; };
 		E1878B941E578B8F00118560 /* tests.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = tests.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -133,10 +159,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				92B54DCE2146D766001B0EE3 /* libc++.tbd in Frameworks */,
 				480C6B951F7BDE85009E943F /* libbz2.1.0.tbd in Frameworks */,
 				480C6B931F7BDE7F009E943F /* VideoToolbox.framework in Frameworks */,
 				487CDBC21E6E4401007FC4EA /* libz.tbd in Frameworks */,
-				48DFEDDB1C21C5AB0040B624 /* libstdc++.6.0.9.tbd in Frameworks */,
 				48DFEDD31C21BF370040B624 /* libiconv.2.4.0.tbd in Frameworks */,
 				48DFEDD91C21C5940040B624 /* OpenAL.framework in Frameworks */,
 				48DFEDD11C21BF320040B624 /* QuartzCore.framework in Frameworks */,
@@ -151,6 +177,7 @@
 		487CDBC01E6E4401007FC4EA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				92B54DCD2146D766001B0EE3 /* libc++.tbd */,
 				480C6B941F7BDE85009E943F /* libbz2.1.0.tbd */,
 				480C6B921F7BDE7F009E943F /* VideoToolbox.framework */,
 				487CDBC11E6E4401007FC4EA /* libz.tbd */,
@@ -169,7 +196,6 @@
 		48DFED9F1C21BBC60040B624 = {
 			isa = PBXGroup;
 			children = (
-				48DFEDDA1C21C5AB0040B624 /* libstdc++.6.0.9.tbd */,
 				48DFEDD81C21C5940040B624 /* OpenAL.framework */,
 				48DFEDD21C21BF370040B624 /* libiconv.2.4.0.tbd */,
 				48DFEDD01C21BF320040B624 /* QuartzCore.framework */,
@@ -221,9 +247,12 @@
 				92A642E2200D40AC00882600 /* PublishAspectTest.swift */,
 				481B156C1EB380F20038A187 /* PublishAuthTest.swift */,
 				9278C9AF2098E1BE00861C79 /* PublishBackgroundTest.swift */,
+				480A8793221EA8A500474724 /* PublishTelephonyInterruptTest.swift */,
+				92EBEF07212F1B6F003B72FB /* BandwidthDetectionUploadOnlyTest.swift */,
 				485345081C23552F00D409F3 /* CameraSwapTest.swift */,
 				92EA19D91CE13717006B3A97 /* PublishCustomSourceTest.swift */,
 				482282581E4E47C80073F26C /* PublishDeviceOrientationTest.swift */,
+				926EB65F224D3C8200715EF7 /* PublishEncryptedTest.swift */,
 				487C888E1F2F8AB2004157B6 /* PublishHQAudioTest.swift */,
 				9209F4A81F7EE38500A90080 /* PublishLocalRecordTest.swift */,
 				48BF80AD1C245AA7000E996E /* PublishOrientationTest.swift */,
@@ -234,6 +263,7 @@
 				926794F41D061900004B0BCD /* PublishRemoteCallTest.swift */,
 				926794F61D06191E004B0BCD /* PublishStreamManagerTest.swift */,
 				48B79AE720C6E94E00AAE4E2 /* PublishZoomableTest.swift */,
+				48A7171A210A275C007C4AF7 /* PublishStreamManagerTranscodeTest.swift */,
 				487CDBC31E6F1A39007FC4EA /* SharedObjectTest.swift */,
 				4874D59C1C2216DB00A98102 /* SubscribeTest.swift */,
 				48BF80B21C246F6D000E996E /* SubscribeAspectRatioTest.swift */,
@@ -241,15 +271,24 @@
 				481B156E1EB380FE0038A187 /* SubscribeAuthTest.swift */,
 				92EAA9DA1D0734EA00B2CE46 /* SubscribeAutoReconnectTest.swift */,
 				92A642E4200D416500882600 /* SubscribeBackgroundTest.swift */,
+				480A8795221ED82D00474724 /* SubscribeTelephonyInterruptTest.swift */,
+				92EBEF05212F1B63003B72FB /* SubscriberBandwidthTest.swift */,
+				92EBEF03212F1B59003B72FB /* BandwidthDetectionDownloadOnlyTest.swift */,
+				92EBEF01212F1B4E003B72FB /* BandwidthDetectionTest.swift */,
 				926794FA1D061968004B0BCD /* SubscribeCluster.swift */,
+				926EB661224D475900715EF7 /* SubscribeEncryptedTest.swift */,
+				926EB663224D477800715EF7 /* SubscribeMetalViewTest.swift */,
+				926EB665224D4AA800715EF7 /* SubscribeMuteTest.swift */,
 				92E13BF31CDD165800DA5783 /* SubscribeNoViewTest.swift */,
 				481B15751EB390600038A187 /* SubscribeReceiveSendTest.swift */,
 				926794FC1D061983004B0BCD /* SubscribeRemoteCallTest.swift */,
 				48BB1D801CED140D00D915E5 /* SubscribeSetSizeTest.swift */,
+				926EB667224D4AB300715EF7 /* SubscribeSetVolumeTest.swift */,
 				4874ECCF1C483FDA002BDA6D /* SubscribeStreamImageTest.swift */,
 				928B1CBC1CBC0DC5002C66BA /* SubscribeStreamManagerTest.swift */,
 				92CC78081CB6F8DD00CD4352 /* SubscribeTwoStreams.swift */,
 				926794FE1D06199E004B0BCD /* TwoWayTest.swift */,
+				927FA28920EBCD2D00F16228 /* TwoWayStreamManagerTest.swift */,
 			);
 			name = Tests;
 			sourceTree = "<group>";
@@ -352,10 +391,13 @@
 				48DFEDAE1C21BBC60040B624 /* MasterViewController.swift in Sources */,
 				92CC78091CB6F8DD00CD4352 /* SubscribeTwoStreams.swift in Sources */,
 				92E13BF41CDD165800DA5783 /* SubscribeNoViewTest.swift in Sources */,
+				926EB666224D4AA800715EF7 /* SubscribeMuteTest.swift in Sources */,
 				926794FF1D06199E004B0BCD /* TwoWayTest.swift in Sources */,
 				92A642E3200D40AC00882600 /* PublishAspectTest.swift in Sources */,
 				48DFEDD51C21C18F0040B624 /* Home.swift in Sources */,
+				92EBEF06212F1B64003B72FB /* SubscriberBandwidthTest.swift in Sources */,
 				926794FD1D061983004B0BCD /* SubscribeRemoteCallTest.swift in Sources */,
+				480A8794221EA8A500474724 /* PublishTelephonyInterruptTest.swift in Sources */,
 				4874D59F1C221B9500A98102 /* AdaptiveBitrateControllerTest.swift in Sources */,
 				48DFEDAC1C21BBC60040B624 /* AppDelegate.swift in Sources */,
 				48B79AE820C6E94E00AAE4E2 /* PublishZoomableTest.swift in Sources */,
@@ -363,8 +405,11 @@
 				487C888F1F2F8AB2004157B6 /* PublishHQAudioTest.swift in Sources */,
 				48BF80AE1C245AA7000E996E /* PublishOrientationTest.swift in Sources */,
 				92EA19DD1CE137DD006B3A97 /* CustomVideoSource.swift in Sources */,
+				92EBEF08212F1B6F003B72FB /* BandwidthDetectionUploadOnlyTest.swift in Sources */,
+				480A8796221ED82D00474724 /* SubscribeTelephonyInterruptTest.swift in Sources */,
 				9278C9AC2098B09300861C79 /* SubscribeAudioDelayTest.swift in Sources */,
 				926794FB1D061968004B0BCD /* SubscribeCluster.swift in Sources */,
+				927FA28A20EBCD2D00F16228 /* TwoWayStreamManagerTest.swift in Sources */,
 				926794F51D061900004B0BCD /* PublishRemoteCallTest.swift in Sources */,
 				4874ECD01C483FDA002BDA6D /* SubscribeStreamImageTest.swift in Sources */,
 				485345091C23552F00D409F3 /* CameraSwapTest.swift in Sources */,
@@ -372,18 +417,25 @@
 				481B156F1EB380FE0038A187 /* SubscribeAuthTest.swift in Sources */,
 				4838028E1E4115130098F5B7 /* PublishPauseTest.swift in Sources */,
 				482282591E4E47C80073F26C /* PublishDeviceOrientationTest.swift in Sources */,
+				926EB668224D4AB300715EF7 /* SubscribeSetVolumeTest.swift in Sources */,
 				48DFEDD71C21C2540040B624 /* BaseTest.swift in Sources */,
 				926794F91D061942004B0BCD /* RecordedTest.swift in Sources */,
 				487CDBC41E6F1A39007FC4EA /* SharedObjectTest.swift in Sources */,
 				48DFEDCD1C21BF0A0040B624 /* PublishTest.swift in Sources */,
+				926EB660224D3C8300715EF7 /* PublishEncryptedTest.swift in Sources */,
+				926EB664224D477800715EF7 /* SubscribeMetalViewTest.swift in Sources */,
 				481B156D1EB380F20038A187 /* PublishAuthTest.swift in Sources */,
+				92EBEF04212F1B59003B72FB /* BandwidthDetectionDownloadOnlyTest.swift in Sources */,
 				92EAA9DB1D0734EA00B2CE46 /* SubscribeAutoReconnectTest.swift in Sources */,
 				928B1CBD1CBC0DC5002C66BA /* SubscribeStreamManagerTest.swift in Sources */,
 				4874D59D1C2216DB00A98102 /* SubscribeTest.swift in Sources */,
+				926EB662224D475A00715EF7 /* SubscribeEncryptedTest.swift in Sources */,
 				48BB1D811CED140D00D915E5 /* SubscribeSetSizeTest.swift in Sources */,
 				485345071C23528400D409F3 /* PublishStreamImageTest.swift in Sources */,
 				926794F71D06191E004B0BCD /* PublishStreamManagerTest.swift in Sources */,
 				481B15771EB390600038A187 /* SubscribeReceiveSendTest.swift in Sources */,
+				48A7171B210A275C007C4AF7 /* PublishStreamManagerTranscodeTest.swift in Sources */,
+				92EBEF02212F1B4E003B72FB /* BandwidthDetectionTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -511,7 +563,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "R5ProTestbed/R5ProTestbed-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.2;
 				VALID_ARCHS = "armv7 armv7s arm64";
 			};
 			name = Debug;
@@ -534,7 +586,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.infrared5.R5ProTestbed;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "R5ProTestbed/R5ProTestbed-Bridging-Header.h";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.2;
 				VALID_ARCHS = "armv7 armv7s arm64";
 			};
 			name = Release;
