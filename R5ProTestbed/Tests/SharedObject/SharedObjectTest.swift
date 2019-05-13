@@ -50,7 +50,7 @@ class SharedObjectTest: BaseTest, UITextViewDelegate {
         
         sendBtn = UIButton(frame: CGRect(x: (screenSize.width * 0.6) - 50, y: screenSize.height - 24, width: 50, height: 24))
         sendBtn?.backgroundColor = UIColor.darkGray
-        sendBtn?.setTitle("Send", for: UIControlState.normal)
+        sendBtn?.setTitle("Send", for: UIControl.State.normal)
         view.addSubview(sendBtn!)
         let tap = UITapGestureRecognizer(target: self, action: #selector(sendMessage))
         sendBtn?.addGestureRecognizer(tap)
@@ -58,7 +58,7 @@ class SharedObjectTest: BaseTest, UITextViewDelegate {
         callForStreamList();
     }
     
-    func callForStreamList(){
+    @objc func callForStreamList(){
         
         let domain = Testbed.getParameter(param: "host") as! String
         let app = Testbed.getParameter(param: "context") as! String
@@ -138,7 +138,7 @@ class SharedObjectTest: BaseTest, UITextViewDelegate {
         }
     }
     
-    func SOConnect(){
+    @objc func SOConnect(){
         let stream = (publishStream != nil) ? publishStream : subscribeStream;
         NSLog("%@", "Sending shared object connection request")
         
@@ -147,14 +147,14 @@ class SharedObjectTest: BaseTest, UITextViewDelegate {
     }
     
     //callback for remote object connection - remote object now available
-    func onSharedObjectConnect( objectValue: NSDictionary){
-        addMessage(message: "Connected to object, there are " + ((objectValue["count"] != nil) ? String(describing: objectValue["count"]) : "no") + " other people connected");
+    @objc func onSharedObjectConnect( objectValue: NSDictionary){
+        addMessage(message: "Connected to object, there are " + ((objectValue["count"] != nil) ? String(describing: objectValue["count"]!) : "no") + " other people connected");
         thisUser = (objectValue["count"] != nil) ? (objectValue["count"] as! Int) + 1 : 1;
         //set the count property to add yourself
         sObject?.setProperty("count", withValue: (objectValue["count"] != nil ? (objectValue["count"] as! Int) + 1 : 1) as NSNumber)
     }
 
-    func sendMessage(){
+    @objc func sendMessage(){
         
         textViewDidEndEditing(chatInuput!)
         
@@ -172,22 +172,17 @@ class SharedObjectTest: BaseTest, UITextViewDelegate {
     }
     
     //Called whenever a property of the shared object is changed
-    func onUpdateProperty( propertyInfo: [AnyHashable: Any] ) {
+    @objc func onUpdateProperty( propertyInfo: [AnyHashable: Any] ) {
 //        propertyInfo.keys[0] can be used to find which property has updated.
-        addMessage(message: "Room update - There are now " + String(describing: propertyInfo["count"]) + " users")
+        addMessage(message: "Room update - There are now " + String(describing: propertyInfo["count"]!) + " users")
     }
     
-    func messageTransmit( messageIn: [AnyHashable: Any] ){
+    @objc func messageTransmit( messageIn: [AnyHashable: Any] ){
         
         let user: String = messageIn["user"] as! String
         let message : String = messageIn["message"] as! String
         
-        var display: String = ""
-        
-        if(user != (Testbed.getParameter(param: "stream1") as! String)){
-            
-            display = "user#" + user + ": " + message
-        }
+        let display: String = "user#" + user + ": " + message
         
         addMessage(message: display)
     }

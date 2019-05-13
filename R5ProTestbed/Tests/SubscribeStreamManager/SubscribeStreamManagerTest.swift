@@ -13,12 +13,14 @@ import R5Streaming
 class SubscribeStreamManagerTest: BaseTest {
     
     func showInfo(title: String, message: String){
+        //        let test = self
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        //        let controller = appDelegate.window!.rootViewController
         DispatchQueue.main.async(execute: {
-            let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
-            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: { action in
+            let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: { action in
                 // Trying to redirect user to details form...
-//              controller?.performSegue(withIdentifier: "showDetail", sender: test)
+                //            controller?.performSegue(withIdentifier: "showDetail", sender: test)
             }))
             self.present(alert, animated: true, completion: nil)
         })
@@ -118,7 +120,8 @@ class SubscribeStreamManagerTest: BaseTest {
         
         let port = (Testbed.getParameter(param: "server_port") as! String)
         let portURI = port == "80" ? "" : ":" + port
-        let edgeURI = (Testbed.getParameter(param: "host") as! String) + portURI + "/streammanager/api/2.0/event/" +
+        let version = (Testbed.getParameter(param: "sm_version") as! String)
+        let edgeURI = (Testbed.getParameter(param: "host") as! String) + portURI + "/streammanager/api/" + version + "/event/" +
             (Testbed.getParameter(param: "context") as! String) + "/" +
             (Testbed.getParameter(param: "stream1") as! String) + "?action=subscribe"
         let httpString = "http://" + edgeURI

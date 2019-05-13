@@ -12,15 +12,13 @@ import R5Streaming
 @objc(SubscribeBackgroundTest)
 class SubscribeBackgroundTest: SubscribeTest {
     
-    var endBtn: UIButton? = nil
-    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
         shouldClose = false;
         
-        NotificationCenter.default.addObserver(self, selector: #selector(willResignActive), name: .UIApplicationWillResignActive, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(willEnterForeground), name: .UIApplicationWillEnterForeground, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(willResignActive), name: UIApplication.willResignActiveNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(willEnterForeground), name: UIApplication.willEnterForegroundNotification, object: nil)
     }
     
     @objc func willResignActive(_ notification: Notification) {

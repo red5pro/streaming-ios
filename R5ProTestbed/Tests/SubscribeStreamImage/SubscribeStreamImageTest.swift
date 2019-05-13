@@ -39,15 +39,36 @@ class SubscribeStreamImageTest: BaseTest {
         
         
         uiv = UIImageView(frame: CGRect(x: 0, y: self.view.frame.height-200, width: 300, height: 200))
-        uiv!.contentMode = UIViewContentMode.scaleAspectFit
+        uiv!.contentMode = UIView.ContentMode.scaleAspectFit
         self.view.addSubview(uiv!);
         
     }
     
-    func handleSingleTap(recognizer : UITapGestureRecognizer) {
+    @objc func handleSingleTap(recognizer : UITapGestureRecognizer) {
         
         
-        uiv!.image = self.subscribeStream?.getImage();
+       let image = self.subscribeStream?.getImage()
+        if(image == nil){
+            NSLog("no image available yet")
+            return;
+        }
+        let imageData = (image)!.jpegData(compressionQuality: 1.0)
+        
+        if((imageData) != nil){
+            NSLog("Got the image data!")
+        }else{
+            NSLog("Failed to get image data!")
+            return;
+        }
+        
+        let imagePath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] + "/screencap.png"
+        let path = URL(fileURLWithPath: imagePath)
+        try! imageData?.write(to: path, options: Data.WritingOptions.atomic)
+        
+        
+        let uim = UIImage.init(contentsOfFile: imagePath)
+        uiv!.image = uim;
+        
         
     }
     

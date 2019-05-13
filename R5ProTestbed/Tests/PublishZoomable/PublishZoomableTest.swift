@@ -49,7 +49,7 @@ class PublishZoomableTest: BaseTest {
         
     }
     
-    func sliderValueDidChange(sender:UISlider!) {
+    @objc func sliderValueDidChange(sender:UISlider!) {
         do {
             try cam!.lockForConfiguration()
             cam!.ramp(toVideoZoomFactor: CGFloat(sender.value), withRate: 1.0)

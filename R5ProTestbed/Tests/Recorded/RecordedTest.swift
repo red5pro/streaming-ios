@@ -37,7 +37,16 @@ class RecordedTest: BaseTest {
         
         self.publishStream!.publish(Testbed.getParameter(param: "stream1") as! String, type: R5RecordTypeRecord)
         
-        
-        
     }
+    
+    override func onR5StreamStatus(_ stream: R5Stream!, withStatus statusCode: Int32, withMessage msg: String!) {
+        super.onR5StreamStatus(stream, withStatus: statusCode, withMessage: msg)
+        if (Int(statusCode) == Int(r5_status_buffer_flush_start.rawValue)) {
+            NotificationCenter.default.post(Notification(name: Notification.Name("BufferFlushStart")))
+        }
+        else if (Int(statusCode) == Int(r5_status_buffer_flush_empty.rawValue)) {
+            NotificationCenter.default.post(Notification(name: Notification.Name("BufferFlushComplete")))
+        }
+    }
+    
 }

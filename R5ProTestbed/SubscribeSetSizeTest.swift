@@ -36,7 +36,7 @@ class SubscribeSetSizeTest: BaseTest {
     func setupR5VideoViewController() -> R5VideoViewController{
         
         let r5View : R5VideoViewController = getNewR5VideoViewController(rect: self.view.frame);
-        self.addChildViewController(r5View);
+        self.addChild(r5View);
         
                view.addSubview(r5View.view)
         
@@ -51,7 +51,7 @@ class SubscribeSetSizeTest: BaseTest {
         return currentView!
     }
     
-    func handleSingleTap(_ recognizer : UITapGestureRecognizer) {
+    @objc func handleSingleTap(_ recognizer : UITapGestureRecognizer) {
         
             currentView!.setFrame(CGRect(x: 100, y: 100, width: 200, height: 200));
         

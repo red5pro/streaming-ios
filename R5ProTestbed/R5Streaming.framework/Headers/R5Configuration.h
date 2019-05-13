@@ -24,6 +24,7 @@
 @property NSString *licenseKey;         //!< SDK License Key
 @property NSString *bundleID;           //!< Bundle Identifier, unique for license purposes an App Store requirements.
 @property BOOL inheritAVSessionOptions; //!< Flag to allow SDK to set AVSessionCategroy options. By default, the SDK activates broadcast and playback category to AVAudioSessionCategoryPlayAndRecord with AVAudioSessionCategoryOptionDefaultToSpeaker. Once the broadcast or playback session is stopped, the category is deactivated with AVAudioSessionSetActiveOptionNotifyOthersOnDeactivation.
+@property BOOL flushQueuedPackets;      //!< Flag to send any queued packets for a Publisher after a broadcast session up to the server in order to preserve the full broadcast. Publisher only. Default: NO.
 
 //! @cond
 @property NSMutableArray *setup;

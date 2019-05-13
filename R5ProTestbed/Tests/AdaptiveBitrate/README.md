@@ -1,12 +1,12 @@
-#Adaptive Bitrate Publishing
+# Adaptive Bitrate Publishing
 
 This example demonstrates the AdaptiveBitrateController, which provides a mechanism to dynamically adjust the video publishing bitrate to adjust quality to meet the bandwidth restrictions of the network connection or encoding hardware.
 
-###Example Code
+### Example Code
 - ***[BaseTest.swift](../BaseTest.swift)***
 - ***[AdaptiveBitrateControllerTest.swift](AdaptiveBitrateControllerTest.swift)***
 
-###Setup
+### Setup
 The AdaptiveBitrateController is easy to set up.  You simply create a new instance of the controller and attach the stream you wish to control.  It will monitor the stream and make all adjustments automatically for you.
 
 

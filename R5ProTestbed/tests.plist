@@ -32,6 +32,10 @@
 		<true/>
 		<key>audio_on</key>
 		<true/>
+		<key>fps</key>
+		<integer>15</integer>
+		<key>sm_version</key>
+		<string>3.1</string>
 	</dict>
 	<key>Tests</key>
 	<dict>
@@ -125,6 +129,28 @@
 			<key>class</key>
 			<string>PublishBackgroundTest</string>
 		</dict>
+		<key>publish - Telephony Interrupt</key>
+		<dict>
+			<key>description</key>
+			<string>An example of publishing that responds to telephony-based interrupts.</string>
+			<key>LocalProperties</key>
+			<dict/>
+			<key>name</key>
+			<string>Publish - Telephony Interrupt</string>
+			<key>class</key>
+			<string>PublishTelephonyInterruptTest</string>
+		</dict>
+		<key>publish - Bandwidth Upload Detection</key>
+		<dict>
+			<key>description</key>
+			<string>An example that tests the upload speed between the device and server before publishing</string>
+			<key>LocalProperties</key>
+			<dict/>
+			<key>name</key>
+			<string>Publish - Bandwidth Upload Detection</string>
+			<key>class</key>
+			<string>BandwidthDetectionUploadOnlyTest</string>
+		</dict>
 		<key>publish - Camera Swap</key>
 		<dict>
 			<key>description</key>
@@ -157,6 +183,17 @@
 			<string>Publish - Device Orientation</string>
 			<key>class</key>
 			<string>PublishDeviceOrientationTest</string>
+		</dict>
+		<key>publish - Encrypted</key>
+		<dict>
+			<key>description</key>
+			<string>An example that encrypts all traffic between the device and server.</string>
+			<key>LocalProperties</key>
+			<dict/>
+			<key>name</key>
+			<string>Publish - Encrypted</string>
+			<key>class</key>
+			<string>PublishEncryptedTest</string>
 		</dict>
 		<key>publish - HQ Audio</key>
 		<dict>
@@ -245,6 +282,17 @@
 			<string>Publish - Stream Manager</string>
 			<key>class</key>
 			<string>PublishStreamManagerTest</string>
+		</dict>
+		<key>publish - Stream Manager Transcoder</key>
+		<dict>
+			<key>description</key>
+			<string>A publish example that uses transcoding broadcast over Stream Manager.</string>
+			<key>LocalProperties</key>
+			<dict/>
+			<key>name</key>
+			<string>Publish - Stream Manager Transcoder</string>
+			<key>class</key>
+			<string>PublishStreamManagerTranscodeTest</string>
 		</dict>
 		<key>publish - Stream Send</key>
 		<dict>
@@ -337,6 +385,50 @@
 			<key>class</key>
 			<string>SubscribeBackgroundTest</string>
 		</dict>
+		<key>subscribe - Telephony Interrupt</key>
+		<dict>
+			<key>description</key>
+			<string>A subscriber example that responds to publisher telephony interrupt.</string>
+			<key>LocalProperties</key>
+			<dict/>
+			<key>name</key>
+			<string>Subscribe - Telephony Interrupt</string>
+			<key>class</key>
+			<string>SubscribeTelephonyInterruptTest</string>
+		</dict>
+		<key>publish - Bandwidth Test</key>
+		<dict>
+			<key>description</key>
+			<string>An example that tests the upload speed between the device and server before publishing</string>
+			<key>LocalProperties</key>
+			<dict/>
+			<key>name</key>
+			<string>Publish - Bandwidth Upload Detection</string>
+			<key>class</key>
+			<string>BandwidthDetectionUploadOnlyTest</string>
+		</dict>
+		<key>publish - Bandwidth Download Detection</key>
+		<dict>
+			<key>description</key>
+			<string>An example that tests the download speed between the device and server before publishing</string>
+			<key>LocalProperties</key>
+			<dict/>
+			<key>name</key>
+			<string>Publish - Bandwidth Download Detection</string>
+			<key>class</key>
+			<string>BandwidthDetectionDownloadOnlyTest</string>
+		</dict>
+		<key>publish - Bandwidth Dual Detection</key>
+		<dict>
+			<key>description</key>
+			<string>An example that tests both the download and upload speed between the device and server before publishing</string>
+			<key>LocalProperties</key>
+			<dict/>
+			<key>name</key>
+			<string>Publish - Bandwidth Dual Detection</string>
+			<key>class</key>
+			<string>BandwidthDetectionTest</string>
+		</dict>
 		<key>subscribe - Cluster</key>
 		<dict>
 			<key>description</key>
@@ -348,6 +440,17 @@
 			<key>class</key>
 			<string>SubscribeCluster</string>
 		</dict>
+		<key>subscribe - Encrypted</key>
+		<dict>
+			<key>description</key>
+			<string>An example that encrypts all traffic between the device and server.</string>
+			<key>LocalProperties</key>
+			<dict/>
+			<key>name</key>
+			<string>Subscribe - Encrypted</string>
+			<key>class</key>
+			<string>SubscribeEncryptedTest</string>
+		</dict>
 		<key>subscribe - Image Capture</key>
 		<dict>
 			<key>description</key>
@@ -358,6 +461,28 @@
 			<string>Subscribe - ImageCapture</string>
 			<key>class</key>
 			<string>SubscribeStreamImageTest</string>
+		</dict>
+		<key>subscribe - Metal View</key>
+		<dict>
+			<key>description</key>
+			<string>Uses a metal based view to display a stream</string>
+			<key>LocalProperties</key>
+			<dict/>
+			<key>name</key>
+			<string>Subscribe - Metal View</string>
+			<key>class</key>
+			<string>SubscribeMetalViewTest</string>
+		</dict>
+		<key>subscribe - Mute Audio</key>
+		<dict>
+			<key>description</key>
+			<string>Allows toggle of mute playback</string>
+			<key>LocalProperties</key>
+			<dict/>
+			<key>name</key>
+			<string>Subscribe - Mute Audio</string>
+			<key>class</key>
+			<string>SubscribeMuteTest</string>
 		</dict>
 		<key>subscribe - No View</key>
 		<dict>
@@ -389,6 +514,17 @@
 			<string>Subscribe - Remote Call</string>
 			<key>class</key>
 			<string>SubscribeRemoteCallTest</string>
+		</dict>
+		<key>subscribe - Set Volume</key>
+		<dict>
+			<key>description</key>
+			<string>Shows setting the playback volume for the stream</string>
+			<key>LocalProperties</key>
+			<dict/>
+			<key>name</key>
+			<string>Subscribe - Set Volume</string>
+			<key>class</key>
+			<string>SubscribeSetVolumeTest</string>
 		</dict>
 		<key>subscribe - Stream Manager</key>
 		<dict>
@@ -433,6 +569,17 @@
 			<string>Two Way</string>
 			<key>class</key>
 			<string>TwoWayTest</string>
+		</dict>
+		<key>TwoWay - Stream Manager</key>
+		<dict>
+			<key>description</key>
+			<string>Publish and subscribe simultaneously through a stream manager</string>
+			<key>LocalProperties</key>
+			<dict/>
+			<key>name</key>
+			<string>Two Way - Stream Manager</string>
+			<key>class</key>
+			<string>TwoWayStreamManagerTest</string>
 		</dict>
 	</dict>
 </dict>
