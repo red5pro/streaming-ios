@@ -101,7 +101,7 @@ class DetailViewController: UIViewController, UITextFieldDelegate, UINavigationC
             
             if(self.detailItem!["description"] != nil){
 
-                let navButton = UIBarButtonItem(title: "Info", style: UIBarButtonItem.Style.plain, target: self, action: #selector(DetailViewController.showInfo))
+                let navButton = UIBarButtonItem(title: "Info", style: UIBarButtonItem.Style.plain, target: self, action: #selector(showInfo))
                 navButton.imageInsets = UIEdgeInsets.init(top: 10, left: 10, bottom: 10, right: 10);
 
                 navigationItem.rightBarButtonItem =    navButton
