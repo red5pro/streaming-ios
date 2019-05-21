@@ -37,7 +37,7 @@ class PublishZoomableTest: BaseTest {
         // self.publishStream?.getVideoSource().fps = 2;
         self.currentView!.attach(publishStream!)
         
-        self.publishStream!.publish(Testbed.getParameter(param: "stream1") as! String, type: R5RecordTypeLive)
+        self.publishStream!.publish(Testbed.getParameter(param: "stream1") as! String, type: getPublishRecordType ())
         
         let screenSize = UIScreen.main.bounds.size
         
