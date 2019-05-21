@@ -49,7 +49,7 @@ class PublishCustomSourceTest : BaseTest {
         self.currentView!.attach(publishStream!)
         
         
-        self.publishStream!.publish(Testbed.getParameter(param: "stream1") as! String, type: R5RecordTypeLive)
+        self.publishStream!.publish(Testbed.getParameter(param: "stream1") as! String, type: getPublishRecordType ())
     }
     
     override func onR5StreamStatus(_ stream: R5Stream!, withStatus statusCode: Int32, withMessage msg: String!) {

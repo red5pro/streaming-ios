@@ -37,7 +37,7 @@ class PublishHQAudioTest: BaseTest {
         self.publishStream?.getMicrophone().sampleRate = 44100;//hz (samples/second)
         self.publishStream?.getMicrophone().bitrate = 128;//kb/s
         
-        self.publishStream!.publish(Testbed.getParameter(param: "stream1") as! String, type: R5RecordTypeLive)
+        self.publishStream!.publish(Testbed.getParameter(param: "stream1") as! String, type: getPublishRecordType ())
         
     }
     

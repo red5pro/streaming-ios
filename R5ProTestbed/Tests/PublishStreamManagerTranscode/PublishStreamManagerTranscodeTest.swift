@@ -165,6 +165,7 @@ class PublishStreamManagerTranscodeTest: BaseTest {
             
             //   Create a new connection using the configuration above
             let connection = R5Connection(config: config)
+            let type = self.getPublishRecordType ()
             
             //   UI updates must be asynchronous
             DispatchQueue.main.async(execute: {
@@ -174,7 +175,7 @@ class PublishStreamManagerTranscodeTest: BaseTest {
                 
                 self.currentView!.attach(self.publishStream!)
                 
-                self.publishStream!.publish(streamName, type: R5RecordTypeLive)
+                self.publishStream!.publish(streamName, type: type)
                 
                 let label = UILabel(frame: CGRect(x: 0, y: self.view.frame.height-24, width: self.view.frame.width, height: 24))
                 label.textAlignment = NSTextAlignment.left
