@@ -32,6 +32,10 @@
 		<true/>
 		<key>audio_on</key>
 		<true/>
+		<key>record_on</key>
+		<false/>
+		<key>append_on</key>
+		<true/>
 		<key>fps</key>
 		<integer>15</integer>
 		<key>sm_version</key>

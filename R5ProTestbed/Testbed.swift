@@ -73,6 +73,14 @@ class Testbed: NSObject {
         Testbed.parameters?.setValue(on, forKey: "audio_on")
     }
     
+    static func setRecord(on: Bool) {
+        Testbed.parameters?.setValue(on, forKey: "record_on")
+    }
+
+    static func setRecordAppend(on: Bool) {
+        Testbed.parameters?.setValue(on, forKey: "append_on")
+    }
+    
     static func setLocalOverrides(params : NSMutableDictionary?){
         Testbed.localParameters = params
     }

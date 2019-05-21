@@ -35,8 +35,7 @@ class AdaptiveBitrateControllerTest: BaseTest {
         controller?.attach(to: self.publishStream!)
         controller?.requiresVideo = false //Testbed.getParameter(param: "video_on") as! Bool
         
-        
-        self.publishStream!.publish(Testbed.getParameter(param: "stream1") as! String, type: R5RecordTypeLive)
+        self.publishStream!.publish(Testbed.getParameter(param: "stream1") as! String, type: getPublishRecordType ())
         
         
         

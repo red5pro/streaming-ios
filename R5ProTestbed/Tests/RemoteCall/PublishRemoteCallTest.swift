@@ -33,7 +33,7 @@ class PublishRemoteCallTest: BaseTest {
         self.currentView!.attach(publishStream!)
         
         
-        self.publishStream!.publish(Testbed.getParameter(param: "stream1") as! String, type: R5RecordTypeLive)
+        self.publishStream!.publish(Testbed.getParameter(param: "stream1") as! String, type: getPublishRecordType ())
         
     }
     
@@ -42,7 +42,7 @@ class PublishRemoteCallTest: BaseTest {
         super.onR5StreamStatus(stream, withStatus: statusCode, withMessage: msg)
         
         if(Int(statusCode) == Int(r5_status_start_streaming.rawValue)) {
-            let tap : UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(PublishRemoteCallTest.handleSingleTap(recognizer:)))
+            let tap : UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleSingleTap(recognizer:)))
             self.view.addGestureRecognizer(tap)
         }
         else if (Int(statusCode) == Int(r5_status_buffer_flush_start.rawValue)) {

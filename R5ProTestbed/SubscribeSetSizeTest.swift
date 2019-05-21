@@ -27,7 +27,7 @@ class SubscribeSetSizeTest: BaseTest {
         self.subscribeStream!.play(Testbed.getParameter(param: "stream1") as! String)
         
         
-        let tap : UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(SubscribeSetSizeTest.handleSingleTap(_:)))
+        let tap : UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleSingleTap(_:)))
         
         self.view.addGestureRecognizer(tap)
         

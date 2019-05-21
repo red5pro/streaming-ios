@@ -32,7 +32,7 @@ class PublishAuthTest: BaseTest {
         // show preview and debug info
         self.currentView!.attach(publishStream!)
         
-        self.publishStream!.publish(Testbed.getParameter(param: "stream1") as! String, type: R5RecordTypeRecord)
+        self.publishStream!.publish(Testbed.getParameter(param: "stream1") as! String, type: getPublishRecordType ())
         
     }
     
