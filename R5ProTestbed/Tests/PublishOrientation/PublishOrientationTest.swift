@@ -34,7 +34,7 @@ class PublishOrientationTest: BaseTest {
         self.currentView!.attach(publishStream!)
         
         
-        self.publishStream!.publish(Testbed.getParameter(param: "stream1") as! String, type: R5RecordTypeLive)
+        self.publishStream!.publish(Testbed.getParameter(param: "stream1") as! String, type: getPublishRecordType ())
         
         
         let tap : UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleSingleTap(recognizer:)))
@@ -48,8 +48,6 @@ class PublishOrientationTest: BaseTest {
         let cam = self.publishStream?.getVideoSource() as! R5Camera
         
         cam.orientation = cam.orientation + 90
-        
-        self.publishStream?.updateMeta()
         
     }
     
