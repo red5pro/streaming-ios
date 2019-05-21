@@ -36,7 +36,7 @@ class SubscribeSetVolumeTest: BaseTest {
         slider?.isContinuous = true
         slider?.tintColor = UIColor.blue
         slider?.value = 100
-        slider?.addTarget(self, action: #selector(SubscribeSetVolumeTest.sliderValueDidChange(sender:)), for: .valueChanged)
+        slider?.addTarget(self, action: #selector(sliderValueDidChange(sender:)), for: .valueChanged)
         self.view.addSubview(slider!)
 
     }

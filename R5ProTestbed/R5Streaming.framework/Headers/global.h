@@ -22,7 +22,7 @@ extern "C" {
 #define STRINGIFY(s) STRINGIFY_(s)
 
 #define R5PRO_MAJOR_VERSION         5
-#define R5PRO_MINOR_VERSION         5
+#define R5PRO_MINOR_VERSION         6
 #define R5PRO_REVISION              0
 #define R5PRO_BUILD                 0
 
@@ -105,7 +105,7 @@ extern "C" {
         r5_status_buffer_flush_start,   //!< Publisher has started flushing queued packets post-broadcast.
         r5_status_buffer_flush_empty,   //!< Publisher has completed flushing queued packets post-broadcast.
         r5_status_video_render_start,   //!< Subscriber has rendered first video frame.
-        r5_status_abr_level_change,      //!< ABR Publisher has changed broadcast level.
+        r5_status_abr_level_change,     //!< ABR Publisher has changed broadcast level.
         r5_status_srtp_key_gen_error,   //!< There was a problem generating a key on this device.
         r5_status_srtp_key_handle_error //!< There was a problem in the key exchange with the server.
     };

@@ -97,7 +97,7 @@ class PublishStreamManagerTest: BaseTest {
                 
                 self.currentView!.attach(self.publishStream!)
                 
-                self.publishStream!.publish(Testbed.getParameter(param: "stream1") as! String, type: R5RecordTypeLive)
+                self.publishStream!.publish(Testbed.getParameter(param: "stream1") as! String, type: self.getPublishRecordType ())
                 
                 let label = UILabel(frame: CGRect(x: 0, y: self.view.frame.height-24, width: self.view.frame.width, height: 24))
                 label.textAlignment = NSTextAlignment.left
