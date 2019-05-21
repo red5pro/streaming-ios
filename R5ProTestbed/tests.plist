@@ -309,6 +309,17 @@
 			<key>class</key>
 			<string>PublishSendTest</string>
 		</dict>
+		<key>publish - Zoomable</key>
+		<dict>
+			<key>description</key>
+			<string>A publish example that allows live zoom</string>
+			<key>LocalProperties</key>
+			<dict/>
+			<key>name</key>
+			<string>Publish - Zoom</string>
+			<key>class</key>
+			<string>PublishZoomableTest</string>
+		</dict>
 		<key>Shared Object</key>
 		<dict>
 			<key>description</key>
