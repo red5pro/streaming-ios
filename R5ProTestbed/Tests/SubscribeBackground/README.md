@@ -24,8 +24,8 @@ Note - in general iOS does not permit background graphics processing. Attempts t
 To prevent app culling, the functions `pauseRender` and `resumeRender` have been added to the R5VideoViewController. These need to be called when the app is about to enter the background and when it returns to the foreground, respectively.
 
 The test needs to add observers to be notified of these state changes, preferably in ViewDidAppear with the creation of the subscriber:
-```
-Swift
+
+```Swift
 	NotificationCenter.default.addObserver(self, selector: #selector(willResignActive), name: .UIApplicationWillResignActive, object: nil)
   NotificationCenter.default.addObserver(self, selector: #selector(willEnterForeground), name: .UIApplicationWillEnterForeground, object: nil)
 }
@@ -39,9 +39,8 @@ override func closeTest() {
   NotificationCenter.default.removeObserver(self)
   super.closeTest()
 ```
-<sub>
+
 [SubscribeBackgroundTest.swift #22](SubscribeBackgroundTest.swift#L22)
-</sub>
 
 Also be sure to remove the observers when closing the stream so that the object doesn't continue to listen to events and can be correctly garbage collected.
 

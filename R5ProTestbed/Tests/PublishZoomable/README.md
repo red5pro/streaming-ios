@@ -3,9 +3,9 @@
 This example demonstrates the ability to zoom the camera during a live broadcast.
 
 ## Example Code
+
 - ***[BaseTest.swift](../BaseTest.swift)***
 - ***[PublishZoomableTest.swift](PublishZoomableTest.swift)***
-
 
 # How to zoom
 
