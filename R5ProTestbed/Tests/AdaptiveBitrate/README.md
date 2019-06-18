@@ -14,22 +14,19 @@ The AdaptiveBitrateController is easy to set up.  You simply create a new instan
 let controller = R5AdaptiveBitrateController()
 controller.attachToStream(self.publishStream!)
 ```
-<sup>
+
 [AdaptiveBitrateExample.swift #32](AdaptiveBitrateControllerTest.swift#L32)
-</sup>
 
 The controller will continuously adjust the video bitrate until the stream has closed.
 
-###Range
+### Range
 The AdaptiveBitrateController will dynamically adjust the video bitrate between the lowest possible bitrate the encoder can encode at, and the value set on the R5VideoSource (typically an R5Camera) on the stream. In this case, the value is assigned in the base class according to the value in tests.plist 
 
 ```Swift
 let camera = R5Camera(device: videoDevice, andBitRate: Int32(Testbed.getParameter("bitrate") as! Int))
 ```
-<sup>
-[BaseTest.swift #85](../BaseTest.swift#L85)
-</sup>
 
+[BaseTest.swift #85](../BaseTest.swift#L85)
 
 The controller will adjust the bitrate ~200 kbps every 2 seconds to achieve the best possible video quality.
 

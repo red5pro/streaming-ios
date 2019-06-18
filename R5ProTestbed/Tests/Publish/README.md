@@ -1,15 +1,17 @@
-#Publishing on Red5 Pro
+# Publishing on Red5 Pro
 
 This is the basic starter example on publishing to a Red5 Pro stream. 
 
-###Example Code
+### Example Code
 - ***[BaseTest.swift](../BaseTest.swift)***
 - ***[PublishTest.swift](PublishTest.swift)***
 
+## How to Publish
 
-##How to Publish
 Publishing to a Red5 Pro stream requires a few components to function fully.
-####Setup R5Connection
+
+#### Setup R5Connection
+
 The R5Connection manages the connection that the stream utilizes.  You will need to setup a configuration and intialize a new connection.
 
 ```
@@ -138,16 +140,16 @@ self.currentView!.attachStream(publishStream!)
 [PublishTest.swift #35](PublishTest.swift#L35)
 </sup>
 
-####Start Publishing
+#### Start Publishing
+
 The `R5Stream.publish` method will establish the server connection and begin publishing.  
 
 ```
 Swift
 self.publishStream!.publish(Testbed.getParameter("stream1") as! String, type: R5RecordTypeLive)
 ```
-<sup>
+
 [PublishTest.swift #38](PublishTest.swift#L38)
-</sup>
 
 The *type* parameter tells the server the recording mode to use on the server.
 
@@ -155,5 +157,6 @@ The *type* parameter tells the server the recording mode to use on the server.
 - **R5RecordTypeRecord** - Stream and record the file name.  Replace existing save.
 - **R5RecordTypeAppend** - Stream and append the recording to any existing save.
 
-####View your stream
+#### View your stream
+
 Open a browser window and navigate to http://your_red5_pro_server_ip:5080//live/subscribe.jsp to see a list of active streams. Click on the _flash version to subscribe to your stream.

@@ -40,5 +40,4 @@ override func closeTest() {
 
 [SubscribeBackgroundTest.swift #22](SubscribeBackgroundTest.swift#L22)
 
-
 Also be sure to remove the observers when closing the stream so that the object doesn't continue to listen to events and can be correctly garbage collected.
