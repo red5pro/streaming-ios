@@ -15,7 +15,7 @@ In order to subscribe, you first need to connect to the autoscaling Stream Manag
 
 
 ```Swift
-let urlString = "https://" + (Testbed.getParameter("host") as! String) + ":5080/streammanager/api/3.1/event/" +
+let urlString = "https://" + (Testbed.getParameter("host") as! String) + "/streammanager/api/3.1/event/" +
 	Testbed.getParameter("context") as! String + "/" +
 	Testbed.getParameter("stream1") as! String + "?action=subscribe"
         
