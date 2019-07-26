@@ -12,6 +12,7 @@
 extern "C" {
 #endif
     
+#define MAX_METADATA_COUNT 32
 
 #include "parse_util.h"
 
@@ -44,7 +45,7 @@ extern "C" {
         const char *control;
         media_description media[4];
         uint16_t media_count;
-        keyvalue metadata[15];
+        keyvalue metadata[MAX_METADATA_COUNT];
         uint8_t meta_count;
         
     }session_description;
@@ -60,7 +61,7 @@ extern "C" {
     void set_media_format_value(media_description* m, const char*key, const char*value);
     
     const char* get_metadata_value(session_description* s, const char*key);
-    void set_metadata_value(session_description* s, const char*key, const char*value);
+    int set_metadata_value(session_description* s, const char*key, const char*value);
     
     media_description * get_media_description_of_type(session_description *session, sdp_media_type type);
     
