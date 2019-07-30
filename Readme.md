@@ -41,7 +41,9 @@ Once you have modified your settings, you can run the application for simulator 
 | **[Background](R5ProTestbed/Tests/PublishBackground)**
 | *An example that continues to publish audio while the app is in the background*
 | **[Bandwidth Detection - Upload](R5ProTestbed/Tests/BandwidthDetectionUploadOnly)**
-| *An example that tests the upload speed between the device and server before publishing.*   
+| *An example that tests the upload speed between the device and server before publishing.*
+| **[Camera Device Orientation](R5ProTestbed/Tests/PublishCameraDeviceOrientation)**
+| *A combination of the `Camera Swap` and `Device Orientation` examples*
 | **[Camera Swap](R5ProTestbed/Tests/CameraSwap)**
 | *Touch the screen to swap which camera is being used! Verify with flash, android, or other iOS device running subscribe test that camera is swapping properly and no rendering problems occur.*
 | **[Custom Audio Source](R5ProTestbed/Tests/PublishCustomMic)**
@@ -66,10 +68,12 @@ Once you have modified your settings, you can run the application for simulator 
 | *The publish portion of the remote call example - sends the remote call.*
 | **[Stream Manager](R5ProTestbed/Tests/PublishStreamManager)**
 | *A publish example that connects with a server cluster using a Stream Manger*
-| **[Telephony Interrupt](R5ProTestbed/Tests/PublishTelephonyInterrupt)**
-| *An example on `"gracefully"` handling interrupts while broadcasting - such as receiving an declining a phone call*
+| **[Stream Manager Encrypted](R5ProTestbed/Tests/PublishSMEncrypted)**
+| *A publish example that encrypts traffic durring a broadcast over Stream Manager.*
 | **[Stream Manager Transcoder](R5ProTestbed/Tests/PublishStreamManagerTranscode)**
 | *A publish example that uses transcoding broadcast over Stream Manager.*
+| **[Telephony Interrupt](R5ProTestbed/Tests/PublishTelephonyInterrupt)**
+| *An example on `"gracefully"` handling interrupts while broadcasting - such as receiving an declining a phone call*
 | **[Two Way](R5ProTestbed/Tests/TwoWay)**
 | *An example of simultaneously publishing while subscribing - allowing a conversation. Includes stream detection and auto-connection.*
 | **[Two Way - Stream Manager](R5ProTestbed/Tests/TwoWayStreamManager)**
@@ -116,6 +120,8 @@ Once you have modified your settings, you can run the application for simulator 
 | *Shows setting the playback volume for the stream.*
 | **[Stream Manager](R5ProTestbed/Tests/SubscribeStreamManager)**
 | *A subscribe example that connects with a server cluster using a Stream Manger*
+| **[Stream Manager Encrypted](R5ProTestbed/Tests/SubscribeSMEncrypted)**
+| *A subsribe example that encrypts traffic while receiving a broadcast over Stream Manager.*
 | **[Telephony Interrupt](R5ProTestbed/Tests/SubscribeTelephonyInterrupt)**
 | *An example on `"gracefully"` responding to interrupts while subscribed to a broadcasting - such as the publisher receiving an declining a phone call*
 | **[Two Streams](R5ProTestbed/Tests/SubscribeTwoStreams)**
