@@ -32,6 +32,10 @@
 		<true/>
 		<key>audio_on</key>
 		<true/>
+		<key>record_on</key>
+		<false/>
+		<key>append_on</key>
+		<true/>
 		<key>fps</key>
 		<integer>15</integer>
 		<key>sm_version</key>
@@ -140,16 +144,38 @@
 			<key>class</key>
 			<string>PublishBackgroundTest</string>
 		</dict>
-		<key>publish - Telephony Interrupt</key>
+		<key>publish - Bandwidth Test</key>
 		<dict>
 			<key>description</key>
-			<string>An example of publishing that responds to telephony-based interrupts.</string>
+			<string>An example that tests the upload speed between the device and server before publishing</string>
 			<key>LocalProperties</key>
 			<dict/>
 			<key>name</key>
-			<string>Publish - Telephony Interrupt</string>
+			<string>Publish - Bandwidth Upload Detection</string>
 			<key>class</key>
-			<string>PublishTelephonyInterruptTest</string>
+			<string>BandwidthDetectionUploadOnlyTest</string>
+		</dict>
+		<key>publish - Bandwidth Download Detection</key>
+		<dict>
+			<key>description</key>
+			<string>An example that tests the download speed between the device and server before publishing</string>
+			<key>LocalProperties</key>
+			<dict/>
+			<key>name</key>
+			<string>Publish - Bandwidth Download Detection</string>
+			<key>class</key>
+			<string>BandwidthDetectionDownloadOnlyTest</string>
+		</dict>
+		<key>publish - Bandwidth Dual Detection</key>
+		<dict>
+			<key>description</key>
+			<string>An example that tests both the download and upload speed between the device and server before publishing</string>
+			<key>LocalProperties</key>
+			<dict/>
+			<key>name</key>
+			<string>Publish - Bandwidth Dual Detection</string>
+			<key>class</key>
+			<string>BandwidthDetectionTest</string>
 		</dict>
 		<key>publish - Bandwidth Upload Detection</key>
 		<dict>
@@ -161,6 +187,17 @@
 			<string>Publish - Bandwidth Upload Detection</string>
 			<key>class</key>
 			<string>BandwidthDetectionUploadOnlyTest</string>
+		</dict>
+		<key>publish - Camera Device Orientation</key>
+		<dict>
+			<key>description</key>
+			<string>A combination of the Camera Swap and Device Orientation examples</string>
+			<key>LocalProperties</key>
+			<dict/>
+			<key>name</key>
+			<string>Publish - Camera Device Orientation</string>
+			<key>class</key>
+			<string>PublishCameraDeviceOrientationTest</string>
 		</dict>
 		<key>publish - Camera Swap</key>
 		<dict>
@@ -294,6 +331,17 @@
 			<key>class</key>
 			<string>PublishStreamManagerTest</string>
 		</dict>
+		<key>publish - Stream Manager Encrypted</key>
+		<dict>
+			<key>description</key>
+			<string>A publish example that encrypts traffic durring a broadcast over Stream Manager.</string>
+			<key>LocalProperties</key>
+			<dict/>
+			<key>name</key>
+			<string>Publish - Stream Manager Encrypted</string>
+			<key>class</key>
+			<string>PublishSMEncryptedTest</string>
+		</dict>
 		<key>publish - Stream Manager Transcoder</key>
 		<dict>
 			<key>description</key>
@@ -315,6 +363,28 @@
 			<string>Publish - Stream Send</string>
 			<key>class</key>
 			<string>PublishSendTest</string>
+		</dict>
+		<key>publish - Telephony Interrupt</key>
+		<dict>
+			<key>description</key>
+			<string>An example of publishing that responds to telephony-based interrupts.</string>
+			<key>LocalProperties</key>
+			<dict/>
+			<key>name</key>
+			<string>Publish - Telephony Interrupt</string>
+			<key>class</key>
+			<string>PublishTelephonyInterruptTest</string>
+		</dict>
+		<key>publish - Zoomable</key>
+		<dict>
+			<key>description</key>
+			<string>A publish example that allows live zoom</string>
+			<key>LocalProperties</key>
+			<dict/>
+			<key>name</key>
+			<string>Publish - Zoom</string>
+			<key>class</key>
+			<string>PublishZoomableTest</string>
 		</dict>
 		<key>Shared Object</key>
 		<dict>
@@ -373,7 +443,18 @@
 			<string>Subscribe - Authentication</string>
 			<key>class</key>
 			<string>SubscribeAuthTest</string>
-		</dict>
+        </dict>
+        <key>subscribe - AV Category</key>
+        <dict>
+            <key>description</key>
+            <string></string>
+            <key>LocalProperties</key>
+            <dict/>
+            <key>name</key>
+            <string>Subscribe - AV Category</string>
+            <key>class</key>
+            <string>SubscribeAVCategoryTest</string>
+        </dict>
 		<key>subscribe - Background</key>
 		<dict>
 			<key>description</key>
@@ -384,61 +465,6 @@
 			<string>Subscribe - Background</string>
 			<key>class</key>
 			<string>SubscribeBackgroundTest</string>
-		</dict>
-		<key>subscribe - Telephony Interrupt</key>
-		<dict>
-			<key>description</key>
-			<string>A subscriber example that responds to publisher telephony interrupt.</string>
-			<key>LocalProperties</key>
-			<dict/>
-			<key>name</key>
-			<string>Subscribe - Telephony Interrupt</string>
-			<key>class</key>
-			<string>SubscribeTelephonyInterruptTest</string>
-		</dict>
-		<key>publish - Bandwidth Test</key>
-		<dict>
-			<key>description</key>
-			<string>An example that tests the upload speed between the device and server before publishing</string>
-			<key>LocalProperties</key>
-			<dict/>
-			<key>name</key>
-			<string>Publish - Bandwidth Upload Detection</string>
-			<key>class</key>
-			<string>BandwidthDetectionUploadOnlyTest</string>
-		</dict>
-		<key>publish - Bandwidth Download Detection</key>
-		<dict>
-			<key>description</key>
-			<string>An example that tests the download speed between the device and server before publishing</string>
-			<key>LocalProperties</key>
-			<dict/>
-			<key>name</key>
-			<string>Publish - Bandwidth Download Detection</string>
-			<key>class</key>
-			<string>BandwidthDetectionDownloadOnlyTest</string>
-		</dict>
-		<key>publish - Bandwidth Dual Detection</key>
-		<dict>
-			<key>description</key>
-			<string>An example that tests both the download and upload speed between the device and server before publishing</string>
-			<key>LocalProperties</key>
-			<dict/>
-			<key>name</key>
-			<string>Publish - Bandwidth Dual Detection</string>
-			<key>class</key>
-			<string>BandwidthDetectionTest</string>
-		</dict>
-		<key>subscribe - AV Category</key>
-		<dict>
-			<key>description</key>
-			<string></string>
-			<key>LocalProperties</key>
-			<dict/>
-			<key>name</key>
-			<string>Subscribe - AV Category</string>
-			<key>class</key>
-			<string>SubscribeAVCategoryTest</string>
 		</dict>
 		<key>subscribe - Cluster</key>
 		<dict>
@@ -548,6 +574,17 @@
 			<key>class</key>
 			<string>SubscribeStreamManagerTest</string>
 		</dict>
+		<key>subscribe - Stream Manager Encrypted</key>
+		<dict>
+			<key>description</key>
+			<string>A subsribe example that encrypts traffic while receiving a broadcast over Stream Manager.</string>
+			<key>LocalProperties</key>
+			<dict/>
+			<key>name</key>
+			<string>Subscribe - Stream Manager Encrypted</string>
+			<key>class</key>
+			<string>SubscribeSMEncryptedTest</string>
+		</dict>
 		<key>subscribe - Stream Send</key>
 		<dict>
 			<key>description</key>
@@ -558,6 +595,17 @@
 			<string>Subscribe - Stream Send</string>
 			<key>class</key>
 			<string>SubscribeReceiveSendTest</string>
+		</dict>
+		<key>subscribe - Telephony Interrupt</key>
+		<dict>
+			<key>description</key>
+			<string>A subscriber example that responds to publisher telephony interrupt.</string>
+			<key>LocalProperties</key>
+			<dict/>
+			<key>name</key>
+			<string>Subscribe - Telephony Interrupt</string>
+			<key>class</key>
+			<string>SubscribeTelephonyInterruptTest</string>
 		</dict>
 		<key>subscribe - Two Streams</key>
 		<dict>

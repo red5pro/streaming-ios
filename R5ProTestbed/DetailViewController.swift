@@ -18,6 +18,8 @@ class DetailViewController: UIViewController, UITextFieldDelegate, UINavigationC
     @IBOutlet weak var debugSwitch: UISwitch!
     @IBOutlet weak var videoSwitch: UISwitch!
     @IBOutlet weak var audioSwitch: UISwitch!
+    @IBOutlet weak var recordSwitch: UISwitch!
+    @IBOutlet weak var appendSwitch: UISwitch!
     
     @IBOutlet weak var licenseText: UILabel!
     @IBOutlet weak var licenseButton: UIButton!
@@ -61,6 +63,7 @@ class DetailViewController: UIViewController, UITextFieldDelegate, UINavigationC
         stream1Text.text = Testbed.parameters!["stream1"] as? String
         stream2Text.text = Testbed.parameters!["stream2"] as? String
     }
+
     @IBAction func onHostChange(_ sender: AnyObject) {
         Testbed.setHost(ip: hostText.text!)
     }
@@ -76,7 +79,13 @@ class DetailViewController: UIViewController, UITextFieldDelegate, UINavigationC
     @IBAction func onAudioChange(_ sender: AnyObject) {
         Testbed.setAudio(on: audioSwitch.isOn)
     }
-    
+    @IBAction func onRecordSwitch(_ sender: Any) {
+        Testbed.setRecord(on: recordSwitch.isOn)
+        appendSwitch.isEnabled = recordSwitch.isOn
+    }
+    @IBAction func onAppendSwitch(_ sender: Any) {
+        Testbed.setRecordAppend(on: appendSwitch.isOn)
+    }
     func configureView() {
         // Update the user interface for the detail item.
         
@@ -93,6 +102,9 @@ class DetailViewController: UIViewController, UITextFieldDelegate, UINavigationC
         debugSwitch.setOn((Testbed.parameters!["debug_view"] as? Bool)!, animated: false)
         videoSwitch.setOn((Testbed.parameters!["video_on"] as? Bool)!, animated: false)
         audioSwitch.setOn((Testbed.parameters!["audio_on"] as? Bool)!, animated: false)
+        recordSwitch.setOn((Testbed.parameters!["record_on"] as? Bool)!, animated: false)
+        appendSwitch.setOn((Testbed.parameters!["append_on"] as? Bool)!, animated: false)
+        appendSwitch.isEnabled = (Testbed.parameters!["record_on"] as? Bool)!
         
         let licenseKey = Testbed.parameters!["license_key"] as? String
         licenseText.text = licenseKey == nil || licenseKey == "" ? "No License Found" : licenseKey;
@@ -101,7 +113,7 @@ class DetailViewController: UIViewController, UITextFieldDelegate, UINavigationC
             
             if(self.detailItem!["description"] != nil){
 
-                let navButton = UIBarButtonItem(title: "Info", style: UIBarButtonItem.Style.plain, target: self, action: #selector(DetailViewController.showInfo))
+                let navButton = UIBarButtonItem(title: "Info", style: UIBarButtonItem.Style.plain, target: self, action: #selector(showInfo))
                 navButton.imageInsets = UIEdgeInsets.init(top: 10, left: 10, bottom: 10, right: 10);
 
                 navigationItem.rightBarButtonItem =    navButton

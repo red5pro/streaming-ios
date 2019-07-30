@@ -159,6 +159,17 @@ class BaseTest: UIViewController , R5StreamDelegate {
         
     }
     
+    func getPublishRecordType () -> R5RecordType {
+        var type = R5RecordTypeLive
+        if Testbed.getParameter(param: "record_on") as! Bool {
+            type = R5RecordTypeRecord
+            if Testbed.getParameter(param: "append_on") as! Bool {
+                type = R5RecordTypeAppend
+            }
+        }
+        return type
+    }
+    
     func setupDefaultR5VideoViewController() -> R5VideoViewController{
         
         currentView = getNewR5VideoViewController(rect: self.view.frame)

@@ -3,15 +3,18 @@
 This example demonstrates sending orientation metadata to subscribers of a broadcast when the Publisher rotates their physical device.
 
 ### Example Code
+
 - ***[BaseTest.swift](../BaseTest.swift)***
 - ***[PublishDeviceOrientationTest.swift](PublishDeviceOrientationTest.swift)***
 
 ## Running the example
+
 After starting a broadcast, rotate your device from portrait to landscape. You will notice that the view updates on the broadcasting device. Additionally, if you subscribe with mobile or the browser-based players, you will see their orientation update with the change to device orientation.
 
-##Implementation as Publisher
+## Implementation as Publisher
 
 ### Device Orientation project settings
+
 All the `Device Orientation` options have been turned on for the project in order to demonstrate this example.
 
 ![device_orientation_settings.png](device_orientation_settings.png)
@@ -19,14 +22,14 @@ All the `Device Orientation` options have been turned on for the project in orde
 This will allow the view displaying the camera playback to update based on device orientation.
 
 ### UIDeviceOrientationChange
+
 When the `PublishDeviceOrientationTest` is selected and shown, a `UIDeviceOrientationChange` notification listener is assigned:
 
 ```Swift
 NotificationCenter.default.addObserver(self, selector: #selector(PublishDeviceOrientationTest.rotated), name: NSNotification.Name.UIDeviceOrientationDidChange, object: nil)
 ```
-<sub>
+
 [PublishDeviceOrientationTest.swift #41](PublishDeviceOrientationTest.swift#L41)
-</sub>
 
 When the handler (`PublishDeviceOrientationTest.rotated`) is invoked, the current orientation is determined using `UIApplication.shared.statusBarOrientation`. Depending on the orientation value of the device, the `orientation` value of the `R5Camera` instance currently being used is updated.
 
@@ -47,9 +50,8 @@ switch (orientation) {
     cam.orientation = 90;
 }
 ```
-<sub>
+
 [PublishDeviceOrientationTest.swift #54](PublishDeviceOrientationTest.swift#L54)
-</sub>
 
 The updated `orientation` value will be sent along in the MetaData provided to all subscribers which will need to respond appropriately.
 
@@ -83,7 +85,5 @@ func onMetaData(data : String) {
 }
 ```
 
-<sub>
 [SubscriberTest.swift #45](../Subscribe/SubscriberTest.swift#L45)
-</sub>
 

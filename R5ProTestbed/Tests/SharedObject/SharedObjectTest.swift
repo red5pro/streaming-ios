@@ -236,7 +236,7 @@ class SharedObjectTest: BaseTest, UITextViewDelegate {
         sendBtn?.frame = CGRect(x: (screenSize.width * 0.6) - 50, y: screenSize.height * 0.5, width: 50, height: 24)
     }
     
-    func textViewDidEndEditing(_ textView: UITextView) {
+    @objc func textViewDidEndEditing(_ textView: UITextView) {
         
         view.endEditing(true)
         

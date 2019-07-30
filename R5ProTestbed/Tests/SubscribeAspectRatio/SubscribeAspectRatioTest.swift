@@ -28,7 +28,7 @@ class SubscribeAspectRatioTest: BaseTest {
         self.subscribeStream!.play(Testbed.getParameter(param: "stream1") as! String)
         
         
-        let tap : UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(SubscribeAspectRatioTest.handleSingleTap(recognizer:)))
+        let tap : UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleSingleTap(recognizer:)))
         
         self.view.addGestureRecognizer(tap)
         
