@@ -37,7 +37,9 @@ Once you have modified your settings, you can run the application for simulator 
 | **[Aspect Ratio](R5ProTestbed/Tests/PublishAspect)**
 | *A publish example that includes modifying the scale mode of the preview display*
 | **[Authentication](R5ProTestbed/Tests/PublishAuth)**
-| *An example of publishing a stream as an authenticated user*   
+| *An example of publishing a stream as an authenticated user* 
+| **[AV Category](R5ProTestbed/Tests/PublishAVCategory)**
+| *A publish example that includes manual handling of iOS's AV Session*   
 | **[Background](R5ProTestbed/Tests/PublishBackground)**
 | *An example that continues to publish audio while the app is in the background*
 | **[Bandwidth Detection - Upload](R5ProTestbed/Tests/BandwidthDetectionUploadOnly)**
@@ -92,6 +94,8 @@ Once you have modified your settings, you can run the application for simulator 
 | *Captures the raw audio from the stream and delays it with a custom buffer implementation*   
 | **[Authentication](R5ProTestbed/Tests/SubscribeAuth)**
 | *An example of subscribing to a stream as an authenticated user*   
+| **[AV Category](R5ProTestbed/Tests/SubscribeAVCategory)**
+| *A subscribe example that includes manual handling of iOS's AV Session* 
 | **[Background](R5ProTestbed/Tests/SubscribeBackground)**
 | *A subscribing example that can continue when the app moves into the background*
 | **[Bandwidth Test](R5ProTestbed/Tests/SubscribeBandwidth)**

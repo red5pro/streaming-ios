@@ -65,6 +65,8 @@
 		926EB668224D4AB300715EF7 /* SubscribeSetVolumeTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926EB667224D4AB300715EF7 /* SubscribeSetVolumeTest.swift */; };
 		9278C9AC2098B09300861C79 /* SubscribeAudioDelayTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9278C9AB2098B09300861C79 /* SubscribeAudioDelayTest.swift */; };
 		9278C9B02098E1BE00861C79 /* PublishBackgroundTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9278C9AF2098E1BE00861C79 /* PublishBackgroundTest.swift */; };
+		9279C5FD226628F10046B6DD /* AVAudioSessionSuplement.m in Sources */ = {isa = PBXBuildFile; fileRef = 9279C5FC226628F10046B6DD /* AVAudioSessionSuplement.m */; };
+		927C86E82253FD3B00094096 /* PublishAVCategoryTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927C86E72253FD3B00094096 /* PublishAVCategoryTest.swift */; };
 		927FA28A20EBCD2D00F16228 /* TwoWayStreamManagerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927FA28920EBCD2D00F16228 /* TwoWayStreamManagerTest.swift */; };
 		928B1CBD1CBC0DC5002C66BA /* SubscribeStreamManagerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928B1CBC1CBC0DC5002C66BA /* SubscribeStreamManagerTest.swift */; };
 		92A642E3200D40AC00882600 /* PublishAspectTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A642E2200D40AC00882600 /* PublishAspectTest.swift */; };
@@ -147,6 +149,9 @@
 		926EB667224D4AB300715EF7 /* SubscribeSetVolumeTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SubscribeSetVolumeTest.swift; path = Tests/SubscribeSetVolume/SubscribeSetVolumeTest.swift; sourceTree = "<group>"; };
 		9278C9AB2098B09300861C79 /* SubscribeAudioDelayTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SubscribeAudioDelayTest.swift; path = Tests/SubscribeAudioDelay/SubscribeAudioDelayTest.swift; sourceTree = "<group>"; };
 		9278C9AF2098E1BE00861C79 /* PublishBackgroundTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PublishBackgroundTest.swift; path = Tests/PublishBackground/PublishBackgroundTest.swift; sourceTree = "<group>"; };
+		9279C5FB226628F10046B6DD /* AVAudioSessionSuplement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AVAudioSessionSuplement.h; sourceTree = "<group>"; };
+		9279C5FC226628F10046B6DD /* AVAudioSessionSuplement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AVAudioSessionSuplement.m; sourceTree = "<group>"; };
+		927C86E72253FD3B00094096 /* PublishAVCategoryTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PublishAVCategoryTest.swift; path = Tests/PublishAVCategory/PublishAVCategoryTest.swift; sourceTree = "<group>"; };
 		927FA28920EBCD2D00F16228 /* TwoWayStreamManagerTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TwoWayStreamManagerTest.swift; path = Tests/TwoWayStreamManager/TwoWayStreamManagerTest.swift; sourceTree = "<group>"; };
 		928B1CBC1CBC0DC5002C66BA /* SubscribeStreamManagerTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SubscribeStreamManagerTest.swift; path = Tests/SubscribeStreamManager/SubscribeStreamManagerTest.swift; sourceTree = "<group>"; };
 		92A642E2200D40AC00882600 /* PublishAspectTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PublishAspectTest.swift; path = Tests/PublishAspect/PublishAspectTest.swift; sourceTree = "<group>"; };
@@ -256,6 +261,7 @@
 				4874D59E1C221B9500A98102 /* AdaptiveBitrateControllerTest.swift */,
 				92A642E2200D40AC00882600 /* PublishAspectTest.swift */,
 				481B156C1EB380F20038A187 /* PublishAuthTest.swift */,
+				927C86E72253FD3B00094096 /* PublishAVCategoryTest.swift */,
 				9278C9AF2098E1BE00861C79 /* PublishBackgroundTest.swift */,
 				480A8793221EA8A500474724 /* PublishTelephonyInterruptTest.swift */,
 				92EBEF07212F1B6F003B72FB /* BandwidthDetectionUploadOnlyTest.swift */,
@@ -311,6 +317,8 @@
 		92EA19DB1CE1375A006B3A97 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				9279C5FB226628F10046B6DD /* AVAudioSessionSuplement.h */,
+				9279C5FC226628F10046B6DD /* AVAudioSessionSuplement.m */,
 				92EA19DC1CE137DD006B3A97 /* CustomVideoSource.swift */,
 			);
 			name = Utilities;
@@ -427,6 +435,7 @@
 				480A8796221ED82D00474724 /* SubscribeTelephonyInterruptTest.swift in Sources */,
 				9278C9AC2098B09300861C79 /* SubscribeAudioDelayTest.swift in Sources */,
 				926794FB1D061968004B0BCD /* SubscribeCluster.swift in Sources */,
+				927C86E82253FD3B00094096 /* PublishAVCategoryTest.swift in Sources */,
 				927FA28A20EBCD2D00F16228 /* TwoWayStreamManagerTest.swift in Sources */,
 				926794F51D061900004B0BCD /* PublishRemoteCallTest.swift in Sources */,
 				4874ECD01C483FDA002BDA6D /* SubscribeStreamImageTest.swift in Sources */,
@@ -437,6 +446,7 @@
 				482282591E4E47C80073F26C /* PublishDeviceOrientationTest.swift in Sources */,
 				926EB668224D4AB300715EF7 /* SubscribeSetVolumeTest.swift in Sources */,
 				48DFEDD71C21C2540040B624 /* BaseTest.swift in Sources */,
+				9279C5FD226628F10046B6DD /* AVAudioSessionSuplement.m in Sources */,
 				926794F91D061942004B0BCD /* RecordedTest.swift in Sources */,
 				487CDBC41E6F1A39007FC4EA /* SharedObjectTest.swift in Sources */,
 				48DFEDCD1C21BF0A0040B624 /* PublishTest.swift in Sources */,
