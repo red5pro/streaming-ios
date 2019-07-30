@@ -125,7 +125,7 @@
 		<key>publish - AV Category</key>
 		<dict>
 			<key>description</key>
-			<string></string>
+			<string>A publish example that includes manual handling of iOS&apos;s AV Session</string>
 			<key>LocalProperties</key>
 			<dict/>
 			<key>name</key>
@@ -443,18 +443,18 @@
 			<string>Subscribe - Authentication</string>
 			<key>class</key>
 			<string>SubscribeAuthTest</string>
-        </dict>
-        <key>subscribe - AV Category</key>
-        <dict>
-            <key>description</key>
-            <string></string>
-            <key>LocalProperties</key>
-            <dict/>
-            <key>name</key>
-            <string>Subscribe - AV Category</string>
-            <key>class</key>
-            <string>SubscribeAVCategoryTest</string>
-        </dict>
+		</dict>
+		<key>subscribe - AV Category</key>
+		<dict>
+			<key>description</key>
+			<string>A subscribe example that includes manual handling of iOS&apos;s AV Session</string>
+			<key>LocalProperties</key>
+			<dict/>
+			<key>name</key>
+			<string>Subscribe - AV Category</string>
+			<key>class</key>
+			<string>SubscribeAVCategoryTest</string>
+		</dict>
 		<key>subscribe - Background</key>
 		<dict>
 			<key>description</key>
