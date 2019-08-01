@@ -1,12 +1,14 @@
-#Publish Mute/Unmute
+# Publish Mute/Unmute
 
 The `R5Stream:pauseAudio` and `R5Stream:pauseVideo` mutable properties allow for a broadcast stream to be muted and unmuted of audio and video separately.
 
-###Example Code
+### Example Code
+
 - ***[BaseTest.swift](../BaseTest.swift)***
 - ***[PublishPauseTest.swift](PublishPauseTest.swift)***
 
-##Running the example
+## Running the example
+
 The `PublishPauseTest` launches in a broadcast session with Audio & Video inputs enabled and streaming.
 
 Touch the screen at any time while streaming to toggle between muted and unmuted states of each Audio and Video input. Subscribe to the stream on another device to see how the muted states affect the broadcast.
@@ -18,7 +20,8 @@ The toggle sequence is as follows when you tap the screen multiple times:
 3. The third tap will mute the audio again - muting both video and audio at the same time.
 4. The fourth tap will unmute both audio and video, returning to its original state on launch of test and broadcast.
 
-##Using RStream:pauseAudio and R5Stream:pauseVideo
+## Using RStream:pauseAudio and R5Stream:pauseVideo
+
 `R5Stream:pauseAudio` and `R5Stream:pauseVideo` are mutable properties that can be set to the desired boolean value:
 
 * `true` will mute the media in real time (during a live broadcast).
@@ -53,9 +56,9 @@ func handleSingleTap(_ recognizer : UITapGestureRecognizer) {
 
 }
 ```
-<sub>
-[PublishPauseTest.swift #49](PublishPauseTest.swift#L49)
-</sub>
 
-##Listening for mute on a Subscriber stream
+[PublishPauseTest.swift #49](PublishPauseTest.swift#L49)
+
+## Listening for mute on a Subscriber stream
+
 Setting the `R5Stream:pauseAudio` and `R5Stream:pauseVideo` attribute value on a broadcast stream change the `streamingMode` value of the metadata that is additionally broadcast to subscribers of the stream. As a subscriber, you can listen for their respective mute and unmute states of a broadcast stream from the status codes defined for [R5StreamDelegate:onR5StreamStatus](https://www.red5pro.com/docs/static/ios-streaming/protocol_r5_stream_delegate-p.html).

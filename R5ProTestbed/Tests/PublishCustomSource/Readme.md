@@ -1,17 +1,18 @@
-#Custom Video Source
+# Custom Video Source
 
 This example demonstrates passing custom video data into the R5Stream.
 
-###Example Code
-- ***[CustomVideoSource.swift](
-CustomVideoSource.swift)***
-- ***[PublishCustomSourceTest.swift](
-PublishCustomSourceTest.swift)***
+### Example Code
 
-###Setup
+- ***[CustomVideoSource.swift](CustomVideoSource.swift)***
+- ***[PublishCustomSourceTest.swift](PublishCustomSourceTest.swift)***
+
+### Setup
+
 To view this example, you simply need to open the example and subscribe to your stream from a second device.  All audio will be recorded, and instead of camera input, a simply plasma style effect is rendered.
 
-###Creating a Custom Video Source
+### Creating a Custom Video Source
+
 To provide custom video input into an R5Stream the first thing to do is create a custom class that extends R5VideoSource.
 
 To start, a timestamp needs to be setup to pass to the encoder.  Using the `R5VideoSource.FPS` property will let us calculate this timestamp.
@@ -21,9 +22,8 @@ To start, a timestamp needs to be setup to pass to the encoder.  Using the `R5Vi
 self.frameDuration = CMTimeMakeWithSeconds(0.1f, self.fps);
 self.PTS = kCMTimeZero;
 ```
-<sup>
+
 [CustomVideoSource.swift #24](CustomVideoSource.swift#24)
-</sup>
 
 To handle the processing of custom data, you can overwrite `R5VideoSource.startVideoCapture`.  This method is called by the stream when it is ready for video content.  For this example, we will start a simple timer to call `capturePixels` at our desired framerate.
 

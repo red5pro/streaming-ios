@@ -18,7 +18,7 @@ The `Streams API` of the Red5 Pro Server can be found in the default location of
 
 > If streaming to a different webapp context other than `live`, you will need to move the `streams.jsp` file and update the web configs as needed.
 
-```javascript
+```swift
 func findStreams() {
     let domain = Testbed.getParameter(param: "host") as! String
     let app = Testbed.getParameter(param: "context") as! String
@@ -76,9 +76,7 @@ func findStreams() {
 }
 ```
 
-<sup>
 [SubscribeAutoreconnectTest.swift #17](SubscribeAutoreconnectTest.swift#L17)
-</sup>
 
 Once the stream the subscriber is attempting to connect to has become available in the stream listing from the `Streams API`, you can continue to create a Subscriber session as you would normally.
 
@@ -124,6 +122,4 @@ override func onR5StreamStatus(_ stream: R5Stream!, withStatus statusCode: Int32
 }
 ```
 
-<sup>
 [SubscribeAutoreconnectTest.java #114](SubscribeAutoreconnectTest.java#L114)
-</sup>
