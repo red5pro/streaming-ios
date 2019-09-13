@@ -22,8 +22,11 @@ while IFS= read -r -d '' file; do
                     LICENSE=$(cat "$LICENSE_FILE")
                     sed -i ''"$LINE"'s#.*#'"$LICENSE"'#' "$file"
                 fi
-                $WAS_UPDATED=1
+                WAS_UPDATED=1
         fi
 done < <(find "${SRC}/" -type f -name "*.swift" -print0)
 
-exit $WAS_UPDATED
+if [ $WAS_UPDATED != 0 ]; then
+  echo "License injection was required. Please commit all updated files."
+  exit 1
+fi
