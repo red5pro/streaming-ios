@@ -112,6 +112,9 @@ class DetailViewController: UIViewController, UITextFieldDelegate, UINavigationC
     func configureView() {
         // Update the user interface for the detail item.
         
+        // Access the static shared instance to ensure it's loaded
+        _ = Testbed.sharedInstance
+        
         hostText.text = Testbed.parameters!["host"] as? String
 //        portText.text = Testbed.parameters!["server_port"] as? String
         stream1Text.text = Testbed.parameters!["stream1"] as? String
