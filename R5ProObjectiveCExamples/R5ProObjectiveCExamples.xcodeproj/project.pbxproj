@@ -20,13 +20,13 @@
 		926D0B521EE5B4BA00DF810E /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 926D0B511EE5B4BA00DF810E /* QuartzCore.framework */; };
 		926D0B541EE5B4CC00DF810E /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 926D0B531EE5B4CC00DF810E /* CoreFoundation.framework */; };
 		926D0B561EE5B4E800DF810E /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 926D0B551EE5B4E800DF810E /* libz.tbd */; };
-		926D0B581EE5B4F500DF810E /* libstdc++.6.0.9.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 926D0B571EE5B4F500DF810E /* libstdc++.6.0.9.tbd */; };
 		926D0B5A1EE5B50100DF810E /* libiconv.2.4.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 926D0B591EE5B50100DF810E /* libiconv.2.4.0.tbd */; };
-		926D0B5C1EE5B52E00DF810E /* R5Streaming.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 926D0B5B1EE5B52E00DF810E /* R5Streaming.framework */; };
 		926FB6EF1EE6F2B30030F75A /* tests.plist in Resources */ = {isa = PBXBuildFile; fileRef = 926FB6EE1EE6F2B30030F75A /* tests.plist */; };
 		926FB6F21EE6FAD80030F75A /* Testbed.m in Sources */ = {isa = PBXBuildFile; fileRef = 926FB6F11EE6FAD80030F75A /* Testbed.m */; };
 		926FB6F61EE716390030F75A /* BaseTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 926FB6F51EE716390030F75A /* BaseTest.m */; };
 		926FB6FA1EE719610030F75A /* ALToastView.m in Sources */ = {isa = PBXBuildFile; fileRef = 926FB6F71EE717740030F75A /* ALToastView.m */; };
+		929E135A2351088B003A78AD /* R5Streaming.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 926D0B5B1EE5B52E00DF810E /* R5Streaming.framework */; };
+		929E135C235108CF003A78AD /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 929E135B235108CF003A78AD /* libc++.tbd */; };
 		929E3E881EEEEC9B00F2D1E0 /* SubscribeTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 929E3E871EEEEC9B00F2D1E0 /* SubscribeTest.m */; };
 /* End PBXBuildFile section */
 
@@ -53,7 +53,7 @@
 		926D0B551EE5B4E800DF810E /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		926D0B571EE5B4F500DF810E /* libstdc++.6.0.9.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.6.0.9.tbd"; path = "usr/lib/libstdc++.6.0.9.tbd"; sourceTree = SDKROOT; };
 		926D0B591EE5B50100DF810E /* libiconv.2.4.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libiconv.2.4.0.tbd; path = usr/lib/libiconv.2.4.0.tbd; sourceTree = SDKROOT; };
-		926D0B5B1EE5B52E00DF810E /* R5Streaming.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = R5Streaming.framework; path = R5ProObjectiveCExamples/R5Streaming.framework; sourceTree = "<group>"; };
+		926D0B5B1EE5B52E00DF810E /* R5Streaming.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = R5Streaming.framework; sourceTree = "<group>"; };
 		926FB6EE1EE6F2B30030F75A /* tests.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = tests.plist; sourceTree = "<group>"; };
 		926FB6F01EE6F4970030F75A /* Testbed.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Testbed.h; sourceTree = "<group>"; };
 		926FB6F11EE6FAD80030F75A /* Testbed.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Testbed.m; sourceTree = "<group>"; };
@@ -61,6 +61,7 @@
 		926FB6F51EE716390030F75A /* BaseTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BaseTest.m; path = Tests/BaseTest.m; sourceTree = "<group>"; };
 		926FB6F71EE717740030F75A /* ALToastView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALToastView.m; sourceTree = "<group>"; };
 		926FB6F91EE7178E0030F75A /* ALToastView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ALToastView.h; sourceTree = "<group>"; };
+		929E135B235108CF003A78AD /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 		929E3E861EEEEBA300F2D1E0 /* SubscribeTest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SubscribeTest.h; path = Tests/Subscribe/SubscribeTest.h; sourceTree = "<group>"; };
 		929E3E871EEEEC9B00F2D1E0 /* SubscribeTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SubscribeTest.m; path = Tests/Subscribe/SubscribeTest.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -70,13 +71,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				929E135C235108CF003A78AD /* libc++.tbd in Frameworks */,
 				926D0B561EE5B4E800DF810E /* libz.tbd in Frameworks */,
-				926D0B581EE5B4F500DF810E /* libstdc++.6.0.9.tbd in Frameworks */,
 				926D0B5A1EE5B50100DF810E /* libiconv.2.4.0.tbd in Frameworks */,
 				926D0B501EE5B4AD00DF810E /* OpenAL.framework in Frameworks */,
 				926D0B521EE5B4BA00DF810E /* QuartzCore.framework in Frameworks */,
 				926D0B541EE5B4CC00DF810E /* CoreFoundation.framework in Frameworks */,
-				926D0B5C1EE5B52E00DF810E /* R5Streaming.framework in Frameworks */,
+				929E135A2351088B003A78AD /* R5Streaming.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,6 +139,7 @@
 		926D0B4E1EE5B4AC00DF810E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				929E135B235108CF003A78AD /* libc++.tbd */,
 				926D0B591EE5B50100DF810E /* libiconv.2.4.0.tbd */,
 				926D0B571EE5B4F500DF810E /* libstdc++.6.0.9.tbd */,
 				926D0B551EE5B4E800DF810E /* libz.tbd */,
@@ -378,6 +380,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/R5ProObjectiveCExamples",
+					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = R5ProObjectiveCExamples/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -395,6 +398,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/R5ProObjectiveCExamples",
+					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = R5ProObjectiveCExamples/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

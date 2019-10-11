@@ -26,3 +26,4 @@ DerivedData
 #Pods/
 .DS_Store
 custom.connection.plist
+/R5ProObjectiveCExamples/R5ProObjectiveCExamples.xcodeproj/project.xcworkspace/xcshareddata/IDEWorkspaceChecks.plist
