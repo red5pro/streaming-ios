@@ -33,6 +33,11 @@
 
 @end
 
+/**
+ * @param samples   A data object containing the raw audio from the mic
+ * @param streamtimeMill    current stream time in milliseconds for timing purposes
+ */
+typedef void (^AudioModHandle)(NSMutableData*, double);
 
 /**
  *  @brief R5Microphone encapsulates an AVCaptureDevice and provides data to the R5Stream for publishing.
@@ -44,6 +49,7 @@
 @property int channels;             //!< number of channels to capture
 @property int bitrate;              //!< bitrate in kbps
 @property R5AudioController *audioController; //!< Audio Controller for recording.  Defaults to shared instance.
+@property AudioModHandle processData; //!< block to handle modifying or replacing raw audio from the microphone
 
 /**
  *  A microphone input for R5Stream
