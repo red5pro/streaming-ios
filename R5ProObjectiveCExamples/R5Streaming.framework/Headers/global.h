@@ -154,13 +154,13 @@ extern "C" {
 
     /**
       \ingroup Global
-     * Enum to match with protocal values in config and context
+     * Enum to match with protocol values in config and context
      */
-    enum protocols {
+    enum r5_protocol {
         r5_rtsp = 1,        //Basic flow
         r5_srtp = 2,        //rtsp with encrypted payloads and hash authentication
         r5_null_srtp = 3    //srtp without encryption
-    } R5Protocol;
+    };
 
 
     /**
