@@ -112,7 +112,7 @@ Once you have modified your settings, you can run the application for simulator 
 | *Touch the subscribe stream to take a screen shot that is displayed!*
 | **[Metal View](R5ProTestbed/Tests/SubscribeMetalView)**
 | *Uses a metal based view to display a stream.*
-| **[Mute](R5ProTestbed/Tests/SubscribeMute)**
+| **[Mute](R5ProTestbed/Tests/SubscribeMuteAudio)**
 | *Allows toggle of mute playback.*
 | **[No View](R5ProTestbed/Tests/SubscribeNoView)**
 | *A proof of using an audio only stream without attaching it to a view.*
