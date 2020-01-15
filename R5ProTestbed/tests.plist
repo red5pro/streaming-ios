@@ -7,7 +7,7 @@
 		<key>license_key</key>
 		<string></string>
 		<key>server_port</key>
-		<string>5080</string>
+		<string>443</string>
 		<key>bitrate</key>
 		<integer>750</integer>
 		<key>host</key>
@@ -35,7 +35,7 @@
 		<key>record_on</key>
 		<false/>
 		<key>append_on</key>
-		<true/>
+		<false/>
 		<key>fps</key>
 		<integer>15</integer>
 		<key>sm_version</key>
