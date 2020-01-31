@@ -37,7 +37,7 @@ Once you have modified your settings, you can run the application for simulator 
 | **[Aspect Ratio](R5ProTestbed/Tests/PublishAspect)**
 | *A publish example that includes modifying the scale mode of the preview display*
 | **[Authentication](R5ProTestbed/Tests/PublishAuth)**
-| *An example of publishing a stream as an authenticated user* 
+| *An example of publishing a stream as an authenticated user*
 | **[AV Category](R5ProTestbed/Tests/PublishAVCategory)**
 | *A publish example that includes manual handling of iOS's AV Session*   
 | **[Background](R5ProTestbed/Tests/PublishBackground)**
@@ -82,8 +82,8 @@ Once you have modified your settings, you can run the application for simulator 
 | *The two way example, modified to work with a stream manager. Includes stream detection and auto-connection.*
 | **[Shared Object](R5ProTestbed/Tests/SharedObject)**
 | *An example of sending data and messages between clients through remote shared objects.*
-| **[Send/Recieve](R5ProTestbed/Tests/SubscribeReceiveSend)**
-| *An example of sending data and messages from a Broadcaster to N-Subscribers.*
+| **[Shared Object Streamless](R5ProTestbed/Tests/SharedObjectStreamless)**
+| *An example of using Shared Objects without a media stream.*
 
 ### [Subscribing](R5ProTestbed/Tests/Subscribe)
 
@@ -95,7 +95,7 @@ Once you have modified your settings, you can run the application for simulator 
 | **[Authentication](R5ProTestbed/Tests/SubscribeAuth)**
 | *An example of subscribing to a stream as an authenticated user*   
 | **[AV Category](R5ProTestbed/Tests/SubscribeAVCategory)**
-| *A subscribe example that includes manual handling of iOS's AV Session* 
+| *A subscribe example that includes manual handling of iOS's AV Session*
 | **[Background](R5ProTestbed/Tests/SubscribeBackground)**
 | *A subscribing example that can continue when the app moves into the background*
 | **[Bandwidth Test](R5ProTestbed/Tests/SubscribeBandwidth)**
@@ -108,6 +108,8 @@ Once you have modified your settings, you can run the application for simulator 
 | *An example of connecting to a cluster server.*
 | **[Encrypted](R5ProTestbed/Tests/SubscribeEncrypted)**
 | *An example that encrypts all traffic between the device and server.*
+| **[Hardware Acceleration](R5ProTestbed/Tests/SubscribeHardwareAcceleration)**
+| *Touch the subscribe stream to take a screen shot that is displayed!*
 | **[Image Capture](R5ProTestbed/Tests/SubscribeStreamImage)**
 | *Touch the subscribe stream to take a screen shot that is displayed!*
 | **[Metal View](R5ProTestbed/Tests/SubscribeMetalView)**
@@ -120,12 +122,18 @@ Once you have modified your settings, you can run the application for simulator 
 | *An example of reconnecting to a stream on a connection error.*
 | **[Remote Call](R5ProTestbed/Tests/RemoteCall)**
 | *The subscribe portion of the remote call example - receives the remote call.*
+| **[Render Swap](R5ProTestbed/Tests/SubscribeRendererSwap)**
+| *Allows swap of renderer for stream playback.*
+| **[Render RGB](R5ProTestbed/Tests/SubscribeForceRGBScalar)**
+| *Forces RGB Scalar (SW) decoder for stream playback.*
 | **[Set Volume](R5ProTestbed/Tests/SubscribeSetVolume)**
 | *Shows setting the playback volume for the stream.*
 | **[Stream Manager](R5ProTestbed/Tests/SubscribeStreamManager)**
 | *A subscribe example that connects with a server cluster using a Stream Manger*
 | **[Stream Manager Encrypted](R5ProTestbed/Tests/SubscribeSMEncrypted)**
 | *A subsribe example that encrypts traffic while receiving a broadcast over Stream Manager.*
+| **[Stream Manager Transcoder](R5ProTestbed/Tests/SubscribeStreamManagerTranscoder)**
+| *A subscribe example that demonstrates ABR with the Stream Manager.*
 | **[Telephony Interrupt](R5ProTestbed/Tests/SubscribeTelephonyInterrupt)**
 | *An example on `"gracefully"` responding to interrupts while subscribed to a broadcasting - such as the publisher receiving an declining a phone call*
 | **[Two Streams](R5ProTestbed/Tests/SubscribeTwoStreams)**
