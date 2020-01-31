@@ -32,6 +32,8 @@
 		<true/>
 		<key>audio_on</key>
 		<true/>
+		<key>hwaccel_on</key>
+		<false/>
 		<key>record_on</key>
 		<false/>
 		<key>append_on</key>
@@ -40,6 +42,8 @@
 		<integer>15</integer>
 		<key>sm_version</key>
 		<string>3.1</string>
+		<key>sm_access_token</key>
+		<string>xyz123</string>
 	</dict>
 	<key>Tests</key>
 	<dict>
@@ -80,7 +84,7 @@
 		<key>publish - ABR</key>
 		<dict>
 			<key>description</key>
-			<string>A publisher with AdaptiveBitrateController</string>
+			<string>A high quality publisher with AdaptiveBitrateController</string>
 			<key>LocalProperties</key>
 			<dict>
 				<key>camera_width</key>
@@ -89,6 +93,8 @@
 				<integer>360</integer>
 				<key>bitrate</key>
 				<integer>1000</integer>
+				<key>fps</key>
+				<integer>15</integer>
 			</dict>
 			<key>name</key>
 			<string>Publish - ABR</string>
@@ -122,16 +128,16 @@
 			<key>class</key>
 			<string>PublishAuthTest</string>
 		</dict>
-		<key>publish - AV Category</key>
+		<key>publish - AVCategory</key>
 		<dict>
-			<key>description</key>
-			<string>A publish example that includes manual handling of iOS&apos;s AV Session</string>
 			<key>LocalProperties</key>
 			<dict/>
 			<key>name</key>
 			<string>Publish - AV Category</string>
 			<key>class</key>
 			<string>PublishAVCategoryTest</string>
+			<key>description</key>
+			<string>An example of overriding default AVCategory settings.</string>
 		</dict>
 		<key>publish - Background</key>
 		<dict>
@@ -143,61 +149,6 @@
 			<string>Publish - Background</string>
 			<key>class</key>
 			<string>PublishBackgroundTest</string>
-		</dict>
-		<key>publish - Bandwidth Test</key>
-		<dict>
-			<key>description</key>
-			<string>An example that tests the upload speed between the device and server before publishing</string>
-			<key>LocalProperties</key>
-			<dict/>
-			<key>name</key>
-			<string>Publish - Bandwidth Upload Detection</string>
-			<key>class</key>
-			<string>BandwidthDetectionUploadOnlyTest</string>
-		</dict>
-		<key>publish - Bandwidth Download Detection</key>
-		<dict>
-			<key>description</key>
-			<string>An example that tests the download speed between the device and server before publishing</string>
-			<key>LocalProperties</key>
-			<dict/>
-			<key>name</key>
-			<string>Publish - Bandwidth Download Detection</string>
-			<key>class</key>
-			<string>BandwidthDetectionDownloadOnlyTest</string>
-		</dict>
-		<key>publish - Bandwidth Dual Detection</key>
-		<dict>
-			<key>description</key>
-			<string>An example that tests both the download and upload speed between the device and server before publishing</string>
-			<key>LocalProperties</key>
-			<dict/>
-			<key>name</key>
-			<string>Publish - Bandwidth Dual Detection</string>
-			<key>class</key>
-			<string>BandwidthDetectionTest</string>
-		</dict>
-		<key>publish - Bandwidth Upload Detection</key>
-		<dict>
-			<key>description</key>
-			<string>An example that tests the upload speed between the device and server before publishing</string>
-			<key>LocalProperties</key>
-			<dict/>
-			<key>name</key>
-			<string>Publish - Bandwidth Upload Detection</string>
-			<key>class</key>
-			<string>BandwidthDetectionUploadOnlyTest</string>
-		</dict>
-		<key>publish - Camera Device Orientation</key>
-		<dict>
-			<key>description</key>
-			<string>A combination of the Camera Swap and Device Orientation examples</string>
-			<key>LocalProperties</key>
-			<dict/>
-			<key>name</key>
-			<string>Publish - Camera Device Orientation</string>
-			<key>class</key>
-			<string>PublishCameraDeviceOrientationTest</string>
 		</dict>
 		<key>publish - Camera Swap</key>
 		<dict>
@@ -231,6 +182,17 @@
 			<string>Publish - Device Orientation</string>
 			<key>class</key>
 			<string>PublishDeviceOrientationTest</string>
+		</dict>
+		<key>publish - Camera Swap &amp; Orientation</key>
+		<dict>
+			<key>description</key>
+			<string>Orientation with Camera Swap support</string>
+			<key>Local Properties</key>
+			<dict/>
+			<key>name</key>
+			<string>Publish - Camera + Device Orientation</string>
+			<key>class</key>
+			<string>PublishCameraDeviceOrientationTest</string>
 		</dict>
 		<key>publish - Encrypted</key>
 		<dict>
@@ -275,17 +237,6 @@
 			<string>Publish - Local Recording</string>
 			<key>class</key>
 			<string>PublishLocalRecordTest</string>
-		</dict>
-		<key>publish - Orientation</key>
-		<dict>
-			<key>description</key>
-			<string>Touch the screen to rotate the output video 90 degrees.  Verify with flash, android, or other iOS device running subscribe test.</string>
-			<key>LocalProperties</key>
-			<dict/>
-			<key>name</key>
-			<string>Publish - Orientation Change</string>
-			<key>class</key>
-			<string>PublishOrientationTest</string>
 		</dict>
 		<key>publish - Pause</key>
 		<dict>
@@ -334,7 +285,7 @@
 		<key>publish - Stream Manager Encrypted</key>
 		<dict>
 			<key>description</key>
-			<string>A publish example that encrypts traffic durring a broadcast over Stream Manager.</string>
+			<string>A publish example that connects to a cluster server with the Stream Manager - using SRTP Encryption.</string>
 			<key>LocalProperties</key>
 			<dict/>
 			<key>name</key>
@@ -345,24 +296,38 @@
 		<key>publish - Stream Manager Transcoder</key>
 		<dict>
 			<key>description</key>
-			<string>A publish example that uses transcoding broadcast over Stream Manager.</string>
+			<string>A publish example that uses transcoding broadcast over Stream Manager</string>
 			<key>LocalProperties</key>
-			<dict/>
+			<dict>
+				<key>high_bitrate</key>
+				<real>1500000</real>
+				<key>high_width</key>
+				<integer>1280</integer>
+				<key>high_height</key>
+				<integer>720</integer>
+				<key>med_bitrate</key>
+				<real>600000</real>
+				<key>med_width</key>
+				<integer>640</integer>
+				<key>med_height</key>
+				<integer>360</integer>
+				<key>low_bitrate</key>
+				<real>400000</real>
+				<key>low_width</key>
+				<integer>480</integer>
+				<key>low_height</key>
+				<integer>270</integer>
+				<key>fps</key>
+				<array>
+					<integer>15</integer>
+					<integer>15</integer>
+					<integer>15</integer>
+				</array>
+			</dict>
 			<key>name</key>
 			<string>Publish - Stream Manager Transcoder</string>
 			<key>class</key>
 			<string>PublishStreamManagerTranscodeTest</string>
-		</dict>
-		<key>publish - Stream Send</key>
-		<dict>
-			<key>description</key>
-			<string>A publish example that makes a stream send</string>
-			<key>LocalProperties</key>
-			<dict/>
-			<key>name</key>
-			<string>Publish - Stream Send</string>
-			<key>class</key>
-			<string>PublishSendTest</string>
 		</dict>
 		<key>publish - Telephony Interrupt</key>
 		<dict>
@@ -397,6 +362,17 @@
 			<key>class</key>
 			<string>SharedObjectTest</string>
 		</dict>
+		<key>Shared Object - Streamless</key>
+		<dict>
+			<key>description</key>
+			<string>An example of using Shared Objects without a media stream</string>
+			<key>Local Properties</key>
+			<dict/>
+			<key>name</key>
+			<string>Shared Object - Streamless</string>
+			<key>class</key>
+			<string>SharedObjectStreamlessTest</string>
+		</dict>
 		<key>subscribe</key>
 		<dict>
 			<key>LocalProperties</key>
@@ -405,6 +381,18 @@
 			<string>Subscribe</string>
 			<key>class</key>
 			<string>SubscribeTest</string>
+		</dict>
+		<key>subscribe - 360</key>
+		<dict>
+			<key>LocalProperties</key>
+			<dict>
+				<key>fps</key>
+				<integer>30</integer>
+			</dict>
+			<key>name</key>
+			<string>[hw] subscribe - 360 Camera</string>
+			<key>class</key>
+			<string>Subscribe360Test</string>
 		</dict>
 		<key>subscribe - Aspect Ratio</key>
 		<dict>
@@ -446,14 +434,14 @@
 		</dict>
 		<key>subscribe - AV Category</key>
 		<dict>
-			<key>description</key>
-			<string>A subscribe example that includes manual handling of iOS&apos;s AV Session</string>
 			<key>LocalProperties</key>
 			<dict/>
 			<key>name</key>
-			<string>Subscribe - AV Category</string>
+			<string>subscribe - AV Category</string>
 			<key>class</key>
 			<string>SubscribeAVCategoryTest</string>
+			<key>description</key>
+			<string>An example of overriding default AVCategory settings.</string>
 		</dict>
 		<key>subscribe - Background</key>
 		<dict>
@@ -462,9 +450,23 @@
 			<key>LocalProperties</key>
 			<dict/>
 			<key>name</key>
-			<string>Subscribe - Background</string>
+			<string>Subscribe - Background Test</string>
 			<key>class</key>
 			<string>SubscribeBackgroundTest</string>
+		</dict>
+		<key>subscribe - BandwidthTest</key>
+		<dict>
+			<key>description</key>
+			<string>Detect Insufficient and Sufficient BW flags.  Test on a poor network using a publisher that has high video quality. Video should become sporadic or stop altogether.  The screen will darken when no video is being received.</string>
+			<key>LocalProperties</key>
+			<dict>
+				<key>buffer_time</key>
+				<integer>2</integer>
+			</dict>
+			<key>name</key>
+			<string>Subscribe - Bandwidth Test</string>
+			<key>class</key>
+			<string>SubscriberBandwidthTest</string>
 		</dict>
 		<key>subscribe - Cluster</key>
 		<dict>
@@ -487,6 +489,18 @@
 			<string>Subscribe - Encrypted</string>
 			<key>class</key>
 			<string>SubscribeEncryptedTest</string>
+		</dict>
+		<key>subscribe - Hardware Acceleration</key>
+		<dict>
+			<key>LocalProperties</key>
+			<dict>
+				<key>fps</key>
+				<integer>30</integer>
+			</dict>
+			<key>name</key>
+			<string>[hw] subscribe - Hardware Acceleration</string>
+			<key>class</key>
+			<string>SubscribeHardwareAccelerationTest</string>
 		</dict>
 		<key>subscribe - Image Capture</key>
 		<dict>
@@ -552,10 +566,19 @@
 			<key>class</key>
 			<string>SubscribeRemoteCallTest</string>
 		</dict>
+		<key>subscribe - SetFrame</key>
+		<dict>
+			<key>LocalProperties</key>
+			<dict/>
+			<key>name</key>
+			<string>Subscribe - Set Frame Size</string>
+			<key>class</key>
+			<string>SubscribeSetSizeTest</string>
+		</dict>
 		<key>subscribe - Set Volume</key>
 		<dict>
 			<key>description</key>
-			<string>Shows setting the playback volume for the stream</string>
+			<string>Simple example to toggle volume on and off for subscriber</string>
 			<key>LocalProperties</key>
 			<dict/>
 			<key>name</key>
@@ -577,7 +600,7 @@
 		<key>subscribe - Stream Manager Encrypted</key>
 		<dict>
 			<key>description</key>
-			<string>A subsribe example that encrypts traffic while receiving a broadcast over Stream Manager.</string>
+			<string>A subscribe example that connects to a cluster server with the Stream Manager - using SRTP Encryption.</string>
 			<key>LocalProperties</key>
 			<dict/>
 			<key>name</key>
@@ -585,27 +608,16 @@
 			<key>class</key>
 			<string>SubscribeSMEncryptedTest</string>
 		</dict>
-		<key>subscribe - Stream Send</key>
+		<key>subscribe - Stream Manager Transcoder</key>
 		<dict>
 			<key>description</key>
-			<string>A subscribe example that receives stream send events</string>
+			<string>A subscribe example that demonstrates ABR with the Stream Manager.</string>
 			<key>LocalProperties</key>
 			<dict/>
 			<key>name</key>
-			<string>Subscribe - Stream Send</string>
+			<string>Subscribe - Stream Manager Transcoder</string>
 			<key>class</key>
-			<string>SubscribeReceiveSendTest</string>
-		</dict>
-		<key>subscribe - Telephony Interrupt</key>
-		<dict>
-			<key>description</key>
-			<string>A subscriber example that responds to publisher telephony interrupt.</string>
-			<key>LocalProperties</key>
-			<dict/>
-			<key>name</key>
-			<string>Subscribe - Telephony Interrupt</string>
-			<key>class</key>
-			<string>SubscribeTelephonyInterruptTest</string>
+			<string>SubscribeStreamManagerTranscoderTest</string>
 		</dict>
 		<key>subscribe - Two Streams</key>
 		<dict>
@@ -617,6 +629,39 @@
 			<string>Subscribe - Two Streams</string>
 			<key>class</key>
 			<string>SubscribeTwoStreams</string>
+		</dict>
+		<key>subscribe - Renderer Swap</key>
+		<dict>
+			<key>description</key>
+			<string>Allows swap of renderer for stream playback</string>
+			<key>LocalProperties</key>
+			<dict/>
+			<key>name</key>
+			<string>[hw] subscribe - Renderer Swap</string>
+			<key>class</key>
+			<string>SubscribeRendererSwapTest</string>
+		</dict>
+		<key>subscribe - Renderer RGB</key>
+		<dict>
+			<key>description</key>
+			<string>Forces RGB Scalar (SW) decoder for stream playback</string>
+			<key>LocalProperties</key>
+			<dict/>
+			<key>name</key>
+			<string>[hw] subscribe - Renderer RGB</string>
+			<key>class</key>
+			<string>SubscribeForceRGBScalarTest</string>
+		</dict>
+		<key>subscribe - Telephony Interrupt</key>
+		<dict>
+			<key>description</key>
+			<string>A subscriber example that responds to publisher telephony interrupt.</string>
+			<key>LocalProperties</key>
+			<dict/>
+			<key>name</key>
+			<string>Subscribe - Telephony Interrupt</string>
+			<key>class</key>
+			<string>SubscribeTelephonyInterruptTest</string>
 		</dict>
 		<key>TwoWay</key>
 		<dict>
@@ -639,6 +684,39 @@
 			<string>Two Way - Stream Manager</string>
 			<key>class</key>
 			<string>TwoWayStreamManagerTest</string>
+		</dict>
+		<key>bandwidth detection</key>
+		<dict>
+			<key>LocalProperties</key>
+			<dict/>
+			<key>name</key>
+			<string>Bandwidth Detection</string>
+			<key>class</key>
+			<string>BandwidthDetectionTest</string>
+			<key>description</key>
+			<string>An example of utlizing bandwidth detection</string>
+		</dict>
+		<key>bandwidth detection - download</key>
+		<dict>
+			<key>LocalProperties</key>
+			<dict/>
+			<key>name</key>
+			<string>Bandwidth Detection (Download)</string>
+			<key>class</key>
+			<string>BandwidthDetectionDownloadOnlyTest</string>
+			<key>description</key>
+			<string>An example of utlizing bandwidth detection for download speeds only</string>
+		</dict>
+		<key>bandwidth detection - upload</key>
+		<dict>
+			<key>LocalProperties</key>
+			<dict/>
+			<key>name</key>
+			<string>Bandwidth Detection (Upload)</string>
+			<key>class</key>
+			<string>BandwidthDetectionUploadOnlyTest</string>
+			<key>description</key>
+			<string>An example of utlizing bandwidth detection for upload speeds only</string>
 		</dict>
 	</dict>
 </dict>
