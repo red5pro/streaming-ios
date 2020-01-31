@@ -35,27 +35,9 @@ import R5Streaming
 @objc(SubscribeMetalViewTest)
 class SubscribeMetalViewTest: BaseTest {
     
+    var current_rotation = 0
     var metalView: R5MetalVideoViewController? = nil;
     
-    var current_rotation = 0;
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
-        
-        setupR5MetalVideoViewController()
-        
-        let config = getConfig()
-        // Set up the connection and stream
-        let connection = R5Connection(config: config)
-        self.subscribeStream = R5Stream(connection: connection)
-        
-        metalView?.attach(subscribeStream)
-        
-        self.subscribeStream!.play(Testbed.getParameter(param: "stream1") as! String)
-        
-    }
-
     func setupR5MetalVideoViewController() {
         
         let view : UIView = UIView(frame: self.view.frame)
@@ -73,4 +55,69 @@ class SubscribeMetalViewTest: BaseTest {
         metalView?.showDebugInfo(Testbed.getParameter(param: "debug_view") as! Bool)
         
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        setupR5MetalVideoViewController()
+        
+        let config = getConfig()
+        // Set up the connection and stream
+        let connection = R5Connection(config: config)
+        self.subscribeStream = R5Stream(connection: connection)
+        
+        metalView?.attach(subscribeStream)
+        
+        self.subscribeStream!.play(Testbed.getParameter(param: "stream1") as! String, withHardwareAcceleration: Testbed.getParameter(param: "hwaccel_on") as! Bool)
+        
+    }
+    
+    override func viewDidLayoutSubviews() {
+        
+        super.viewDidLayoutSubviews()
+        
+        if(metalView != nil){
+            
+            metalView?.setFrame(view.frame);
+        }
+        
+    }
+    
+    func updateOrientation(value: Int) {
+        
+        if current_rotation == value {
+            return
+        }
+        
+        current_rotation = value
+        currentView?.view.layer.transform = CATransform3DMakeRotation(CGFloat(value), 0.0, 0.0, 0.0);
+        
+    }
+    
+    func onMetaData(data : String) {
+        
+        let props = data.characters.split(separator: ";").map(String.init)
+        props.forEach { (value: String) in
+            let kv = value.characters.split(separator: "=").map(String.init)
+            if (kv[0] == "orientation") {
+                updateOrientation(value: Int(kv[1])!)
+            }
+        }
+        
+    }
+    
+    override func onR5StreamStatus(_ stream: R5Stream!, withStatus statusCode: Int32, withMessage msg: String!) {
+        super.onR5StreamStatus(stream, withStatus: statusCode, withMessage: msg)
+        
+        if( Int(statusCode) == Int(r5_status_start_streaming.rawValue) ){
+            
+            let session : AVAudioSession = AVAudioSession.sharedInstance()
+            let cat = session.category
+            let opt = session.categoryOptions
+            
+            let s =  String(format: "AV: %@ (%d)",  cat.rawValue, opt.rawValue)
+            ALToastView.toast(in: self.view, withText:s)
+        }
+    }
+
 }

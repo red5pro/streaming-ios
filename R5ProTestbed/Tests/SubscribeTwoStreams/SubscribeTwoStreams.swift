@@ -67,14 +67,7 @@ class SubscribeTwoStreams: BaseTest {
         
         self.subscribeStream!.audioController = R5AudioController()
         
-        self.subscribeStream!.play(Testbed.getParameter(param: "stream1") as! String)
-        
-        
-        let connection2 = R5Connection(config: config)
-        
-        self.subscribeStream2 = R5Stream(connection: connection2 )
-        self.subscribeStream2!.delegate = self
-        self.subscribeStream2?.client = self;
+        self.subscribeStream!.play(Testbed.getParameter(param: "stream1") as! String, withHardwareAcceleration:Testbed.getParameter(param: "hwaccel_on") as! Bool)
         
         secondView = getNewR5VideoViewController(rect: CGRect( x: 0, y: screenSize.height / 2, width: screenSize.width, height: screenSize.height / 2 ))
         self.addChild(secondView!)
@@ -83,11 +76,21 @@ class SubscribeTwoStreams: BaseTest {
         
         secondView?.view.center = CGPoint( x: screenSize.width/2, y: 3 * (screenSize.height/4) )
         
-        secondView?.attach(subscribeStream2)
-        
-        self.subscribeStream2?.audioController = R5AudioController()
-        
-        self.subscribeStream2?.play(Testbed.getParameter(param: "stream2") as! String)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+            
+            let connection2 = R5Connection(config: config)
+            
+            self.subscribeStream2 = R5Stream(connection: connection2 )
+            self.subscribeStream2!.delegate = self
+            self.subscribeStream2?.client = self;
+            
+            self.secondView?.attach(self.subscribeStream2)
+            
+            self.subscribeStream2?.audioController = R5AudioController()
+            
+            self.subscribeStream2?.play(Testbed.getParameter(param: "stream2") as! String, withHardwareAcceleration:Testbed.getParameter(param: "hwaccel_on") as! Bool)
+            
+        }
     }
     
     @objc func onMetaData(data : String){

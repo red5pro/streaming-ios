@@ -50,7 +50,7 @@ class SubscribeSetVolumeTest: BaseTest {
         
         currentView?.attach(subscribeStream)
         
-        self.subscribeStream!.play(Testbed.getParameter(param: "stream1") as! String)
+        self.subscribeStream!.play(Testbed.getParameter(param: "stream1") as! String, withHardwareAcceleration:Testbed.getParameter(param: "hwaccel_on") as! Bool)
         
         let f = self.view.frame
         slider = UISlider(frame: CGRect(x:40, y:f.size.height - 40, width:f.size.width - 80, height:20))

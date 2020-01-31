@@ -35,6 +35,8 @@ import R5Streaming
 @objc(PublishPauseTest)
 class PublishPauseTest: BaseTest {
 
+    var audioBtn: UIButton? = nil
+    var videoBtn: UIButton? = nil
     
     override func viewDidAppear(_ animated: Bool) {
         
@@ -60,12 +62,38 @@ class PublishPauseTest: BaseTest {
         
         self.publishStream!.publish(Testbed.getParameter(param: "stream1") as! String, type: getPublishRecordType ())
         
-        
-        let tap : UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleSingleTap(recognizer:)))
 
-        self.view.addGestureRecognizer(tap)
-
+        let screenSize = UIScreen.main.bounds.size
         
+        audioBtn = UIButton(frame: CGRect(x: (screenSize.width * 0.6) - 50, y: screenSize.height - 40, width: 50, height: 40))
+        audioBtn?.backgroundColor = UIColor.darkGray
+        audioBtn?.setTitle("audio", for: UIControl.State.normal)
+        view.addSubview(audioBtn!)
+        let tap = UITapGestureRecognizer(target: self, action: #selector(PublishPauseTest.pauseAudio))
+        audioBtn?.addGestureRecognizer(tap)
+        
+        videoBtn = UIButton(frame: CGRect(x: (screenSize.width * 0.6) - 120, y: screenSize.height - 40, width: 50, height: 40))
+        videoBtn?.backgroundColor = UIColor.darkGray
+        videoBtn?.setTitle("video", for: UIControl.State.normal)
+        view.addSubview(videoBtn!)
+        let tap2 = UITapGestureRecognizer(target: self, action: #selector(PublishPauseTest.pauseVideo))
+        videoBtn?.addGestureRecognizer(tap2)
+        
+    }
+    
+    @objc func pauseAudio() {
+        
+        let hasAudio = !(self.publishStream?.pauseAudio)!;
+        self.publishStream?.pauseAudio = hasAudio;
+        ALToastView.toast(in: self.view, withText:"Pausing Audio")
+        
+    }
+    
+    @objc func pauseVideo() {
+        
+        let hasVideo = !(self.publishStream?.pauseVideo)!;
+        self.publishStream?.pauseVideo = hasVideo;
+        ALToastView.toast(in: self.view, withText:"Pausing Video")
         
     }
 

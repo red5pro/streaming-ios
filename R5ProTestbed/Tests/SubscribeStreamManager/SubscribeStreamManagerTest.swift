@@ -37,9 +37,9 @@ class SubscribeStreamManagerTest: BaseTest {
     
     func showInfo(title: String, message: String){
         //        let test = self
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
         //        let controller = appDelegate.window!.rootViewController
         DispatchQueue.main.async(execute: {
+            let appDelegate = UIApplication.shared.delegate as! AppDelegate
             let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
             alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: { action in
                 // Trying to redirect user to details form...
@@ -49,7 +49,7 @@ class SubscribeStreamManagerTest: BaseTest {
         })
     }
     
-    func requestOrigin(_ url: String, resolve: @escaping (_ ip: String?, _ error: Error?) -> Void) {
+    func requestEdge(_ url: String, resolve: @escaping (_ ip: String?, _ error: Error?) -> Void) {
         
         NSURLConnection.sendAsynchronousRequest(
             NSURLRequest( url: NSURL(string: url)! as URL ) as URLRequest,
@@ -70,6 +70,7 @@ class SubscribeStreamManagerTest: BaseTest {
                     json = try JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions()) as! [String: AnyObject]
                 }catch{
                     print(error)
+                    self.showInfo(title: "Error", message: String(error.localizedDescription))
                     return
                 }
                 
@@ -95,7 +96,7 @@ class SubscribeStreamManagerTest: BaseTest {
                     self.showInfo(title: "Error", message: String(error!.localizedDescription) + "\n\n" + "You may be trying to access over HTTPS which requires a Fully-Qualified Domain Name for host.\n\nYou will need to edit your host and port settings accordingly.")
                 }
                 else {
-                    self.requestOrigin(urls.popLast()!, resolve: self.responder(urls: urls))
+                    self.requestEdge(urls.popLast()!, resolve: self.responder(urls: urls))
                 }
                 return;
             }
@@ -121,7 +122,7 @@ class SubscribeStreamManagerTest: BaseTest {
                 
                 self.currentView?.attach(self.subscribeStream)
                 
-                self.subscribeStream!.play(Testbed.getParameter(param: "stream1") as! String)
+                self.subscribeStream!.play(Testbed.getParameter(param: "stream1") as! String, withHardwareAcceleration:Testbed.getParameter(param: "hwaccel_on") as! Bool)
                 
                 let label = UILabel(frame: CGRect(x: 0, y: self.view.frame.height-24, width: self.view.frame.width, height: 24))
                 label.textAlignment = NSTextAlignment.left
@@ -152,7 +153,7 @@ class SubscribeStreamManagerTest: BaseTest {
         
         var urls = [httpString, httpsString]
         
-        requestOrigin(urls.popLast()!, resolve: responder(urls: urls))
+        requestEdge(urls.popLast()!, resolve: responder(urls: urls))
         
     }
     

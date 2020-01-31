@@ -60,7 +60,7 @@ class SubscribeMuteTest: BaseTest {
         
         currentView?.attach(subscribeStream)
         
-        self.subscribeStream!.play(Testbed.getParameter(param: "stream1") as! String)
+        self.subscribeStream!.play(Testbed.getParameter(param: "stream1") as! String, withHardwareAcceleration:Testbed.getParameter(param: "hwaccel_on") as! Bool)
         
         let screenSize = UIScreen.main.bounds.size
         toggleBtn = UIButton(frame: CGRect(x: 0, y: screenSize.height - 38, width: screenSize.width, height: 34))
@@ -112,7 +112,7 @@ class SubscribeMuteTest: BaseTest {
             let s =  String(format: "AV: %@ (%d)",  cat.rawValue, opt.rawValue)
             ALToastView.toast(in: self.view, withText:s)
             
-//            self.subscribeStream?.setFrameListener({data, width, height in
+//            self.subscribeStream?.setFrameListener({data, format, size, width, height in
 //                uncomment for frameListener stress testing
 //            })
         }

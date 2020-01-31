@@ -47,7 +47,7 @@ class SubscribeSetSizeTest: BaseTest {
         
         currentView?.attach(subscribeStream)
         
-        self.subscribeStream!.play(Testbed.getParameter(param: "stream1") as! String)
+        self.subscribeStream!.play(Testbed.getParameter(param: "stream1") as! String, withHardwareAcceleration:Testbed.getParameter(param: "hwaccel_on") as! Bool)
         
         
         let tap : UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleSingleTap(recognizer:)))

@@ -4,12 +4,12 @@ With clustering, we need to determine which red5 pro instance the client will us
 
 With the Stream Manager, our configuration IP will be used similarly for publishers and subscribers. Both publishers and subscribers will call a web service to receive the IP that should be used. Since this is an HTTP call, you can use a DNS Name for the `host` value. 
 
-### Example Code
+## Example Code
 
 - ***[BaseTest.swift](../BaseTest.swift)***
 - ***[SubscribeStreamManagerTest.swft](SubscribeStreamManagerTest.swft)***
 
-### Setup
+## Setup
 
 In order to subscribe, you first need to connect to the autoscaling Stream Manager. The Stream Manager will know which edges are active and provide the one that you need to subscribe from.
 

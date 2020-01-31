@@ -23,7 +23,7 @@ config.parameters = "username=foo;password=bar;"
 
 In the example, the `username` and `password` values are defined in the [test.plist](../../tests.plist#L180-L186) file entry for the *Publish - Auth* test. They are accessed and provided to the `R5Configuration` instance prior to establishing a connection:
 
-```
+```swift
 // Set up the configuration
 let config = getConfig()
 let username = Testbed.localParameters!["username"] as! String
