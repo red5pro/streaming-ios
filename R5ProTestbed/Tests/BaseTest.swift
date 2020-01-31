@@ -209,14 +209,16 @@ class BaseTest: UIViewController , R5StreamDelegate {
         return currentView!
     }
     
-    func getNewR5VideoViewController(rect : CGRect) -> R5VideoViewController{
+    func getNewR5VideoViewController(rect : CGRect) -> R5VideoViewController {
         
         let view : UIView = UIView(frame: rect)
         
-        let r5View : R5VideoViewController = R5VideoViewController();
+        var r5View : R5VideoViewController
+        r5View = R5VideoViewController.init()
         r5View.view = view;
         
         return r5View;
+            
     }
     
     open override var shouldAutorotate:Bool {
