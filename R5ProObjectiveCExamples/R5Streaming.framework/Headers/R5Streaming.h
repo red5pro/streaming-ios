@@ -18,6 +18,7 @@ FOUNDATION_EXPORT const unsigned char R5StreamingVersionString[];
 
 #import <R5Streaming/R5VideoViewController.h>
 #import <R5Streaming/R5MetalVideoViewController.h>
+#import <R5Streaming/R5VideoViewRenderer.h>
 #import <R5Streaming/R5Connection.h>
 #import <R5Streaming/R5Stream.h>
 #import <R5Streaming/R5Configuration.h>
