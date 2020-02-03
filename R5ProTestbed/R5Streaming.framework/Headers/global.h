@@ -21,8 +21,8 @@ extern "C" {
 #define STRINGIFY_(s) #s
 #define STRINGIFY(s) STRINGIFY_(s)
 
-#define R5PRO_MAJOR_VERSION         5
-#define R5PRO_MINOR_VERSION         7
+#define R5PRO_MAJOR_VERSION         6
+#define R5PRO_MINOR_VERSION         0
 #define R5PRO_REVISION              0
 #define R5PRO_BUILD                 0
 
@@ -33,6 +33,8 @@ extern "C" {
 
 #define SEC_TO_NANO 1e9
 #define SEC_TO_MS 1e3
+
+#define SW_DECODE_YUV               1
 
 #if defined(__APPLE__) && defined(__MACH__)
 /* Apple OSX and iOS (Darwin). ------------------------------ */
@@ -107,7 +109,8 @@ extern "C" {
         r5_status_video_render_start,   //!< Subscriber has rendered first video frame.
         r5_status_abr_level_change,     //!< ABR Publisher has changed broadcast level.
         r5_status_srtp_key_gen_error,   //!< There was a problem generating a key on this device.
-        r5_status_srtp_key_handle_error //!< There was a problem in the key exchange with the server.
+        r5_status_srtp_key_handle_error, //!< There was a problem in the key exchange with the server.
+        r5_status_hardware_decode_error //!< There was a problem using hardware acceleration to start decode of incoming stream.
     };
 
     /**
@@ -153,14 +156,25 @@ extern "C" {
     } r5_media_type;
 
     /**
-      \ingroup Global
-     * Enum to match with protocal values in config and context
+     \ingroup Global
+     * Enum for stream format of incoming decoded stream data
      */
-    enum protocols {
+    typedef enum r5_stream_format {
+        r5_stream_format_unknown,
+        r5_stream_format_rgb,           //!< Non-hardware accelerated RGB. Uses SW Scalar for decode.
+        r5_stream_format_yuv_planar,    //!< Non-hardware accelerated YUV. Parses frames into YUV 3 planes.
+        r5_stream_format_yuv_biplanar,  //!< Non-hardware accelerated YUV. Parses frame to YUV bi-planar format.
+    } r5_stream_format;
+
+    /**
+      \ingroup Global
+     * Enum to match with protocol values in config and context
+     */
+    enum r5_protocol {
         r5_rtsp = 1,        //Basic flow
         r5_srtp = 2,        //rtsp with encrypted payloads and hash authentication
         r5_null_srtp = 3    //srtp without encryption
-    } R5Protocol;
+    };
 
 
     /**
@@ -230,6 +244,7 @@ extern "C" {
         float                   bitrate_sent_smoothed;      //!< Smoothed outgoing bitrate
         float                   bitrate_received_smoothed;  //!< Smoothed incoming bitrate
         float                   subscribe_latency;          //!< How far behind subscriber clock the stream is arriving
+        float                   video_decode_smoothed;      //!< How long it takes to decode video packet
 
     }r5_stats;
 

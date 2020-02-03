@@ -79,7 +79,7 @@ class SubscribeAVCategoryTest: BaseTest {
         
         currentView?.attach(subscribeStream)
         
-        self.subscribeStream!.play(Testbed.getParameter(param: "stream1") as! String)
+        self.subscribeStream!.play(Testbed.getParameter(param: "stream1") as! String, withHardwareAcceleration:Testbed.getParameter(param: "hwaccel_on") as! Bool)
         
     }
     

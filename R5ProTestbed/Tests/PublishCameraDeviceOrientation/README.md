@@ -7,5 +7,5 @@ This example combines the `Camera Swap` and `Device Orientation` examples. For m
 - ***[PublishCameraDeviceOrientationTest.swift](PublishCameraDeviceOrientationTest.swift)***
 
 ### Separate Tests
-- ***[Publish - Camear Swap](../CameraSwap)***
+- ***[Publish - Camera Swap](../CameraSwap)***
 - ***[Publish - Device Orientation](../PublishDeviceOrientation)***

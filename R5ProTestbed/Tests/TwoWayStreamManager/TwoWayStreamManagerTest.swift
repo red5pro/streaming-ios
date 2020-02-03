@@ -161,7 +161,7 @@ class TwoWayStreamManagerTest: BaseTest {
             // show preview and debug info
             self.currentView?.attach(self.subscribeStream!)
             
-            self.subscribeStream!.play(Testbed.getParameter(param: "stream2") as! String)
+            self.subscribeStream!.play(Testbed.getParameter(param: "stream2") as! String, withHardwareAcceleration:Testbed.getParameter(param: "hwaccel_on") as! Bool)
             
             let label = UILabel(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 24))
             label.textAlignment = NSTextAlignment.left

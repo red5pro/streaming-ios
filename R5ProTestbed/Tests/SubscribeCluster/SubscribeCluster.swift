@@ -118,7 +118,7 @@ class SubscribeCluster: BaseTest {
                 self.currentView?.attach(self.subscribeStream)
                 
                 //   Start subscribing!!
-                self.subscribeStream!.play(Testbed.getParameter(param: "stream1") as! String)
+                self.subscribeStream!.play(Testbed.getParameter(param: "stream1") as! String, withHardwareAcceleration:Testbed.getParameter(param: "hwaccel_on") as! Bool)
                 
                 let label = UILabel(frame: CGRect(x: 0, y: self.view.frame.height-24, width: self.view.frame.width, height: 24))
                 label.textAlignment = NSTextAlignment.left

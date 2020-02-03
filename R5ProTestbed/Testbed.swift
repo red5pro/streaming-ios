@@ -96,6 +96,10 @@ class Testbed: NSObject {
         Testbed.parameters?.setValue(on, forKey: "audio_on")
     }
     
+
+    static func setHWAccel(on : Bool) {
+        Testbed.parameters?.setValue(on, forKey: "hwaccel_on")
+    }
     static func setRecord(on: Bool) {
         Testbed.parameters?.setValue(on, forKey: "record_on")
     }

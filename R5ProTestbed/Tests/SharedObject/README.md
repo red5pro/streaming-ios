@@ -13,11 +13,6 @@ Use of Shared objects requires an active stream - either publishing or subscribi
 
 To run the test, you will need at least two devices running the "Shared Object" example. This example searches active streams for the stream name set as 'stream1' in tests.plist. If a client doesn't find an active stream with that name, it will begin publishing that stream, while any device that finds the published stream will subscribe to it.
 
-### Swift3 vs Objective C Note
-
-The Shared Object interfaces are written for Objective C, however they can still be used in Swift3. Anywhere that "array" is mentioned, it refers to NSArray or NSMutableArray in Objective C and a [Any] object in Swift3. "Dictionary" refers to NSDictionary of NSMutableDictionary in Objective C and a [AnyHashable: Any] object in Swift3.
-
-While Swift3 does have NSArray and NSDictionary objects, they do not translate into Objective C and will cause errors.
 
 ### Connection
 
@@ -53,16 +48,28 @@ To disconnect, simply call `close()` on the object. This should be called before
 
 Remote Shared Objects use JSON for transmission, meaning that its structure is primarily up to your discretion. The base object will always be a dictionary with string keys, while values can be strings, numbers, booleans, arrays, or other dictionaries - with the same restriction on sub-objects.
 
-This example simply uses a number to keep a count of how many people are connected to the object. As seen in `onSharedObjectConnect`, value can be accessed from the object by name, and set using `setProperty`
+This example simply uses a hex-string color to update the text color of messages across all clients connected to the same Shared Object. When a user selects a color from the User Interface, the `setProperty` method is invoked on the Shared Object instance:
 
-```Swift
-addMessage(message: "Connected to object, there are " + ((objectValue["count"] != nil) ? String(describing: objectValue["count"]) : "no") + " other people connected");
-thisUser = (objectValue["count"] != nil) ? (objectValue["count"] as! Int) + 1 : 1;
-//set the count property to add yourself
-sObject?.setProperty("count", withValue: (objectValue["count"] != nil ? (objectValue["count"] as! Int) + 1 : 1) as NSNumber)
+```swift
+@objc func setTextColor (recognizer: UITapGestureRecognizer) {
+  let button : UIButton = recognizer.view as! UIButton
+  let hex = button.title(for: UIControl.State.normal)
+  sObject?.setProperty("color", withValue: hex as NSObject?)
+  setChatViewToHex(hexString: hex!)
+}
 ```
 
-[SharedObjectTest.swift #150](SharedObjectTest.swift#L150)
+[SharedObjectTest.swift #227](SharedObjectTest.java#L227)
+
+When one client calls `setProperty` other clients will be notified through `onUpdateProperty` with a JSONObject that holds the single key/value pair that has updated.
+
+```swift
+@objc func onUpdateProperty( propertyInfo: [AnyHashable: Any] ) {
+//     propertyInfo.keys[0] can be used to find which property has updated.
+    setChatViewToHex(hexString: propertyInfo["color"] as! String)
+}
+```
+[SharedObjectTest.swift #237](SharedObjectTest.swift#L237)
 
 When one client calls `setProperty` other clients will be notified through `onUpdateProperty` with a dictionary that holds the single key/value pair that has updated.
 
