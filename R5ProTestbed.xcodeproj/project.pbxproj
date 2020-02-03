@@ -72,6 +72,16 @@
 		92A642E3200D40AC00882600 /* PublishAspectTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A642E2200D40AC00882600 /* PublishAspectTest.swift */; };
 		92A642E5200D416600882600 /* SubscribeBackgroundTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A642E4200D416500882600 /* SubscribeBackgroundTest.swift */; };
 		92B54DCE2146D766001B0EE3 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 92B54DCD2146D766001B0EE3 /* libc++.tbd */; };
+		92BF53F323E87301005E6D7D /* SharedObjectStreamlessTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92BF53F223E87300005E6D7D /* SharedObjectStreamlessTest.swift */; };
+		92BF53F523E87314005E6D7D /* Subscribe360Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92BF53F423E87314005E6D7D /* Subscribe360Test.swift */; };
+		92BF53F923E8733A005E6D7D /* Custom360VideoViewCamera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92BF53F623E8733A005E6D7D /* Custom360VideoViewCamera.swift */; };
+		92BF53FA23E8733A005E6D7D /* Custom360VideoViewRendererEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92BF53F723E8733A005E6D7D /* Custom360VideoViewRendererEngine.swift */; };
+		92BF53FB23E8733A005E6D7D /* Custom360VideoViewRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92BF53F823E8733A005E6D7D /* Custom360VideoViewRenderer.swift */; };
+		92BF53FD23E87357005E6D7D /* SubscribeHardwareAccelerationTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92BF53FC23E87357005E6D7D /* SubscribeHardwareAccelerationTest.swift */; };
+		92BF53FF23E87374005E6D7D /* SubscribeForceRGBScalarTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92BF53FE23E87374005E6D7D /* SubscribeForceRGBScalarTest.swift */; };
+		92BF540123E87384005E6D7D /* SubscribeStreamManagerTranscoderTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92BF540023E87384005E6D7D /* SubscribeStreamManagerTranscoderTest.swift */; };
+		92BF540323E873B7005E6D7D /* SubscribeRendererSwapTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92BF540223E873B7005E6D7D /* SubscribeRendererSwapTest.swift */; };
+		92BF540523E87434005E6D7D /* PublishTranscoderForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92BF540423E87434005E6D7D /* PublishTranscoderForm.swift */; };
 		92CC78091CB6F8DD00CD4352 /* SubscribeTwoStreams.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92CC78081CB6F8DD00CD4352 /* SubscribeTwoStreams.swift */; };
 		92E13BF41CDD165800DA5783 /* SubscribeNoViewTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E13BF31CDD165800DA5783 /* SubscribeNoViewTest.swift */; };
 		92EA19DA1CE13717006B3A97 /* PublishCustomSourceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92EA19D91CE13717006B3A97 /* PublishCustomSourceTest.swift */; };
@@ -109,7 +119,7 @@
 		487CDBC31E6F1A39007FC4EA /* SharedObjectTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SharedObjectTest.swift; path = Tests/SharedObject/SharedObjectTest.swift; sourceTree = "<group>"; };
 		48A7171A210A275C007C4AF7 /* PublishStreamManagerTranscodeTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PublishStreamManagerTranscodeTest.swift; path = Tests/PublishStreamManagerTranscode/PublishStreamManagerTranscodeTest.swift; sourceTree = "<group>"; };
 		48B79AE720C6E94E00AAE4E2 /* PublishZoomableTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PublishZoomableTest.swift; path = Tests/PublishZoomable/PublishZoomableTest.swift; sourceTree = "<group>"; };
-		48BB1D801CED140D00D915E5 /* SubscribeSetSizeTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubscribeSetSizeTest.swift; sourceTree = "<group>"; };
+		48BB1D801CED140D00D915E5 /* SubscribeSetSizeTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SubscribeSetSizeTest.swift; path = Tests/SubscribeSetSize/SubscribeSetSizeTest.swift; sourceTree = "<group>"; };
 		48BF80AD1C245AA7000E996E /* PublishOrientationTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PublishOrientationTest.swift; path = Tests/PublishOrientation/PublishOrientationTest.swift; sourceTree = "<group>"; };
 		48BF80B01C245D29000E996E /* Info-100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Info-100.png"; sourceTree = "<group>"; };
 		48BF80B21C246F6D000E996E /* SubscribeAspectRatioTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SubscribeAspectRatioTest.swift; path = Tests/SubscribeAspectRatio/SubscribeAspectRatioTest.swift; sourceTree = "<group>"; };
@@ -157,6 +167,16 @@
 		92A642E2200D40AC00882600 /* PublishAspectTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PublishAspectTest.swift; path = Tests/PublishAspect/PublishAspectTest.swift; sourceTree = "<group>"; };
 		92A642E4200D416500882600 /* SubscribeBackgroundTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SubscribeBackgroundTest.swift; path = Tests/SubscribeBackground/SubscribeBackgroundTest.swift; sourceTree = "<group>"; };
 		92B54DCD2146D766001B0EE3 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
+		92BF53F223E87300005E6D7D /* SharedObjectStreamlessTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SharedObjectStreamlessTest.swift; path = Tests/SharedObjectStreamless/SharedObjectStreamlessTest.swift; sourceTree = "<group>"; };
+		92BF53F423E87314005E6D7D /* Subscribe360Test.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Subscribe360Test.swift; path = Tests/Subscribe360/Subscribe360Test.swift; sourceTree = "<group>"; };
+		92BF53F623E8733A005E6D7D /* Custom360VideoViewCamera.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Custom360VideoViewCamera.swift; path = Tests/Subscribe360/Custom360VideoViewCamera.swift; sourceTree = "<group>"; };
+		92BF53F723E8733A005E6D7D /* Custom360VideoViewRendererEngine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Custom360VideoViewRendererEngine.swift; path = Tests/Subscribe360/Custom360VideoViewRendererEngine.swift; sourceTree = "<group>"; };
+		92BF53F823E8733A005E6D7D /* Custom360VideoViewRenderer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Custom360VideoViewRenderer.swift; path = Tests/Subscribe360/Custom360VideoViewRenderer.swift; sourceTree = "<group>"; };
+		92BF53FC23E87357005E6D7D /* SubscribeHardwareAccelerationTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SubscribeHardwareAccelerationTest.swift; path = Tests/SubscribeHardwareAcceleration/SubscribeHardwareAccelerationTest.swift; sourceTree = "<group>"; };
+		92BF53FE23E87374005E6D7D /* SubscribeForceRGBScalarTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SubscribeForceRGBScalarTest.swift; path = Tests/SubscribeForceRGBScalar/SubscribeForceRGBScalarTest.swift; sourceTree = "<group>"; };
+		92BF540023E87384005E6D7D /* SubscribeStreamManagerTranscoderTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SubscribeStreamManagerTranscoderTest.swift; path = Tests/SubscribeStreamManagerTranscoder/SubscribeStreamManagerTranscoderTest.swift; sourceTree = "<group>"; };
+		92BF540223E873B7005E6D7D /* SubscribeRendererSwapTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SubscribeRendererSwapTest.swift; path = Tests/SubscribeRendererSwap/SubscribeRendererSwapTest.swift; sourceTree = "<group>"; };
+		92BF540423E87434005E6D7D /* PublishTranscoderForm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PublishTranscoderForm.swift; path = Tests/PublishStreamManagerTranscode/PublishTranscoderForm.swift; sourceTree = "<group>"; };
 		92CC78081CB6F8DD00CD4352 /* SubscribeTwoStreams.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SubscribeTwoStreams.swift; path = Tests/SubscribeTwoStreams/SubscribeTwoStreams.swift; sourceTree = "<group>"; };
 		92E13BF31CDD165800DA5783 /* SubscribeNoViewTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SubscribeNoViewTest.swift; path = Tests/SubscribeNoView/SubscribeNoViewTest.swift; sourceTree = "<group>"; };
 		92EA19D91CE13717006B3A97 /* PublishCustomSourceTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PublishCustomSourceTest.swift; path = Tests/PublishCustomSource/PublishCustomSourceTest.swift; sourceTree = "<group>"; };
@@ -284,23 +304,29 @@
 				925516FB22F0CC3100604D57 /* PublishTelephonyInterruptTest.swift */,
 				48B79AE720C6E94E00AAE4E2 /* PublishZoomableTest.swift */,
 				487CDBC31E6F1A39007FC4EA /* SharedObjectTest.swift */,
+				92BF53F223E87300005E6D7D /* SharedObjectStreamlessTest.swift */,
 				4874D59C1C2216DB00A98102 /* SubscribeTest.swift */,
+				92BF53F423E87314005E6D7D /* Subscribe360Test.swift */,
 				48BF80B21C246F6D000E996E /* SubscribeAspectRatioTest.swift */,
 				9278C9AB2098B09300861C79 /* SubscribeAudioDelayTest.swift */,
 				481B156E1EB380FE0038A187 /* SubscribeAuthTest.swift */,
 				92EAA9DA1D0734EA00B2CE46 /* SubscribeAutoReconnectTest.swift */,
 				92A642E4200D416500882600 /* SubscribeBackgroundTest.swift */,
+				92BF540023E87384005E6D7D /* SubscribeStreamManagerTranscoderTest.swift */,
 				480A8795221ED82D00474724 /* SubscribeTelephonyInterruptTest.swift */,
 				92EBEF05212F1B63003B72FB /* SubscriberBandwidthTest.swift */,
 				92EBEF03212F1B59003B72FB /* BandwidthDetectionDownloadOnlyTest.swift */,
 				92EBEF01212F1B4E003B72FB /* BandwidthDetectionTest.swift */,
 				926794FA1D061968004B0BCD /* SubscribeCluster.swift */,
 				926EB661224D475900715EF7 /* SubscribeEncryptedTest.swift */,
+				92BF53FE23E87374005E6D7D /* SubscribeForceRGBScalarTest.swift */,
+				92BF53FC23E87357005E6D7D /* SubscribeHardwareAccelerationTest.swift */,
 				926EB663224D477800715EF7 /* SubscribeMetalViewTest.swift */,
 				926EB665224D4AA800715EF7 /* SubscribeMuteTest.swift */,
 				92E13BF31CDD165800DA5783 /* SubscribeNoViewTest.swift */,
 				481B15751EB390600038A187 /* SubscribeReceiveSendTest.swift */,
 				926794FC1D061983004B0BCD /* SubscribeRemoteCallTest.swift */,
+				92BF540223E873B7005E6D7D /* SubscribeRendererSwapTest.swift */,
 				48BB1D801CED140D00D915E5 /* SubscribeSetSizeTest.swift */,
 				926EB667224D4AB300715EF7 /* SubscribeSetVolumeTest.swift */,
 				4874ECCF1C483FDA002BDA6D /* SubscribeStreamImageTest.swift */,
@@ -317,9 +343,13 @@
 		92EA19DB1CE1375A006B3A97 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				92BF53F623E8733A005E6D7D /* Custom360VideoViewCamera.swift */,
+				92BF53F823E8733A005E6D7D /* Custom360VideoViewRenderer.swift */,
+				92BF53F723E8733A005E6D7D /* Custom360VideoViewRendererEngine.swift */,
 				9279C5FB226628F10046B6DD /* AVAudioSessionSuplement.h */,
 				9279C5FC226628F10046B6DD /* AVAudioSessionSuplement.m */,
 				92EA19DC1CE137DD006B3A97 /* CustomVideoSource.swift */,
+				92BF540423E87434005E6D7D /* PublishTranscoderForm.swift */,
 			);
 			name = Utilities;
 			sourceTree = "<group>";
@@ -371,6 +401,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -414,8 +445,11 @@
 				48DFEDAE1C21BBC60040B624 /* MasterViewController.swift in Sources */,
 				925516FE22F0CC4100604D57 /* SubscribeSMEncryptedTest.swift in Sources */,
 				925516FA22F0CBF300604D57 /* PublishSMEncryptedTest.swift in Sources */,
+				92BF53F923E8733A005E6D7D /* Custom360VideoViewCamera.swift in Sources */,
 				92CC78091CB6F8DD00CD4352 /* SubscribeTwoStreams.swift in Sources */,
+				92BF53FD23E87357005E6D7D /* SubscribeHardwareAccelerationTest.swift in Sources */,
 				92E13BF41CDD165800DA5783 /* SubscribeNoViewTest.swift in Sources */,
+				92BF53F523E87314005E6D7D /* Subscribe360Test.swift in Sources */,
 				926EB666224D4AA800715EF7 /* SubscribeMuteTest.swift in Sources */,
 				926794FF1D06199E004B0BCD /* TwoWayTest.swift in Sources */,
 				92A642E3200D40AC00882600 /* PublishAspectTest.swift in Sources */,
@@ -423,11 +457,15 @@
 				92EBEF06212F1B64003B72FB /* SubscriberBandwidthTest.swift in Sources */,
 				926794FD1D061983004B0BCD /* SubscribeRemoteCallTest.swift in Sources */,
 				480A8794221EA8A500474724 /* PublishTelephonyInterruptTest.swift in Sources */,
+				92BF53F323E87301005E6D7D /* SharedObjectStreamlessTest.swift in Sources */,
 				4874D59F1C221B9500A98102 /* AdaptiveBitrateControllerTest.swift in Sources */,
 				48DFEDAC1C21BBC60040B624 /* AppDelegate.swift in Sources */,
+				92BF53FA23E8733A005E6D7D /* Custom360VideoViewRendererEngine.swift in Sources */,
 				48B79AE820C6E94E00AAE4E2 /* PublishZoomableTest.swift in Sources */,
 				48DFEDDF1C21EA780040B624 /* Testbed.swift in Sources */,
 				9255170022F0CC4D00604D57 /* SubscribeTelephonyInterruptTest.swift in Sources */,
+				92BF540323E873B7005E6D7D /* SubscribeRendererSwapTest.swift in Sources */,
+				92BF540523E87434005E6D7D /* PublishTranscoderForm.swift in Sources */,
 				487C888F1F2F8AB2004157B6 /* PublishHQAudioTest.swift in Sources */,
 				48BF80AE1C245AA7000E996E /* PublishOrientationTest.swift in Sources */,
 				92EA19DD1CE137DD006B3A97 /* CustomVideoSource.swift in Sources */,
@@ -448,10 +486,13 @@
 				48DFEDD71C21C2540040B624 /* BaseTest.swift in Sources */,
 				9279C5FD226628F10046B6DD /* AVAudioSessionSuplement.m in Sources */,
 				926794F91D061942004B0BCD /* RecordedTest.swift in Sources */,
+				92BF540123E87384005E6D7D /* SubscribeStreamManagerTranscoderTest.swift in Sources */,
 				487CDBC41E6F1A39007FC4EA /* SharedObjectTest.swift in Sources */,
 				48DFEDCD1C21BF0A0040B624 /* PublishTest.swift in Sources */,
+				92BF53FF23E87374005E6D7D /* SubscribeForceRGBScalarTest.swift in Sources */,
 				926EB660224D3C8300715EF7 /* PublishEncryptedTest.swift in Sources */,
 				926EB664224D477800715EF7 /* SubscribeMetalViewTest.swift in Sources */,
+				92BF53FB23E8733A005E6D7D /* Custom360VideoViewRenderer.swift in Sources */,
 				481B156D1EB380F20038A187 /* PublishAuthTest.swift in Sources */,
 				92EBEF04212F1B59003B72FB /* BandwidthDetectionDownloadOnlyTest.swift in Sources */,
 				925516FC22F0CC3100604D57 /* PublishTelephonyInterruptTest.swift in Sources */,
