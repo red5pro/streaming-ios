@@ -91,7 +91,7 @@ class TwoWayTest: BaseTest {
             
             currentView?.attach(subscribeStream)
             
-            self.subscribeStream!.play(Testbed.getParameter(param: "stream2") as! String)
+            self.subscribeStream!.play(Testbed.getParameter(param: "stream2") as! String, withHardwareAcceleration:Testbed.getParameter(param: "hwaccel_on") as! Bool)
         }
     }
     var failCount: Int = 0;
@@ -146,6 +146,15 @@ class TwoWayTest: BaseTest {
         }
         
         self.timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(getStreams), userInfo: nil, repeats: false)
+    }
+    
+    override func closeTest() {
+        
+        if(self.timer != nil){
+            self.timer?.invalidate()
+        }
+        
+        super.closeTest()
     }
     
     @objc func onMetaData(data : String){

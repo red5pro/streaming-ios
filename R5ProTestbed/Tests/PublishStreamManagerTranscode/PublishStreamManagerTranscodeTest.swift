@@ -33,11 +33,13 @@ import UIKit
 import R5Streaming
 
 @objc(PublishStreamManagerTranscodeTest)
-class PublishStreamManagerTranscodeTest: BaseTest {
+class PublishStreamManagerTranscodeTest: BaseTest, UITextFieldDelegate, PublishTranscoderFormDelegate {
+    
+    var provisionList: Array<AnyObject>? = nil
     
     func showInfo(title: String, message: String){
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
         DispatchQueue.main.async(execute: {
+//            let appDelegate = UIApplication.shared.delegate as! AppDelegate
             let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
             alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: { action in
                 // Trying to redirect user to details form...
@@ -47,10 +49,53 @@ class PublishStreamManagerTranscodeTest: BaseTest {
         })
     }
     
-    func requestProvisions(_ url: String, resolve: @escaping (_ streams: Array<AnyObject>?, _ error: Error?) -> Void) {
+    func setupPublisherWithVariant(connection: R5Connection, variant: [String : Any]) {
+            
+        let fpsVariants = Array<Int32>(Testbed.localParameters!["fps"] as! Array)
+        self.publishStream = R5Stream(connection: connection)
+        self.publishStream!.delegate = self
+        
+        if(Testbed.getParameter(param: "video_on") as! Bool){
+            let props : [String : Any] = variant["properties"] as! [String : Any]
+            // Attach the video from camera to stream
+            let videoDevice = AVCaptureDevice.devices(for: AVMediaType.video).last as? AVCaptureDevice
+            
+                let camera = R5Camera(device: videoDevice, andBitRate: Int32(props["videoBR"] as! Int) / 1000)
+           // Not relying on available Frame Rate Ranges, instead use local properties.
+//          var fpsList = [1:60.0, 2:30.0, 3:15.0]
+//            let range = videoDevice?.activeFormat.videoSupportedFrameRateRanges;
+//            if variant["level"] as! Int == 1 {
+//                fpsList[0] = range?[0].maxFrameRate
+//            }
+            // High (0): 60, Medium (1): 30, Low (2): 15
+            camera?.fps = fpsVariants[(variant["level"] as! Int) - 1]
+            camera?.width = Int32(props["videoWidth"] as! Int)
+            camera?.height = Int32(props["videoHeight"] as! Int)
+            camera?.orientation = 90
+            self.publishStream!.attachVideo(camera)
+        }
+        if(Testbed.getParameter(param: "audio_on") as! Bool){
+            // Attach the audio from microphone to stream
+            let audioDevice = AVCaptureDevice.default(for: AVMediaType.audio)
+            let microphone = R5Microphone(device: audioDevice)
+            microphone?.bitrate = 32
+            NSLog("Got device %@", String(describing: audioDevice?.localizedName))
+            self.publishStream!.attachAudio(microphone)
+        }
+
+    }
+    
+    func postProvisions(_ url: String, data: [String : Any], resolve: @escaping (_ streams: Array<AnyObject>?, _ error: Error?) -> Void) {
+//        JSONEncoder().encode(data)
+        let jsonData = try? JSONSerialization.data(withJSONObject: data)
+        var req = NSURLRequest( url: NSURL(string: url)! as URL ) as URLRequest
+        req.httpMethod = "POST"
+        req.setValue("\(jsonData!.count)", forHTTPHeaderField: "Content-Length")
+        req.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        req.httpBody = jsonData
         
         NSURLConnection.sendAsynchronousRequest(
-            NSURLRequest( url: NSURL(string: url)! as URL ) as URLRequest,
+            req,
             queue: OperationQueue(),
             completionHandler:{ (response: URLResponse?, data: Data?, error: Error?) -> Void in
                 
@@ -65,7 +110,7 @@ class PublishStreamManagerTranscodeTest: BaseTest {
                 //   The string above is in JSON format, we specifically need the serverAddress value
                 var json: [String: AnyObject]
                 do {
-                    json = try JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions()) as! [String: AnyObject]
+                    json = try JSONSerialization.jsonObject(with: data!, options:  JSONSerialization.ReadingOptions()) as! [String: AnyObject]
                 } catch {
                     print(error)
                     return
@@ -77,11 +122,14 @@ class PublishStreamManagerTranscodeTest: BaseTest {
                     resolve(nil, AccessError.error(message: errorMessage))
                     return
                 }
-                else if let data = json["data"] as? [String:AnyObject], let metaNode = data["meta"] as? [String:AnyObject] {
-                    streams = metaNode["streams"] as? Array<AnyObject>
+                else if let data = json["data"] as? [String:AnyObject]{
+                    
+                    if let metaNode = data["meta"] as? [String:AnyObject] {
+                        streams = metaNode["stream"] as? Array<AnyObject>
+                    }
                 }
                 else if let metaRoot = json["meta"] as? [String:AnyObject] {
-                    streams = metaRoot["streams"] as? Array<AnyObject>
+                    streams = metaRoot["stream"] as? Array<AnyObject>
                 }
                 
                 if (streams != nil) {
@@ -90,12 +138,11 @@ class PublishStreamManagerTranscodeTest: BaseTest {
                     resolve(nil, AccessError.error(message: "No streams found."))
                 }
                 
-                
         })
         
     }
     
-    func respondToProvisions(urls: Array<String>) -> (Array<AnyObject>?, Error?) -> Void {
+    func respondToProvisions(data: [String : Any], urls: Array<String>) -> (Array<AnyObject>?, Error?) -> Void {
         var urls = urls
         return {(streams: Array<AnyObject>?, error: Error?) -> Void in
             
@@ -105,24 +152,28 @@ class PublishStreamManagerTranscodeTest: BaseTest {
                     self.showInfo(title: "Error", message: String(error!.localizedDescription) + "\n\n" + "You may be trying to access over HTTPS which requires a Fully-Qualified Domain Name for host.\n\nYou will need to edit your host and port settings accordingly.")
                 }
                 else {
-                    self.requestProvisions(urls.popLast()!, resolve: self.respondToProvisions(urls: urls))
+                    self.postProvisions(urls.popLast()!, data: data, resolve: self.respondToProvisions(data: data, urls: urls))
                 }
                 return;
             }
             
-            // defaults.
-            let streamName = (Testbed.getParameter(param: "stream1") as? String)
-            var topLevelStreamName = streamName! + "_1"
-            
-            for stream in streams! {
-                let s = stream as! [String:AnyObject]
-                if s["level"] as? String == "1" {
-                    topLevelStreamName = s["name"] as! String
-                } else if s["level"] as? Int == 1 {
-                    topLevelStreamName = s["name"] as! String
+            self.provisionList = streams
+            //   UI updates must be asynchronous
+            DispatchQueue.main.async(execute: {
+                let screenSize = UIScreen.main.bounds.size
+                var index = CGFloat(1.0)
+                for stream in streams! {
+                    let s = stream as! [String:AnyObject]
+                    let sendBtn = UIButton(frame: CGRect(x: 20, y: (screenSize.height * 0.75) - (70*index), width: screenSize.width - 40, height: 60))
+                    sendBtn.backgroundColor = UIColor.darkGray
+                    sendBtn.setTitle(s["name"] as! String, for: UIControl.State.normal)
+                    self.view.addSubview(sendBtn)
+                    let tap = UITapGestureRecognizer(target: self, action: #selector(self.selectStream))
+                    sendBtn.addGestureRecognizer(tap)
+                    index = index + 1.0
                 }
-            }
-            self.getOrigin(name: streamName!, topLevelStreamName: topLevelStreamName)
+            })
+            
         }
     }
     
@@ -186,14 +237,31 @@ class PublishStreamManagerTranscodeTest: BaseTest {
             config.buffer_time = Testbed.getParameter(param: "buffer_time") as! Float
             config.licenseKey = Testbed.getParameter(param: "license_key") as! String
             
+            var selectedVariant : [String: Any]? = nil
+            for stream in self.provisionList! {
+                let s = stream as! [String:Any]
+                if s["name"] as! String == streamName {
+                    selectedVariant = s
+                    break
+                }
+            }
+            
             //   Create a new connection using the configuration above
             let connection = R5Connection(config: config)
             let type = self.getPublishRecordType ()
             
             //   UI updates must be asynchronous
             DispatchQueue.main.async(execute: {
+                
+                for uibutton in self.view.subviews {
+                    if let btn = uibutton as? UIButton {
+                        btn.removeFromSuperview()
+                    }
+                }
+                
+                self.setupDefaultR5VideoViewController()
                 //   Create our new stream that will utilize that connection
-                self.setupPublisher(connection: connection!)
+                self.setupPublisherWithVariant(connection: connection!, variant: selectedVariant!)
                 // show preview and debug info
                 
                 self.currentView!.attach(self.publishStream!)
@@ -208,11 +276,13 @@ class PublishStreamManagerTranscodeTest: BaseTest {
             })
 
         }
+        
     }
     
-    func getProvisions (name: String) {
+    func sendProvisions (name: String, data: [String : Any]) {
+        
         let port = (Testbed.getParameter(param: "server_port") as! String)
-        let portURI = port == "80" ? "" : ":" + port
+        let portURI = (port == "80" || port == "443") ? "" : ":" + port
         let version = (Testbed.getParameter(param: "sm_version") as! String)
         let accessToken = (Testbed.getParameter(param: "sm_access_token") as! String)
         let originURI = (Testbed.getParameter(param: "host") as! String) + portURI + "/streammanager/api/" + version +
@@ -225,12 +295,13 @@ class PublishStreamManagerTranscodeTest: BaseTest {
         
         var urls = [httpString, httpsString]
         
-        requestProvisions(urls.popLast()!, resolve: respondToProvisions(urls: urls))
+        postProvisions(urls.popLast()!, data: data, resolve: respondToProvisions(data: data, urls: urls))
+
     }
     
     func getOrigin (name: String, topLevelStreamName: String) {
         let port = (Testbed.getParameter(param: "server_port") as! String)
-        let portURI = port == "80" ? "" : ":" + port
+        let portURI = (port == "80" || port == "443") ? "" : ":" + port
         let version = (Testbed.getParameter(param: "sm_version") as! String)
         let originURI = (Testbed.getParameter(param: "host") as! String) + portURI + "/streammanager/api/" + version +
             "/event/" +
@@ -245,15 +316,79 @@ class PublishStreamManagerTranscodeTest: BaseTest {
         requestOrigin(urls.popLast()!, resolve: respondToOrigin(urls: urls, streamName: topLevelStreamName))
     }
     
+    @objc func selectStream(sender: UITapGestureRecognizer) {
+        
+        let streamName = (Testbed.getParameter(param: "stream1") as? String)
+        let button = sender.view as? UIButton
+        let name = button?.title(for: UIControl.State.normal) ?? streamName! + "_1"
+        
+        self.getOrigin(name: streamName!, topLevelStreamName: name)
+        
+        for uibutton in self.view.subviews {
+            if let btn = uibutton as? UIButton {
+                btn.isEnabled = false
+            }
+        }
+        
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
         
         super.viewDidAppear(animated)
         
         AVAudioSession.sharedInstance().requestRecordPermission { (gotPerm: Bool) -> Void in };
         
-        setupDefaultR5VideoViewController()
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = (storyboard.instantiateViewController(withIdentifier: "PublishTranscoderForm") as? PublishTranscoderForm)!
+        vc.delegate = self
+        vc.view.backgroundColor = UIColor.white
+        self.addChild(vc)
+        self.view.addSubview(vc.view)
+        vc.view.frame = CGRect(x:0, y:0, width:self.view.frame.width, height: self.view.frame.height)
+        vc.view.layoutSubviews()
+
+    }
+    
+    func onProvisionSubmit (_ controller: PublishTranscoderForm) {
+        controller.view.removeFromSuperview()
+        controller.removeFromParent()
         
-        self.getProvisions(name: (Testbed.getParameter(param: "stream1") as! String))
+        let high = controller.getHighFormValues()
+        let medium = controller.getMediumFormValues()
+        let low = controller.getLowFormValues()
+        
+        let name = (Testbed.getParameter(param: "stream1") as! String)
+        var level = 3
+        let provisions = [low, medium, high].map {
+            (values: (Int, Int, Int)) -> [String:Any] in
+            let variant: [String : Any] = [
+                "name": name + "_" + String(level),
+                "level": level,
+                "properties": [
+                    "videoBR": values.0,
+                    "videoWidth": values.1,
+                    "videoHeight": values.2
+                ]
+            ]
+            level = level - 1
+            return variant
+        }
+        let transcoderPOST : [String : Any ] = [
+          "meta": [
+            "authentication": [
+              "username": "",
+              "password": ""
+            ],
+            "stream": provisions,
+            "georules": [
+              "regions": ["US", "UK"],
+              "restricted": false
+            ],
+            "qos": 3
+          ]
+        ]
+        
+        self.sendProvisions(name: name, data: transcoderPOST)
     }
     
 }

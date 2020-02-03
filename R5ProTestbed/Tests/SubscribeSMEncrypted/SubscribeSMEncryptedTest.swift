@@ -45,7 +45,7 @@ class SubscribeSMEncryptedTest: SubscribeStreamManagerTest {
                     self.showInfo(title: "Error", message: String(error!.localizedDescription) + "\n\n" + "You may be trying to access over HTTPS which requires a Fully-Qualified Domain Name for host.\n\nYou will need to edit your host and port settings accordingly.")
                 }
                 else {
-                    self.requestOrigin(urls.popLast()!, resolve: self.responder(urls: urls))
+                    self.requestEdge(urls.popLast()!, resolve: self.responder(urls: urls))
                 }
                 return;
             }
@@ -74,7 +74,7 @@ class SubscribeSMEncryptedTest: SubscribeStreamManagerTest {
                 
                 self.currentView?.attach(self.subscribeStream)
                 
-                self.subscribeStream!.play(Testbed.getParameter(param: "stream1") as! String)
+                self.subscribeStream!.play(Testbed.getParameter(param: "stream1") as! String, withHardwareAcceleration:Testbed.getParameter(param: "hwaccel_on") as! Bool)
                 
                 let label = UILabel(frame: CGRect(x: 0, y: self.view.frame.height-24, width: self.view.frame.width, height: 24))
                 label.textAlignment = NSTextAlignment.left

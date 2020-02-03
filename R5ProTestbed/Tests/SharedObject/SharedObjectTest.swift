@@ -41,7 +41,12 @@ class SharedObjectTest: BaseTest, UITextViewDelegate {
     var sendBtn: UIButton? = nil
     var messageBuffer: NSMutableArray = []
     var timer: Timer? = nil
-    var thisUser: Int = -1
+    var thisUser: String = "subscriber"
+    var SOConnected : Bool = false
+    
+    func getTextColorGestureRecognizer () -> UIGestureRecognizer {
+        return UITapGestureRecognizer(target: self, action: #selector(setTextColor))
+    }
     
     override func viewDidAppear(_ animated: Bool) {
         
@@ -59,11 +64,39 @@ class SharedObjectTest: BaseTest, UITextViewDelegate {
         let screenSize = UIScreen.main.bounds.size
         
         //make textviews
-        chatView = UITextView(frame: CGRect(x: 0, y: screenSize.height * 0.5, width: screenSize.width * 0.6, height: (screenSize.height * 0.5) - 24))
+        chatView = UITextView(frame: CGRect(x: 0, y: screenSize.height * 0.5, width: screenSize.width * 0.6, height: (screenSize.height * 0.5) - 60))
         chatView?.backgroundColor = UIColor.white.withAlphaComponent(0.5)
         chatView?.isEditable = false
         view.addSubview(chatView!)
         addMessage(message: "Waiting for Stream Connection")
+        
+        let redButton = UIButton(frame: CGRect(x: 2, y: screenSize.height - 58, width: 32, height: 32))
+        redButton.backgroundColor = UIColor.red;
+        redButton.setTitleColor(UIColor.red, for: UIControl.State.normal);
+        redButton.setTitle("#ff0000", for: UIControl.State.normal)
+        view.addSubview(redButton)
+        redButton.addGestureRecognizer(getTextColorGestureRecognizer())
+        
+        let greenButton = UIButton(frame: CGRect(x: 36, y: screenSize.height - 58, width: 32, height: 32))
+        greenButton.backgroundColor = UIColor.green;
+        greenButton.setTitleColor(UIColor.green, for: UIControl.State.normal);
+        greenButton.setTitle("#00ff00", for: UIControl.State.normal)
+        view.addSubview(greenButton)
+        greenButton.addGestureRecognizer(getTextColorGestureRecognizer())
+        
+        let blueButton = UIButton(frame: CGRect(x: 70, y: screenSize.height - 58, width: 32, height: 32))
+        blueButton.backgroundColor = UIColor.blue;
+        blueButton.setTitleColor(UIColor.blue, for: UIControl.State.normal);
+        blueButton.setTitle("#0000ff", for: UIControl.State.normal)
+        view.addSubview(blueButton)
+        blueButton.addGestureRecognizer(getTextColorGestureRecognizer())
+        
+        let blackButton = UIButton(frame: CGRect(x: 104, y: screenSize.height - 58, width: 32, height: 32))
+        blackButton.backgroundColor = UIColor.black;
+        blackButton.setTitleColor(UIColor.black, for: UIControl.State.normal);
+        blackButton.setTitle("#000000", for: UIControl.State.normal)
+        view.addSubview(blackButton)
+        blackButton.addGestureRecognizer(getTextColorGestureRecognizer())
         
         chatInuput = UITextView(frame: CGRect(x: 0, y: screenSize.height - 24, width: (screenSize.width * 0.6) - 50, height: 24) )
         chatInuput?.backgroundColor = UIColor.lightGray
@@ -159,6 +192,10 @@ class SharedObjectTest: BaseTest, UITextViewDelegate {
             
             self.timer = Timer.scheduledTimer(timeInterval: 0.25, target: self, selector: #selector(SOConnect), userInfo: nil, repeats: false)
         }
+        else if(Int(statusCode) == Int(r5_status_disconnected.rawValue)
+            || Int(statusCode) == Int(r5_status_connection_close.rawValue)){
+            SOConnected = false
+        }
     }
     
     @objc func SOConnect(){
@@ -169,12 +206,18 @@ class SharedObjectTest: BaseTest, UITextViewDelegate {
         sObject?.client = self;
     }
     
+    func randomString(length: Int) -> String {
+      let letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+      return String((0..<length).map{ _ in letters.randomElement()! })
+    }
+    
     //callback for remote object connection - remote object now available
     @objc func onSharedObjectConnect( objectValue: NSDictionary){
-        addMessage(message: "Connected to object, there are " + ((objectValue["count"] != nil) ? String(describing: objectValue["count"]!) : "no") + " other people connected");
-        thisUser = (objectValue["count"] != nil) ? (objectValue["count"] as! Int) + 1 : 1;
-        //set the count property to add yourself
-        sObject?.setProperty("count", withValue: (objectValue["count"] != nil ? (objectValue["count"] as! Int) + 1 : 1) as NSNumber)
+        SOConnected = true;
+        let data : NSMutableDictionary = (sObject?.data)!
+        if let c = data["color"] {
+            setChatViewToHex(hexString: c as! String)
+        }
     }
 
     @objc func sendMessage(){
@@ -185,7 +228,7 @@ class SharedObjectTest: BaseTest, UITextViewDelegate {
             return
         }
         
-        let messageOut : [AnyHashable:Any] = [ "user":String(thisUser), "message":(chatInuput?.text)! ]
+        let messageOut : [AnyHashable:Any] = [ "user":thisUser, "message":(chatInuput?.text)! ]
         
         //Calls for the relevant method with the sent parameters on all clients listening to the shared object
         //Note - This includes the client that sends the call
@@ -194,10 +237,33 @@ class SharedObjectTest: BaseTest, UITextViewDelegate {
         chatInuput?.text = ""
     }
     
+    @objc func setChatViewToHex (hexString: String) {
+        let hex = hexString.replacingOccurrences(of: "#", with: "")
+        var rgb: UInt32 = 0
+        guard Scanner(string: hex).scanHexInt32(&rgb) else { return }
+        
+        let r = CGFloat((rgb & 0xFF0000) >> 16) / 255.0
+        let g = CGFloat((rgb & 0x00FF00) >> 8) / 255.0
+        let b = CGFloat(rgb & 0x0000FF) / 255.0
+        let color = UIColor(red:r, green:g, blue:b, alpha: CGFloat(1.0))
+        chatView?.textColor = color;
+    }
+    
+    @objc func setTextColor (recognizer: UITapGestureRecognizer) {
+        let button : UIButton = recognizer.view as! UIButton
+        let hex = button.title(for: UIControl.State.normal)
+        sObject?.setProperty("color", withValue: hex as NSObject?)
+        setChatViewToHex(hexString: hex!)
+//        let messageOut : [AnyHashable:Any] = [ "user":thisUser, "message":"Color changed to: " + hex! ]
+//        sObject?.send("messageTransmit", withParams: messageOut)
+    }
+    
     //Called whenever a property of the shared object is changed
     @objc func onUpdateProperty( propertyInfo: [AnyHashable: Any] ) {
 //        propertyInfo.keys[0] can be used to find which property has updated.
-        addMessage(message: "Room update - There are now " + String(describing: propertyInfo["count"]!) + " users")
+        if let c = propertyInfo["color"] {
+            setChatViewToHex(hexString: c as! String)
+        }
     }
     
     @objc func messageTransmit( messageIn: [AnyHashable: Any] ){
@@ -205,7 +271,7 @@ class SharedObjectTest: BaseTest, UITextViewDelegate {
         let user: String = messageIn["user"] as! String
         let message : String = messageIn["message"] as! String
         
-        let display: String = "user#" + user + ": " + message
+        let display: String = "User \"" + user + "\": " + message
         
         addMessage(message: display)
     }
@@ -216,8 +282,9 @@ class SharedObjectTest: BaseTest, UITextViewDelegate {
             self.timer?.invalidate();
         }
         
-        sObject?.setProperty("count", withValue:((sObject?.data["count"] as! Int) - 1) as NSNumber )
-        sObject?.close()
+        if(SOConnected){
+            sObject?.close()
+        }
         
         super.closeTest()
     }

@@ -14,9 +14,6 @@
 #import "R5AudioController.h"
 #include <AVFoundation/AVFoundation.h>
 
-
-
-
 @protocol R5StreamDelegate;
 
 /**
@@ -78,6 +75,11 @@ extern NSString *const R5RecordAlbumName;
  */
 @property BOOL pauseVideo;
 
+// @Deprecated
+@property CVPixelBufferPoolRef pixelBufferPool;
+// @Deprecated
+@property NSDictionary *pixelBufferAuxAttributes;
+
 /**
  *  Initialize the stream.  The connection is *not* established.
  *
@@ -90,9 +92,26 @@ extern NSString *const R5RecordAlbumName;
 /**
  *  Subscribe to an existing stream
  *
- *  @param streamName name of the stream to subscribe too
+ *  @param streamName name of the stream to subscribe to
  */
 -(void)play:(NSString *)streamName;
+
+/**
+ * Subscribe to an existing stream and request hardware acceleration in decode.
+ * Decodes frame to CVPixelBuffer.
+ *
+ *  @param streamName name of the stream to subscribe too
+ *  @param hw flag to turn on hardware acceleration in decode process
+ */
+- (void)play:(NSString *)streamName withHardwareAcceleration:(BOOL)hw;
+
+/**
+ * Subscribe to an existing stream and force RGB Software Scalar in decode.
+ *
+ *  @param streamName name of the stream to subscribe too
+ *  @param forceRGB flag to turn on software decoding frames to RGB pixel format (if false - default - decodes to YUV planar).
+ */
+- (void)play:(NSString *)streamName withForcedRGBDecode:(BOOL)forceRGB;
 
 /**
  *  Publish to a new stream
@@ -176,6 +195,20 @@ extern NSString *const R5RecordAlbumName;
  */
 -(R5Microphone*) getMicrophone;
 
+/**
+ * Returns CVPixelBufferRef accessible upon hardware accelerated decoding.
+ * *Only returned for subscriber if specified playback as hardware accelerated.
+ *
+ * @return CVPixelBufferRef
+ */
+-(CVPixelBufferRef)getStreamPixelBuffer;
+
+/**
+ * Returns the raw image bytes of a subscriber stream.
+ *
+ * @return The raw image bytes.
+ */
+-(void *)getStreamImageBytes;
 
 /**
  *  Get an image of the current stream
@@ -183,6 +216,14 @@ extern NSString *const R5RecordAlbumName;
  *  @return a UIImage containing the stream input/output
  */
 -(UIImage *) getStreamImage;
+
+/**
+ * Returns the format that the subscriber stream has been decoded to.
+ * *Use this APi in conjunction with `getStreamImageBytes` to determine format of bytes.
+ *
+ * @return The format from the enumerated r5_stream_format.
+ */
+- (r5_stream_format)getStreamFormat;
 
 /**
  *  Send updated stream meta information
@@ -194,12 +235,18 @@ extern NSString *const R5RecordAlbumName;
  *  @param listenerBlock The block of code to recieve the frame data
  *
  *  The parameters that the block receives are:
- *  uint8_t*    A pointer to an array of color data in RGB format - three values per pixel.
+ *  void*       A pointer to an array of color data.
  *              Note, this pointer is managed by the SDK, freeing it will likely cause problems.
+ *              Depending on the format, you will need to handle the data appropriately:
+ *  enum r5_stream_format The pixel format of the data.
+ *              (1) r5_stream_format_rgb: RGB format - three values per pixel.
+ *              (2) r5_stream_format_yuv_planar: YUV420p, 3 planes - returned data is an array of 3.
+ *              (3) r5_stream_format_yuv_biplanar: YUV420v, 2 planes - returned data is CVPixelBuffer.
+ *  int         The size of the image data.
  *  int         The width of the image described by the array.
  *  int         The height of the image described by the array.
  */
--(void)setFrameListener:(void (^)(uint8_t *, int, int))listenerBlock;
+-(void)setFrameListener:(void (^)(void *, enum r5_stream_format, int, int, int))listenerBlock;
 
 /**
  *  Sets a handler to receive and optionally manipulate the audio stream data coming in for playback before sending to output.
@@ -224,6 +271,7 @@ extern NSString *const R5RecordAlbumName;
 -(void)deactivate_display;
 -(void)activate_display;
 
+- (BOOL)usesHardwareAcceleration;
 
 @end
 
