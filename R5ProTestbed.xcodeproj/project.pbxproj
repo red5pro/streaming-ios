@@ -83,6 +83,8 @@
 		92BF540323E873B7005E6D7D /* SubscribeRendererSwapTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92BF540223E873B7005E6D7D /* SubscribeRendererSwapTest.swift */; };
 		92BF540523E87434005E6D7D /* PublishTranscoderForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92BF540423E87434005E6D7D /* PublishTranscoderForm.swift */; };
 		92CC78091CB6F8DD00CD4352 /* SubscribeTwoStreams.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92CC78081CB6F8DD00CD4352 /* SubscribeTwoStreams.swift */; };
+		92D8B4FB246BF04E005F1A73 /* ConferenceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D8B4FA246BF04E005F1A73 /* ConferenceViewController.swift */; };
+		92D8B4FD246BF05E005F1A73 /* ConferenceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D8B4FC246BF05E005F1A73 /* ConferenceTest.swift */; };
 		92E13BF41CDD165800DA5783 /* SubscribeNoViewTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E13BF31CDD165800DA5783 /* SubscribeNoViewTest.swift */; };
 		92EA19DA1CE13717006B3A97 /* PublishCustomSourceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92EA19D91CE13717006B3A97 /* PublishCustomSourceTest.swift */; };
 		92EA19DD1CE137DD006B3A97 /* CustomVideoSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92EA19DC1CE137DD006B3A97 /* CustomVideoSource.swift */; };
@@ -178,6 +180,8 @@
 		92BF540223E873B7005E6D7D /* SubscribeRendererSwapTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SubscribeRendererSwapTest.swift; path = Tests/SubscribeRendererSwap/SubscribeRendererSwapTest.swift; sourceTree = "<group>"; };
 		92BF540423E87434005E6D7D /* PublishTranscoderForm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PublishTranscoderForm.swift; path = Tests/PublishStreamManagerTranscode/PublishTranscoderForm.swift; sourceTree = "<group>"; };
 		92CC78081CB6F8DD00CD4352 /* SubscribeTwoStreams.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SubscribeTwoStreams.swift; path = Tests/SubscribeTwoStreams/SubscribeTwoStreams.swift; sourceTree = "<group>"; };
+		92D8B4FA246BF04E005F1A73 /* ConferenceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConferenceViewController.swift; path = Tests/ConferenceTest/ConferenceViewController.swift; sourceTree = "<group>"; };
+		92D8B4FC246BF05E005F1A73 /* ConferenceTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConferenceTest.swift; path = Tests/ConferenceTest/ConferenceTest.swift; sourceTree = "<group>"; };
 		92E13BF31CDD165800DA5783 /* SubscribeNoViewTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SubscribeNoViewTest.swift; path = Tests/SubscribeNoView/SubscribeNoViewTest.swift; sourceTree = "<group>"; };
 		92EA19D91CE13717006B3A97 /* PublishCustomSourceTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PublishCustomSourceTest.swift; path = Tests/PublishCustomSource/PublishCustomSourceTest.swift; sourceTree = "<group>"; };
 		92EA19DC1CE137DD006B3A97 /* CustomVideoSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomVideoSource.swift; path = Tests/PublishCustomSource/CustomVideoSource.swift; sourceTree = "<group>"; };
@@ -335,6 +339,7 @@
 				925516FF22F0CC4D00604D57 /* SubscribeTelephonyInterruptTest.swift */,
 				92CC78081CB6F8DD00CD4352 /* SubscribeTwoStreams.swift */,
 				926794FE1D06199E004B0BCD /* TwoWayTest.swift */,
+				92D8B4FC246BF05E005F1A73 /* ConferenceTest.swift */,
 				927FA28920EBCD2D00F16228 /* TwoWayStreamManagerTest.swift */,
 			);
 			name = Tests;
@@ -350,6 +355,7 @@
 				9279C5FC226628F10046B6DD /* AVAudioSessionSuplement.m */,
 				92EA19DC1CE137DD006B3A97 /* CustomVideoSource.swift */,
 				92BF540423E87434005E6D7D /* PublishTranscoderForm.swift */,
+				92D8B4FA246BF04E005F1A73 /* ConferenceViewController.swift */,
 			);
 			name = Utilities;
 			sourceTree = "<group>";
@@ -436,6 +442,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				92A642E5200D416600882600 /* SubscribeBackgroundTest.swift in Sources */,
+				92D8B4FD246BF05E005F1A73 /* ConferenceTest.swift in Sources */,
 				48DFEDB01C21BBC60040B624 /* DetailViewController.swift in Sources */,
 				481B15761EB390600038A187 /* PublishSendTest.swift in Sources */,
 				48BF80B31C246F6D000E996E /* SubscribeAspectRatioTest.swift in Sources */,
@@ -481,6 +488,7 @@
 				92EA19DA1CE13717006B3A97 /* PublishCustomSourceTest.swift in Sources */,
 				481B156F1EB380FE0038A187 /* SubscribeAuthTest.swift in Sources */,
 				4838028E1E4115130098F5B7 /* PublishPauseTest.swift in Sources */,
+				92D8B4FB246BF04E005F1A73 /* ConferenceViewController.swift in Sources */,
 				482282591E4E47C80073F26C /* PublishDeviceOrientationTest.swift in Sources */,
 				926EB668224D4AB300715EF7 /* SubscribeSetVolumeTest.swift in Sources */,
 				48DFEDD71C21C2540040B624 /* BaseTest.swift in Sources */,

@@ -674,6 +674,17 @@
 			<key>class</key>
 			<string>TwoWayTest</string>
 		</dict>
+		<key>Conference</key>
+		<dict>
+			<key>description</key>
+			<string>An example of many-to-many communication</string>
+			<key>LocalProperties</key>
+			<dict/>
+			<key>name</key>
+			<string>Conference</string>
+			<key>class</key>
+			<string>ConferenceTest</string>
+		</dict>
 		<key>TwoWay - Stream Manager</key>
 		<dict>
 			<key>description</key>
