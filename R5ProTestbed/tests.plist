@@ -41,9 +41,9 @@
 		<key>fps</key>
 		<integer>15</integer>
 		<key>sm_version</key>
-		<string>3.1</string>
+		<string>4.0</string>
 		<key>sm_access_token</key>
-		<string>xyz123</string>
+		<string>xyz1234</string>
 	</dict>
 	<key>Tests</key>
 	<dict>
