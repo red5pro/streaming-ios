@@ -132,7 +132,9 @@ class SharedObjectStreamlessTest: SharedObjectTest, R5ConnectionDelegate {
         connectBtn?.setTitle(SOConnected ? "Disconnect From SO" : "Connect To SO", for: UIControl.State.normal)
         sendBtn?.isEnabled = SOConnected
         let data : NSMutableDictionary = (sObject?.data)!
-        setChatViewToHex(hexString: data["color"] as! String)
+        if (data["color"] != nil) {
+            setChatViewToHex(hexString: data["color"] as! String)
+        }
     }
     @objc override func onUpdateProperty(propertyInfo: [AnyHashable : Any]) {
         super.onUpdateProperty(propertyInfo: propertyInfo);
