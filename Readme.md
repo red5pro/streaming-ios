@@ -141,7 +141,7 @@ Once you have modified your settings, you can run the application for simulator 
 
 ### Multi
 
-| **[Conference](R5ProTestbed/Tests/Conference)**
+| **[Conference](R5ProTestbed/Tests/ConferenceTest)**
 | :-----
 | *Demonstrates multi-party communication using Red5 Pro. It also demonstrates using Shared Objects as notifications to recognize the addition and removal of parties broadcasting.*
 
