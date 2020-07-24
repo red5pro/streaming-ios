@@ -139,6 +139,12 @@ Once you have modified your settings, you can run the application for simulator 
 | **[Two Streams](R5ProTestbed/Tests/SubscribeTwoStreams)**
 | *An example of subscribing to multiple streams at once, useful for subscribing to a presentation hosted by two people using a Two Way connection.*
 
+### Multi
+
+| **[Conference](R5ProTestbed/Tests/Conference)**
+| :-----
+| *Demonstrates multi-party communication using Red5 Pro. It also demonstrates using Shared Objects as notifications to recognize the addition and removal of parties broadcasting.*
+
 ## Notes
 
 1. For some of the above examples you will need two devices (a publisher, and a subscriber). You can also use a web browser to subscribe or publish via Flash, `http://<your_red5_pro_server>:5080/live`.

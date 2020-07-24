@@ -685,6 +685,17 @@
 			<key>class</key>
 			<string>TwoWayStreamManagerTest</string>
 		</dict>
+		<key>Conference</key>
+		<dict>
+			<key>description</key>
+			<string>Many to many</string>
+			<key>LocalProperties</key>
+			<dict/>
+			<key>name</key>
+			<string>Conference</string>
+			<key>class</key>
+			<string>ConferenceTest</string>
+		</dict>
 		<key>bandwidth detection</key>
 		<dict>
 			<key>LocalProperties</key>
