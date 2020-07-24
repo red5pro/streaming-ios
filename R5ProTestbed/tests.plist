@@ -33,7 +33,7 @@
 		<key>audio_on</key>
 		<true/>
 		<key>hwaccel_on</key>
-		<false/>
+		<true/>
 		<key>record_on</key>
 		<false/>
 		<key>append_on</key>
