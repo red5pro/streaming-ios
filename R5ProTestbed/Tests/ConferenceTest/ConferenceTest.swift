@@ -51,6 +51,8 @@ class ConferenceTest: BaseTest, ConferenceViewControllerDelegate {
     var subQueue : [String]? = nil
     var roomSO : R5SharedObject? = nil
     
+    var timer : Timer? = nil
+    
     override func viewDidAppear(_ animated: Bool) {
         
         AVAudioSession.sharedInstance().requestRecordPermission { (gotPerm: Bool) -> Void in
@@ -226,7 +228,13 @@ class ConferenceTest: BaseTest, ConferenceViewControllerDelegate {
                                 if(!self.thisTest.audioOn) {
                                     targStream.pauseAudio = true
                                 }
-                                Timer.scheduledTimer(timeInterval: 0.25, target: self.thisTest, selector: #selector(connectSO), userInfo: nil, repeats: false)
+                                
+                                if (self.thisTest.timer != nil) {
+                                    self.thisTest.timer?.invalidate()
+                                    self.thisTest.timer = nil
+                                }
+                                self.thisTest.timer = Timer.scheduledTimer(timeInterval: 0.25, target: self.thisTest, selector: #selector(connectSO), userInfo: nil, repeats: false)
+                                
                             }
                         }
                     }
@@ -375,7 +383,9 @@ class ConferenceTest: BaseTest, ConferenceViewControllerDelegate {
         }
         
         DispatchQueue.main.async {
-            self.removeView(r5View: (targetPack?.view)!)
+            if (targetPack?.view != nil) {
+                self.removeView(r5View: (targetPack?.view)!)
+            }
             targetPack?.stream!.delegate = nil
             targetPack?.stream!.stop()
             self.streams.removeAll { (pack : StreamPackage) -> Bool in
@@ -464,6 +474,11 @@ class ConferenceTest: BaseTest, ConferenceViewControllerDelegate {
     
     override func closeTest() {
         
+        if (timer != nil) {
+            timer?.invalidate()
+            timer = nil
+        }
+        
         if(roomSO != nil) {
             var streamString = roomSO?.data.object(forKey: "streams") as! String
             var streamList = streamString.split(separator: ",")
@@ -478,9 +493,9 @@ class ConferenceTest: BaseTest, ConferenceViewControllerDelegate {
         }
         if(streams.count > 0) {
             for pack in streams {
-                pack.view?.attach(nil)
+                pack.stream?.client = nil
                 pack.stream?.delegate = nil
-                pack.stream?.stop()
+                clearByName(clearName: pack.name!)
             }
             streams.removeAll()
         }
