@@ -2,7 +2,6 @@
 //  ConferenceTest.swift
 //  R5ProTestbed
 //
-//  Created by Andy Zupko on 5/4/20.
 //  Created by David Heimann on 5/4/20.
 //  Copyright © 2015 Infrared5, Inc. All rights reserved.
 // 
