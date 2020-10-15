@@ -37,40 +37,40 @@ class Custom360VideoViewRenderer : R5VideoViewRenderer {
     var stream : R5Stream?
     var engine : Custom360VideoViewRendererEngine?
     var camera : Custom360VideoViewCamera?
-
+    
     var isRenderering = false
-
+    
     override init!(glView: GLKView!) {
-
+        
         super.init(glView: glView)
         self.engine = Custom360VideoViewRendererEngine(context: glView.context)
-
+        
     }
-
+    
     deinit {
         if let engine = self.engine {
             engine.de_init()
         }
     }
-
+    
     func addGestures (view: UIView, camera: Custom360VideoViewCamera) {
-
+        
         let tap : UITapGestureRecognizer = UITapGestureRecognizer(target: camera, action: #selector(Custom360VideoViewCamera.handleTap(recognizer:)))
         let pan : UIPanGestureRecognizer = UIPanGestureRecognizer(target: camera, action: #selector(Custom360VideoViewCamera.handlePanGesture(fromSender:)))
         let pinch : UIPinchGestureRecognizer = UIPinchGestureRecognizer(target: camera, action: #selector(Custom360VideoViewCamera.handlePinchGesture(recognizer:)))
-
+        
         view.isUserInteractionEnabled = true
         view.addGestureRecognizer(tap)
         view.addGestureRecognizer(pan)
         view.addGestureRecognizer(pinch)
-
+        
     }
-
+    
     override func attach(_ stream: R5Stream!) {
         super.attach(stream)
         self.stream = stream
     }
-
+    
     override func start() {
         super.start()
         if let view : GLKView = self.getGLView() {
@@ -78,18 +78,18 @@ class Custom360VideoViewRenderer : R5VideoViewRenderer {
             addGestures(view: view, camera: self.camera!)
         }
     }
-
+    
     override func onDrawFrame(_ rotation: Int32, andScale scaleMode: r5_scale_mode) {
-
+        
         super.onDrawFrame(rotation, andScale: scaleMode)
-
+        
         if let glkView = self.getGLView() {
-
+            
             if (self.stream != nil && !isRenderering) {
-
+                
                 var projectionMatrix : GLKMatrix4?
                 var modelViewMatrix : GLKMatrix4?
-
+                
                 if let camera = camera {
                     projectionMatrix = camera.projection;
                     modelViewMatrix = camera.modelView;
@@ -99,19 +99,19 @@ class Custom360VideoViewRenderer : R5VideoViewRenderer {
                     modelViewMatrix = GLKMatrix4MakeTranslation(0, 0, 0)
                     modelViewMatrix = GLKMatrix4Rotate(modelViewMatrix!, GLKMathDegreesToRadians(0), 0, 0, 1)
                 }
-
+                
                 isRenderering = true
                 if let pb = self.stream?.getPixelBuffer() {
-
+                    
                     let buffer = pb.takeUnretainedValue()
                     self.engine?.updateTexture(pixelBuffer: buffer)
                     self.engine?.render(projectionMatrix: projectionMatrix!, modelViewMatrix: modelViewMatrix!)
-
+                    
                 }
                 isRenderering = false;
-
+                
             }
         }
     }
-
+    
 }

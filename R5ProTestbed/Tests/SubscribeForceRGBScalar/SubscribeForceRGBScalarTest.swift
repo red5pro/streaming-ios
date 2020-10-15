@@ -33,38 +33,38 @@ import R5Streaming
 
 @objc(SubscribeForceRGBScalarTest)
 class SubscribeForceRGBScalarTest: BaseTest {
-
+    
     override func viewDidAppear(_ animated: Bool) {
-
+        
         super.viewWillAppear(animated)
-
+        
         setupDefaultR5VideoViewController()
-
+        
         let config = getConfig()
         // Set up the connection and stream
         let connection = R5Connection(config: config)
         self.subscribeStream = R5Stream(connection: connection)
         self.subscribeStream!.delegate = self
         self.subscribeStream?.client = self;
-
+        
         currentView?.attach(subscribeStream)
-
+        
         self.subscribeStream!.play(Testbed.getParameter(param: "stream1") as! String, withForcedRGBDecode: true)
-
+        
     }
-
+    
     override func onR5StreamStatus(_ stream: R5Stream!, withStatus statusCode: Int32, withMessage msg: String!) {
         super.onR5StreamStatus(stream, withStatus: statusCode, withMessage: msg)
-
+        
         if( Int(statusCode) == Int(r5_status_start_streaming.rawValue) ){
-
+            
             let session : AVAudioSession = AVAudioSession.sharedInstance()
             let cat = session.category
             let opt = session.categoryOptions
-
+            
             let s =  String(format: "AV: %@ (%d)",  cat.rawValue, opt.rawValue)
             ALToastView.toast(in: self.view, withText:s)
-
+            
             // Example of using a frame listener to access the RGB data.
 //            self.subscribeStream?.setFrameListener({data, format, size, width, height in
 //                let f = Int(format.rawValue)                        // RGB = 1
@@ -72,7 +72,7 @@ class SubscribeForceRGBScalarTest: BaseTest {
 //            })
 
         }
-
+        
         if( Int(statusCode) == Int(r5_status_video_render_start.rawValue) ){
             let f = Int(stream.getFormat().rawValue)
             let s =  String(format: "Video Format: (%d)", f)
@@ -81,3 +81,4 @@ class SubscribeForceRGBScalarTest: BaseTest {
     }
 
 }
+

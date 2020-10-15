@@ -33,54 +33,54 @@ import R5Streaming
 
 @objc(SharedObjectStreamlessTest)
 class SharedObjectStreamlessTest: SharedObjectTest, R5ConnectionDelegate {
-
+    
     var connection : R5Connection? = nil
-
+    
     var roomInput: UITextView? = nil
     var connectBtn: UIButton? = nil
-
+    
     override func viewDidAppear(_ animated: Bool) {
-
+        
         super.viewDidAppear(animated)
-
+        
         let screenSize = UIScreen.main.bounds.size
         chatView?.frame = CGRect(x: 0, y: screenSize.height * 0.25, width: screenSize.width, height: screenSize.height - 24);
-
+        
         roomInput = UITextView(frame: CGRect(x: 0, y: 70, width: (screenSize.width * 0.6) - 50, height: 32) )
         roomInput?.backgroundColor = UIColor.lightGray
         roomInput?.isEditable = true
         roomInput?.delegate = self
         roomInput?.text = "sharedChatTest";
         view.addSubview(roomInput!)
-
+        
         connectBtn = UIButton(frame: CGRect(x: (screenSize.width * 0.6) - 50, y: 70, width: screenSize.width - ((screenSize.width * 0.6) - 50), height: 32))
         connectBtn?.backgroundColor = UIColor.darkGray
         connectBtn?.setTitle("Connect To SO", for: UIControl.State.normal)
         connectBtn?.isEnabled = false
         view.addSubview(connectBtn!)
-
+        
         let tap = UITapGestureRecognizer(target: self, action: #selector(roomConnectDisconnect))
         connectBtn?.addGestureRecognizer(tap)
-
+        
         // Set up the configuration
         let config = getConfig()
         // Set up the connection and stream
         connection = R5Connection(config: config)
         connection?.delegate = self
         connection?.client = self
-
+        
         sendBtn?.isEnabled = false
         connection?.startDataOnlyStream()
-
+        
     }
-
+    
     @objc override func callForStreamList(){
         // Overridden to stop from calling for the list and publishing/subscribing
         // intentionally left empty
     }
-
+    
     func onR5ConnectionStatus(_ connection: R5Connection!, withStatus statusCode: Int32, withMessage msg: String!) {
-
+        
         if(Int(statusCode) == Int(r5_status_start_streaming.rawValue)){
             connectBtn?.isEnabled = true
         }
@@ -89,7 +89,7 @@ class SharedObjectStreamlessTest: SharedObjectTest, R5ConnectionDelegate {
             SOConnected = false
         }
     }
-
+    
     @objc func roomConnectDisconnect () {
         if (!SOConnected) {
             NSLog("%@", "Sending shared object connection request")
@@ -104,27 +104,27 @@ class SharedObjectStreamlessTest: SharedObjectTest, R5ConnectionDelegate {
         }
         connectBtn?.setTitle(SOConnected ? "Disconnect From SO" : "Connect To SO", for: UIControl.State.normal)
     }
-
+    
     @objc override func SOConnect(){
         // fall through.
     }
-
+    
     override func closeTest() {
         if( self.timer != nil ){
             self.timer?.invalidate();
         }
-
+        
         if(SOConnected){
             sObject?.close();
             sObject?.client = nil;
             sObject = nil;
             SOConnected = false
         }
-
+        
         sendBtn?.isEnabled = SOConnected
         connection?.stopDataOnlyStream();
     }
-
+    
     //inherited methods need to be overriden to expose them for use as callbacks
     @objc override func onSharedObjectConnect( objectValue: NSDictionary){
         SOConnected = true;
