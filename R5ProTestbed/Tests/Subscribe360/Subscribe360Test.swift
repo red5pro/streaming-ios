@@ -33,57 +33,57 @@ import R5Streaming
 
 @objc(Subscribe360Test)
 class Subscribe360Test: BaseTest {
-
+    
     var current_rotation = 0
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-
+    
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
     }
-
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-
+        
         setupDefaultR5VideoViewController()
-
+        
         if let context = EAGLContext(api: .openGLES3) {
-
+            
             EAGLContext.setCurrent(context)
             let glView = GLKView.init(frame: self.view.bounds, context: context);
             currentView?.renderer = Custom360VideoViewRenderer(glView: glView)
-
+            
         }
-
+        
         let config = getConfig()
         // Set up the connection and stream
         let connection = R5Connection(config: config)
         self.subscribeStream = R5Stream(connection: connection)
         self.subscribeStream!.delegate = self
         self.subscribeStream?.client = self;
-
+        
         currentView?.attach(subscribeStream)
-
+        
         // HW Accel required for test.
         self.subscribeStream!.play((Testbed.getParameter(param: "stream1") as! String), withHardwareAcceleration: true)
-
+    
     }
-
+    
     func updateOrientation(value: Int) {
-
+        
         if current_rotation == value {
             return
         }
-
+        
         current_rotation = value
         currentView?.view.layer.transform = CATransform3DMakeRotation(CGFloat(value), 0.0, 0.0, 0.0);
-
+        
     }
-
+    
     func onMetaData(data : String) {
-
+        
         let props = data.characters.split(separator: ";").map(String.init)
         props.forEach { (value: String) in
             let kv = value.characters.split(separator: "=").map(String.init)
@@ -91,22 +91,22 @@ class Subscribe360Test: BaseTest {
                 updateOrientation(value: Int(kv[1])!)
             }
         }
-
+        
     }
-
+    
     override func onR5StreamStatus(_ stream: R5Stream!, withStatus statusCode: Int32, withMessage msg: String!) {
         super.onR5StreamStatus(stream, withStatus: statusCode, withMessage: msg)
-
+        
         if( Int(statusCode) == Int(r5_status_start_streaming.rawValue) ){
-
+            
             let session : AVAudioSession = AVAudioSession.sharedInstance()
             let cat = session.category
             let opt = session.categoryOptions
-
+            
             let s =  String(format: "AV: %@ (%d)",  cat.rawValue, opt.rawValue)
             ALToastView.toast(in: self.view, withText:s)
-
+            
         }
     }
-
+    
 }

@@ -40,6 +40,8 @@ class TwoWayStreamManagerTest: BaseTest {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
+        setupDefaultR5VideoViewController()
+        
         requestServer(Testbed.getParameter(param: "stream1") as! String, action: "broadcast", resolve: { (url) in
             self.publishTo(url: url)
         })
@@ -48,13 +50,18 @@ class TwoWayStreamManagerTest: BaseTest {
     
     func requestServer(_ streamName: String, action: String, resolve: @escaping (_ ip: String) -> Void) {
         
+        print("Requesting for stream: " + streamName + " - and action= " + action)
+        
         let port = (Testbed.getParameter(param: "server_port") as! String)
-        let portURI = port == "80" ? "" : ":" + port
-        let originURI = "http://" + (Testbed.getParameter(param: "host") as! String) + portURI + "/streammanager/api/2.0/event/" +
+        let portURI = port == "80" || port == "443" ? "" : ":" + port
+        let version = (Testbed.getParameter(param: "sm_version") as! String)
+        let originURI = (Testbed.getParameter(param: "host") as! String) + portURI + "/streammanager/api/" + version + "/event/" +
             (Testbed.getParameter(param: "context") as! String) + "/" + streamName + "?action=" + action
         
+        let url = (portURI.isEmpty ? "https://" : "http://") + originURI
+        
         NSURLConnection.sendAsynchronousRequest(
-            NSURLRequest( url: NSURL(string: originURI)! as URL ) as URLRequest,
+            NSURLRequest( url: NSURL(string: url)! as URL ) as URLRequest,
             queue: OperationQueue(),
             completionHandler:{ (response: URLResponse?, data: Data?, error: Error?) -> Void in
                 
@@ -77,19 +84,30 @@ class TwoWayStreamManagerTest: BaseTest {
                 }
                 else if let errorMessage = json["errorMessage"] as? String {
                     print(AccessError.error(message: errorMessage))
+                    if(action == "subscribe"){
+                        self.delayCallForList()
+                    }
                 }
                 
         })
     }
     
     func delayCallForList() {
-        self.timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(callForStreamList), userInfo: nil, repeats: false)
+        DispatchQueue.main.async {
+            self.timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.callForStreamList), userInfo: nil, repeats: false)
+        }
     }
     
     @objc func callForStreamList(){
         
-        let domain = Testbed.getParameter(param: "host") as! String
-        let url = "http://" + domain + ":5080/streammanager/api/2.0/event/list"
+//        let domain = Testbed.getParameter(param: "host") as! String
+//        let url = "http://" + domain + ":5080/streammanager/api/2.0/event/list"
+        let port = (Testbed.getParameter(param: "server_port") as! String)
+        let portURI = port == "80" || port == "443" ? "" : ":" + port
+        let version = (Testbed.getParameter(param: "sm_version") as! String)
+        let originURI = (Testbed.getParameter(param: "host") as! String) + portURI + "/streammanager/api/" + version + "/event/list"
+        let url = (portURI.isEmpty ? "https://" : "http://") + originURI
+        
         let request = URLRequest.init(url: URL.init(string: url)!)
         
         NSURLConnection.sendAsynchronousRequest(request, queue: OperationQueue.init(), completionHandler: { (response: URLResponse?, data: Data?, error: Error?) -> Void in
@@ -98,12 +116,12 @@ class TwoWayStreamManagerTest: BaseTest {
             if (error != nil) {
                 NSLog("Error, %@", error!.localizedDescription)
             } else {
-                
+//                print("Recieved list: " + String(data: data!, encoding: String.Encoding.utf8)!)
                 do{
-                    let list = try JSONSerialization.jsonObject(with: data!) as! Array<Dictionary<String, String>>;
-                    
-                    for dict:Dictionary<String, String> in list {
-                        if(dict["name"] == (Testbed.getParameter(param: "stream2") as! String)){
+                    let list = try JSONSerialization.jsonObject(with: data!) as! Array<[String: Any]>
+                        
+                    for dict:[String: Any] in list {
+                        if((dict["name"] as! String) == (Testbed.getParameter(param: "stream2") as! String)){
                             self.requestServer(Testbed.getParameter(param: "stream2") as! String, action: "subscribe", resolve: { (url) in
                                 self.subscribeTo(url: url)
                             })
@@ -133,8 +151,21 @@ class TwoWayStreamManagerTest: BaseTest {
             //   Create our new stream that will utilize that connection
             self.setupPublisher(connection: connection!)
             
+            self.publishView = self.getNewR5VideoViewController(rect: self.view.frame);
+            self.addChild(self.publishView!);
+            
+            self.view.addSubview(self.publishView!.view)
+            
+            self.publishView!.showPreview(true)
+            
+            self.publishView!.showDebugInfo(Testbed.getParameter(param: "debug_view") as! Bool)
+            
             // show preview and debug info
             self.publishView!.attach(self.publishStream!)
+            
+            let screenSize = UIScreen.main.bounds.size
+            let newFrame = CGRect(x: screenSize.width * (3/5), y: screenSize.height * (3/5), width: screenSize.width * (2/5), height: screenSize.height * (2/5) )
+            self.publishView?.view.frame = newFrame
             
             self.publishStream!.publish(Testbed.getParameter(param: "stream1") as! String, type: R5RecordTypeLive)
             

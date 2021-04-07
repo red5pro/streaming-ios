@@ -85,6 +85,9 @@
 		92BF540323E873B7005E6D7D /* SubscribeRendererSwapTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92BF540223E873B7005E6D7D /* SubscribeRendererSwapTest.swift */; };
 		92BF540523E87434005E6D7D /* PublishTranscoderForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92BF540423E87434005E6D7D /* PublishTranscoderForm.swift */; };
 		92CC78091CB6F8DD00CD4352 /* SubscribeTwoStreams.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92CC78081CB6F8DD00CD4352 /* SubscribeTwoStreams.swift */; };
+		92D5293B261D9BB300B83626 /* PublishSocialPushTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D5293A261D9BB300B83626 /* PublishSocialPushTest.swift */; };
+		92D5293E261D9BC300B83626 /* PublishStreamManagerSocialPush.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D5293D261D9BC300B83626 /* PublishStreamManagerSocialPush.swift */; };
+		92D52941261D9C1B00B83626 /* SubscribeStreamManagerReconnectTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D52940261D9C1B00B83626 /* SubscribeStreamManagerReconnectTest.swift */; };
 		92E13BF41CDD165800DA5783 /* SubscribeNoViewTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E13BF31CDD165800DA5783 /* SubscribeNoViewTest.swift */; };
 		92EA19DA1CE13717006B3A97 /* PublishCustomSourceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92EA19D91CE13717006B3A97 /* PublishCustomSourceTest.swift */; };
 		92EA19DD1CE137DD006B3A97 /* CustomVideoSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92EA19DC1CE137DD006B3A97 /* CustomVideoSource.swift */; };
@@ -182,6 +185,9 @@
 		92BF540223E873B7005E6D7D /* SubscribeRendererSwapTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SubscribeRendererSwapTest.swift; path = Tests/SubscribeRendererSwap/SubscribeRendererSwapTest.swift; sourceTree = "<group>"; };
 		92BF540423E87434005E6D7D /* PublishTranscoderForm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PublishTranscoderForm.swift; path = Tests/PublishStreamManagerTranscode/PublishTranscoderForm.swift; sourceTree = "<group>"; };
 		92CC78081CB6F8DD00CD4352 /* SubscribeTwoStreams.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SubscribeTwoStreams.swift; path = Tests/SubscribeTwoStreams/SubscribeTwoStreams.swift; sourceTree = "<group>"; };
+		92D5293A261D9BB300B83626 /* PublishSocialPushTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PublishSocialPushTest.swift; path = Tests/PublishSocialPush/PublishSocialPushTest.swift; sourceTree = "<group>"; };
+		92D5293D261D9BC300B83626 /* PublishStreamManagerSocialPush.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PublishStreamManagerSocialPush.swift; path = Tests/PublishStreamManagerSocialPush/PublishStreamManagerSocialPush.swift; sourceTree = "<group>"; };
+		92D52940261D9C1B00B83626 /* SubscribeStreamManagerReconnectTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SubscribeStreamManagerReconnectTest.swift; path = Tests/SubscribeStreamManagerReconnect/SubscribeStreamManagerReconnectTest.swift; sourceTree = "<group>"; };
 		92E13BF31CDD165800DA5783 /* SubscribeNoViewTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SubscribeNoViewTest.swift; path = Tests/SubscribeNoView/SubscribeNoViewTest.swift; sourceTree = "<group>"; };
 		92EA19D91CE13717006B3A97 /* PublishCustomSourceTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PublishCustomSourceTest.swift; path = Tests/PublishCustomSource/PublishCustomSourceTest.swift; sourceTree = "<group>"; };
 		92EA19DC1CE137DD006B3A97 /* CustomVideoSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomVideoSource.swift; path = Tests/PublishCustomSource/CustomVideoSource.swift; sourceTree = "<group>"; };
@@ -300,10 +306,12 @@
 				4838028D1E4115130098F5B7 /* PublishPauseTest.swift */,
 				926794F81D061942004B0BCD /* RecordedTest.swift */,
 				481B15741EB390600038A187 /* PublishSendTest.swift */,
+				92D5293A261D9BB300B83626 /* PublishSocialPushTest.swift */,
 				485345061C23528400D409F3 /* PublishStreamImageTest.swift */,
 				926794F41D061900004B0BCD /* PublishRemoteCallTest.swift */,
 				926794F61D06191E004B0BCD /* PublishStreamManagerTest.swift */,
 				925516F922F0CBF300604D57 /* PublishSMEncryptedTest.swift */,
+				92D5293D261D9BC300B83626 /* PublishStreamManagerSocialPush.swift */,
 				48A7171A210A275C007C4AF7 /* PublishStreamManagerTranscodeTest.swift */,
 				925516FB22F0CC3100604D57 /* PublishTelephonyInterruptTest.swift */,
 				48B79AE720C6E94E00AAE4E2 /* PublishZoomableTest.swift */,
@@ -317,6 +325,7 @@
 				92EAA9DA1D0734EA00B2CE46 /* SubscribeAutoReconnectTest.swift */,
 				92A642E4200D416500882600 /* SubscribeBackgroundTest.swift */,
 				92BF540023E87384005E6D7D /* SubscribeStreamManagerTranscoderTest.swift */,
+				92D52940261D9C1B00B83626 /* SubscribeStreamManagerReconnectTest.swift */,
 				480A8795221ED82D00474724 /* SubscribeTelephonyInterruptTest.swift */,
 				92EBEF05212F1B63003B72FB /* SubscriberBandwidthTest.swift */,
 				92EBEF03212F1B59003B72FB /* BandwidthDetectionDownloadOnlyTest.swift */,
@@ -473,6 +482,7 @@
 				9255170022F0CC4D00604D57 /* SubscribeTelephonyInterruptTest.swift in Sources */,
 				92BF540323E873B7005E6D7D /* SubscribeRendererSwapTest.swift in Sources */,
 				92BF540523E87434005E6D7D /* PublishTranscoderForm.swift in Sources */,
+				92D5293E261D9BC300B83626 /* PublishStreamManagerSocialPush.swift in Sources */,
 				487C888F1F2F8AB2004157B6 /* PublishHQAudioTest.swift in Sources */,
 				48BF80AE1C245AA7000E996E /* PublishOrientationTest.swift in Sources */,
 				92EA19DD1CE137DD006B3A97 /* CustomVideoSource.swift in Sources */,
@@ -507,6 +517,7 @@
 				92EAA9DB1D0734EA00B2CE46 /* SubscribeAutoReconnectTest.swift in Sources */,
 				928B1CBD1CBC0DC5002C66BA /* SubscribeStreamManagerTest.swift in Sources */,
 				4874D59D1C2216DB00A98102 /* SubscribeTest.swift in Sources */,
+				92D52941261D9C1B00B83626 /* SubscribeStreamManagerReconnectTest.swift in Sources */,
 				926EB662224D475A00715EF7 /* SubscribeEncryptedTest.swift in Sources */,
 				48BB1D811CED140D00D915E5 /* SubscribeSetSizeTest.swift in Sources */,
 				485345071C23528400D409F3 /* PublishStreamImageTest.swift in Sources */,
@@ -515,6 +526,7 @@
 				48A7171B210A275C007C4AF7 /* PublishStreamManagerTranscodeTest.swift in Sources */,
 				92EBEF02212F1B4E003B72FB /* BandwidthDetectionTest.swift in Sources */,
 				925516F822F0CBAC00604D57 /* PublishCameraDeviceOrientationTest.swift in Sources */,
+				92D5293B261D9BB300B83626 /* PublishSocialPushTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

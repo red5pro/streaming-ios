@@ -33,51 +33,51 @@ import R5Streaming
 
 @objc(SubscribeHardwareAccelerationTest)
 class SubscribeHardwareAccelerationTest: BaseTest {
-
+    
     override func onR5StreamStatus(_ stream: R5Stream!, withStatus statusCode: Int32, withMessage msg: String!) {
         super.onR5StreamStatus(stream, withStatus: statusCode, withMessage: msg)
-
+        
         if( Int(statusCode) == Int(r5_status_start_streaming.rawValue) ){
-
+            
             let session : AVAudioSession = AVAudioSession.sharedInstance()
             let cat = session.category
             let opt = session.categoryOptions
-
+            
             let s =  String(format: "AV: %@ (%d)",  cat.rawValue, opt.rawValue)
             ALToastView.toast(in: self.view, withText:s)
-
+            
             // Example of using a frame listener to access the YUV420v (CVPixelBufferRef) data.
 //            self.subscribeStream?.setFrameListener({data, format, size, width, height in
 //                let f = Int(format.rawValue)                        // YUV420v = 3
 //                let s =  String(format: "Video Format: (%d)", f)    // Video Format: (3)
 //            })
-
+            
         }
-
+        
         if( Int(statusCode) == Int(r5_status_video_render_start.rawValue) ){
             let f = Int(stream.getFormat().rawValue)
             let s =  String(format: "Video Format: (%d)", f)
             ALToastView.toast(in: self.view, withText:s)
         }
     }
-
+    
     override func viewDidAppear(_ animated: Bool) {
-
+        
         super.viewDidAppear(animated)
-
+        
         setupDefaultR5VideoViewController()
-
+        
         let config = getConfig()
         // Set up the connection and stream
         let connection = R5Connection(config: config)
         self.subscribeStream = R5Stream(connection: connection)
         self.subscribeStream!.delegate = self
-
+        
         currentView?.attach(subscribeStream)
-
+        
         // HW Accel required for test purposes.
         self.subscribeStream!.play(Testbed.getParameter(param: "stream1") as! String, withHardwareAcceleration: true)
-
+        
     }
-
+        
 }

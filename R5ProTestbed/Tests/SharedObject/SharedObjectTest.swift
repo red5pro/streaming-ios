@@ -37,7 +37,7 @@ class SharedObjectTest: BaseTest, UITextViewDelegate {
     
     var sObject : R5SharedObject? = nil
     var chatView: UITextView? = nil
-    var chatInuput: UITextView? = nil
+    var chatInput: UITextView? = nil
     var sendBtn: UIButton? = nil
     var messageBuffer: NSMutableArray = []
     var timer: Timer? = nil
@@ -98,11 +98,11 @@ class SharedObjectTest: BaseTest, UITextViewDelegate {
         view.addSubview(blackButton)
         blackButton.addGestureRecognizer(getTextColorGestureRecognizer())
         
-        chatInuput = UITextView(frame: CGRect(x: 0, y: screenSize.height - 24, width: (screenSize.width * 0.6) - 50, height: 24) )
-        chatInuput?.backgroundColor = UIColor.lightGray
-        chatInuput?.isEditable = true
-        chatInuput?.delegate = self
-        view.addSubview(chatInuput!)
+        chatInput = UITextView(frame: CGRect(x: 0, y: screenSize.height - 24, width: (screenSize.width * 0.6) - 50, height: 24) )
+        chatInput?.backgroundColor = UIColor.lightGray
+        chatInput?.isEditable = true
+        chatInput?.delegate = self
+        view.addSubview(chatInput!)
         
         sendBtn = UIButton(frame: CGRect(x: (screenSize.width * 0.6) - 50, y: screenSize.height - 24, width: 50, height: 24))
         sendBtn?.backgroundColor = UIColor.darkGray
@@ -222,19 +222,19 @@ class SharedObjectTest: BaseTest, UITextViewDelegate {
 
     @objc func sendMessage(){
         
-        textViewDidEndEditing(chatInuput!)
+        textViewDidEndEditing(chatInput!)
         
-        if( (chatInuput?.text.isEmpty)! ){
+        if( (chatInput?.text.isEmpty)! ){
             return
         }
         
-        let messageOut : [AnyHashable:Any] = [ "user":thisUser, "message":(chatInuput?.text)! ]
+        let messageOut : [AnyHashable:Any] = [ "user":thisUser, "message":(chatInput?.text)! ]
         
         //Calls for the relevant method with the sent parameters on all clients listening to the shared object
         //Note - This includes the client that sends the call
         sObject?.send("messageTransmit", withParams: messageOut)
         
-        chatInuput?.text = ""
+        chatInput?.text = ""
     }
     
     @objc func setChatViewToHex (hexString: String) {
@@ -322,7 +322,7 @@ class SharedObjectTest: BaseTest, UITextViewDelegate {
     func textViewDidBeginEditing(_ textView: UITextView) {
         let screenSize = UIScreen.main.bounds.size
         
-        chatInuput?.frame = CGRect(x:0, y:screenSize.height * 0.5, width: (screenSize.width * 0.6) - 50, height: 24)
+        chatInput?.frame = CGRect(x:0, y:screenSize.height * 0.5, width: (screenSize.width * 0.6) - 50, height: 24)
         sendBtn?.frame = CGRect(x: (screenSize.width * 0.6) - 50, y: screenSize.height * 0.5, width: 50, height: 24)
     }
     
@@ -332,9 +332,9 @@ class SharedObjectTest: BaseTest, UITextViewDelegate {
         
         let screenSize = UIScreen.main.bounds.size
         
-        chatInuput?.frame = CGRect(x:0, y: screenSize.height - 24, width: (screenSize.width * 0.6) - 50, height: 24)
+        chatInput?.frame = CGRect(x:0, y: screenSize.height - 24, width: (screenSize.width * 0.6) - 50, height: 24)
         sendBtn?.frame = CGRect(x: (screenSize.width * 0.6) - 50, y: screenSize.height - 24, width: 50, height: 24)
         
-        chatInuput?.resignFirstResponder()
+        chatInput?.resignFirstResponder()
     }
 }
