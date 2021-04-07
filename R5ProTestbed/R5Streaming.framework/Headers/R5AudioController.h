@@ -11,7 +11,7 @@
 #import "global.h"
 #import <AudioToolbox/AudioToolbox.h>
 #import <AudioUnit/AudioUnit.h>
-#import <AVFoundation/AVAudioFormat.h>
+//#import <AVFoundation/AVAudioFormat.h>
 
 /**
  Audio Pathway for the R5AudioController.
@@ -87,5 +87,7 @@ typedef enum R5AudioControllerMode{
 -(instancetype)initWithMode:(R5AudioControllerMode)mode;
 
 -(double) currentStreamTime;
+
++(double) getCurrentPubTime;
 
 @end
