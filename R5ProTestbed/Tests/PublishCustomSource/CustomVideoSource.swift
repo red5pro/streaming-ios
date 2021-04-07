@@ -44,7 +44,7 @@ class CustomVideoSource : R5VideoSource {
         let fpsVal: Int32 = 15;
         
         //setup simple timestamp calculation
-        self.frameDuration = CMTimeMakeWithSeconds(0.1, preferredTimescale: fpsVal);
+        self.frameDuration = CMTimeMakeWithSeconds(1.0/Double(fpsVal), preferredTimescale: fpsVal);
         self.PTS = CMTime.zero;
         self.timer = nil;
         
@@ -113,8 +113,8 @@ class CustomVideoSource : R5VideoSource {
                     v += sinf(sqrtf(cx*cx + cy*cy + 1.0)+time);
                     
                     //Set the R, G, B channels to the desired color
-                    rgbPixels[(y * bpr) + (componentsPerPixel*x)] = __uint8_t( max( Double(sinf( v * Float(M_PI) )) * Double(UINT8_MAX), 0) );
-                    rgbPixels[(y * bpr) + (componentsPerPixel*x)+1] = __uint8_t( max( Double(cosf( v * Float(M_PI) )) * Double(UINT8_MAX), 0) );
+                    rgbPixels[(y * bpr) + (componentsPerPixel*x)] = __uint8_t( max( Double(sinf( v * Float.pi )) * Double(UINT8_MAX), 0) );
+                    rgbPixels[(y * bpr) + (componentsPerPixel*x)+1] = __uint8_t( max( Double(cosf( v * Float.pi )) * Double(UINT8_MAX), 0) );
                     rgbPixels[(y * bpr) + (componentsPerPixel*x)+2] = 0;
                 }
             }
@@ -151,7 +151,10 @@ class CustomVideoSource : R5VideoSource {
             var timingInfo: CMSampleTimingInfo = CMSampleTimingInfo.invalid;
             timingInfo.duration = CMTime.invalid;
             timingInfo.decodeTimeStamp = CMTime.invalid;
-            timingInfo.presentationTimeStamp = self.PTS;
+//            timingInfo.presentationTimeStamp = self.PTS;
+            
+            let aTime:Double = R5AudioController.getCurrentPubTime();
+            timingInfo.presentationTimeStamp = CMTimeMakeWithSeconds(aTime, preferredTimescale: 1000)
             
             var buffer: CMSampleBuffer?;
             

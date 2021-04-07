@@ -43,15 +43,19 @@
 		<key>sm_version</key>
 		<string>4.0</string>
 		<key>sm_access_token</key>
-		<string>xyz1234</string>
+		<string>xyz123</string>
+		<key>cluster_password</key>
+		<string>changeme</string>
+		<key>push_target</key>
+		<string>rtmp://localhost/live/stream2</string>
 	</dict>
 	<key>Tests</key>
 	<dict>
 		<key>home</key>
 		<dict>
-			<key>class</key>
-			<string>Home</string>
 			<key>name</key>
+			<string>Home</string>
+			<key>class</key>
 			<string>Home</string>
 		</dict>
 		<key>publish</key>
@@ -271,6 +275,17 @@
 			<key>class</key>
 			<string>PublishRemoteCallTest</string>
 		</dict>
+		<key>publish - Social Pusher</key>
+		<dict>
+			<key>description</key>
+			<string>call for the server to rebrodcast to another service</string>
+			<key>LocalProperties</key>
+			<dict/>
+			<key>name</key>
+			<string>Publish - Social Pusher</string>
+			<key>class</key>
+			<string>PublishSocialPushTest</string>
+		</dict>
 		<key>publish - Stream Manager</key>
 		<dict>
 			<key>description</key>
@@ -292,6 +307,17 @@
 			<string>Publish - Stream Manager Encrypted</string>
 			<key>class</key>
 			<string>PublishSMEncryptedTest</string>
+		</dict>
+		<key>publish - Stream Manager Social Pusher</key>
+		<dict>
+			<key>description</key>
+			<string>call for the stream manager to rebrodcast to another service</string>
+			<key>LocalProperties</key>
+			<dict/>
+			<key>name</key>
+			<string>Publish - Stream Manager Social Pusher</string>
+			<key>class</key>
+			<string>PublishStreamManagerSocialPushTest</string>
 		</dict>
 		<key>publish - Stream Manager Transcoder</key>
 		<dict>
@@ -513,6 +539,15 @@
 			<key>class</key>
 			<string>SubscribeStreamImageTest</string>
 		</dict>
+		<key>subscribe - Interrupt</key>
+		<dict>
+			<key>LocalProperties</key>
+			<dict/>
+			<key>name</key>
+			<string>subscribe - Interrupt Test</string>
+			<key>class</key>
+			<string>SubscribeInterruptTest</string>
+		</dict>
 		<key>subscribe - Metal View</key>
 		<dict>
 			<key>description</key>
@@ -608,6 +643,17 @@
 			<key>class</key>
 			<string>SubscribeSMEncryptedTest</string>
 		</dict>
+		<key>subscribe - Stream Manager Reconnect</key>
+		<dict>
+			<key>description</key>
+			<string>A subscribe example that connects to a cluster server with the Stream Manager and attempts reconnect on lost/unpublished stream.</string>
+			<key>LocalProperties</key>
+			<dict/>
+			<key>name</key>
+			<string>Subscribe - Stream Manager Reconnect</string>
+			<key>class</key>
+			<string>SubscribeStreamManagerReconnectTest</string>
+		</dict>
 		<key>subscribe - Stream Manager Transcoder</key>
 		<dict>
 			<key>description</key>
@@ -618,6 +664,17 @@
 			<string>Subscribe - Stream Manager Transcoder</string>
 			<key>class</key>
 			<string>SubscribeStreamManagerTranscoderTest</string>
+		</dict>
+		<key>subscribe - Switch Streams</key>
+		<dict>
+			<key>description</key>
+			<string>Allows switching streams dynamically</string>
+			<key>LocalProperties</key>
+			<dict/>
+			<key>name</key>
+			<string>Subscribe - Switch Streams</string>
+			<key>class</key>
+			<string>SubscribeStreamSwitchTest</string>
 		</dict>
 		<key>subscribe - Two Streams</key>
 		<dict>
