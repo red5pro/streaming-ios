@@ -21,7 +21,7 @@ extern "C" {
 #define STRINGIFY_(s) #s
 #define STRINGIFY(s) STRINGIFY_(s)
 
-#define R5PRO_MAJOR_VERSION         8
+#define R5PRO_MAJOR_VERSION         9
 #define R5PRO_MINOR_VERSION         0
 #define R5PRO_REVISION              0
 #define R5PRO_BUILD                 0
