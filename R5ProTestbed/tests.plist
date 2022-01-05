@@ -168,7 +168,7 @@
 		<key>publish - Custom Video Source</key>
 		<dict>
 			<key>description</key>
-			<string>Touch the screen to swap which camera is being used! Verify using flash that camera is swapping properly and no rendering problems occur.</string>
+			<string>Uses a custom controller to supply video data to the publisher</string>
 			<key>LocalProperties</key>
 			<dict/>
 			<key>name</key>
