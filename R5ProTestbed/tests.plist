@@ -168,7 +168,7 @@
 		<key>publish - Custom Video Source</key>
 		<dict>
 			<key>description</key>
-			<string>Touch the screen to swap which camera is being used! Verify using flash that camera is swapping properly and no rendering problems occur.</string>
+			<string>Uses a custom controller to supply video data to the publisher</string>
 			<key>LocalProperties</key>
 			<dict/>
 			<key>name</key>
@@ -762,7 +762,7 @@
 			<key>class</key>
 			<string>BandwidthDetectionTest</string>
 			<key>description</key>
-			<string>An example of utlizing bandwidth detection</string>
+			<string>An example of utilizing bandwidth detection</string>
 		</dict>
 		<key>bandwidth detection - download</key>
 		<dict>
@@ -773,7 +773,7 @@
 			<key>class</key>
 			<string>BandwidthDetectionDownloadOnlyTest</string>
 			<key>description</key>
-			<string>An example of utlizing bandwidth detection for download speeds only</string>
+			<string>An example of utilizing bandwidth detection for download speeds only</string>
 		</dict>
 		<key>bandwidth detection - upload</key>
 		<dict>
@@ -784,7 +784,7 @@
 			<key>class</key>
 			<string>BandwidthDetectionUploadOnlyTest</string>
 			<key>description</key>
-			<string>An example of utlizing bandwidth detection for upload speeds only</string>
+			<string>An example of utilizing bandwidth detection for upload speeds only</string>
 		</dict>
 	</dict>
 </dict>
