@@ -5,13 +5,13 @@
 	<key>GlobalProperties</key>
 	<dict>
 		<key>license_key</key>
-		<string></string>
+		<string>ACJE-4URR-UH54-RWJR</string>
 		<key>server_port</key>
 		<string>443</string>
 		<key>bitrate</key>
 		<integer>750</integer>
 		<key>host</key>
-		<string>0.0.0.0</string>
+		<string>release-11.red5.net</string>
 		<key>buffer_time</key>
 		<real>0.5</real>
 		<key>port</key>
@@ -48,6 +48,8 @@
 		<string>changeme</string>
 		<key>push_target</key>
 		<string>rtmp://localhost/live/stream2</string>
+		<key>conference_host</key>
+		<string>ws://10.0.0.75:8001</string>
 	</dict>
 	<key>Tests</key>
 	<dict>
