@@ -14,7 +14,7 @@ With the Stream Manager, our configuration IP will be used similarly for publish
 In order to publish, you first need to connect to the autoscaling Stream Manager. The Stream Manager will know which origins are active and provide the one that needs to be published to.
 
 ```Swift
-let urlString = "https://" + (Testbed.getParameter("host") as! String) + "/streammanager/api/3.1/event/" +
+let urlString = "https://" + (Testbed.getParameter("host") as! String) + "/streammanager/api/4.0/event/" +
   Testbed.getParameter("context") as! String + "/" +
   Testbed.getParameter("stream1") as! String + "?action=broadcast"
 

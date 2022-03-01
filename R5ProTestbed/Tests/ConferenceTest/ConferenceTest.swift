@@ -33,63 +33,84 @@ import UIKit
 import R5Streaming
 
 @objc(ConferenceTest)
-class ConferenceTest: BaseTest, ConferenceViewControllerDelegate {
-
+class ConferenceTest: BaseTest, ConferenceViewControllerDelegate, WebSocketProviderDelegate {
+    
+    // Requires `conference_host` Testbed configuration.
+    // If false, will failover to using SharedObjects.
+    var useSocket = true
+    
     var videoOn = true
     var audioOn = true
     var muteLock = true
     var rowCount : Int = 0
     var columnCount : Int = 0
-
+    
     var overlay : ConferenceViewController? = nil
-
+    
     var pubName : String? = nil
     var roomName : String? = nil
-
+    
     var config : R5Configuration? = nil
     var streams : [StreamPackage] = []
     var subQueue : [String]? = nil
     var roomSO : R5SharedObject? = nil
-
+    
+    var socket: WebSocketProvider? = nil
+    
     var timer : Timer? = nil
-
+    
+    // Force portrait.
+    open override var shouldAutorotate:Bool {
+        get {
+            return false
+        }
+    }
+    open override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return .portrait
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
-
+        
+        super.viewDidAppear(animated)
+        UIView.setAnimationsEnabled(false)
+        UIDevice.current.setValue(UIInterfaceOrientation.portrait.rawValue, forKey: "orientation")
+        UIView.setAnimationsEnabled(true)
+        
         AVAudioSession.sharedInstance().requestRecordPermission { (gotPerm: Bool) -> Void in
-
+           
         };
-
+         
         //add view controller
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         overlay = (storyboard.instantiateViewController(withIdentifier: "ConferenceViewController") as? ConferenceViewController)!
         overlay?.view.frame = CGRect(x:0, y:0, width:self.view.frame.width, height: self.view.frame.height)
-
+        
         self.addChild(overlay!)
         self.view.addSubview((overlay?.view)!)
         overlay?.view.layoutSubviews()
         overlay?.view.backgroundColor = UIColor(white: 1, alpha: 0.0)
         overlay?.delegate = self
-
+        
         let tap : UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(rootTouch(_:)))
         self.view.addGestureRecognizer(tap)
-
+        
         self.view.backgroundColor = UIColor.gray
-
+        
         config = getConfig()
     }
 
     // v BUTTONS v
-
+    
     @objc func rootTouch(_ recognizer : UITapGestureRecognizer) {
 //        overlay?.toggleMuteVisibility()
         overlay?.streamNameField.resignFirstResponder()
         overlay?.roomNameField.resignFirstResponder()
     }
-
+    
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         arrangeViews(withSize: size)
     }
-
+    
     func connectTrigger() {
         pubName = overlay?.streamNameField.text
         roomName = overlay?.roomNameField.text
@@ -97,7 +118,7 @@ class ConferenceTest: BaseTest, ConferenceViewControllerDelegate {
         overlay?.roomNameField.resignFirstResponder()
         publish();
     }
-
+    
     func videoMuteTrigger() {
         videoOn = !videoOn
         if(streams.count > 0){
@@ -109,7 +130,7 @@ class ConferenceTest: BaseTest, ConferenceViewControllerDelegate {
         overlay?.streamNameField.resignFirstResponder()
         overlay?.roomNameField.resignFirstResponder()
     }
-
+    
     func audioMuteTrigger() {
         audioOn = !audioOn
         if(!muteLock){
@@ -118,104 +139,105 @@ class ConferenceTest: BaseTest, ConferenceViewControllerDelegate {
         overlay?.streamNameField.resignFirstResponder()
         overlay?.roomNameField.resignFirstResponder()
     }
-
+    
     // ^ BUTTONS ^
-
+    
     // v STREAMS v
-
+    
     func publish() {
-
+        
         let pack = StreamPackage()
         pack.name = pubName
         streams.append(pack)
-
+        
         pack.view = getNewR5VideoViewController(rect: self.view.bounds)
         addNewView(r5View: pack.view!)
         addTag(r5View: pack.view!, tagName: pack.name!)
-
+        
         pack.view!.showPreview(true)
-
+        
+        config?.contextName = (Testbed.getParameter(param: "context") as! String) + "/" + roomName!
         let connection = R5Connection(config: config)
-
+        
         pack.stream = R5Stream(connection: connection)
         pack.stream?.client = self
         pack.stream!.delegate = ConferenceConnListener(theTest: self, streamName: pubName!, isPublish: true)
-
+        
         // Attach the video from camera to stream
         let videoDevice = AVCaptureDevice.devices(for: AVMediaType.video).last as? AVCaptureDevice
-
+        
         let camera = R5Camera(device: videoDevice, andBitRate: Int32(Testbed.getParameter(param: "bitrate") as! Int))
-
+       
         camera?.width = Int32(Testbed.getParameter(param: "camera_width") as! Int)
         camera?.height = Int32(Testbed.getParameter(param: "camera_height") as! Int)
         camera?.fps = Int32(Testbed.getParameter(param: "fps") as! Int)
         camera?.orientation = 90
         pack.stream!.attachVideo(camera)
-
+        
         // Attach the audio from microphone to stream
         let audioDevice = AVCaptureDevice.default(for: AVMediaType.audio)
         let microphone = R5Microphone(device: audioDevice)
         microphone?.bitrate = 32
         NSLog("Got device %@", String(describing: audioDevice?.localizedName))
         pack.stream!.attachAudio(microphone)
-
+        
         pack.view!.attach(pack.stream!)
-
+        
         pack.stream!.publish(pubName, type: getPublishRecordType ())
     }
-
+    
     func subscribe(toName : String) {
         let pack = StreamPackage()
         pack.name = toName
         streams.append(pack)
-
+        
         pack.view = getNewR5VideoViewController(rect: self.view.bounds)
         addTag(r5View: pack.view!, tagName: toName)
-
+        
         let connection = R5Connection(config: config)
-
+        
         pack.stream = R5Stream(connection: connection)
-
+        
         pack.stream!.audioController = R5AudioController()
         pack.stream?.client = self;
         pack.stream?.delegate = ConferenceConnListener(theTest: self, streamName: toName, isPublish: false)
-
+        
         pack.view?.attach(pack.stream!)
         pack.stream?.play(toName, withHardwareAcceleration:Testbed.getParameter(param: "hwaccel_on") as! Bool)
     }
-
+    
     class ConferenceConnListener : NSObject, R5StreamDelegate {
-
+        
         var thisTest : ConferenceTest
         var name : String
         var pub : Bool
         var calledForNextInQueue : Bool
         var dead = false
-
+        
         init( theTest : ConferenceTest, streamName : String, isPublish : Bool) {
             thisTest = theTest
             name = streamName
             pub = isPublish
             calledForNextInQueue = pub
         }
-
+        
         func onR5StreamStatus(_ stream: R5Stream!, withStatus statusCode: Int32, withMessage msg: String!) {
             if(dead) {
                 return
             }
-
+            
             NSLog("Event for %@ is: %s - %@", pub ? "Publisher" : "Stream: " + name, r5_string_for_status(statusCode), msg)
-
+            
             if(!calledForNextInQueue && statusCode == r5_status_connected.rawValue && thisTest.subQueue != nil) {
                 thisTest.nextSubInQueue()
                 calledForNextInQueue = true
             }
-
+            
             if(statusCode == r5_status_start_streaming.rawValue) {
                 if(pub){
                     if(thisTest.videoOn && thisTest.audioOn) {
                         thisTest.muteLock = false
-                        thisTest.connectSO()
+                        thisTest.connectToListServer()
                     } else {
                         let waitTime = DispatchTime(uptimeNanoseconds: DispatchTime.now().uptimeNanoseconds + 500000) //0.5s as ns
                         DispatchQueue.main.asyncAfter(deadline: waitTime) {
@@ -228,13 +250,13 @@ class ConferenceTest: BaseTest, ConferenceViewControllerDelegate {
                                 if(!self.thisTest.audioOn) {
                                     targStream.pauseAudio = true
                                 }
-
+                                
                                 if (self.thisTest.timer != nil) {
                                     self.thisTest.timer?.invalidate()
                                     self.thisTest.timer = nil
                                 }
-                                self.thisTest.timer = Timer.scheduledTimer(timeInterval: 0.25, target: self.thisTest, selector: #selector(connectSO), userInfo: nil, repeats: false)
-
+                                self.thisTest.timer = Timer.scheduledTimer(timeInterval: 0.25, target: self.thisTest, selector: #selector(connectToListServer), userInfo: nil, repeats: false)
+                                
                             }
                         }
                     }
@@ -248,7 +270,7 @@ class ConferenceTest: BaseTest, ConferenceViewControllerDelegate {
                     }
                 }
             }
-
+            
             if(statusCode == r5_status_connection_error.rawValue || statusCode == r5_status_disconnected.rawValue
                 || statusCode == r5_status_connection_close.rawValue) {
                 dead = true
@@ -265,7 +287,7 @@ class ConferenceTest: BaseTest, ConferenceViewControllerDelegate {
             }
         }
     }
-
+    
     func nextSubInQueue() {
         if(subQueue!.count > 0) {
             DispatchQueue.main.async {
@@ -277,10 +299,53 @@ class ConferenceTest: BaseTest, ConferenceViewControllerDelegate {
             subQueue = nil
         }
     }
-
+    
     // ^ STREAMS ^
+    
+    @objc func connectToListServer () {
+        if (useSocket) {
+            connectSocket()
+        } else {
+            connectSO()
+        }
+    }
+    
+    // v SOCKET v
+    
+    @objc func connectSocket () {
+        // Endpoint location of host. See: https://github.com/red5pro/red5pro-conference-host
+        // Note: Even though you may launch the conference host server on localhost, you cannot
+        //          specify `localhost` in the URL. You need to define the private IP of your machine on the
+        //          same router that the tethered iOS device is on (e.g., 10.0.0.x).
+        //          This is because defining `localhost` as the endpoint here would indicate your iOS device.
+        let host = Testbed.getParameter(param: "conference_host" as String)?
+            .replacingOccurrences(of: "http:", with:"ws:")
+            .replacingOccurrences(of: "https:", with: "wss:")
+        let url = URL(string: "\(host!)?room=\(self.roomName!)&streamName=\(self.pubName!)")
+        socket = WebSocketProvider(url: url!)
+        socket?.delegate = self
+        socket?.connect()
+    }
+    
+    func webSocketDidConnect(_ webSocket: WebSocketProvider) {}
+    func webSocketDidDisconnect(_ webSocket: WebSocketProvider) {}
+    
+    func webSocket(_ webSocket: WebSocketProvider, didReceiveMessage message: String) {
+        // message = { room: str, streams: str[] }
+        let json: AnyObject? = message.parseJSONString
+        let jsonDict = json as? [String: Any]
+        
+        if jsonDict?["room"] as? String == self.roomName! {
+            if let streams = jsonDict?["streams"] as? Array<String> {
+                stringToQueue(incoming: streams.joined(separator: ","))
+            }
+        }
+    }
+    
+    // ^ SOCKET ^
+    
     // v SHARED OBJECT v
-
+    
     @objc func connectSO() {
         if(self.streams.count < 1) {
             return
@@ -288,7 +353,7 @@ class ConferenceTest: BaseTest, ConferenceViewControllerDelegate {
         self.roomSO = R5SharedObject(name: self.roomName!, connection: self.streams[0].stream?.connection)
         self.roomSO?.client = self
     }
-
+    
     @objc func onSharedObjectConnect( objectValue: NSDictionary) {
         let data : NSMutableDictionary = (roomSO?.data)!
         var streamString = ""
@@ -305,14 +370,15 @@ class ConferenceTest: BaseTest, ConferenceViewControllerDelegate {
         overlay?.clearOn = false
         roomSO?.setProperty("streams", withValue: streamString as NSString)
     }
-
+    
     @objc func onUpdateProperty( propertyInfo: [AnyHashable: Any] ) {
         if let c = propertyInfo["streams"] {
             stringToQueue(incoming: c as! String)
         }
     }
-
+    
     func stringToQueue(incoming : String) {
+              
         var startQueue = false
         if(subQueue == nil) {
             subQueue = []
@@ -334,7 +400,7 @@ class ConferenceTest: BaseTest, ConferenceViewControllerDelegate {
                 subQueue?.append(String(s))
             }
         }
-
+        
         if(startQueue) {
             if(subQueue!.count < 1) {
                 subQueue = nil
@@ -342,7 +408,7 @@ class ConferenceTest: BaseTest, ConferenceViewControllerDelegate {
                 nextSubInQueue()
             }
         }
-
+        
         var allActiveNames : [String] = []
         for pack in streams {
             allActiveNames.append(pack.name!)
@@ -358,14 +424,14 @@ class ConferenceTest: BaseTest, ConferenceViewControllerDelegate {
         allActiveNames.removeAll { (activeS : String) -> Bool in
             return activeS == pubName!
         }
-
+        
         for activeS in allActiveNames {
             DispatchQueue.main.async {
                 self.clearByName(clearName: activeS)
             }
         }
     }
-
+    
     func packByName(packName : String) -> StreamPackage? {
         for pack in streams {
             if(pack.name! == packName) {
@@ -374,14 +440,14 @@ class ConferenceTest: BaseTest, ConferenceViewControllerDelegate {
         }
         return nil
     }
-
+    
     func clearByName(clearName : String) {
         let targetPack : StreamPackage? = packByName(packName: clearName)
-
+        
         if(targetPack == nil) {
             return
         }
-
+        
         DispatchQueue.main.async {
             targetPack?.stream!.delegate = nil
             targetPack?.stream!.stop()
@@ -391,104 +457,101 @@ class ConferenceTest: BaseTest, ConferenceViewControllerDelegate {
             self.streams.removeAll { (pack : StreamPackage) -> Bool in
                 return targetPack?.name! == pack.name!
             }
+            self.arrangeViews()
         }
     }
-
+    
     // ^ SHARED OBJECT ^
 
     // v VIEWS V
-
+    
     func addTag(r5View : R5VideoViewController, tagName : String) {
         let tag = UITextView()
         tag.text = tagName
         r5View.view.addSubview(tag)
     }
-
+    
     let targetRatio : CGFloat = 1.0
     func addNewView(r5View : R5VideoViewController) {
         self.view.insertSubview(r5View.view, belowSubview: (overlay?.view)!)
-        if(rowCount < 1) {
-            rowCount = 1
-            columnCount = 1
-        }
-        if(rowCount * columnCount < streams.count){
-            let screenSize = self.view.bounds.size
-            let width = screenSize.width
-            let height = screenSize.height
-            let newRowRatio = (width/CGFloat(columnCount)) / (height/CGFloat(rowCount+1))
-            let newColumnRatio = (width/CGFloat(columnCount+1)) / (height/CGFloat(rowCount))
-
-            if(abs(newColumnRatio - targetRatio) < abs(newRowRatio - targetRatio)) {
-                columnCount += 1
-            } else {
-                rowCount += 1
-            }
-        }
-
         arrangeViews()
     }
-
+    
     func removeView(r5View : R5VideoViewController) {
-
         r5View.view.removeFromSuperview()
-
-        let screenSize = self.view.bounds.size
-        let width = screenSize.width
-        let height = screenSize.height
-        let lessRowRatio = (width/CGFloat(columnCount)) / (height/CGFloat(rowCount-1))
-        let lessColumnRatio = (width/CGFloat(columnCount-1)) / (height/CGFloat(rowCount))
-
-        if(abs(lessColumnRatio - targetRatio) < abs(lessRowRatio - targetRatio)) {
-            if((columnCount-1)*rowCount >= streams.count) {
-                columnCount -= 1
-            }
-        }
-        else {
-            if((rowCount-1)*columnCount >= streams.count) {
-                rowCount -= 1
-            }
-        }
-
+        r5View.removeFromParent()
         arrangeViews()
     }
-
+    
     func arrangeViews() {
         arrangeViews(withSize: self.view.bounds.size)
     }
+    
     func arrangeViews(withSize : CGSize) {
+        
+        columnCount = streams.count == 2 ? 1 : streams.count > 2 ? 2 : 1
+        rowCount = streams.count == 2 ? 2 : Int(ceil(Double(streams.count) / 2.0))
+        
         let viewWidth = withSize.width / CGFloat(columnCount)
         let viewHeight = withSize.height / CGFloat(rowCount)
-
         var i : Int = 0
-        for y : Int in 0..<rowCount {
-            for x : Int in 0..<columnCount {
-                if(i < streams.count) {
-                    streams[i].view?.setFrame(CGRect(x: CGFloat(x)*viewWidth, y: CGFloat(y)*viewHeight, width: viewWidth, height: viewHeight))
-                    i += 1
-                }
+        var row : Int = 0
+        
+        for stream : StreamPackage in streams {
+            
+            let view = streams[i].view
+            if (i >= 2) {
+                row += i % 2 == 0 ? 1 : 0
             }
+            
+            // If only 2, First 2 are stacked.
+            if streams.count <= 2 {
+                
+                view?.setFrame(CGRect(x: 0, y: CGFloat(i)*viewHeight, width: withSize.width, height: viewHeight))
+                
+            } else if i % 2 == 0 && i == streams.count - 1 {
+                
+                // Last one, if not 2 in the last row, is stretched to width
+                view?.setFrame(CGRect(x: 0, y: CGFloat(rowCount-1)*viewHeight, width: withSize.width, height: viewHeight))
+                
+            } else {
+                
+                // Else equal grid
+                view?.setFrame(CGRect(x: (i % 2 == 0) ? viewWidth : 0, y: CGFloat(row)*viewHeight, width: viewWidth, height: viewHeight))
+                
+            }
+            
+            i += 1
+            
         }
     }
-
+    
     // ^ VIEWS ^
-
+    
     override func closeTest() {
-
+        
+        if (socket != nil) {
+            socket?.disconnect()
+            socket = nil
+        }
+        
         if (timer != nil) {
             timer?.invalidate()
             timer = nil
         }
-
+        
         if(roomSO != nil) {
-            var streamString = roomSO?.data.object(forKey: "streams") as! String
-            var streamList = streamString.split(separator: ",")
-            streamList.removeAll { (s) -> Bool in
-                return String(s) == pubName
-            }
-            streamString = streamList.joined(separator: ",")
-            roomSO?.setProperty("streams", withValue: streamString as NSString)
-
             roomSO?.client = nil
+            
+            if(roomSO?.data != nil) {
+                var streamString = roomSO?.data.object(forKey: "streams") as! String
+                var streamList = streamString.split(separator: ",")
+                streamList.removeAll { (s) -> Bool in
+                    return String(s) == pubName
+                }
+                streamString = streamList.joined(separator: ",")
+                roomSO?.setProperty("streams", withValue: streamString as NSString)
+            }
             roomSO?.close()
         }
         if(streams.count > 0) {
@@ -505,7 +568,7 @@ class ConferenceTest: BaseTest, ConferenceViewControllerDelegate {
             subQueue?.removeAll()
             subQueue = nil
         }
-
+        
         super.closeTest()
     }
 }

@@ -1,6 +1,6 @@
 # Handling Interrupts while Publishing
 
-During an interrupt - such as receiving a phone call - of an application that is publishing a stream, the Operating System may reclaim the media devices used in broadcasting. This means that the Camera and/or Microphone will be disconnected from the broadcast the publishing session halting abruptly - leaving your subscribers wonderign what happened.
+During an interrupt - such as receiving a phone call - of an application that is publishing a stream, the Operating System may reclaim the media devices used in broadcasting. This means that the Camera and/or Microphone will be disconnected from the broadcast the publishing session halting abruptly - leaving your subscribers wondering what happened.
 
 Though the Red5 Pro SDK cannot stop the Operating System from assuming control in such occurances, we can handle such interruption more gracefully by communicating with subscribers and publishers that interruptions have occurred.
 
