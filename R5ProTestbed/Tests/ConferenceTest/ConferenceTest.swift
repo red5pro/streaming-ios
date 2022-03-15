@@ -35,10 +35,6 @@ import R5Streaming
 @objc(ConferenceTest)
 class ConferenceTest: BaseTest, ConferenceViewControllerDelegate, WebSocketProviderDelegate {
     
-    // Requires `conference_host` Testbed configuration.
-    // If false, will failover to using SharedObjects.
-    var useSocket = true
-    
     var videoOn = true
     var audioOn = true
     var muteLock = true
@@ -53,7 +49,6 @@ class ConferenceTest: BaseTest, ConferenceViewControllerDelegate, WebSocketProvi
     var config : R5Configuration? = nil
     var streams : [StreamPackage] = []
     var subQueue : [String]? = nil
-    var roomSO : R5SharedObject? = nil
     
     var socket: WebSocketProvider? = nil
     
@@ -303,11 +298,7 @@ class ConferenceTest: BaseTest, ConferenceViewControllerDelegate, WebSocketProvi
     // ^ STREAMS ^
     
     @objc func connectToListServer () {
-        if (useSocket) {
-            connectSocket()
-        } else {
-            connectSO()
-        }
+        connectSocket()
     }
     
     // v SOCKET v
@@ -344,39 +335,6 @@ class ConferenceTest: BaseTest, ConferenceViewControllerDelegate, WebSocketProvi
     
     // ^ SOCKET ^
     
-    // v SHARED OBJECT v
-    
-    @objc func connectSO() {
-        if(self.streams.count < 1) {
-            return
-        }
-        self.roomSO = R5SharedObject(name: self.roomName!, connection: self.streams[0].stream?.connection)
-        self.roomSO?.client = self
-    }
-    
-    @objc func onSharedObjectConnect( objectValue: NSDictionary) {
-        let data : NSMutableDictionary = (roomSO?.data)!
-        var streamString = ""
-        if(data.object(forKey: "streams") != nil) {
-            streamString = data.object(forKey: "streams") as! String
-        }
-        if(streamString.isEmpty || overlay!.clearOn) {
-            streamString = pubName!
-        } else {
-            stringToQueue(incoming: streamString)
-            streamString.append(",")
-            streamString.append(pubName!)
-        }
-        overlay?.clearOn = false
-        roomSO?.setProperty("streams", withValue: streamString as NSString)
-    }
-    
-    @objc func onUpdateProperty( propertyInfo: [AnyHashable: Any] ) {
-        if let c = propertyInfo["streams"] {
-            stringToQueue(incoming: c as! String)
-        }
-    }
-    
     func stringToQueue(incoming : String) {
               
         var startQueue = false
@@ -401,12 +359,14 @@ class ConferenceTest: BaseTest, ConferenceViewControllerDelegate, WebSocketProvi
             }
         }
         
-        if(startQueue) {
+        if (startQueue) {
             if(subQueue!.count < 1) {
                 subQueue = nil
             } else {
                 nextSubInQueue()
             }
+        } else if (subQueue != nil && subQueue!.count < 1) {
+            nextSubInQueue()
         }
         
         var allActiveNames : [String] = []
@@ -460,8 +420,6 @@ class ConferenceTest: BaseTest, ConferenceViewControllerDelegate, WebSocketProvi
             self.arrangeViews()
         }
     }
-    
-    // ^ SHARED OBJECT ^
 
     // v VIEWS V
     
@@ -540,20 +498,6 @@ class ConferenceTest: BaseTest, ConferenceViewControllerDelegate, WebSocketProvi
             timer = nil
         }
         
-        if(roomSO != nil) {
-            roomSO?.client = nil
-            
-            if(roomSO?.data != nil) {
-                var streamString = roomSO?.data.object(forKey: "streams") as! String
-                var streamList = streamString.split(separator: ",")
-                streamList.removeAll { (s) -> Bool in
-                    return String(s) == pubName
-                }
-                streamString = streamList.joined(separator: ",")
-                roomSO?.setProperty("streams", withValue: streamString as NSString)
-            }
-            roomSO?.close()
-        }
         if(streams.count > 0) {
             for i in stride(from:streams.count - 1, through:0, by: -1) {
                 let pack = streams[i]

@@ -12,6 +12,16 @@ import R5Streaming
 @objc(ConferenceStreamManagerTest)
 class ConferenceStreamManagerTest: ConferenceTest {
     
+    func delayRetryRequest (streamName: String, context: String, action: String, resolver: @escaping (_ ip: String) -> Void) {
+        
+        // 2 seconds
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+            print("Retrying request for " + context + "/" + streamName)
+            self.requestServer(streamName, context: context, action: action, resolve: resolver)
+        }
+        
+    }
+    
     func requestServer(_ streamName: String, context: String, action: String, resolve: @escaping (_ ip: String) -> Void) {
         
         print("Requesting for stream: " + streamName + " - and action= " + action)
@@ -37,7 +47,7 @@ class ConferenceStreamManagerTest: ConferenceTest {
                 var json: [String: AnyObject]
                 do{
                     json = try JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions()) as! [String: AnyObject]
-                }catch{
+                } catch {
                     print(error)
                     return
                 }
@@ -47,6 +57,7 @@ class ConferenceStreamManagerTest: ConferenceTest {
                 }
                 else if let errorMessage = json["errorMessage"] as? String {
                     print(AccessError.error(message: errorMessage))
+                    self.delayRetryRequest(streamName: streamName, context: context, action: action, resolver: resolve)
                 }
                 
         })
