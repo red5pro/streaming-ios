@@ -722,28 +722,6 @@
 			<key>class</key>
 			<string>SubscribeTelephonyInterruptTest</string>
 		</dict>
-		<key>TwoWay</key>
-		<dict>
-			<key>description</key>
-			<string>Publish and subscribe simultaneously to hold a conversation</string>
-			<key>LocalProperties</key>
-			<dict/>
-			<key>name</key>
-			<string>Two Way</string>
-			<key>class</key>
-			<string>TwoWayTest</string>
-		</dict>
-		<key>TwoWay - Stream Manager</key>
-		<dict>
-			<key>description</key>
-			<string>Publish and subscribe simultaneously through a stream manager</string>
-			<key>LocalProperties</key>
-			<dict/>
-			<key>name</key>
-			<string>Two Way - Stream Manager</string>
-			<key>class</key>
-			<string>TwoWayStreamManagerTest</string>
-		</dict>
 		<key>Conference</key>
 		<dict>
 			<key>description</key>
@@ -754,6 +732,17 @@
 			<string>Conference</string>
 			<key>class</key>
 			<string>ConferenceTest</string>
+		</dict>
+		<key>Conference - Stream Manager</key>
+		<dict>
+			<key>description</key>
+			<string>Many to many over Stream Manager</string>
+			<key>LocalProperties</key>
+			<dict/>
+			<key>name</key>
+			<string>Conference - Stream Manager</string>
+			<key>class</key>
+			<string>ConferenceStreamManagerTest</string>
 		</dict>
 		<key>bandwidth detection</key>
 		<dict>
