@@ -21,10 +21,10 @@ extern "C" {
 #define STRINGIFY_(s) #s
 #define STRINGIFY(s) STRINGIFY_(s)
 
-#define R5PRO_MAJOR_VERSION         9
+#define R5PRO_MAJOR_VERSION         10
 #define R5PRO_MINOR_VERSION         0
 #define R5PRO_REVISION              0
-#define R5PRO_BUILD                 0
+#define R5PRO_BUILD                 b826
 
 
 #define R5PRO_VERSION               STRINGIFY(R5PRO_MAJOR_VERSION.R5PRO_MINOR_VERSION.R5PRO_REVISION.R5PRO_BUILD)

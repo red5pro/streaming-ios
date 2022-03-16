@@ -51,19 +51,13 @@ class ConferenceViewController : UIViewController, UITextFieldDelegate {
     @IBOutlet weak var videoMuteButton : UIView!
     @IBOutlet weak var audioMuteText : UILabel!
     @IBOutlet weak var audioMuteButton : UIView!
-    @IBOutlet weak var clearSwitch : UISwitch!
     
     var videoOn = true
     var audioOn = true
-    var clearOn = false
     
     @IBAction func connectTouch(_ sender: Any) {
         nameView.alpha = 0.0
         toggleMuteVisibility()
-        if(clearSwitch.isOn){
-            clearOn = true
-            clearSwitch.setOn(false, animated: false)
-        }
         delegate?.connectTrigger()
     }
     

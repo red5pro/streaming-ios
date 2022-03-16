@@ -48,6 +48,8 @@
 		<string>changeme</string>
 		<key>push_target</key>
 		<string>rtmp://localhost/live/stream2</string>
+		<key>conference_host</key>
+		<string>ws://10.0.0.75:8001</string>
 	</dict>
 	<key>Tests</key>
 	<dict>
@@ -168,7 +170,7 @@
 		<key>publish - Custom Video Source</key>
 		<dict>
 			<key>description</key>
-			<string>Touch the screen to swap which camera is being used! Verify using flash that camera is swapping properly and no rendering problems occur.</string>
+			<string>Uses a custom controller to supply video data to the publisher</string>
 			<key>LocalProperties</key>
 			<dict/>
 			<key>name</key>
@@ -720,28 +722,6 @@
 			<key>class</key>
 			<string>SubscribeTelephonyInterruptTest</string>
 		</dict>
-		<key>TwoWay</key>
-		<dict>
-			<key>description</key>
-			<string>Publish and subscribe simultaneously to hold a conversation</string>
-			<key>LocalProperties</key>
-			<dict/>
-			<key>name</key>
-			<string>Two Way</string>
-			<key>class</key>
-			<string>TwoWayTest</string>
-		</dict>
-		<key>TwoWay - Stream Manager</key>
-		<dict>
-			<key>description</key>
-			<string>Publish and subscribe simultaneously through a stream manager</string>
-			<key>LocalProperties</key>
-			<dict/>
-			<key>name</key>
-			<string>Two Way - Stream Manager</string>
-			<key>class</key>
-			<string>TwoWayStreamManagerTest</string>
-		</dict>
 		<key>Conference</key>
 		<dict>
 			<key>description</key>
@@ -753,6 +733,17 @@
 			<key>class</key>
 			<string>ConferenceTest</string>
 		</dict>
+		<key>Conference - Stream Manager</key>
+		<dict>
+			<key>description</key>
+			<string>Many to many over Stream Manager</string>
+			<key>LocalProperties</key>
+			<dict/>
+			<key>name</key>
+			<string>Conference - Stream Manager</string>
+			<key>class</key>
+			<string>ConferenceStreamManagerTest</string>
+		</dict>
 		<key>bandwidth detection</key>
 		<dict>
 			<key>LocalProperties</key>
@@ -762,7 +753,7 @@
 			<key>class</key>
 			<string>BandwidthDetectionTest</string>
 			<key>description</key>
-			<string>An example of utlizing bandwidth detection</string>
+			<string>An example of utilizing bandwidth detection</string>
 		</dict>
 		<key>bandwidth detection - download</key>
 		<dict>
@@ -773,7 +764,7 @@
 			<key>class</key>
 			<string>BandwidthDetectionDownloadOnlyTest</string>
 			<key>description</key>
-			<string>An example of utlizing bandwidth detection for download speeds only</string>
+			<string>An example of utilizing bandwidth detection for download speeds only</string>
 		</dict>
 		<key>bandwidth detection - upload</key>
 		<dict>
@@ -784,7 +775,7 @@
 			<key>class</key>
 			<string>BandwidthDetectionUploadOnlyTest</string>
 			<key>description</key>
-			<string>An example of utlizing bandwidth detection for upload speeds only</string>
+			<string>An example of utilizing bandwidth detection for upload speeds only</string>
 		</dict>
 	</dict>
 </dict>

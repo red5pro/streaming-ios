@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -16,6 +16,9 @@
 		481B15761EB390600038A187 /* PublishSendTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 481B15741EB390600038A187 /* PublishSendTest.swift */; };
 		481B15771EB390600038A187 /* SubscribeReceiveSendTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 481B15751EB390600038A187 /* SubscribeReceiveSendTest.swift */; };
 		482282591E4E47C80073F26C /* PublishDeviceOrientationTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 482282581E4E47C80073F26C /* PublishDeviceOrientationTest.swift */; };
+		482E6D1D27C6D88A00C518EE /* WebSocketProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 482E6D1C27C6D88A00C518EE /* WebSocketProvider.swift */; };
+		482E6D2327C6DF7000C518EE /* Starscream in Frameworks */ = {isa = PBXBuildFile; productRef = 482E6D2227C6DF7000C518EE /* Starscream */; };
+		482E6D2727D7E26800C518EE /* ConferenceStreamManagerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 482E6D2627D7E26800C518EE /* ConferenceStreamManagerTest.swift */; };
 		4838028E1E4115130098F5B7 /* PublishPauseTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4838028D1E4115130098F5B7 /* PublishPauseTest.swift */; };
 		483F559024CB35DF00DB1D0C /* ConferenceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 483F558E24CB35DF00DB1D0C /* ConferenceViewController.swift */; };
 		483F559124CB35DF00DB1D0C /* ConferenceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 483F558F24CB35DF00DB1D0C /* ConferenceTest.swift */; };
@@ -59,7 +62,6 @@
 		926794F91D061942004B0BCD /* RecordedTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926794F81D061942004B0BCD /* RecordedTest.swift */; };
 		926794FB1D061968004B0BCD /* SubscribeCluster.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926794FA1D061968004B0BCD /* SubscribeCluster.swift */; };
 		926794FD1D061983004B0BCD /* SubscribeRemoteCallTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926794FC1D061983004B0BCD /* SubscribeRemoteCallTest.swift */; };
-		926794FF1D06199E004B0BCD /* TwoWayTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926794FE1D06199E004B0BCD /* TwoWayTest.swift */; };
 		926EB660224D3C8300715EF7 /* PublishEncryptedTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926EB65F224D3C8200715EF7 /* PublishEncryptedTest.swift */; };
 		926EB662224D475A00715EF7 /* SubscribeEncryptedTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926EB661224D475900715EF7 /* SubscribeEncryptedTest.swift */; };
 		926EB664224D477800715EF7 /* SubscribeMetalViewTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926EB663224D477800715EF7 /* SubscribeMetalViewTest.swift */; };
@@ -69,7 +71,6 @@
 		9278C9B02098E1BE00861C79 /* PublishBackgroundTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9278C9AF2098E1BE00861C79 /* PublishBackgroundTest.swift */; };
 		9279C5FD226628F10046B6DD /* AVAudioSessionSuplement.m in Sources */ = {isa = PBXBuildFile; fileRef = 9279C5FC226628F10046B6DD /* AVAudioSessionSuplement.m */; };
 		927C86E82253FD3B00094096 /* PublishAVCategoryTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927C86E72253FD3B00094096 /* PublishAVCategoryTest.swift */; };
-		927FA28A20EBCD2D00F16228 /* TwoWayStreamManagerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927FA28920EBCD2D00F16228 /* TwoWayStreamManagerTest.swift */; };
 		928B1CBD1CBC0DC5002C66BA /* SubscribeStreamManagerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928B1CBC1CBC0DC5002C66BA /* SubscribeStreamManagerTest.swift */; };
 		92A642E3200D40AC00882600 /* PublishAspectTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A642E2200D40AC00882600 /* PublishAspectTest.swift */; };
 		92A642E5200D416600882600 /* SubscribeBackgroundTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A642E4200D416500882600 /* SubscribeBackgroundTest.swift */; };
@@ -110,6 +111,8 @@
 		481B15741EB390600038A187 /* PublishSendTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PublishSendTest.swift; path = Tests/SubscribeReceiveSend/PublishSendTest.swift; sourceTree = "<group>"; };
 		481B15751EB390600038A187 /* SubscribeReceiveSendTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SubscribeReceiveSendTest.swift; path = Tests/SubscribeReceiveSend/SubscribeReceiveSendTest.swift; sourceTree = "<group>"; };
 		482282581E4E47C80073F26C /* PublishDeviceOrientationTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PublishDeviceOrientationTest.swift; path = Tests/PublishDeviceOrientation/PublishDeviceOrientationTest.swift; sourceTree = "<group>"; };
+		482E6D1C27C6D88A00C518EE /* WebSocketProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSocketProvider.swift; sourceTree = "<group>"; };
+		482E6D2627D7E26800C518EE /* ConferenceStreamManagerTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConferenceStreamManagerTest.swift; path = Tests/ConferenceStreamManager/ConferenceStreamManagerTest.swift; sourceTree = "<group>"; };
 		4838028D1E4115130098F5B7 /* PublishPauseTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PublishPauseTest.swift; path = Tests/PublishPause/PublishPauseTest.swift; sourceTree = "<group>"; };
 		483F558E24CB35DF00DB1D0C /* ConferenceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConferenceViewController.swift; path = Tests/ConferenceTest/ConferenceViewController.swift; sourceTree = "<group>"; };
 		483F558F24CB35DF00DB1D0C /* ConferenceTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConferenceTest.swift; path = Tests/ConferenceTest/ConferenceTest.swift; sourceTree = "<group>"; };
@@ -158,7 +161,6 @@
 		926794F81D061942004B0BCD /* RecordedTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RecordedTest.swift; path = Tests/Recorded/RecordedTest.swift; sourceTree = "<group>"; };
 		926794FA1D061968004B0BCD /* SubscribeCluster.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SubscribeCluster.swift; path = Tests/SubscribeCluster/SubscribeCluster.swift; sourceTree = "<group>"; };
 		926794FC1D061983004B0BCD /* SubscribeRemoteCallTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SubscribeRemoteCallTest.swift; path = Tests/RemoteCall/SubscribeRemoteCallTest.swift; sourceTree = "<group>"; };
-		926794FE1D06199E004B0BCD /* TwoWayTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TwoWayTest.swift; path = Tests/TwoWay/TwoWayTest.swift; sourceTree = "<group>"; };
 		926EB65F224D3C8200715EF7 /* PublishEncryptedTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PublishEncryptedTest.swift; path = Tests/PublishEncrypted/PublishEncryptedTest.swift; sourceTree = "<group>"; };
 		926EB661224D475900715EF7 /* SubscribeEncryptedTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SubscribeEncryptedTest.swift; path = Tests/SubscribeEncrypted/SubscribeEncryptedTest.swift; sourceTree = "<group>"; };
 		926EB663224D477800715EF7 /* SubscribeMetalViewTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SubscribeMetalViewTest.swift; path = Tests/SubscribeMetalView/SubscribeMetalViewTest.swift; sourceTree = "<group>"; };
@@ -169,7 +171,6 @@
 		9279C5FB226628F10046B6DD /* AVAudioSessionSuplement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AVAudioSessionSuplement.h; sourceTree = "<group>"; };
 		9279C5FC226628F10046B6DD /* AVAudioSessionSuplement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AVAudioSessionSuplement.m; sourceTree = "<group>"; };
 		927C86E72253FD3B00094096 /* PublishAVCategoryTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PublishAVCategoryTest.swift; path = Tests/PublishAVCategory/PublishAVCategoryTest.swift; sourceTree = "<group>"; };
-		927FA28920EBCD2D00F16228 /* TwoWayStreamManagerTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TwoWayStreamManagerTest.swift; path = Tests/TwoWayStreamManager/TwoWayStreamManagerTest.swift; sourceTree = "<group>"; };
 		928B1CBC1CBC0DC5002C66BA /* SubscribeStreamManagerTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SubscribeStreamManagerTest.swift; path = Tests/SubscribeStreamManager/SubscribeStreamManagerTest.swift; sourceTree = "<group>"; };
 		92A642E2200D40AC00882600 /* PublishAspectTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PublishAspectTest.swift; path = Tests/PublishAspect/PublishAspectTest.swift; sourceTree = "<group>"; };
 		92A642E4200D416500882600 /* SubscribeBackgroundTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SubscribeBackgroundTest.swift; path = Tests/SubscribeBackground/SubscribeBackgroundTest.swift; sourceTree = "<group>"; };
@@ -207,6 +208,7 @@
 				92B54DCE2146D766001B0EE3 /* libc++.tbd in Frameworks */,
 				480C6B951F7BDE85009E943F /* libbz2.1.0.tbd in Frameworks */,
 				480C6B931F7BDE7F009E943F /* VideoToolbox.framework in Frameworks */,
+				482E6D2327C6DF7000C518EE /* Starscream in Frameworks */,
 				487CDBC21E6E4401007FC4EA /* libz.tbd in Frameworks */,
 				48DFEDD31C21BF370040B624 /* libiconv.2.4.0.tbd in Frameworks */,
 				48DFEDD91C21C5940040B624 /* OpenAL.framework in Frameworks */,
@@ -279,6 +281,7 @@
 				48DFEDDE1C21EA780040B624 /* Testbed.swift */,
 				E1878B941E578B8F00118560 /* tests.plist */,
 				4874D5A01C221CCF00A98102 /* R5ProTestbed-Bridging-Header.h */,
+				482E6D1C27C6D88A00C518EE /* WebSocketProvider.swift */,
 			);
 			path = R5ProTestbed;
 			sourceTree = "<group>";
@@ -347,9 +350,8 @@
 				925516FD22F0CC4100604D57 /* SubscribeSMEncryptedTest.swift */,
 				925516FF22F0CC4D00604D57 /* SubscribeTelephonyInterruptTest.swift */,
 				92CC78081CB6F8DD00CD4352 /* SubscribeTwoStreams.swift */,
-				926794FE1D06199E004B0BCD /* TwoWayTest.swift */,
-				927FA28920EBCD2D00F16228 /* TwoWayStreamManagerTest.swift */,
 				483F558F24CB35DF00DB1D0C /* ConferenceTest.swift */,
+				482E6D2627D7E26800C518EE /* ConferenceStreamManagerTest.swift */,
 				483F558E24CB35DF00DB1D0C /* ConferenceViewController.swift */,
 			);
 			name = Tests;
@@ -385,6 +387,9 @@
 			dependencies = (
 			);
 			name = R5ProTestbed;
+			packageProductDependencies = (
+				482E6D2227C6DF7000C518EE /* Starscream */,
+			);
 			productName = R5ProTestbed;
 			productReference = 48DFEDA81C21BBC60040B624 /* R5ProTestbed.app */;
 			productType = "com.apple.product-type.application";
@@ -421,6 +426,9 @@
 				Base,
 			);
 			mainGroup = 48DFED9F1C21BBC60040B624;
+			packageReferences = (
+				482E6D2127C6DF7000C518EE /* XCRemoteSwiftPackageReference "Starscream" */,
+			);
 			productRefGroup = 48DFEDA91C21BBC60040B624 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -467,7 +475,6 @@
 				92E13BF41CDD165800DA5783 /* SubscribeNoViewTest.swift in Sources */,
 				92BF53F523E87314005E6D7D /* Subscribe360Test.swift in Sources */,
 				926EB666224D4AA800715EF7 /* SubscribeMuteTest.swift in Sources */,
-				926794FF1D06199E004B0BCD /* TwoWayTest.swift in Sources */,
 				92A642E3200D40AC00882600 /* PublishAspectTest.swift in Sources */,
 				48DFEDD51C21C18F0040B624 /* Home.swift in Sources */,
 				92EBEF06212F1B64003B72FB /* SubscriberBandwidthTest.swift in Sources */,
@@ -476,6 +483,7 @@
 				92BF53F323E87301005E6D7D /* SharedObjectStreamlessTest.swift in Sources */,
 				4874D59F1C221B9500A98102 /* AdaptiveBitrateControllerTest.swift in Sources */,
 				48DFEDAC1C21BBC60040B624 /* AppDelegate.swift in Sources */,
+				482E6D1D27C6D88A00C518EE /* WebSocketProvider.swift in Sources */,
 				92BF53FA23E8733A005E6D7D /* Custom360VideoViewRendererEngine.swift in Sources */,
 				48B79AE820C6E94E00AAE4E2 /* PublishZoomableTest.swift in Sources */,
 				48DFEDDF1C21EA780040B624 /* Testbed.swift in Sources */,
@@ -484,6 +492,7 @@
 				92BF540523E87434005E6D7D /* PublishTranscoderForm.swift in Sources */,
 				92D5293E261D9BC300B83626 /* PublishStreamManagerSocialPush.swift in Sources */,
 				487C888F1F2F8AB2004157B6 /* PublishHQAudioTest.swift in Sources */,
+				482E6D2727D7E26800C518EE /* ConferenceStreamManagerTest.swift in Sources */,
 				48BF80AE1C245AA7000E996E /* PublishOrientationTest.swift in Sources */,
 				92EA19DD1CE137DD006B3A97 /* CustomVideoSource.swift in Sources */,
 				92EBEF08212F1B6F003B72FB /* BandwidthDetectionUploadOnlyTest.swift in Sources */,
@@ -491,7 +500,6 @@
 				9278C9AC2098B09300861C79 /* SubscribeAudioDelayTest.swift in Sources */,
 				926794FB1D061968004B0BCD /* SubscribeCluster.swift in Sources */,
 				927C86E82253FD3B00094096 /* PublishAVCategoryTest.swift in Sources */,
-				927FA28A20EBCD2D00F16228 /* TwoWayStreamManagerTest.swift in Sources */,
 				926794F51D061900004B0BCD /* PublishRemoteCallTest.swift in Sources */,
 				4874ECD01C483FDA002BDA6D /* SubscribeStreamImageTest.swift in Sources */,
 				485345091C23552F00D409F3 /* CameraSwapTest.swift in Sources */,
@@ -588,7 +596,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -627,7 +635,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -648,8 +656,11 @@
 					"$(PROJECT_DIR)/R5ProTestbed",
 				);
 				INFOPLIST_FILE = R5ProTestbed/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.infrared5.R5ProTestbed;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "R5ProTestbed/R5ProTestbed-Bridging-Header.h";
@@ -672,8 +683,11 @@
 					"$(PROJECT_DIR)/R5ProTestbed",
 				);
 				INFOPLIST_FILE = R5ProTestbed/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.infrared5.R5ProTestbed;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "R5ProTestbed/R5ProTestbed-Bridging-Header.h";
@@ -704,6 +718,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		482E6D2127C6DF7000C518EE /* XCRemoteSwiftPackageReference "Starscream" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/daltoniam/Starscream";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		482E6D2227C6DF7000C518EE /* Starscream */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 482E6D2127C6DF7000C518EE /* XCRemoteSwiftPackageReference "Starscream" */;
+			productName = Starscream;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 48DFEDA01C21BBC60040B624 /* Project object */;
 }
