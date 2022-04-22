@@ -116,6 +116,13 @@ class Testbed: NSObject {
         Testbed.parameters?.setValue(value, forKey: "license_key");
     }
     
+    static func getConnectionParams () -> NSMutableArray? {
+        if (Testbed.parameters?["connectionParms"] == nil) {
+            Testbed.parameters?["connectionParms"] = NSMutableArray()
+        }
+        return Testbed.parameters?["connectionParms"] as? NSMutableArray
+    }
+    
     static func getParameter(param : String)->AnyObject?{
         
         if(Testbed.localParameters != nil){

@@ -22,6 +22,11 @@
 		4838028E1E4115130098F5B7 /* PublishPauseTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4838028D1E4115130098F5B7 /* PublishPauseTest.swift */; };
 		483F559024CB35DF00DB1D0C /* ConferenceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 483F558E24CB35DF00DB1D0C /* ConferenceViewController.swift */; };
 		483F559124CB35DF00DB1D0C /* ConferenceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 483F558F24CB35DF00DB1D0C /* ConferenceTest.swift */; };
+		484D159C281322CC0048913A /* ParamCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 484D1597281322CC0048913A /* ParamCell.swift */; };
+		484D159D281322CC0048913A /* ParamCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 484D1598281322CC0048913A /* ParamCell.xib */; };
+		484D159E281322CC0048913A /* ParamAddCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 484D1599281322CC0048913A /* ParamAddCell.swift */; };
+		484D159F281322CC0048913A /* ParamAddCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 484D159A281322CC0048913A /* ParamAddCell.xib */; };
+		484D15A0281322CC0048913A /* ParamsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 484D159B281322CC0048913A /* ParamsTableViewController.swift */; };
 		485345071C23528400D409F3 /* PublishStreamImageTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 485345061C23528400D409F3 /* PublishStreamImageTest.swift */; };
 		485345091C23552F00D409F3 /* CameraSwapTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 485345081C23552F00D409F3 /* CameraSwapTest.swift */; };
 		4874D59D1C2216DB00A98102 /* SubscribeTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4874D59C1C2216DB00A98102 /* SubscribeTest.swift */; };
@@ -116,6 +121,11 @@
 		4838028D1E4115130098F5B7 /* PublishPauseTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PublishPauseTest.swift; path = Tests/PublishPause/PublishPauseTest.swift; sourceTree = "<group>"; };
 		483F558E24CB35DF00DB1D0C /* ConferenceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConferenceViewController.swift; path = Tests/ConferenceTest/ConferenceViewController.swift; sourceTree = "<group>"; };
 		483F558F24CB35DF00DB1D0C /* ConferenceTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConferenceTest.swift; path = Tests/ConferenceTest/ConferenceTest.swift; sourceTree = "<group>"; };
+		484D1597281322CC0048913A /* ParamCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParamCell.swift; sourceTree = "<group>"; };
+		484D1598281322CC0048913A /* ParamCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ParamCell.xib; sourceTree = "<group>"; };
+		484D1599281322CC0048913A /* ParamAddCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParamAddCell.swift; sourceTree = "<group>"; };
+		484D159A281322CC0048913A /* ParamAddCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ParamAddCell.xib; sourceTree = "<group>"; };
+		484D159B281322CC0048913A /* ParamsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParamsTableViewController.swift; sourceTree = "<group>"; };
 		485345061C23528400D409F3 /* PublishStreamImageTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PublishStreamImageTest.swift; path = Tests/PublishStreamImage/PublishStreamImageTest.swift; sourceTree = "<group>"; };
 		485345081C23552F00D409F3 /* CameraSwapTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CameraSwapTest.swift; path = Tests/CameraSwap/CameraSwapTest.swift; sourceTree = "<group>"; };
 		4874D59C1C2216DB00A98102 /* SubscribeTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SubscribeTest.swift; path = Tests/Subscribe/SubscribeTest.swift; sourceTree = "<group>"; };
@@ -267,6 +277,7 @@
 			isa = PBXGroup;
 			children = (
 				92EA19DB1CE1375A006B3A97 /* Utilities */,
+				4874D5A01C221CCF00A98102 /* R5ProTestbed-Bridging-Header.h */,
 				4874D5A11C221CD000A98102 /* ALToastView.h */,
 				4874D5A21C221CD000A98102 /* ALToastView.m */,
 				48DFEDD41C21C18F0040B624 /* Home.swift */,
@@ -275,13 +286,17 @@
 				48DFEDAD1C21BBC60040B624 /* MasterViewController.swift */,
 				48DFEDAF1C21BBC60040B624 /* DetailViewController.swift */,
 				48DFEDB11C21BBC60040B624 /* Main.storyboard */,
+				484D159A281322CC0048913A /* ParamAddCell.xib */,
+				484D1598281322CC0048913A /* ParamCell.xib */,
 				48DFEDB41C21BBC60040B624 /* Assets.xcassets */,
 				48DFEDB61C21BBC60040B624 /* LaunchScreen.storyboard */,
 				48DFEDB91C21BBC60040B624 /* Info.plist */,
-				48DFEDDE1C21EA780040B624 /* Testbed.swift */,
 				E1878B941E578B8F00118560 /* tests.plist */,
-				4874D5A01C221CCF00A98102 /* R5ProTestbed-Bridging-Header.h */,
+				48DFEDDE1C21EA780040B624 /* Testbed.swift */,
 				482E6D1C27C6D88A00C518EE /* WebSocketProvider.swift */,
+				484D1599281322CC0048913A /* ParamAddCell.swift */,
+				484D1597281322CC0048913A /* ParamCell.swift */,
+				484D159B281322CC0048913A /* ParamsTableViewController.swift */,
 			);
 			path = R5ProTestbed;
 			sourceTree = "<group>";
@@ -446,6 +461,8 @@
 				48DFEDB81C21BBC60040B624 /* LaunchScreen.storyboard in Resources */,
 				E1878B951E578B8F00118560 /* tests.plist in Resources */,
 				48DFEDB51C21BBC60040B624 /* Assets.xcassets in Resources */,
+				484D159F281322CC0048913A /* ParamAddCell.xib in Resources */,
+				484D159D281322CC0048913A /* ParamCell.xib in Resources */,
 				48BF80B11C245D29000E996E /* Info-100.png in Resources */,
 				48DFEDB31C21BBC60040B624 /* Main.storyboard in Resources */,
 			);
@@ -488,6 +505,7 @@
 				48B79AE820C6E94E00AAE4E2 /* PublishZoomableTest.swift in Sources */,
 				48DFEDDF1C21EA780040B624 /* Testbed.swift in Sources */,
 				9255170022F0CC4D00604D57 /* SubscribeTelephonyInterruptTest.swift in Sources */,
+				484D159E281322CC0048913A /* ParamAddCell.swift in Sources */,
 				92BF540323E873B7005E6D7D /* SubscribeRendererSwapTest.swift in Sources */,
 				92BF540523E87434005E6D7D /* PublishTranscoderForm.swift in Sources */,
 				92D5293E261D9BC300B83626 /* PublishStreamManagerSocialPush.swift in Sources */,
@@ -495,6 +513,7 @@
 				482E6D2727D7E26800C518EE /* ConferenceStreamManagerTest.swift in Sources */,
 				48BF80AE1C245AA7000E996E /* PublishOrientationTest.swift in Sources */,
 				92EA19DD1CE137DD006B3A97 /* CustomVideoSource.swift in Sources */,
+				484D159C281322CC0048913A /* ParamCell.swift in Sources */,
 				92EBEF08212F1B6F003B72FB /* BandwidthDetectionUploadOnlyTest.swift in Sources */,
 				480A8796221ED82D00474724 /* SubscribeTelephonyInterruptTest.swift in Sources */,
 				9278C9AC2098B09300861C79 /* SubscribeAudioDelayTest.swift in Sources */,
@@ -525,6 +544,7 @@
 				92EAA9DB1D0734EA00B2CE46 /* SubscribeAutoReconnectTest.swift in Sources */,
 				928B1CBD1CBC0DC5002C66BA /* SubscribeStreamManagerTest.swift in Sources */,
 				4874D59D1C2216DB00A98102 /* SubscribeTest.swift in Sources */,
+				484D15A0281322CC0048913A /* ParamsTableViewController.swift in Sources */,
 				92D52941261D9C1B00B83626 /* SubscribeStreamManagerReconnectTest.swift in Sources */,
 				926EB662224D475A00715EF7 /* SubscribeEncryptedTest.swift in Sources */,
 				48BB1D811CED140D00D915E5 /* SubscribeSetSizeTest.swift in Sources */,

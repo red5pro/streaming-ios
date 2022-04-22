@@ -115,6 +115,19 @@ class BaseTest: UIViewController , R5StreamDelegate {
         config.`protocol` = Int32(r5_rtsp.rawValue);
         config.buffer_time = (Testbed.getParameter(param: "buffer_time")?.floatValue)!
         config.licenseKey = Testbed.getParameter(param: "license_key") as! String
+        
+        let params = Testbed.getConnectionParams()!
+        if (params.count > 0) {
+            var str = ""
+            for item : Any in params {
+                let param = item as! Param
+                if (!param.name.isEmpty && !param.value.isEmpty) {
+                    str += "\(param.name)=\(param.value);"
+                }
+            }
+            config.parameters = str
+        }
+        
         return config
     }
     

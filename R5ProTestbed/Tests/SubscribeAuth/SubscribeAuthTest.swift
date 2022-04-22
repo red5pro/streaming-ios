@@ -45,7 +45,12 @@ class SubscribeAuthTest: BaseTest {
         let config = getConfig()
         let username = Testbed.localParameters!["username"] as! String
         let password = Testbed.localParameters!["password"] as! String
-        config.parameters = "username=" + username + ";password=" + password + ";"
+        let authParams = "username=" + username + ";password=" + password + ";"
+        if (config.parameters != nil && !config.parameters.isEmpty) {
+            config.parameters += authParams
+        } else {
+            config.parameters = authParams
+        }
         
         // Set up the connection and stream
         let connection = R5Connection(config: config)
