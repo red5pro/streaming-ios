@@ -38,6 +38,7 @@ class CustomVideoSource : R5VideoSource {
     var frameDuration : CMTime;
     var PTS : CMTime;
     var timer : Timer?;
+    var start: Double!
     
     override init() {
         
@@ -78,6 +79,10 @@ class CustomVideoSource : R5VideoSource {
     }
     
     @objc func capturePixels( time:Timer ){
+        
+        if (start == nil || start == 0) {
+            start = now_ms()
+        }
         
         //make sure encoding layer is ready for input!
         if(self.encoder != nil){
@@ -147,13 +152,17 @@ class CustomVideoSource : R5VideoSource {
                 NSLog("Failed to create video info");
             }
             
+            //increment our timestamp
+            self.PTS = CMTimeAdd(self.PTS, self.frameDuration);
+            let now = now_ms()
+            
             //Only PTS is needed for the encoder - leave everything else invalid if you want
             var timingInfo: CMSampleTimingInfo = CMSampleTimingInfo.invalid;
             timingInfo.duration = CMTime.invalid;
             timingInfo.decodeTimeStamp = CMTime.invalid;
 //            timingInfo.presentationTimeStamp = self.PTS;
             
-            let aTime:Double = R5AudioController.getCurrentPubTime();
+            let aTime:Double = (now-start)/100
             timingInfo.presentationTimeStamp = CMTimeMakeWithSeconds(aTime, preferredTimescale: 1000)
             
             var buffer: CMSampleBuffer?;
@@ -167,12 +176,7 @@ class CustomVideoSource : R5VideoSource {
                                                         sampleBufferOut: &buffer);
             
             //push the sample buffer to the encoder with type r5_media_type_video_custom
-            
             self.encoder.encodeFrame( buffer, of: r5_media_type_video_custom );
-   
-            
-            //increment our timestamp
-            self.PTS = CMTimeAdd(self.PTS, self.frameDuration);
             
             //free all our content
             free(rgbPixels);
