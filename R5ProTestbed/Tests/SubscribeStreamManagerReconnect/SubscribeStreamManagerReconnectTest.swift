@@ -226,7 +226,12 @@ class SubscribeStreamManagerReconnectTest: BaseTest {
         let config = getConfig()
         config.host = url
         // For client testing...
-        config.parameters = "username=demoAppUsername;password=demoAppPassword;token=demoAppToken;"
+        let authParams = "username=demoAppUsername;password=demoAppPassword;token=demoAppToken;"
+        if (config.parameters != nil && !config.parameters.isEmpty) {
+            config.parameters += authParams
+        } else {
+            config.parameters = authParams
+        }
         
         //   Create a new connection using the configuration above
         let connection = R5Connection(config: config)

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="ParamCell" customModule="R5ProTestbed" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="120"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="47j-R5-IeR">
+                    <rect key="frame" x="20" y="21" width="50" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <textField opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter parameter name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VR1-Sp-cHj">
+                    <rect key="frame" x="78" y="14" width="316" height="34"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <textField opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter parameter value" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="K5d-P3-nF7">
+                    <rect key="frame" x="78" y="66" width="316" height="34"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Value:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QzL-2S-AD7">
+                    <rect key="frame" x="23" y="72.5" width="47" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="K5d-P3-nF7" secondAttribute="bottom" constant="20" symbolic="YES" id="1Js-4a-PD5"/>
+                <constraint firstItem="47j-R5-IeR" firstAttribute="centerY" secondItem="VR1-Sp-cHj" secondAttribute="centerY" id="2Cx-8K-dnS"/>
+                <constraint firstItem="VR1-Sp-cHj" firstAttribute="trailing" secondItem="iN0-l3-epB" secondAttribute="trailingMargin" id="9PZ-7l-igU"/>
+                <constraint firstItem="VR1-Sp-cHj" firstAttribute="leading" secondItem="K5d-P3-nF7" secondAttribute="leading" id="9s0-Ea-L4u"/>
+                <constraint firstItem="VR1-Sp-cHj" firstAttribute="trailing" secondItem="K5d-P3-nF7" secondAttribute="trailing" id="AgN-zX-sqw"/>
+                <constraint firstItem="QzL-2S-AD7" firstAttribute="centerY" secondItem="K5d-P3-nF7" secondAttribute="centerY" id="FAh-Ix-xVI"/>
+                <constraint firstItem="K5d-P3-nF7" firstAttribute="leading" secondItem="QzL-2S-AD7" secondAttribute="trailing" constant="8" symbolic="YES" id="ORF-Ru-PB8"/>
+                <constraint firstItem="VR1-Sp-cHj" firstAttribute="leading" secondItem="47j-R5-IeR" secondAttribute="trailing" constant="8" symbolic="YES" id="coQ-6T-N3N"/>
+                <constraint firstItem="47j-R5-IeR" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leadingMargin" id="dj5-a7-79k"/>
+                <constraint firstItem="K5d-P3-nF7" firstAttribute="top" secondItem="VR1-Sp-cHj" secondAttribute="bottom" constant="18" id="jvg-Sa-DHR"/>
+                <constraint firstItem="VR1-Sp-cHj" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="14" id="ry0-2S-lFA"/>
+                <constraint firstItem="47j-R5-IeR" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="21" id="vz2-CM-bQ0"/>
+                <constraint firstItem="QzL-2S-AD7" firstAttribute="top" secondItem="47j-R5-IeR" secondAttribute="bottom" constant="30.5" id="xQM-h9-4fd"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="nameInput" destination="VR1-Sp-cHj" id="XJA-hH-QfJ"/>
+                <outlet property="valueInput" destination="K5d-P3-nF7" id="vkZ-3k-7hR"/>
+            </connections>
+            <point key="canvasLocation" x="63.768115942028992" y="72.991071428571431"/>
+        </view>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
