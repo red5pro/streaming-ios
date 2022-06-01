@@ -98,7 +98,7 @@ class SubscribeAutoReconnectTest: BaseTest {
             }
             self.retryTimer = Timer.scheduledTimer(withTimeInterval: TimeInterval(SubscribeAutoReconnectTest.RETRY_TIMEOUT), repeats: false) { [weak self] timer in
                 
-                if (!self!.finished) {
+                if (self != nil && !self!.finished) {
                     NSLog("Subscribing again!!")
                     self!.Subscribe()
                 }
@@ -122,7 +122,7 @@ class SubscribeAutoReconnectTest: BaseTest {
                 }
                 self.retryTimer = Timer.scheduledTimer(withTimeInterval: TimeInterval(SubscribeAutoReconnectTest.RETRY_TIMEOUT), repeats: false) { [weak self] timer in
                     
-                    if (!self!.finished) {
+                    if (self != nil && !self!.finished) {
                         NSLog("Subscribing again!!")
                         self!.Subscribe()
                     }
