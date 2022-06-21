@@ -24,6 +24,7 @@
 -(void)writeAudio:(CMSampleBufferRef)sampleBuffer;
 -(void)writeAudio:(NSData*)data withTime:(double)pts andRate:(int)rate;
 -(void)writeAudioBuffer:(AudioBufferList*)data withTime:(double)pts andRate:(int)rate;
+-(void)writeEmptyAudioBuffer:(AudioBufferList*)data withTime:(double)pts andRate:(int)rate;
 
 -(void)finish:(BOOL)saveRecording;
 
