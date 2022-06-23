@@ -36,14 +36,22 @@ import R5Streaming
 class SubscribeAutoReconnectTest: BaseTest {
     
     var finished = false
+    var retryTimer: Timer?
+    static let RETRY_TIMEOUT: Float = 2.0
     
     override func viewWillDisappear(_ animated: Bool) {
         self.finished = true
+        if (self.retryTimer != nil) {
+            self.retryTimer?.invalidate()
+        }
         super.viewWillDisappear(animated)
     }
     
     override func viewDidLoad() {
         self.finished = false
+        if (self.retryTimer != nil) {
+            self.retryTimer?.invalidate()
+        }
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
@@ -79,18 +87,22 @@ class SubscribeAutoReconnectTest: BaseTest {
         super.onR5StreamStatus(stream, withStatus: statusCode, withMessage: msg)
         
         if(statusCode == Int32(r5_status_connection_error.rawValue) ||
-            statusCode == Int32(r5_status_connection_close.rawValue)) {
+            statusCode == Int32(r5_status_connection_close.rawValue) ||
+            statusCode == Int32(r5_status_disconnected.rawValue)) {
             
             //we can assume it failed here!
         
             NSLog("Connection error")
-            
-            DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
-                if self.finished {
-                    return
+            if let timer = self.retryTimer {
+                timer.invalidate()
+            }
+            self.retryTimer = Timer.scheduledTimer(withTimeInterval: TimeInterval(SubscribeAutoReconnectTest.RETRY_TIMEOUT), repeats: false) { [weak self] timer in
+                
+                if (self != nil && !self!.finished) {
+                    NSLog("Subscribing again!!")
+                    self!.Subscribe()
                 }
-                NSLog("Subscribing again!!")
-                self.Subscribe()
+                
             }
             
         }
@@ -100,16 +112,22 @@ class SubscribeAutoReconnectTest: BaseTest {
             let view = currentView
             DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
                 if(self.subscribeStream != nil) {
-                    view?.attach(nil)
+//                    view?.attach(nil)
                     self.subscribeStream!.stop()
                     self.subscribeStream = nil
                 }
                 
-                if self.finished {
-                    return
+                if let timer = self.retryTimer {
+                    timer.invalidate()
                 }
-                NSLog("Subscribing again!!")
-                self.Subscribe()
+                self.retryTimer = Timer.scheduledTimer(withTimeInterval: TimeInterval(SubscribeAutoReconnectTest.RETRY_TIMEOUT), repeats: false) { [weak self] timer in
+                    
+                    if (self != nil && !self!.finished) {
+                        NSLog("Subscribing again!!")
+                        self!.Subscribe()
+                    }
+                    
+                }
             }
         }
         
