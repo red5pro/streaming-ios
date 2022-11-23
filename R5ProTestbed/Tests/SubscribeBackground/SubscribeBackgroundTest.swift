@@ -41,7 +41,7 @@ class SubscribeBackgroundTest: SubscribeTest {
         shouldClose = false;
         
         NotificationCenter.default.addObserver(self, selector: #selector(willResignActive), name: UIApplication.willResignActiveNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(willEnterForeground), name: UIApplication.willEnterForegroundNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(willEnterForeground), name: UIApplication.didBecomeActiveNotification, object: nil)
     }
     
     @objc func willResignActive(_ notification: Notification) {
