@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4807021F2B5EAE10007E4B2B /* libiconv.2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 4807021E2B5EAE01007E4B2B /* libiconv.2.tbd */; };
 		480A8794221EA8A500474724 /* PublishTelephonyInterruptTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 480A8793221EA8A500474724 /* PublishTelephonyInterruptTest.swift */; };
 		480A8796221ED82D00474724 /* SubscribeTelephonyInterruptTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 480A8795221ED82D00474724 /* SubscribeTelephonyInterruptTest.swift */; };
 		480C6B931F7BDE7F009E943F /* VideoToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 480C6B921F7BDE7F009E943F /* VideoToolbox.framework */; };
@@ -51,7 +52,6 @@
 		48DFEDCD1C21BF0A0040B624 /* PublishTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48DFEDCC1C21BF0A0040B624 /* PublishTest.swift */; };
 		48DFEDCF1C21BF2D0040B624 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48DFEDCE1C21BF2D0040B624 /* CoreFoundation.framework */; };
 		48DFEDD11C21BF320040B624 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48DFEDD01C21BF320040B624 /* QuartzCore.framework */; };
-		48DFEDD31C21BF370040B624 /* libiconv.2.4.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 48DFEDD21C21BF370040B624 /* libiconv.2.4.0.tbd */; };
 		48DFEDD51C21C18F0040B624 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48DFEDD41C21C18F0040B624 /* Home.swift */; };
 		48DFEDD71C21C2540040B624 /* BaseTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48DFEDD61C21C2540040B624 /* BaseTest.swift */; };
 		48DFEDD91C21C5940040B624 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48DFEDD81C21C5940040B624 /* OpenAL.framework */; };
@@ -107,6 +107,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4807021E2B5EAE01007E4B2B /* libiconv.2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libiconv.2.tbd; path = usr/lib/libiconv.2.tbd; sourceTree = SDKROOT; };
 		480A8793221EA8A500474724 /* PublishTelephonyInterruptTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PublishTelephonyInterruptTest.swift; path = Tests/PublishTelephonyInterrupt/PublishTelephonyInterruptTest.swift; sourceTree = "<group>"; };
 		480A8795221ED82D00474724 /* SubscribeTelephonyInterruptTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SubscribeTelephonyInterruptTest.swift; path = Tests/SubscribeTelephonyInterrupt/SubscribeTelephonyInterruptTest.swift; sourceTree = "<group>"; };
 		480C6B921F7BDE7F009E943F /* VideoToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = VideoToolbox.framework; path = System/Library/Frameworks/VideoToolbox.framework; sourceTree = SDKROOT; };
@@ -155,7 +156,6 @@
 		48DFEDCC1C21BF0A0040B624 /* PublishTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PublishTest.swift; path = Tests/Publish/PublishTest.swift; sourceTree = "<group>"; };
 		48DFEDCE1C21BF2D0040B624 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
 		48DFEDD01C21BF320040B624 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		48DFEDD21C21BF370040B624 /* libiconv.2.4.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libiconv.2.4.0.tbd; path = usr/lib/libiconv.2.4.0.tbd; sourceTree = SDKROOT; };
 		48DFEDD41C21C18F0040B624 /* Home.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 		48DFEDD61C21C2540040B624 /* BaseTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseTest.swift; path = Tests/BaseTest.swift; sourceTree = "<group>"; };
 		48DFEDD81C21C5940040B624 /* OpenAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenAL.framework; path = System/Library/Frameworks/OpenAL.framework; sourceTree = SDKROOT; };
@@ -215,12 +215,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4807021F2B5EAE10007E4B2B /* libiconv.2.tbd in Frameworks */,
 				92B54DCE2146D766001B0EE3 /* libc++.tbd in Frameworks */,
 				480C6B951F7BDE85009E943F /* libbz2.1.0.tbd in Frameworks */,
 				480C6B931F7BDE7F009E943F /* VideoToolbox.framework in Frameworks */,
 				482E6D2327C6DF7000C518EE /* Starscream in Frameworks */,
 				487CDBC21E6E4401007FC4EA /* libz.tbd in Frameworks */,
-				48DFEDD31C21BF370040B624 /* libiconv.2.4.0.tbd in Frameworks */,
 				48DFEDD91C21C5940040B624 /* OpenAL.framework in Frameworks */,
 				48DFEDD11C21BF320040B624 /* QuartzCore.framework in Frameworks */,
 				48DFEDCF1C21BF2D0040B624 /* CoreFoundation.framework in Frameworks */,
@@ -234,6 +234,7 @@
 		487CDBC01E6E4401007FC4EA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4807021E2B5EAE01007E4B2B /* libiconv.2.tbd */,
 				92B54DCD2146D766001B0EE3 /* libc++.tbd */,
 				480C6B941F7BDE85009E943F /* libbz2.1.0.tbd */,
 				480C6B921F7BDE7F009E943F /* VideoToolbox.framework */,
@@ -254,7 +255,6 @@
 			isa = PBXGroup;
 			children = (
 				48DFEDD81C21C5940040B624 /* OpenAL.framework */,
-				48DFEDD21C21BF370040B624 /* libiconv.2.4.0.tbd */,
 				48DFEDD01C21BF320040B624 /* QuartzCore.framework */,
 				48DFEDCE1C21BF2D0040B624 /* CoreFoundation.framework */,
 				48DFEDC51C21BBDB0040B624 /* R5Streaming.framework */,
@@ -421,7 +421,6 @@
 				TargetAttributes = {
 					48DFEDA71C21BBC60040B624 = {
 						CreatedOnToolsVersion = 7.2;
-						DevelopmentTeam = E964K44BWW;
 						LastSwiftMigration = 0800;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
@@ -677,13 +676,13 @@
 					"$(PROJECT_DIR)/R5ProTestbed",
 				);
 				INFOPLIST_FILE = R5ProTestbed/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 10.9.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.infrared5.R5ProTestbed;
+				PRODUCT_BUNDLE_IDENTIFIER = com.infrared5.Red5ProTestbed;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "R5ProTestbed/R5ProTestbed-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -706,13 +705,13 @@
 					"$(PROJECT_DIR)/R5ProTestbed",
 				);
 				INFOPLIST_FILE = R5ProTestbed/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 10.9.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.infrared5.R5ProTestbed;
+				PRODUCT_BUNDLE_IDENTIFIER = com.infrared5.Red5ProTestbed;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "R5ProTestbed/R5ProTestbed-Bridging-Header.h";
 				SWIFT_VERSION = 4.2;
