@@ -35,9 +35,9 @@ import R5Streaming
 @objc(PublishSMEncryptedTest)
 class PublishSMEncryptedTest: PublishStreamManagerTest {
     
-    override func responder( urls: Array<String>) -> (String?, Error?) -> Void {
+    override func responder( urls: Array<String>) -> (String?, String?, Error?) -> Void {
         var urls = urls
-        return {(ip: String?, error: Error?) -> Void in
+        return {(ip: String?, streamGuid: String?, error: Error?) -> Void in
             
             if ((error) != nil) {
                 if (urls.endIndex == urls.startIndex) {
@@ -50,11 +50,16 @@ class PublishSMEncryptedTest: PublishStreamManagerTest {
                 return;
             }
             
+            var paths = streamGuid?.split(separator: "/")
+            let name = String((paths?.popLast())!)
+            let scope = paths?.joined(separator: "/")
+            
             //   Setup a configuration object for our connection
             let config = R5Configuration()
             config.host = ip
             config.port = Int32(Testbed.getParameter(param: "port") as! Int)
-            config.contextName = Testbed.getParameter(param: "context") as! String
+            config.contextName = scope
+            config.streamName = name
             
             //For stream encryption, this is the only line that needed to change from the basic SM example
             config.`protocol` = Int32(r5_srtp.rawValue)
@@ -73,7 +78,7 @@ class PublishSMEncryptedTest: PublishStreamManagerTest {
                 
                 self.currentView!.attach(self.publishStream!)
                 
-                self.publishStream!.publish(Testbed.getParameter(param: "stream1") as! String, type: self.getPublishRecordType ())
+                self.publishStream!.publish(name, type: self.getPublishRecordType ())
                 
                 let label = UILabel(frame: CGRect(x: 0, y: self.view.frame.height-24, width: self.view.frame.width, height: 24))
                 label.textAlignment = NSTextAlignment.left
@@ -84,4 +89,5 @@ class PublishSMEncryptedTest: PublishStreamManagerTest {
             
         }
     }
+    
 }

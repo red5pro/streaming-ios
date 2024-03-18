@@ -32,8 +32,6 @@ class PublishStreamManagerSocialPushTest: PublishStreamManagerTest, UITextViewDe
         
         host = Testbed.getParameter(param: "host") as! String
         context = Testbed.getParameter(param: "context") as! String
-//        let stream2 = Testbed.getParameter(param: "stream2") as! String
-//        rtmpInput?.text = String(format: "rtmp://%@:1935/%@/%@", host, context, stream2)
         rtmpInput?.text = String(format: "%@", Testbed.getParameter(param: "push_target") as! String)
         
         view.addSubview(rtmpInput!)
@@ -93,120 +91,137 @@ class PublishStreamManagerSocialPushTest: PublishStreamManagerTest, UITextViewDe
                 ]
             }
         """
-    var httpFormat = "http://%@:%@/streammanager/api/%@/socialpusher%@"
-    var httpsFormat = "https://%@/streammanager/api/%@/socialpusher%@"
+    var httpFormat = "http://%@:5080/socialpusher/api%@"
     
     @objc func doPush() {
+        
         sendBtn?.isEnabled = false
         rtmpInput?.isHidden = true
-        //make call
+        
+        let host = (Testbed.getParameter(param: "host") as! String)
+        let version = (Testbed.getParameter(param: "sm_version") as! String)
         let stream = Testbed.getParameter(param: "stream1") as! String
+        
         let provision = String(format: provisionFormat, context, stream, rtmpInput!.text)
         
         let urlParams = generateParams(action: "provision.create")
-        let port = Testbed.getParameter(param: "server_port") as! String
-        
-        let smApi = Testbed.getParameter(param: "sm_version") as! String
-        
-        var url: String
-        if(port == "443"){
-            url = String(format: httpsFormat, host, smApi, urlParams)
-        }
-        else{
-            url = String(format: httpFormat, host, port, smApi, urlParams)
-        }
-        
-        let data = provision.data(using: String.Encoding.utf8)
-        
-        var req = NSURLRequest( url: NSURL(string: url)! as URL ) as URLRequest
-        req.httpMethod = "POST"
-        req.setValue("\(data!.count)", forHTTPHeaderField: "Content-Length")
-        req.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        req.httpBody = data
-        
-        NSLog("Calling %@ with params: %@", url, provision)
-        
-        NSURLConnection.sendAsynchronousRequest(
-            req,
-            queue: OperationQueue(),
-            completionHandler:{ (response: URLResponse?, data: Data?, error: Error?) -> Void in
-                
-                if(data != nil){
-                    let dataAsString = NSString( data: data!, encoding: String.Encoding.utf8.rawValue)
-                    NSLog("Recieved Response: %@", dataAsString!)
+        let forwardURL: String = String(format: httpFormat, originIP!, urlParams)
+        if let encodedURL = forwardURL.addingPercentEncoding(withAllowedCharacters: .alphanumerics) {
+            // Use encodedString
+            print("Encoded string: \(encodedURL)")
+            let url = "https://\(host)/as/\(version)/proxy/forward/?target=\(encodedURL)"
+            let data = provision.data(using: String.Encoding.utf8)
+            
+            var req = NSURLRequest( url: NSURL(string: encodedURL)! as URL ) as URLRequest
+            req.httpMethod = "POST"
+            req.setValue("\(data!.count)", forHTTPHeaderField: "Content-Length")
+            req.setValue("application/json", forHTTPHeaderField: "Content-Type")
+            req.httpBody = data
+            
+            NSLog("Calling %@ with params: %@", url, provision)
+            
+            NSURLConnection.sendAsynchronousRequest(
+                req,
+                queue: OperationQueue(),
+                completionHandler:{ (response: URLResponse?, data: Data?, error: Error?) -> Void in
+                    
+                    if(data != nil){
+                        let dataAsString = NSString( data: data!, encoding: String.Encoding.utf8.rawValue)
+                        NSLog("Recieved Response: %@", dataAsString!)
+                    }
+                    
+                    if (error != nil) {
+                        NSLog("recieved error: %@", error!.localizedDescription)
+                        return
+                    }
+                    
+                    DispatchQueue.main.async(execute: {
+                        self.setClose()
+                        self.sendBtn?.isEnabled = true
+                    })
                 }
-                
-                if (error != nil) {
-                    NSLog("recieved error: %@", error!.localizedDescription)
-                    return
-                }
-                
-                DispatchQueue.main.async(execute: {
-                    self.setClose()
-                    self.sendBtn?.isEnabled = true
-                })
-            }
-        )
+            )
+        } else {
+            print("Failed to encode the string.")
+        }
     }
     
     @objc func doClose() {
         sendBtn?.isEnabled = false
         rtmpInput?.isHidden = true
-        //make call
+        
+        let host = (Testbed.getParameter(param: "host") as! String)
+        let version = (Testbed.getParameter(param: "sm_version") as! String)
         let stream = Testbed.getParameter(param: "stream1") as! String
+        
         let provision = String(format: provisionFormat, context, stream, rtmpInput!.text)
         
         let urlParams = generateParams(action: "provision.delete")
-        let port = Testbed.getParameter(param: "server_port") as! String
-        
-        let smApi = Testbed.getParameter(param: "sm_version") as! String
-        
-        var url: String
-        if(port == "443"){
-            url = String(format: httpsFormat, host, smApi, urlParams)
-        }
-        else{
-            url = String(format: httpFormat, host, port, smApi, urlParams)
-        }
-        
-        let data = provision.data(using: String.Encoding.utf8)
-        
-        var req = NSURLRequest( url: NSURL(string: url)! as URL ) as URLRequest
-        req.httpMethod = "POST"
-        req.setValue("\(data!.count)", forHTTPHeaderField: "Content-Length")
-        req.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        req.httpBody = data
-        
-        NSLog("Calling %@ with params: %@", url, provision)
-        
-        NSURLConnection.sendAsynchronousRequest(
-            req,
-            queue: OperationQueue(),
-            completionHandler:{ (response: URLResponse?, data: Data?, error: Error?) -> Void in
-                
-                if(data != nil){
-                    let dataAsString = NSString( data: data!, encoding: String.Encoding.utf8.rawValue)
-                    NSLog("Recieved Response: %@", dataAsString!)
+        let forwardURL: String = String(format: httpFormat, originIP!, urlParams)
+        if let encodedURL = forwardURL.addingPercentEncoding(withAllowedCharacters: .alphanumerics) {
+            // Use encodedString
+            print("Encoded string: \(encodedURL)")
+            let url = "https://\(host)/as/\(version)/proxy/forward/?target=\(encodedURL)"
+            let data = provision.data(using: String.Encoding.utf8)
+            
+            var req = NSURLRequest( url: NSURL(string: url)! as URL ) as URLRequest
+            req.httpMethod = "POST"
+            req.setValue("\(data!.count)", forHTTPHeaderField: "Content-Length")
+            req.setValue("application/json", forHTTPHeaderField: "Content-Type")
+            req.httpBody = data
+            
+            NSLog("Calling %@ with params: %@", url, provision)
+            
+            NSURLConnection.sendAsynchronousRequest(
+                req,
+                queue: OperationQueue(),
+                completionHandler:{ (response: URLResponse?, data: Data?, error: Error?) -> Void in
+                    
+                    if(data != nil){
+                        let dataAsString = NSString( data: data!, encoding: String.Encoding.utf8.rawValue)
+                        NSLog("Recieved Response: %@", dataAsString!)
+                    }
+                    
+                    if (error != nil) {
+                        NSLog("recieved error: %@", error!.localizedDescription)
+                        return
+                    }
+                    
+                    DispatchQueue.main.async(execute: {
+                        self.setPush()
+                        self.sendBtn?.isEnabled = true
+                    })
                 }
-                
-                if (error != nil) {
-                    NSLog("recieved error: %@", error!.localizedDescription)
-                    return
-                }
-                
-                DispatchQueue.main.async(execute: {
-                    self.setPush()
-                    self.sendBtn?.isEnabled = true
-                })
+            )
+        } else {
+            print("Failed to encode the string.")
+        }
+    }
+    
+    // https://www.agnosticdev.com/content/how-use-commoncrypto-apis-swift-5
+    func hashMessage(_ message: String) -> String {
+        if let data = message.data(using: .utf8) {
+            var digest = [UInt8](repeating: 0, count:Int(CC_SHA256_DIGEST_LENGTH))
+            data.withUnsafeBytes {
+                CC_SHA256($0.baseAddress, UInt32(data.count), &digest)
             }
-        )
+             
+            var hashed = ""
+            for byte in digest {
+                hashed += String(format:"%02x", UInt8(byte))
+            }
+            return hashed
+        }
+        return ""
     }
     
     func generateParams( action: String) -> String {
         
-        let token = Testbed.getParameter(param: "sm_access_token") as! String
+        let pass = (Testbed.getParameter(param: "cluster_password") as! String)
+        let ts = Int(Date().timeIntervalSince1970)
+        let signature = hashMessage("\(action)\(ts)\(pass)")
+        return String(format: "?action=%@&timestamp=%@&signature=%@", action, String(ts), signature)
         
-        return String(format: "?accessToken=%@&action=%@", token, action)
     }
     
     func textViewDidBeginEditing(_ textView: UITextView) {

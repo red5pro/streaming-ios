@@ -26,11 +26,15 @@ class ConferenceStreamManagerTest: ConferenceTest {
         
         print("Requesting for stream: " + streamName + " - and action= " + action)
         
+        let host = (Testbed.getParameter(param: "host") as! String)
         let port = (Testbed.getParameter(param: "server_port") as! String)
-        let portURI = port == "80" || port == "443" ? "" : ":" + port
+        let portURI = port == "80" ? "" : ":" + port
         let version = (Testbed.getParameter(param: "sm_version") as! String)
-        let originURI = (Testbed.getParameter(param: "host") as! String) + portURI + "/streammanager/api/" + version + "/event/" + context + "/" + streamName + "?action=" + action
+        let nodeGroup = (Testbed.getParameter(param: "sm_nodegroup") as! String)
+        let context = (Testbed.getParameter(param: "context") as! String)
+        let streamName = (Testbed.getParameter(param: "stream1") as! String)
         
+        let originURI = "\(host)\(portURI)/as/\(version)/streams/stream/\(nodeGroup)/\(action)/\(context)/\(streamName)"
         let url = (portURI.isEmpty ? "https://" : "http://") + originURI
         
         NSURLConnection.sendAsynchronousRequest(
@@ -65,7 +69,7 @@ class ConferenceStreamManagerTest: ConferenceTest {
     
     override func publish() {
         let context = (Testbed.getParameter(param: "context") as! String) + "/" + roomName!
-        requestServer(pubName as! String, context: context, action: "broadcast", resolve: { (url) in
+        requestServer(pubName as! String, context: context, action: "publish", resolve: { (url) in
             DispatchQueue.main.async {
                 self.config?.host = url
                 super.publish()

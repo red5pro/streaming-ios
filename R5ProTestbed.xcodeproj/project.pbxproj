@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -42,6 +42,7 @@
 		48BF80AE1C245AA7000E996E /* PublishOrientationTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48BF80AD1C245AA7000E996E /* PublishOrientationTest.swift */; };
 		48BF80B11C245D29000E996E /* Info-100.png in Resources */ = {isa = PBXBuildFile; fileRef = 48BF80B01C245D29000E996E /* Info-100.png */; };
 		48BF80B31C246F6D000E996E /* SubscribeAspectRatioTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48BF80B21C246F6D000E996E /* SubscribeAspectRatioTest.swift */; };
+		48D62D232BA4E16D003452A3 /* libiconv.2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 48D62D222BA4E16D003452A3 /* libiconv.2.tbd */; };
 		48DFEDAC1C21BBC60040B624 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48DFEDAB1C21BBC60040B624 /* AppDelegate.swift */; };
 		48DFEDAE1C21BBC60040B624 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48DFEDAD1C21BBC60040B624 /* MasterViewController.swift */; };
 		48DFEDB01C21BBC60040B624 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48DFEDAF1C21BBC60040B624 /* DetailViewController.swift */; };
@@ -51,7 +52,6 @@
 		48DFEDCD1C21BF0A0040B624 /* PublishTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48DFEDCC1C21BF0A0040B624 /* PublishTest.swift */; };
 		48DFEDCF1C21BF2D0040B624 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48DFEDCE1C21BF2D0040B624 /* CoreFoundation.framework */; };
 		48DFEDD11C21BF320040B624 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48DFEDD01C21BF320040B624 /* QuartzCore.framework */; };
-		48DFEDD31C21BF370040B624 /* libiconv.2.4.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 48DFEDD21C21BF370040B624 /* libiconv.2.4.0.tbd */; };
 		48DFEDD51C21C18F0040B624 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48DFEDD41C21C18F0040B624 /* Home.swift */; };
 		48DFEDD71C21C2540040B624 /* BaseTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48DFEDD61C21C2540040B624 /* BaseTest.swift */; };
 		48DFEDD91C21C5940040B624 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48DFEDD81C21C5940040B624 /* OpenAL.framework */; };
@@ -143,6 +143,7 @@
 		48BF80AD1C245AA7000E996E /* PublishOrientationTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PublishOrientationTest.swift; path = Tests/PublishOrientation/PublishOrientationTest.swift; sourceTree = "<group>"; };
 		48BF80B01C245D29000E996E /* Info-100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Info-100.png"; sourceTree = "<group>"; };
 		48BF80B21C246F6D000E996E /* SubscribeAspectRatioTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SubscribeAspectRatioTest.swift; path = Tests/SubscribeAspectRatio/SubscribeAspectRatioTest.swift; sourceTree = "<group>"; };
+		48D62D222BA4E16D003452A3 /* libiconv.2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libiconv.2.tbd; path = usr/lib/libiconv.2.tbd; sourceTree = SDKROOT; };
 		48DFEDA81C21BBC60040B624 /* R5ProTestbed.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = R5ProTestbed.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		48DFEDAB1C21BBC60040B624 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		48DFEDAD1C21BBC60040B624 /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
@@ -215,12 +216,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				48D62D232BA4E16D003452A3 /* libiconv.2.tbd in Frameworks */,
 				92B54DCE2146D766001B0EE3 /* libc++.tbd in Frameworks */,
 				480C6B951F7BDE85009E943F /* libbz2.1.0.tbd in Frameworks */,
 				480C6B931F7BDE7F009E943F /* VideoToolbox.framework in Frameworks */,
 				482E6D2327C6DF7000C518EE /* Starscream in Frameworks */,
 				487CDBC21E6E4401007FC4EA /* libz.tbd in Frameworks */,
-				48DFEDD31C21BF370040B624 /* libiconv.2.4.0.tbd in Frameworks */,
 				48DFEDD91C21C5940040B624 /* OpenAL.framework in Frameworks */,
 				48DFEDD11C21BF320040B624 /* QuartzCore.framework in Frameworks */,
 				48DFEDCF1C21BF2D0040B624 /* CoreFoundation.framework in Frameworks */,
@@ -234,6 +235,7 @@
 		487CDBC01E6E4401007FC4EA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				48D62D222BA4E16D003452A3 /* libiconv.2.tbd */,
 				92B54DCD2146D766001B0EE3 /* libc++.tbd */,
 				480C6B941F7BDE85009E943F /* libbz2.1.0.tbd */,
 				480C6B921F7BDE7F009E943F /* VideoToolbox.framework */,
@@ -342,8 +344,6 @@
 				481B156E1EB380FE0038A187 /* SubscribeAuthTest.swift */,
 				92EAA9DA1D0734EA00B2CE46 /* SubscribeAutoReconnectTest.swift */,
 				92A642E4200D416500882600 /* SubscribeBackgroundTest.swift */,
-				92BF540023E87384005E6D7D /* SubscribeStreamManagerTranscoderTest.swift */,
-				92D52940261D9C1B00B83626 /* SubscribeStreamManagerReconnectTest.swift */,
 				480A8795221ED82D00474724 /* SubscribeTelephonyInterruptTest.swift */,
 				92EBEF05212F1B63003B72FB /* SubscriberBandwidthTest.swift */,
 				92EBEF03212F1B59003B72FB /* BandwidthDetectionDownloadOnlyTest.swift */,
@@ -362,6 +362,8 @@
 				926EB667224D4AB300715EF7 /* SubscribeSetVolumeTest.swift */,
 				4874ECCF1C483FDA002BDA6D /* SubscribeStreamImageTest.swift */,
 				928B1CBC1CBC0DC5002C66BA /* SubscribeStreamManagerTest.swift */,
+				92BF540023E87384005E6D7D /* SubscribeStreamManagerTranscoderTest.swift */,
+				92D52940261D9C1B00B83626 /* SubscribeStreamManagerReconnectTest.swift */,
 				925516FD22F0CC4100604D57 /* SubscribeSMEncryptedTest.swift */,
 				925516FF22F0CC4D00604D57 /* SubscribeTelephonyInterruptTest.swift */,
 				92CC78081CB6F8DD00CD4352 /* SubscribeTwoStreams.swift */,
@@ -616,7 +618,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -655,7 +657,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -677,7 +679,7 @@
 					"$(PROJECT_DIR)/R5ProTestbed",
 				);
 				INFOPLIST_FILE = R5ProTestbed/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -706,7 +708,7 @@
 					"$(PROJECT_DIR)/R5ProTestbed",
 				);
 				INFOPLIST_FILE = R5ProTestbed/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

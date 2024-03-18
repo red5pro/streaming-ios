@@ -41,7 +41,13 @@
 		<key>fps</key>
 		<integer>15</integer>
 		<key>sm_version</key>
-		<string>4.0</string>
+		<string>v1</string>
+		<key>sm_username</key>
+		<string>admin</string>
+		<key>sm_password</key>
+		<string>xyz123</string>
+		<key>sm_nodegroup</key>
+		<string>allinone-oci-1</string>
 		<key>sm_access_token</key>
 		<string>xyz123</string>
 		<key>cluster_password</key>

@@ -35,6 +35,8 @@ import R5Streaming
 @objc(PublishStreamManagerTest)
 class PublishStreamManagerTest: BaseTest {
     
+    var originIP: String?
+    
     func showInfo(title: String, message: String){
 //        let test = self
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
@@ -49,7 +51,7 @@ class PublishStreamManagerTest: BaseTest {
         })
     }
     
-    func requestOrigin(_ url: String, resolve: @escaping (_ ip: String?, _ error: Error?) -> Void) {
+    func requestOrigin(_ url: String, resolve: @escaping (_ ip: String?, _ streamGuid: String?, _ error: Error?) -> Void) {
         
         NSURLConnection.sendAsynchronousRequest(
             NSURLRequest( url: NSURL(string: url)! as URL ) as URLRequest,
@@ -57,7 +59,7 @@ class PublishStreamManagerTest: BaseTest {
             completionHandler:{ (response: URLResponse?, data: Data?, error: Error?) -> Void in
                 
                 if ((error) != nil) {
-                    resolve(nil, error)
+                    resolve(nil, nil, error)
                     return
                 }
                 
@@ -65,29 +67,32 @@ class PublishStreamManagerTest: BaseTest {
                 let dataAsString = NSString( data: data!, encoding: String.Encoding.utf8.rawValue)
                 
                 //   The string above is in JSON format, we specifically need the serverAddress value
-                var json: [String: AnyObject]
+                var json: [[String: AnyObject]]
                 do{
-                    json = try JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions()) as! [String: AnyObject]
+                    json = try JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions()) as! [[String: AnyObject]]
                 }catch{
                     print(error)
                     return
                 }
                 
-                if let ip = json["serverAddress"] as? String {
-                    NSLog("Retrieved %@ from %@, of which the usable IP is %@", dataAsString!, url, ip);
-                    resolve(ip, error)
-                }
-                else if let errorMessage = json["errorMessage"] as? String {
-                    resolve(nil, AccessError.error(message: errorMessage))
+                if let origin = json.first {
+                    if let ip = origin["serverAddress"] as? String,
+                       let guid = origin["streamGuid"] as? String {
+                        NSLog("Retrieved %@ from %@, of which the usable IP is %@", dataAsString!, url, ip);
+                        resolve(ip, guid, error)
+                    }
+                    else if let errorMessage = origin["errorMessage"] as? String {
+                        resolve(nil, nil, AccessError.error(message: errorMessage))
+                    }
                 }
                 
         })
         
     }
     
-    func responder( urls: Array<String>) -> (String?, Error?) -> Void {
+    func responder( urls: Array<String>) -> (String?, String?, Error?) -> Void {
         var urls = urls
-        return {(ip: String?, error: Error?) -> Void in
+        return {(ip: String?, streamGuid: String?, error: Error?) -> Void in
             
             if ((error) != nil) {
                 if (urls.endIndex == urls.startIndex) {
@@ -100,11 +105,18 @@ class PublishStreamManagerTest: BaseTest {
                 return;
             }
             
+            var paths = streamGuid?.split(separator: "/")
+            let name = String((paths?.popLast())!)
+            let scope = paths?.joined(separator: "/")
+            
+            self.originIP = ip
+            
             //   Setup a configuration object for our connection
             let config = R5Configuration()
             config.host = ip
             config.port = Int32(Testbed.getParameter(param: "port") as! Int)
-            config.contextName = Testbed.getParameter(param: "context") as! String
+            config.contextName = scope
+            config.streamName = name
             config.`protocol` = 1;
             config.buffer_time = Testbed.getParameter(param: "buffer_time") as! Float
             config.licenseKey = Testbed.getParameter(param: "license_key") as! String
@@ -120,7 +132,7 @@ class PublishStreamManagerTest: BaseTest {
                 
                 self.currentView!.attach(self.publishStream!)
                 
-                self.publishStream!.publish(Testbed.getParameter(param: "stream1") as! String, type: self.getPublishRecordType ())
+                self.publishStream!.publish(name, type: self.getPublishRecordType ())
                 
                 let label = UILabel(frame: CGRect(x: 0, y: self.view.frame.height-24, width: self.view.frame.width, height: 24))
                 label.textAlignment = NSTextAlignment.left
@@ -140,12 +152,15 @@ class PublishStreamManagerTest: BaseTest {
         
         setupDefaultR5VideoViewController()
         
+        let host = (Testbed.getParameter(param: "host") as! String)
         let port = (Testbed.getParameter(param: "server_port") as! String)
         let portURI = port == "80" ? "" : ":" + port
         let version = (Testbed.getParameter(param: "sm_version") as! String)
-        let originURI = (Testbed.getParameter(param: "host") as! String) + portURI + "/streammanager/api/" + version + "/event/" +
-            (Testbed.getParameter(param: "context") as! String) + "/" +
-            (Testbed.getParameter(param: "stream1") as! String) + "?action=broadcast"
+        let nodeGroup = (Testbed.getParameter(param: "sm_nodegroup") as! String)
+        let context = (Testbed.getParameter(param: "context") as! String)
+        let streamName = (Testbed.getParameter(param: "stream1") as! String)
+        
+        let originURI = "\(host)\(portURI)/as/\(version)/streams/stream/\(nodeGroup)/publish/\(context)/\(streamName)"
         let httpString = "http://" + originURI
         let httpsString = "https://" + originURI
         
