@@ -16,29 +16,45 @@ In order to subscribe, you first need to connect to the autoscaling Stream Manag
 > **Note:** you will need to start the stream on the main thread.
 
 ```Swift
-let urlString = "https://" + (Testbed.getParameter("host") as! String) + "/streammanager/api/3.1/event/" +
-  Testbed.getParameter("context") as! String + "/" +
-  Testbed.getParameter("stream1") as! String + "?action=subscribe"
+let host = (Testbed.getParameter(param: "host") as! String)
+let port = (Testbed.getParameter(param: "server_port") as! String)
+let portURI = port == "80" ? "" : ":" + port
+let version = (Testbed.getParameter(param: "sm_version") as! String)
+let nodeGroup = (Testbed.getParameter(param: "sm_nodegroup") as! String)
+let context = (Testbed.getParameter(param: "context") as! String)
+let streamName = (Testbed.getParameter(param: "stream1") as! String)
 
+let originURI = "\(host)\(portURI)/as/\(version)/streams/stream/\(nodeGroup)/subscribe/\(context)/\(streamName)"
+
+...
 NSURLConnection.sendAsynchronousRequest(
   NSURLRequest( URL: NSURL(string: urlString)! ),
   queue: NSOperationQueue(),
   completionHandler:{ (response: NSURLResponse?, data: NSData?, error: NSError?) -> Void in
 ```
 
-[SubscribeStreamManagerTest.java #24](SubscribeStreamManagerTest.java#L24)
-
-The service returns a json object with the information needed to connect to subscribe.
+The service returns a JSON array of Origin nodes available to connect to; in typical deployments, this will be of a length of one.
 
 ```Swift
-do{
-  let json = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions())
-}catch{
-  print(error)
-  return
+var json: [[String: AnyObject]]
+do {
+    json = try JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions()) as! [[String: AnyObject]]
+} catch {
+    print(error)
+    self.showInfo(title: "Error", message: String(error.localizedDescription))
+    return
 }
 
-let ip = ["serverAddress"]
+if let edge = json.first {
+    if let ip = edge["serverAddress"] as? String {
+        resolve(ip, error)
+    }
+    else if let errorMessage = edge["errorMessage"] as? String {
+        resolve(nil, AccessError.error(message: errorMessage))
+    }
+}
 ```
 
-[SubscribeStreamManagerTest.swft #48](SubscribeStreamManagerTest.swft#L48)
+The Edge address is then used as the `host` configuration property in order to subscriber to the stream.
+
+> This test has additional logic for reconnect to playback on non-available and dropped broadcast streams.
