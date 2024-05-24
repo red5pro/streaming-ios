@@ -5,13 +5,13 @@
 	<key>GlobalProperties</key>
 	<dict>
 		<key>license_key</key>
-		<string></string>
+		<string>ACJE-4URR-UH54-RWJR</string>
 		<key>server_port</key>
 		<string>443</string>
 		<key>bitrate</key>
 		<integer>750</integer>
 		<key>host</key>
-		<string>0.0.0.0</string>
+		<string>todd-rag-sm.red5pro.net</string>
 		<key>buffer_time</key>
 		<real>0.5</real>
 		<key>port</key>
@@ -363,6 +363,75 @@
 			<key>class</key>
 			<string>PublishStreamManagerTranscodeTest</string>
 		</dict>
+		<key>publish - Stream Manager v1</key>
+		<dict>
+			<key>description</key>
+			<string>A publish example that connects to a cluster server with the Stream Manager.</string>
+			<key>LocalProperties</key>
+			<dict/>
+			<key>name</key>
+			<string>Publish - Stream Manager v1</string>
+			<key>class</key>
+			<string>PublishStreamManagerTest_SM1</string>
+		</dict>
+		<key>publish - Stream Manager v1 Encrypted</key>
+		<dict>
+			<key>description</key>
+			<string>A publish example that connects to a cluster server with the Stream Manager - using SRTP Encryption.</string>
+			<key>LocalProperties</key>
+			<dict/>
+			<key>name</key>
+			<string>Publish - Stream Manager v1 Encrypted</string>
+			<key>class</key>
+			<string>PublishSMEncryptedTest_SM1</string>
+		</dict>
+		<key>publish - Stream Manager v1 Social Pusher</key>
+		<dict>
+			<key>description</key>
+			<string>call for the stream manager to rebrodcast to another service</string>
+			<key>LocalProperties</key>
+			<dict/>
+			<key>name</key>
+			<string>Publish - Stream Manager v1 Social Pusher</string>
+			<key>class</key>
+			<string>PublishStreamManagerSocialPushTest_SM1</string>
+		</dict>
+		<key>publish - Stream Manager v1 Transcoder</key>
+		<dict>
+			<key>description</key>
+			<string>A publish example that uses transcoding broadcast over Stream Manager</string>
+			<key>LocalProperties</key>
+			<dict>
+				<key>high_bitrate</key>
+				<real>1500000</real>
+				<key>high_width</key>
+				<integer>1280</integer>
+				<key>high_height</key>
+				<integer>720</integer>
+				<key>med_bitrate</key>
+				<real>600000</real>
+				<key>med_width</key>
+				<integer>640</integer>
+				<key>med_height</key>
+				<integer>360</integer>
+				<key>low_bitrate</key>
+				<real>400000</real>
+				<key>low_width</key>
+				<integer>480</integer>
+				<key>low_height</key>
+				<integer>270</integer>
+				<key>fps</key>
+				<array>
+					<integer>15</integer>
+					<integer>15</integer>
+					<integer>15</integer>
+				</array>
+			</dict>
+			<key>name</key>
+			<string>Publish - Stream Manager v1 Transcoder</string>
+			<key>class</key>
+			<string>PublishStreamManagerTranscodeTest_SM1</string>
+		</dict>
 		<key>publish - Telephony Interrupt</key>
 		<dict>
 			<key>description</key>
@@ -672,6 +741,50 @@
 			<string>Subscribe - Stream Manager Transcoder</string>
 			<key>class</key>
 			<string>SubscribeStreamManagerTranscoderTest</string>
+		</dict>
+		<key>subscribe - Stream Manager v1</key>
+		<dict>
+			<key>description</key>
+			<string>A subscribe example that connects to a cluster server with the Stream Manager.</string>
+			<key>LocalProperties</key>
+			<dict/>
+			<key>name</key>
+			<string>Subscribe - Stream Manager v1</string>
+			<key>class</key>
+			<string>SubscribeStreamManagerTest_SM1</string>
+		</dict>
+		<key>subscribe - Stream Manager v1 Encrypted</key>
+		<dict>
+			<key>description</key>
+			<string>A subscribe example that connects to a cluster server with the Stream Manager - using SRTP Encryption.</string>
+			<key>LocalProperties</key>
+			<dict/>
+			<key>name</key>
+			<string>Subscribe - Stream Manager v1 Encrypted</string>
+			<key>class</key>
+			<string>SubscribeSMEncryptedTest_SM1</string>
+		</dict>
+		<key>subscribe - Stream Manager v1 Reconnect</key>
+		<dict>
+			<key>description</key>
+			<string>A subscribe example that connects to a cluster server with the Stream Manager and attempts reconnect on lost/unpublished stream.</string>
+			<key>LocalProperties</key>
+			<dict/>
+			<key>name</key>
+			<string>Subscribe - Stream Manager v1 Reconnect</string>
+			<key>class</key>
+			<string>SubscribeStreamManagerReconnectTest_SM1</string>
+		</dict>
+		<key>subscribe - Stream Manager v1 Transcoder</key>
+		<dict>
+			<key>description</key>
+			<string>A subscribe example that demonstrates ABR with the Stream Manager.</string>
+			<key>LocalProperties</key>
+			<dict/>
+			<key>name</key>
+			<string>Subscribe - Stream Manager v1 Transcoder</string>
+			<key>class</key>
+			<string>SubscribeStreamManagerTranscoderTest_SM1</string>
 		</dict>
 		<key>subscribe - Switch Streams</key>
 		<dict>
