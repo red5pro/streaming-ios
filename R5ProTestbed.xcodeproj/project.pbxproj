@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -29,6 +29,15 @@
 		484D15A0281322CC0048913A /* ParamsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 484D159B281322CC0048913A /* ParamsTableViewController.swift */; };
 		485345071C23528400D409F3 /* PublishStreamImageTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 485345061C23528400D409F3 /* PublishStreamImageTest.swift */; };
 		485345091C23552F00D409F3 /* CameraSwapTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 485345081C23552F00D409F3 /* CameraSwapTest.swift */; };
+		486CD8C72C011EBC00BA62C2 /* PublishSMEncryptedTest_SM1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486CD8C62C011EBC00BA62C2 /* PublishSMEncryptedTest_SM1.swift */; };
+		486CD8C92C011ED000BA62C2 /* PublishStreamManagerTest_SM1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486CD8C82C011ED000BA62C2 /* PublishStreamManagerTest_SM1.swift */; };
+		486CD8CB2C011EE200BA62C2 /* PublishStreamManagerSocialPush_SM1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486CD8CA2C011EE200BA62C2 /* PublishStreamManagerSocialPush_SM1.swift */; };
+		486CD8CD2C011EF600BA62C2 /* PublishStreamManagerTranscodeTest_SM1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486CD8CC2C011EF600BA62C2 /* PublishStreamManagerTranscodeTest_SM1.swift */; };
+		486CD8CF2C011F1900BA62C2 /* SubscribeSMEncryptedTest_SM1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486CD8CE2C011F1900BA62C2 /* SubscribeSMEncryptedTest_SM1.swift */; };
+		486CD8D62C011F3600BA62C2 /* SubscribeStreamManagerTest_SM1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486CD8D52C011F3600BA62C2 /* SubscribeStreamManagerTest_SM1.swift */; };
+		486CD8D82C011F4200BA62C2 /* SubscribeStreamManagerReconnectTest_SM1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486CD8D72C011F4200BA62C2 /* SubscribeStreamManagerReconnectTest_SM1.swift */; };
+		486CD8DA2C011F4D00BA62C2 /* SubscribeStreamManagerTranscoderTest_SM1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486CD8D92C011F4D00BA62C2 /* SubscribeStreamManagerTranscoderTest_SM1.swift */; };
+		486CD8DC2C01201500BA62C2 /* PublishTranscoderForm_SM1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486CD8DB2C01201500BA62C2 /* PublishTranscoderForm_SM1.swift */; };
 		4874D59D1C2216DB00A98102 /* SubscribeTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4874D59C1C2216DB00A98102 /* SubscribeTest.swift */; };
 		4874D59F1C221B9500A98102 /* AdaptiveBitrateControllerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4874D59E1C221B9500A98102 /* AdaptiveBitrateControllerTest.swift */; };
 		4874D5A31C221CD000A98102 /* ALToastView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4874D5A21C221CD000A98102 /* ALToastView.m */; };
@@ -42,6 +51,7 @@
 		48BF80AE1C245AA7000E996E /* PublishOrientationTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48BF80AD1C245AA7000E996E /* PublishOrientationTest.swift */; };
 		48BF80B11C245D29000E996E /* Info-100.png in Resources */ = {isa = PBXBuildFile; fileRef = 48BF80B01C245D29000E996E /* Info-100.png */; };
 		48BF80B31C246F6D000E996E /* SubscribeAspectRatioTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48BF80B21C246F6D000E996E /* SubscribeAspectRatioTest.swift */; };
+		48D62D232BA4E16D003452A3 /* libiconv.2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 48D62D222BA4E16D003452A3 /* libiconv.2.tbd */; };
 		48DFEDAC1C21BBC60040B624 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48DFEDAB1C21BBC60040B624 /* AppDelegate.swift */; };
 		48DFEDAE1C21BBC60040B624 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48DFEDAD1C21BBC60040B624 /* MasterViewController.swift */; };
 		48DFEDB01C21BBC60040B624 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48DFEDAF1C21BBC60040B624 /* DetailViewController.swift */; };
@@ -51,7 +61,6 @@
 		48DFEDCD1C21BF0A0040B624 /* PublishTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48DFEDCC1C21BF0A0040B624 /* PublishTest.swift */; };
 		48DFEDCF1C21BF2D0040B624 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48DFEDCE1C21BF2D0040B624 /* CoreFoundation.framework */; };
 		48DFEDD11C21BF320040B624 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48DFEDD01C21BF320040B624 /* QuartzCore.framework */; };
-		48DFEDD31C21BF370040B624 /* libiconv.2.4.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 48DFEDD21C21BF370040B624 /* libiconv.2.4.0.tbd */; };
 		48DFEDD51C21C18F0040B624 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48DFEDD41C21C18F0040B624 /* Home.swift */; };
 		48DFEDD71C21C2540040B624 /* BaseTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48DFEDD61C21C2540040B624 /* BaseTest.swift */; };
 		48DFEDD91C21C5940040B624 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48DFEDD81C21C5940040B624 /* OpenAL.framework */; };
@@ -128,6 +137,15 @@
 		484D159B281322CC0048913A /* ParamsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParamsTableViewController.swift; sourceTree = "<group>"; };
 		485345061C23528400D409F3 /* PublishStreamImageTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PublishStreamImageTest.swift; path = Tests/PublishStreamImage/PublishStreamImageTest.swift; sourceTree = "<group>"; };
 		485345081C23552F00D409F3 /* CameraSwapTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CameraSwapTest.swift; path = Tests/CameraSwap/CameraSwapTest.swift; sourceTree = "<group>"; };
+		486CD8C62C011EBC00BA62C2 /* PublishSMEncryptedTest_SM1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PublishSMEncryptedTest_SM1.swift; path = Tests/PublishSMEncrypted_SM1/PublishSMEncryptedTest_SM1.swift; sourceTree = "<group>"; };
+		486CD8C82C011ED000BA62C2 /* PublishStreamManagerTest_SM1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PublishStreamManagerTest_SM1.swift; path = Tests/PublishStreamManager_SM1/PublishStreamManagerTest_SM1.swift; sourceTree = "<group>"; };
+		486CD8CA2C011EE200BA62C2 /* PublishStreamManagerSocialPush_SM1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PublishStreamManagerSocialPush_SM1.swift; path = Tests/PublishStreamManagerSocialPush_SM1/PublishStreamManagerSocialPush_SM1.swift; sourceTree = "<group>"; };
+		486CD8CC2C011EF600BA62C2 /* PublishStreamManagerTranscodeTest_SM1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PublishStreamManagerTranscodeTest_SM1.swift; path = Tests/PublishStreamManagerTranscode_SM1/PublishStreamManagerTranscodeTest_SM1.swift; sourceTree = "<group>"; };
+		486CD8CE2C011F1900BA62C2 /* SubscribeSMEncryptedTest_SM1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SubscribeSMEncryptedTest_SM1.swift; path = Tests/SubscribeSMEncrypted_SM1/SubscribeSMEncryptedTest_SM1.swift; sourceTree = "<group>"; };
+		486CD8D52C011F3600BA62C2 /* SubscribeStreamManagerTest_SM1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SubscribeStreamManagerTest_SM1.swift; path = Tests/SubscribeStreamManager_SM1/SubscribeStreamManagerTest_SM1.swift; sourceTree = "<group>"; };
+		486CD8D72C011F4200BA62C2 /* SubscribeStreamManagerReconnectTest_SM1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SubscribeStreamManagerReconnectTest_SM1.swift; path = Tests/SubscribeStreamManagerReconnect_SM1/SubscribeStreamManagerReconnectTest_SM1.swift; sourceTree = "<group>"; };
+		486CD8D92C011F4D00BA62C2 /* SubscribeStreamManagerTranscoderTest_SM1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SubscribeStreamManagerTranscoderTest_SM1.swift; path = Tests/SubscribeStreamManagerTranscoder_SM1/SubscribeStreamManagerTranscoderTest_SM1.swift; sourceTree = "<group>"; };
+		486CD8DB2C01201500BA62C2 /* PublishTranscoderForm_SM1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PublishTranscoderForm_SM1.swift; path = Tests/PublishStreamManagerTranscode_SM1/PublishTranscoderForm_SM1.swift; sourceTree = "<group>"; };
 		4874D59C1C2216DB00A98102 /* SubscribeTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SubscribeTest.swift; path = Tests/Subscribe/SubscribeTest.swift; sourceTree = "<group>"; };
 		4874D59E1C221B9500A98102 /* AdaptiveBitrateControllerTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AdaptiveBitrateControllerTest.swift; path = Tests/AdaptiveBitrate/AdaptiveBitrateControllerTest.swift; sourceTree = "<group>"; };
 		4874D5A01C221CCF00A98102 /* R5ProTestbed-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "R5ProTestbed-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -143,6 +161,7 @@
 		48BF80AD1C245AA7000E996E /* PublishOrientationTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PublishOrientationTest.swift; path = Tests/PublishOrientation/PublishOrientationTest.swift; sourceTree = "<group>"; };
 		48BF80B01C245D29000E996E /* Info-100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Info-100.png"; sourceTree = "<group>"; };
 		48BF80B21C246F6D000E996E /* SubscribeAspectRatioTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SubscribeAspectRatioTest.swift; path = Tests/SubscribeAspectRatio/SubscribeAspectRatioTest.swift; sourceTree = "<group>"; };
+		48D62D222BA4E16D003452A3 /* libiconv.2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libiconv.2.tbd; path = usr/lib/libiconv.2.tbd; sourceTree = SDKROOT; };
 		48DFEDA81C21BBC60040B624 /* R5ProTestbed.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = R5ProTestbed.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		48DFEDAB1C21BBC60040B624 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		48DFEDAD1C21BBC60040B624 /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
@@ -215,12 +234,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				48D62D232BA4E16D003452A3 /* libiconv.2.tbd in Frameworks */,
 				92B54DCE2146D766001B0EE3 /* libc++.tbd in Frameworks */,
 				480C6B951F7BDE85009E943F /* libbz2.1.0.tbd in Frameworks */,
 				480C6B931F7BDE7F009E943F /* VideoToolbox.framework in Frameworks */,
 				482E6D2327C6DF7000C518EE /* Starscream in Frameworks */,
 				487CDBC21E6E4401007FC4EA /* libz.tbd in Frameworks */,
-				48DFEDD31C21BF370040B624 /* libiconv.2.4.0.tbd in Frameworks */,
 				48DFEDD91C21C5940040B624 /* OpenAL.framework in Frameworks */,
 				48DFEDD11C21BF320040B624 /* QuartzCore.framework in Frameworks */,
 				48DFEDCF1C21BF2D0040B624 /* CoreFoundation.framework in Frameworks */,
@@ -234,6 +253,7 @@
 		487CDBC01E6E4401007FC4EA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				48D62D222BA4E16D003452A3 /* libiconv.2.tbd */,
 				92B54DCD2146D766001B0EE3 /* libc++.tbd */,
 				480C6B941F7BDE85009E943F /* libbz2.1.0.tbd */,
 				480C6B921F7BDE7F009E943F /* VideoToolbox.framework */,
@@ -342,8 +362,6 @@
 				481B156E1EB380FE0038A187 /* SubscribeAuthTest.swift */,
 				92EAA9DA1D0734EA00B2CE46 /* SubscribeAutoReconnectTest.swift */,
 				92A642E4200D416500882600 /* SubscribeBackgroundTest.swift */,
-				92BF540023E87384005E6D7D /* SubscribeStreamManagerTranscoderTest.swift */,
-				92D52940261D9C1B00B83626 /* SubscribeStreamManagerReconnectTest.swift */,
 				480A8795221ED82D00474724 /* SubscribeTelephonyInterruptTest.swift */,
 				92EBEF05212F1B63003B72FB /* SubscriberBandwidthTest.swift */,
 				92EBEF03212F1B59003B72FB /* BandwidthDetectionDownloadOnlyTest.swift */,
@@ -362,12 +380,22 @@
 				926EB667224D4AB300715EF7 /* SubscribeSetVolumeTest.swift */,
 				4874ECCF1C483FDA002BDA6D /* SubscribeStreamImageTest.swift */,
 				928B1CBC1CBC0DC5002C66BA /* SubscribeStreamManagerTest.swift */,
+				92BF540023E87384005E6D7D /* SubscribeStreamManagerTranscoderTest.swift */,
+				92D52940261D9C1B00B83626 /* SubscribeStreamManagerReconnectTest.swift */,
 				925516FD22F0CC4100604D57 /* SubscribeSMEncryptedTest.swift */,
 				925516FF22F0CC4D00604D57 /* SubscribeTelephonyInterruptTest.swift */,
 				92CC78081CB6F8DD00CD4352 /* SubscribeTwoStreams.swift */,
 				483F558F24CB35DF00DB1D0C /* ConferenceTest.swift */,
 				482E6D2627D7E26800C518EE /* ConferenceStreamManagerTest.swift */,
 				483F558E24CB35DF00DB1D0C /* ConferenceViewController.swift */,
+				486CD8CC2C011EF600BA62C2 /* PublishStreamManagerTranscodeTest_SM1.swift */,
+				486CD8CA2C011EE200BA62C2 /* PublishStreamManagerSocialPush_SM1.swift */,
+				486CD8C82C011ED000BA62C2 /* PublishStreamManagerTest_SM1.swift */,
+				486CD8C62C011EBC00BA62C2 /* PublishSMEncryptedTest_SM1.swift */,
+				486CD8D92C011F4D00BA62C2 /* SubscribeStreamManagerTranscoderTest_SM1.swift */,
+				486CD8D72C011F4200BA62C2 /* SubscribeStreamManagerReconnectTest_SM1.swift */,
+				486CD8D52C011F3600BA62C2 /* SubscribeStreamManagerTest_SM1.swift */,
+				486CD8CE2C011F1900BA62C2 /* SubscribeSMEncryptedTest_SM1.swift */,
 			);
 			name = Tests;
 			sourceTree = "<group>";
@@ -382,6 +410,7 @@
 				9279C5FC226628F10046B6DD /* AVAudioSessionSuplement.m */,
 				92EA19DC1CE137DD006B3A97 /* CustomVideoSource.swift */,
 				92BF540423E87434005E6D7D /* PublishTranscoderForm.swift */,
+				486CD8DB2C01201500BA62C2 /* PublishTranscoderForm_SM1.swift */,
 			);
 			name = Utilities;
 			sourceTree = "<group>";
@@ -478,6 +507,7 @@
 				92A642E5200D416600882600 /* SubscribeBackgroundTest.swift in Sources */,
 				483F559124CB35DF00DB1D0C /* ConferenceTest.swift in Sources */,
 				48DFEDB01C21BBC60040B624 /* DetailViewController.swift in Sources */,
+				486CD8CF2C011F1900BA62C2 /* SubscribeSMEncryptedTest_SM1.swift in Sources */,
 				481B15761EB390600038A187 /* PublishSendTest.swift in Sources */,
 				48BF80B31C246F6D000E996E /* SubscribeAspectRatioTest.swift in Sources */,
 				9209F4A91F7EE38500A90080 /* PublishLocalRecordTest.swift in Sources */,
@@ -492,14 +522,18 @@
 				92E13BF41CDD165800DA5783 /* SubscribeNoViewTest.swift in Sources */,
 				92BF53F523E87314005E6D7D /* Subscribe360Test.swift in Sources */,
 				926EB666224D4AA800715EF7 /* SubscribeMuteTest.swift in Sources */,
+				486CD8C92C011ED000BA62C2 /* PublishStreamManagerTest_SM1.swift in Sources */,
 				92A642E3200D40AC00882600 /* PublishAspectTest.swift in Sources */,
 				48DFEDD51C21C18F0040B624 /* Home.swift in Sources */,
 				92EBEF06212F1B64003B72FB /* SubscriberBandwidthTest.swift in Sources */,
 				926794FD1D061983004B0BCD /* SubscribeRemoteCallTest.swift in Sources */,
 				480A8794221EA8A500474724 /* PublishTelephonyInterruptTest.swift in Sources */,
+				486CD8CD2C011EF600BA62C2 /* PublishStreamManagerTranscodeTest_SM1.swift in Sources */,
 				92BF53F323E87301005E6D7D /* SharedObjectStreamlessTest.swift in Sources */,
 				4874D59F1C221B9500A98102 /* AdaptiveBitrateControllerTest.swift in Sources */,
+				486CD8D82C011F4200BA62C2 /* SubscribeStreamManagerReconnectTest_SM1.swift in Sources */,
 				48DFEDAC1C21BBC60040B624 /* AppDelegate.swift in Sources */,
+				486CD8DC2C01201500BA62C2 /* PublishTranscoderForm_SM1.swift in Sources */,
 				482E6D1D27C6D88A00C518EE /* WebSocketProvider.swift in Sources */,
 				92BF53FA23E8733A005E6D7D /* Custom360VideoViewRendererEngine.swift in Sources */,
 				48B79AE820C6E94E00AAE4E2 /* PublishZoomableTest.swift in Sources */,
@@ -514,7 +548,9 @@
 				48BF80AE1C245AA7000E996E /* PublishOrientationTest.swift in Sources */,
 				92EA19DD1CE137DD006B3A97 /* CustomVideoSource.swift in Sources */,
 				484D159C281322CC0048913A /* ParamCell.swift in Sources */,
+				486CD8CB2C011EE200BA62C2 /* PublishStreamManagerSocialPush_SM1.swift in Sources */,
 				92EBEF08212F1B6F003B72FB /* BandwidthDetectionUploadOnlyTest.swift in Sources */,
+				486CD8D62C011F3600BA62C2 /* SubscribeStreamManagerTest_SM1.swift in Sources */,
 				480A8796221ED82D00474724 /* SubscribeTelephonyInterruptTest.swift in Sources */,
 				9278C9AC2098B09300861C79 /* SubscribeAudioDelayTest.swift in Sources */,
 				926794FB1D061968004B0BCD /* SubscribeCluster.swift in Sources */,
@@ -532,6 +568,7 @@
 				9279C5FD226628F10046B6DD /* AVAudioSessionSuplement.m in Sources */,
 				926794F91D061942004B0BCD /* RecordedTest.swift in Sources */,
 				92BF540123E87384005E6D7D /* SubscribeStreamManagerTranscoderTest.swift in Sources */,
+				486CD8C72C011EBC00BA62C2 /* PublishSMEncryptedTest_SM1.swift in Sources */,
 				487CDBC41E6F1A39007FC4EA /* SharedObjectTest.swift in Sources */,
 				48DFEDCD1C21BF0A0040B624 /* PublishTest.swift in Sources */,
 				92BF53FF23E87374005E6D7D /* SubscribeForceRGBScalarTest.swift in Sources */,
@@ -539,6 +576,7 @@
 				926EB664224D477800715EF7 /* SubscribeMetalViewTest.swift in Sources */,
 				92BF53FB23E8733A005E6D7D /* Custom360VideoViewRenderer.swift in Sources */,
 				481B156D1EB380F20038A187 /* PublishAuthTest.swift in Sources */,
+				486CD8DA2C011F4D00BA62C2 /* SubscribeStreamManagerTranscoderTest_SM1.swift in Sources */,
 				92EBEF04212F1B59003B72FB /* BandwidthDetectionDownloadOnlyTest.swift in Sources */,
 				925516FC22F0CC3100604D57 /* PublishTelephonyInterruptTest.swift in Sources */,
 				92EAA9DB1D0734EA00B2CE46 /* SubscribeAutoReconnectTest.swift in Sources */,
@@ -616,7 +654,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -655,7 +693,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -677,7 +715,7 @@
 					"$(PROJECT_DIR)/R5ProTestbed",
 				);
 				INFOPLIST_FILE = R5ProTestbed/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -706,7 +744,7 @@
 					"$(PROJECT_DIR)/R5ProTestbed",
 				);
 				INFOPLIST_FILE = R5ProTestbed/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

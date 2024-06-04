@@ -1,8 +1,8 @@
 //
-//  SubscribeStreamManagerTest.swift
+//  SubscribeSMEncryptedTest_SM1.swift
 //  R5ProTestbed
 //
-//  Created by David Heimann on 4/11/16.
+//  Created by David Heimann on 1/9/19.
 //  Copyright © 2015 Infrared5, Inc. All rights reserved.
 // 
 //  The accompanying code comprising examples for use solely in conjunction with Red5 Pro (the "Example Code") 
@@ -32,62 +32,10 @@
 import UIKit
 import R5Streaming
 
-@objc(SubscribeStreamManagerTest)
-class SubscribeStreamManagerTest: BaseTest {
+@objc(SubscribeSMEncryptedTest_SM1)
+class SubscribeSMEncryptedTest_SM1: SubscribeStreamManagerTest_SM1 {
     
-    func showInfo(title: String, message: String){
-        //        let test = self
-        //        let controller = appDelegate.window!.rootViewController
-        DispatchQueue.main.async(execute: {
-            let appDelegate = UIApplication.shared.delegate as! AppDelegate
-            let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
-            alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: { action in
-                // Trying to redirect user to details form...
-                //            controller?.performSegue(withIdentifier: "showDetail", sender: test)
-            }))
-            self.present(alert, animated: true, completion: nil)
-        })
-    }
-    
-    func requestEdge(_ url: String, resolve: @escaping (_ ip: String?, _ error: Error?) -> Void) {
-        
-        NSURLConnection.sendAsynchronousRequest(
-            NSURLRequest( url: NSURL(string: url)! as URL ) as URLRequest,
-            queue: OperationQueue(),
-            completionHandler:{ (response: URLResponse?, data: Data?, error: Error?) -> Void in
-                
-                if ((error) != nil) {
-                    resolve(nil, error)
-                    return
-                }
-                
-                //   Convert our response to a usable NSString
-                let dataAsString = NSString( data: data!, encoding: String.Encoding.utf8.rawValue)
-                
-                //   The string above is in JSON format, we specifically need the serverAddress value
-                var json: [[String: AnyObject]]
-                do{
-                    json = try JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions()) as! [[String: AnyObject]]
-                }catch{
-                    print(error)
-                    self.showInfo(title: "Error", message: String(error.localizedDescription))
-                    return
-                }
-                
-                if let edge = json.first {
-                    if let ip = edge["serverAddress"] as? String {
-                        resolve(ip, error)
-                    }
-                    else if let errorMessage = edge["errorMessage"] as? String {
-                        resolve(nil, AccessError.error(message: errorMessage))
-                    }
-                }
-                
-        })
-        
-    }
-    
-    func responder( urls: Array<String>) -> (String?, Error?) -> Void {
+    override func responder( urls: Array<String>) -> (String?, Error?) -> Void {
         var urls = urls
         return {(ip: String?, error: Error?) -> Void in
             
@@ -107,7 +55,10 @@ class SubscribeStreamManagerTest: BaseTest {
             config.host = ip
             config.port = Int32(Testbed.getParameter(param: "port") as! Int)
             config.contextName = Testbed.getParameter(param: "context") as! String
-            config.`protocol` = 1;
+            
+            //For stream encryption, this is the only line that needed to change from the basic SM example
+            config.`protocol` = Int32(r5_srtp.rawValue)
+            
             config.buffer_time = Testbed.getParameter(param: "buffer_time") as! Float
             config.licenseKey = Testbed.getParameter(param: "license_key") as! String
             
@@ -133,32 +84,6 @@ class SubscribeStreamManagerTest: BaseTest {
             })
             
         }
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        
-        super.viewDidAppear(animated)
-        
-        AVAudioSession.sharedInstance().requestRecordPermission { (gotPerm: Bool) -> Void in };
-        
-        setupDefaultR5VideoViewController()
-        
-        let host = (Testbed.getParameter(param: "host") as! String)
-        let port = (Testbed.getParameter(param: "server_port") as! String)
-        let portURI = port == "80" ? "" : ":" + port
-        let version = (Testbed.getParameter(param: "sm_version") as! String)
-        let nodeGroup = (Testbed.getParameter(param: "sm_nodegroup") as! String)
-        let context = (Testbed.getParameter(param: "context") as! String)
-        let streamName = (Testbed.getParameter(param: "stream1") as! String)
-        
-        let originURI = "\(host)\(portURI)/as/\(version)/streams/stream/\(nodeGroup)/subscribe/\(context)/\(streamName)"
-        let httpString = "http://" + originURI
-        let httpsString = "https://" + originURI
-        
-        var urls = [httpString, httpsString]
-        
-        requestEdge(urls.popLast()!, resolve: responder(urls: urls))
-        
     }
     
 }
