@@ -33,7 +33,7 @@ import UIKit
 import R5Streaming
 
 @objc(PublishStreamManagerTranscodeTest_SM1)
-class PublishStreamManagerTranscodeTest_SM1: BaseTest, UITextFieldDelegate, PublishTranscoderFormDelegate_SM1 {
+class PublishStreamManagerTranscodeTest_SM1: BaseTest, UITextFieldDelegate, PublishTranscoderFormDelegate {
     
     var provisionList: Array<AnyObject>? = nil
     
@@ -335,7 +335,7 @@ class PublishStreamManagerTranscodeTest_SM1: BaseTest, UITextFieldDelegate, Publ
         AVAudioSession.sharedInstance().requestRecordPermission { (gotPerm: Bool) -> Void in };
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let vc = (storyboard.instantiateViewController(withIdentifier: "PublishTranscoderForm") as? PublishTranscoderForm_SM1)!
+        let vc = (storyboard.instantiateViewController(withIdentifier: "PublishTranscoderForm") as? PublishTranscoderForm)!
         vc.delegate = self
         vc.view.backgroundColor = UIColor.white
         self.addChild(vc)
@@ -345,7 +345,7 @@ class PublishStreamManagerTranscodeTest_SM1: BaseTest, UITextFieldDelegate, Publ
 
     }
     
-    func onProvisionSubmit (_ controller: PublishTranscoderForm_SM1) {
+    func onProvisionSubmit (_ controller: PublishTranscoderForm) {
         controller.view.removeFromSuperview()
         controller.removeFromParent()
         

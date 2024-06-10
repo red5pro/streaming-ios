@@ -37,7 +37,6 @@
 		486CD8D62C011F3600BA62C2 /* SubscribeStreamManagerTest_SM1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486CD8D52C011F3600BA62C2 /* SubscribeStreamManagerTest_SM1.swift */; };
 		486CD8D82C011F4200BA62C2 /* SubscribeStreamManagerReconnectTest_SM1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486CD8D72C011F4200BA62C2 /* SubscribeStreamManagerReconnectTest_SM1.swift */; };
 		486CD8DA2C011F4D00BA62C2 /* SubscribeStreamManagerTranscoderTest_SM1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486CD8D92C011F4D00BA62C2 /* SubscribeStreamManagerTranscoderTest_SM1.swift */; };
-		486CD8DC2C01201500BA62C2 /* PublishTranscoderForm_SM1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486CD8DB2C01201500BA62C2 /* PublishTranscoderForm_SM1.swift */; };
 		4874D59D1C2216DB00A98102 /* SubscribeTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4874D59C1C2216DB00A98102 /* SubscribeTest.swift */; };
 		4874D59F1C221B9500A98102 /* AdaptiveBitrateControllerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4874D59E1C221B9500A98102 /* AdaptiveBitrateControllerTest.swift */; };
 		4874D5A31C221CD000A98102 /* ALToastView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4874D5A21C221CD000A98102 /* ALToastView.m */; };
@@ -145,7 +144,6 @@
 		486CD8D52C011F3600BA62C2 /* SubscribeStreamManagerTest_SM1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SubscribeStreamManagerTest_SM1.swift; path = Tests/SubscribeStreamManager_SM1/SubscribeStreamManagerTest_SM1.swift; sourceTree = "<group>"; };
 		486CD8D72C011F4200BA62C2 /* SubscribeStreamManagerReconnectTest_SM1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SubscribeStreamManagerReconnectTest_SM1.swift; path = Tests/SubscribeStreamManagerReconnect_SM1/SubscribeStreamManagerReconnectTest_SM1.swift; sourceTree = "<group>"; };
 		486CD8D92C011F4D00BA62C2 /* SubscribeStreamManagerTranscoderTest_SM1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SubscribeStreamManagerTranscoderTest_SM1.swift; path = Tests/SubscribeStreamManagerTranscoder_SM1/SubscribeStreamManagerTranscoderTest_SM1.swift; sourceTree = "<group>"; };
-		486CD8DB2C01201500BA62C2 /* PublishTranscoderForm_SM1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PublishTranscoderForm_SM1.swift; path = Tests/PublishStreamManagerTranscode_SM1/PublishTranscoderForm_SM1.swift; sourceTree = "<group>"; };
 		4874D59C1C2216DB00A98102 /* SubscribeTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SubscribeTest.swift; path = Tests/Subscribe/SubscribeTest.swift; sourceTree = "<group>"; };
 		4874D59E1C221B9500A98102 /* AdaptiveBitrateControllerTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AdaptiveBitrateControllerTest.swift; path = Tests/AdaptiveBitrate/AdaptiveBitrateControllerTest.swift; sourceTree = "<group>"; };
 		4874D5A01C221CCF00A98102 /* R5ProTestbed-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "R5ProTestbed-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -410,7 +408,6 @@
 				9279C5FC226628F10046B6DD /* AVAudioSessionSuplement.m */,
 				92EA19DC1CE137DD006B3A97 /* CustomVideoSource.swift */,
 				92BF540423E87434005E6D7D /* PublishTranscoderForm.swift */,
-				486CD8DB2C01201500BA62C2 /* PublishTranscoderForm_SM1.swift */,
 			);
 			name = Utilities;
 			sourceTree = "<group>";
@@ -533,7 +530,6 @@
 				4874D59F1C221B9500A98102 /* AdaptiveBitrateControllerTest.swift in Sources */,
 				486CD8D82C011F4200BA62C2 /* SubscribeStreamManagerReconnectTest_SM1.swift in Sources */,
 				48DFEDAC1C21BBC60040B624 /* AppDelegate.swift in Sources */,
-				486CD8DC2C01201500BA62C2 /* PublishTranscoderForm_SM1.swift in Sources */,
 				482E6D1D27C6D88A00C518EE /* WebSocketProvider.swift in Sources */,
 				92BF53FA23E8733A005E6D7D /* Custom360VideoViewRendererEngine.swift in Sources */,
 				48B79AE820C6E94E00AAE4E2 /* PublishZoomableTest.swift in Sources */,

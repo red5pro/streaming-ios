@@ -276,9 +276,13 @@ class SubscribeStreamManagerTranscoderTest : BaseTest {
                                 resolve(token, nil)
                             }
                         } catch {
+                            self.showInfo(title: "Error", message: "Could not Authenticate to access Provisions.")
                             print(error)
                             return
                         }
+                    } else {
+                        self.showInfo(title: "Error", message: "Could not Authenticate to access Provisions.")
+                        return
                     }
                 }
             } else {

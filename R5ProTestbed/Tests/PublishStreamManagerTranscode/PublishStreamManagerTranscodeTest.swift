@@ -314,7 +314,6 @@ class PublishStreamManagerTranscodeTest: BaseTest, UITextFieldDelegate, PublishT
                 }
             } else {
                 self.showInfo(title: "Error", message: "Could not post Provisions.")
-                return
             }
         }
         task.resume()
@@ -358,9 +357,12 @@ class PublishStreamManagerTranscodeTest: BaseTest, UITextFieldDelegate, PublishT
                                 resolve(token, nil)
                             }
                         } catch {
+                            self.showInfo(title: "Error", message: "Could not Authenticate to post Provisions.")
                             print(error)
                             return
                         }
+                    } else {
+                        self.showInfo(title: "Error", message: "Could not Authenticate to post Provisions.")
                     }
                 }
             } else {

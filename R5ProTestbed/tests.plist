@@ -47,7 +47,7 @@
 		<key>sm_password</key>
 		<string>xyz123</string>
 		<key>sm_nodegroup</key>
-		<string>allinone-oci-1</string>
+		<string>all-in-one</string>
 		<key>sm_access_token</key>
 		<string>xyz123</string>
 		<key>cluster_password</key>
