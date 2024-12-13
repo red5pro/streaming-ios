@@ -1,8 +1,8 @@
 //
-//  SubscribeStreamManagerTest.swift
+//  PublishStreamManagerTest_SM1.swift
 //  R5ProTestbed
 //
-//  Created by David Heimann on 4/11/16.
+//  Created by David Heimann on 4/8/16.
 //  Copyright © 2015 Infrared5, Inc. All rights reserved.
 // 
 //  The accompanying code comprising examples for use solely in conjunction with Red5 Pro (the "Example Code") 
@@ -32,14 +32,14 @@
 import UIKit
 import R5Streaming
 
-@objc(SubscribeStreamManagerTest)
-class SubscribeStreamManagerTest: BaseTest {
+@objc(PublishStreamManagerTest_SM1)
+class PublishStreamManagerTest_SM1: BaseTest {
     
     func showInfo(title: String, message: String){
-        //        let test = self
-        //        let controller = appDelegate.window!.rootViewController
+//        let test = self
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+//        let controller = appDelegate.window!.rootViewController
         DispatchQueue.main.async(execute: {
-            let appDelegate = UIApplication.shared.delegate as! AppDelegate
             let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
             alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: { action in
                 // Trying to redirect user to details form...
@@ -49,7 +49,7 @@ class SubscribeStreamManagerTest: BaseTest {
         })
     }
     
-    func requestEdge(_ url: String, resolve: @escaping (_ ip: String?, _ error: Error?) -> Void) {
+    func requestOrigin(_ url: String, resolve: @escaping (_ ip: String?, _ error: Error?) -> Void) {
         
         NSURLConnection.sendAsynchronousRequest(
             NSURLRequest( url: NSURL(string: url)! as URL ) as URLRequest,
@@ -65,22 +65,20 @@ class SubscribeStreamManagerTest: BaseTest {
                 let dataAsString = NSString( data: data!, encoding: String.Encoding.utf8.rawValue)
                 
                 //   The string above is in JSON format, we specifically need the serverAddress value
-                var json: [[String: AnyObject]]
+                var json: [String: AnyObject]
                 do{
-                    json = try JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions()) as! [[String: AnyObject]]
+                    json = try JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions()) as! [String: AnyObject]
                 }catch{
                     print(error)
-                    self.showInfo(title: "Error", message: String(error.localizedDescription))
                     return
                 }
                 
-                if let edge = json.first {
-                    if let ip = edge["serverAddress"] as? String {
-                        resolve(ip, error)
-                    }
-                    else if let errorMessage = edge["errorMessage"] as? String {
-                        resolve(nil, AccessError.error(message: errorMessage))
-                    }
+                if let ip = json["serverAddress"] as? String {
+                    NSLog("Retrieved %@ from %@, of which the usable IP is %@", dataAsString!, url, ip);
+                    resolve(ip, error)
+                }
+                else if let errorMessage = json["errorMessage"] as? String {
+                    resolve(nil, AccessError.error(message: errorMessage))
                 }
                 
         })
@@ -97,7 +95,7 @@ class SubscribeStreamManagerTest: BaseTest {
                     self.showInfo(title: "Error", message: String(error!.localizedDescription) + "\n\n" + "You may be trying to access over HTTPS which requires a Fully-Qualified Domain Name for host.\n\nYou will need to edit your host and port settings accordingly.")
                 }
                 else {
-                    self.requestEdge(urls.popLast()!, resolve: self.responder(urls: urls))
+                    self.requestOrigin(urls.popLast()!, resolve: self.responder(urls: urls))
                 }
                 return;
             }
@@ -117,13 +115,12 @@ class SubscribeStreamManagerTest: BaseTest {
             //   UI updates must be asynchronous
             DispatchQueue.main.async(execute: {
                 //   Create our new stream that will utilize that connection
-                self.subscribeStream = R5Stream(connection: connection)
-                self.subscribeStream!.delegate = self
-                self.subscribeStream?.client = self;
+                self.setupPublisher(connection: connection!)
+                // show preview and debug info
                 
-                self.currentView?.attach(self.subscribeStream)
+                self.currentView!.attach(self.publishStream!)
                 
-                self.subscribeStream!.play(Testbed.getParameter(param: "stream1") as! String, withHardwareAcceleration:Testbed.getParameter(param: "hwaccel_on") as! Bool)
+                self.publishStream!.publish(Testbed.getParameter(param: "stream1") as! String, type: self.getPublishRecordType ())
                 
                 let label = UILabel(frame: CGRect(x: 0, y: self.view.frame.height-24, width: self.view.frame.width, height: 24))
                 label.textAlignment = NSTextAlignment.left
@@ -131,10 +128,10 @@ class SubscribeStreamManagerTest: BaseTest {
                 label.text = "Connected to: " + ip!
                 self.view.addSubview(label)
             })
-            
+
         }
     }
-    
+
     override func viewDidAppear(_ animated: Bool) {
         
         super.viewDidAppear(animated)
@@ -143,22 +140,17 @@ class SubscribeStreamManagerTest: BaseTest {
         
         setupDefaultR5VideoViewController()
         
-        let host = (Testbed.getParameter(param: "host") as! String)
         let port = (Testbed.getParameter(param: "server_port") as! String)
         let portURI = port == "80" ? "" : ":" + port
-        let version = (Testbed.getParameter(param: "sm_version") as! String)
-        let nodeGroup = (Testbed.getParameter(param: "sm_nodegroup") as! String)
-        let context = (Testbed.getParameter(param: "context") as! String)
-        let streamName = (Testbed.getParameter(param: "stream1") as! String)
-        
-        let originURI = "\(host)\(portURI)/as/\(version)/streams/stream/\(nodeGroup)/subscribe/\(context)/\(streamName)"
+        let originURI = (Testbed.getParameter(param: "host") as! String) + portURI + "/streammanager/api/4.0/event/" +
+            (Testbed.getParameter(param: "context") as! String) + "/" +
+            (Testbed.getParameter(param: "stream1") as! String) + "?action=broadcast"
         let httpString = "http://" + originURI
         let httpsString = "https://" + originURI
         
         var urls = [httpString, httpsString]
         
-        requestEdge(urls.popLast()!, resolve: responder(urls: urls))
-        
+        requestOrigin(urls.popLast()!, resolve: responder(urls: urls))
     }
     
 }
