@@ -1,5 +1,5 @@
 //
-//  SubscribeStreamManagerReconnectTest.swift
+//  SubscribeStreamManagerReconnectTest_SM1.swift
 //  R5ProTestbed
 //
 //  Created by Todd Anderson on 01/21/2021.
@@ -9,8 +9,8 @@
 import UIKit
 import R5Streaming
 
-@objc(SubscribeStreamManagerReconnectTest)
-class SubscribeStreamManagerReconnectTest: BaseTest {
+@objc(SubscribeStreamManagerReconnectTest_SM1)
+class SubscribeStreamManagerReconnectTest_SM1: BaseTest {
     
     var closing : Bool = false
     var alert : UIAlertController?
@@ -34,8 +34,9 @@ class SubscribeStreamManagerReconnectTest: BaseTest {
                     self.delayCallForList()
                 }
                 
-            } else if (statusCode == Int32(r5_status_netstatus.rawValue) &&
-                       (msg == "NetStream.Play.UnpublishNotify" || msg == "NetStream.Play.StreamDry")) {
+            }
+            else if (statusCode == Int32(r5_status_netstatus.rawValue) && msg == "NetStream.Play.UnpublishNotify") {
+                
                 
                 self.stopSubscription()
                 // publisher stopped broadcast. let's resume autoconnect logic.
@@ -72,14 +73,11 @@ class SubscribeStreamManagerReconnectTest: BaseTest {
             return
         }
         
-        let host = (Testbed.getParameter(param: "host") as! String)
+        let domain = Testbed.getParameter(param: "host") as! String
         let port = (Testbed.getParameter(param: "server_port") as! String)
         let portURI = port == "80" ? "" : ":" + port
-        let version = (Testbed.getParameter(param: "sm_version") as! String)
-        let nodeGroup = (Testbed.getParameter(param: "sm_nodegroup") as! String)
-        let context = (Testbed.getParameter(param: "context") as! String)
-        let streamName = (Testbed.getParameter(param: "stream1") as! String)
-        let url = "https://\(host)\(portURI)/as/\(version)/streams/stream/\(nodeGroup)/subscribe/\(context)/\(streamName)"
+        let url = "https://" + domain + portURI + "/streammanager/api/4.0/event/" +
+            (Testbed.getParameter(param: "context") as! String) + "/" + streamName + "?action=" + action
         
         var request = URLRequest(url: URL(string: url)!)
         let session = URLSession.shared
@@ -88,40 +86,34 @@ class SubscribeStreamManagerReconnectTest: BaseTest {
         
         let task = session.dataTask(with: request, completionHandler: { data, response, error -> Void in
                 
-            if ((error) != nil) {
-                print(error!)
-                self.showInfo(title: "Error", message: error!.localizedDescription)
-                self.stopSubscription()
-            }
-            
-            // The string above is in JSON format, we specifically need the serverAddress value
-            let dataAsString = NSString( data: data!, encoding: String.Encoding.utf8.rawValue)
-            
-            var json: [[String: AnyObject]]
-            do{
-                json = try JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions()) as! [[String: AnyObject]]
+                if ((error) != nil) {
+                    print(error!)
+                    self.showInfo(title: "Error", message: error!.localizedDescription)
+                    self.stopSubscription()
+                }
                 
-                if let edge = json.first {
-                    if let ip = edge["serverAddress"] as? String {
-                        NSLog("Retrieved %@ from %@, of which the usable IP is %@", dataAsString!, url, ip);
+                //   The string above is in JSON format, we specifically need the serverAddress value
+                var json: [String: AnyObject]
+                do{
+                    json = try JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions()) as! [String: AnyObject]
+                    
+                    if let ip = json["serverAddress"] as? String {
                         resolve(ip)
                         return
-                    }
-                    else if let errorMessage = edge["errorMessage"] as? String {
+                    } else if let errorMessage = json["errorMessage"] as? String {
                         print(AccessError.error(message: errorMessage))
                         self.showInfo(title: "Error", message: errorMessage)
                         self.stopSubscription()
                     }
+                    
+                }catch{
+                    print(error)
+                    self.showInfo(title: "Error:", message: error.localizedDescription)
+                    self.stopSubscription()
                 }
                 
-            } catch {
-                print(error)
-                self.showInfo(title: "Error:", message: error.localizedDescription)
-                self.stopSubscription()
-            }
-            
-            self.delayIsActive = false
-            self.delayCallForList()
+                self.delayIsActive = false
+                self.delayCallForList()
                 
         })
         
@@ -183,9 +175,7 @@ class SubscribeStreamManagerReconnectTest: BaseTest {
         let domain = Testbed.getParameter(param: "host") as! String
         let port = (Testbed.getParameter(param: "server_port") as! String)
         let portURI = port == "80" ? "" : ":" + port
-        let version = (Testbed.getParameter(param: "sm_version") as! String)
-        let nodeGroup = (Testbed.getParameter(param: "sm_nodegroup") as! String)
-        let url = "https://\(domain)\(portURI)/as/\(version)/streams/stream/\(nodeGroup)"
+        let url = "https://" + domain + portURI + "/streammanager/api/4.0/event/list"
         
         var request = URLRequest(url: URL(string: url)!)
         let session = URLSession.shared
@@ -201,21 +191,19 @@ class SubscribeStreamManagerReconnectTest: BaseTest {
             } else {
                 
                 do{
-                    
                     let list = try JSONSerialization.jsonObject(with: data!) as! Array<Dictionary<String, Any>>;
+                    
                     for dict:Dictionary<String, Any> in list {
-                        let streamGuid = dict["streamGuid"]
-                        var paths = (streamGuid as! String).split(separator: "/")
-                        if let name = paths.last {
-                            let isStream = String(name) == (Testbed.getParameter(param: "stream1") as! String)
-                            if (isStream) {
-                                self.requestServer(String(name), action: "subscribe", resolve: { (url) in
-                                    self.subscribeTo(url: url)
-                                })
-                                return
-                            }
+                        let isStream = dict["name"] as! String == (Testbed.getParameter(param: "stream1") as! String)
+                        let isEdge = dict["type"] as! String == "edge"
+                        if (isStream && isEdge) {
+                            self.requestServer(Testbed.getParameter(param: "stream1") as! String, action: "subscribe", resolve: { (url) in
+                                self.subscribeTo(url: url)
+                            })
+                            return
                         }
                     }
+                    
                     
                 } catch let error as NSError {
                     self.showInfo(title: "Error", message: error.localizedDescription)

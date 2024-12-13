@@ -1,5 +1,5 @@
 //
-//  SubscribeStreamManagerTest.swift
+//  SubscribeStreamManagerTest_SM1.swift
 //  R5ProTestbed
 //
 //  Created by David Heimann on 4/11/16.
@@ -32,8 +32,8 @@
 import UIKit
 import R5Streaming
 
-@objc(SubscribeStreamManagerTest)
-class SubscribeStreamManagerTest: BaseTest {
+@objc(SubscribeStreamManagerTest_SM1)
+class SubscribeStreamManagerTest_SM1: BaseTest {
     
     func showInfo(title: String, message: String){
         //        let test = self
@@ -65,22 +65,21 @@ class SubscribeStreamManagerTest: BaseTest {
                 let dataAsString = NSString( data: data!, encoding: String.Encoding.utf8.rawValue)
                 
                 //   The string above is in JSON format, we specifically need the serverAddress value
-                var json: [[String: AnyObject]]
+                var json: [String: AnyObject]
                 do{
-                    json = try JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions()) as! [[String: AnyObject]]
+                    json = try JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions()) as! [String: AnyObject]
                 }catch{
                     print(error)
                     self.showInfo(title: "Error", message: String(error.localizedDescription))
                     return
                 }
                 
-                if let edge = json.first {
-                    if let ip = edge["serverAddress"] as? String {
-                        resolve(ip, error)
-                    }
-                    else if let errorMessage = edge["errorMessage"] as? String {
-                        resolve(nil, AccessError.error(message: errorMessage))
-                    }
+                if let ip = json["serverAddress"] as? String {
+                    NSLog("Retrieved %@ from %@, of which the usable IP is %@", dataAsString!, url, ip);
+                    resolve(ip, error)
+                }
+                else if let errorMessage = json["errorMessage"] as? String {
+                    resolve(nil, AccessError.error(message: errorMessage))
                 }
                 
         })
@@ -143,17 +142,13 @@ class SubscribeStreamManagerTest: BaseTest {
         
         setupDefaultR5VideoViewController()
         
-        let host = (Testbed.getParameter(param: "host") as! String)
         let port = (Testbed.getParameter(param: "server_port") as! String)
         let portURI = port == "80" ? "" : ":" + port
-        let version = (Testbed.getParameter(param: "sm_version") as! String)
-        let nodeGroup = (Testbed.getParameter(param: "sm_nodegroup") as! String)
-        let context = (Testbed.getParameter(param: "context") as! String)
-        let streamName = (Testbed.getParameter(param: "stream1") as! String)
-        
-        let originURI = "\(host)\(portURI)/as/\(version)/streams/stream/\(nodeGroup)/subscribe/\(context)/\(streamName)"
-        let httpString = "http://" + originURI
-        let httpsString = "https://" + originURI
+        let edgeURI = (Testbed.getParameter(param: "host") as! String) + portURI + "/streammanager/api/4.0/event/" +
+            (Testbed.getParameter(param: "context") as! String) + "/" +
+            (Testbed.getParameter(param: "stream1") as! String) + "?action=subscribe"
+        let httpString = "http://" + edgeURI
+        let httpsString = "https://" + edgeURI
         
         var urls = [httpString, httpsString]
         

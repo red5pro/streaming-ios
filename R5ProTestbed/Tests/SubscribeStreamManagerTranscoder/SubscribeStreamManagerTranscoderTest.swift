@@ -34,32 +34,19 @@ import R5Streaming
 @objc(SubscribeStreamManagerTranscoderTest)
 class SubscribeStreamManagerTranscoderTest : BaseTest {
     
-    var selectedStreamName: String? = nil
+    var selectedStreamGuid: String? = nil
     var provisionList: Array<AnyObject>? = nil
-    
-    func startSubscription (name : String) {
-        let port = (Testbed.getParameter(param: "server_port") as! String)
-        let portURI = (port == "80" || port == "443") ? "" : ":" + port
-        let version = (Testbed.getParameter(param: "sm_version") as! String)
-        let edgeURI = (Testbed.getParameter(param: "host") as! String) + portURI + "/streammanager/api/" + version + "/event/" +
-            (Testbed.getParameter(param: "context") as! String) + "/" +
-            name + "?action=subscribe"
-        let httpString = "http://" + edgeURI
-        let httpsString = "https://" + edgeURI
-        
-        var urls = [httpString, httpsString]
-        
-        selectedStreamName = name
-        requestEdge(urls.popLast()!, resolve: responder(urls: urls))
-    }
     
     @objc func selectStream(sender: UITapGestureRecognizer) {
         
-        let streamName = (Testbed.getParameter(param: "stream1") as? String)
-        let button = sender.view as? UIButton
-        let name = button?.title(for: UIControl.State.normal) ?? streamName! + "_1"
+        let context = (Testbed.getParameter(param: "context") as! String)
+        let streamName = (Testbed.getParameter(param: "stream1") as! String)
+        let defaultGuid = "\(context)/\(streamName)_1"
         
-        self.startSubscription(name: name)
+        let button = sender.view as? UIButton
+        let streamGuid = button?.title(for: UIControl.State.normal) ?? defaultGuid
+        
+        self.startSubscription(streamGuid: streamGuid)
         
         for uibutton in self.view.subviews {
             if let btn = uibutton as? UIButton {
@@ -81,6 +68,24 @@ class SubscribeStreamManagerTranscoderTest : BaseTest {
         })
     }
     
+    func startSubscription (streamGuid : String) {
+        
+        selectedStreamGuid = streamGuid
+        
+        let host = (Testbed.getParameter(param: "host") as! String)
+        let port = (Testbed.getParameter(param: "server_port") as! String)
+        let portURI = port == "80" ? "" : ":" + port
+        let version = (Testbed.getParameter(param: "sm_version") as! String)
+        let nodeGroup = (Testbed.getParameter(param: "sm_nodegroup") as! String)
+        
+        let edgeURI = "\(host)\(portURI)/as/\(version)/streams/stream/\(nodeGroup)/subscribe/\(streamGuid)"
+        let httpString = "http://" + edgeURI
+        let httpsString = "https://" + edgeURI
+        
+        var urls = [httpString, httpsString]
+        requestEdge(urls.popLast()!, resolve: responder(urls: urls))
+    }
+    
     func requestEdge(_ url: String, resolve: @escaping (_ ip: String?, _ error: Error?) -> Void) {
         
         NSURLConnection.sendAsynchronousRequest(
@@ -97,20 +102,22 @@ class SubscribeStreamManagerTranscoderTest : BaseTest {
                 let dataAsString = NSString( data: data!, encoding: String.Encoding.utf8.rawValue)
                 
                 //   The string above is in JSON format, we specifically need the serverAddress value
-                var json: [String: AnyObject]
+                var json: [[String: AnyObject]]
                 do{
-                    json = try JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions()) as! [String: AnyObject]
+                    json = try JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions()) as! [[String: AnyObject]]
                 }catch{
                     print(error)
                     return
                 }
                 
-                if let ip = json["serverAddress"] as? String {
-                    NSLog("Retrieved %@ from %@, of which the usable IP is %@", dataAsString!, url, ip);
-                    resolve(ip, error)
-                }
-                else if let errorMessage = json["errorMessage"] as? String {
-                    resolve(nil, AccessError.error(message: errorMessage))
+                if let edge = json.first {
+                    if let ip = edge["serverAddress"] as? String {
+                        NSLog("Retrieved %@ from %@, of which the usable IP is %@", dataAsString!, url, ip);
+                        resolve(ip, error)
+                    }
+                    else if let errorMessage = edge["errorMessage"] as? String {
+                        resolve(nil, AccessError.error(message: errorMessage))
+                    }
                 }
                 
         })
@@ -143,6 +150,7 @@ class SubscribeStreamManagerTranscoderTest : BaseTest {
             
             //   Create a new connection using the configuration above
             let connection = R5Connection(config: config)
+            let hwAccel = Testbed.getParameter(param: "hwaccel_on") as! Bool
             
             //   UI updates must be asynchronous
             DispatchQueue.main.async(execute: {
@@ -160,102 +168,128 @@ class SubscribeStreamManagerTranscoderTest : BaseTest {
                 
                 self.currentView?.attach(self.subscribeStream)
                 
-                self.subscribeStream!.play(self.selectedStreamName!, withHardwareAcceleration:Testbed.getParameter(param: "hwaccel_on") as! Bool)
-                
-                let label = UILabel(frame: CGRect(x: 0, y: self.view.frame.height-24, width: self.view.frame.width, height: 24))
-                label.textAlignment = NSTextAlignment.left
-                label.backgroundColor = UIColor.lightGray
-                label.text = "Connected to: " + ip!
-                self.view.addSubview(label)
+                let paths = self.selectedStreamGuid?.split(separator: "/")
+                if let name = paths?.last {
+                    
+                    self.subscribeStream!.play(String(name), withHardwareAcceleration: hwAccel)
+                    
+                    let label = UILabel(frame: CGRect(x: 0, y: self.view.frame.height-24, width: self.view.frame.width, height: 24))
+                    label.textAlignment = NSTextAlignment.left
+                    label.backgroundColor = UIColor.lightGray
+                    label.text = "Connected to: " + ip!
+                    self.view.addSubview(label)
+                    
+                }
             })
             
         }
     }
     
-    func requestProvisions(_ url: String, resolve: @escaping (_ streams: Array<AnyObject>?, _ error: Error?) -> Void) {
+    func requestProvision(streamGuid: String, token: String) {
         
-        var req = NSURLRequest( url: NSURL(string: url)! as URL ) as URLRequest
-        NSURLConnection.sendAsynchronousRequest(
-            req,
-            queue: OperationQueue(),
-            completionHandler:{ (response: URLResponse?, data: Data?, error: Error?) -> Void in
-                
-                if ((error) != nil) {
-                    resolve(nil, error)
-                    return
-                }
-                
-                //   Convert our response to a usable NSString
-                let dataAsString = NSString( data: data!, encoding: String.Encoding.utf8.rawValue)
-                
-                //   The string above is in JSON format, we specifically need the serverAddress value
-                var json: [String: AnyObject]
-                do {
-                    json = try JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions()) as! [String: AnyObject]
-                } catch {
-                    print(error)
-                    return
-                }
-                
-                var streams : Array<AnyObject>? = nil
-                
-                if let errorMessage = json["errorMessage"] as? String {
-                    resolve(nil, AccessError.error(message: errorMessage))
-                    return
-                }
-                else if let data = json["data"] as? [String:AnyObject]{
-                    
-                    if let metaNode = data["meta"] as? [String:AnyObject] {
-                        streams = metaNode["stream"] as? Array<AnyObject>
-                    }
-                }
-                else if let metaRoot = json["meta"] as? [String:AnyObject] {
-                    streams = metaRoot["stream"] as? Array<AnyObject>
-                }
-                
-                if (streams != nil) {
-                    resolve(streams, error)
-                } else {
-                    resolve(nil, AccessError.error(message: "No streams found."))
-                }
-                
-        })
+        let host = (Testbed.getParameter(param: "host") as! String)
+        let version = (Testbed.getParameter(param: "sm_version") as! String)
+        let nodeGroup = (Testbed.getParameter(param: "sm_nodegroup") as! String)
+        let url = "https://\(host)/as/\(version)/streams/provision/\(nodeGroup)/\(streamGuid)"
         
-    }
-    
-    func respondToProvisions(urls: Array<String>) -> (Array<AnyObject>?, Error?) -> Void {
-        var urls = urls
-        return {(streams: Array<AnyObject>?, error: Error?) -> Void in
-            
-            if ((error) != nil) {
-                if (urls.endIndex == urls.startIndex) {
-                    NSLog("%@", String(error!.localizedDescription))
-                    self.showInfo(title: "Error", message: String(error!.localizedDescription) + "\n\n" + "You may be trying to access over HTTPS which requires a Fully-Qualified Domain Name for host.\n\nYou will need to edit your host and port settings accordingly.")
-                }
-                else {
-                    self.requestProvisions(urls.popLast()!, resolve: self.respondToProvisions(urls: urls))
-                }
-                return;
+        var request = URLRequest(url: URL(string: url)!)
+        request.httpMethod = "GET"
+        request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+
+        let session = URLSession.shared
+        let task = session.dataTask(with: request) { data, response, error in
+                // Handle response
+            if let error = error {
+                print("Error: \(error)")
+                self.showInfo(title: "Error", message: String(error.localizedDescription))
+                return
             }
             
-            self.provisionList = streams
-            //   UI updates must be asynchronous
-            DispatchQueue.main.async(execute: {
-                let screenSize = UIScreen.main.bounds.size
-                var index = CGFloat(1.0)
-                for stream in streams! {
-                    let s = stream as! [String:AnyObject]
-                    let sendBtn = UIButton(frame: CGRect(x: 20, y: (screenSize.height * 0.75) - (70*index), width: screenSize.width - 40, height: 60))
-                    sendBtn.backgroundColor = UIColor.darkGray
-                    sendBtn.setTitle(s["name"] as! String, for: UIControl.State.normal)
-                    self.view.addSubview(sendBtn)
-                    let tap = UITapGestureRecognizer(target: self, action: #selector(self.selectStream))
-                    sendBtn.addGestureRecognizer(tap)
-                    index = index + 1.0
-                }
-            })
+            let dataAsString = NSString( data: data!, encoding: String.Encoding.utf8.rawValue)
+            
+            //   The string above is in JSON format, we specifically need the serverAddress value
+            var json: [String: AnyObject]
+            do{
+                json = try JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions()) as! [String: AnyObject]
+            }catch{
+                print(error)
+                return
+            }
+            
+            if let streams = json["streams"] as? Array<AnyObject> {
+                self.provisionList = streams
+                //   UI updates must be asynchronous
+                DispatchQueue.main.async(execute: {
+                    var screenSize = self.view.bounds.size
+                    if #available(iOS 11.0, *) {
+                        screenSize =  self.view.safeAreaLayoutGuide.layoutFrame.size
+                    }
+                    var index = CGFloat(1.0)
+                    for stream in streams {
+                        let s = stream as! [String:AnyObject]
+                        let sendBtn = UIButton(frame: CGRect(x: 20, y: (screenSize.height * 0.75) - (70*index), width: screenSize.width - 40, height: 60))
+                        sendBtn.backgroundColor = UIColor.darkGray
+                        sendBtn.setTitle(s["streamGuid"] as? String, for: UIControl.State.normal)
+                        self.view.addSubview(sendBtn)
+                        let tap = UITapGestureRecognizer(target: self, action: #selector(self.selectStream))
+                        sendBtn.isUserInteractionEnabled = true
+                        sendBtn.addGestureRecognizer(tap)
+                        index = index + 1.0
+                    }
+                })
+            }
             
         }
+        task.resume()
+        
+    }
+    
+    func authenticate(host: String, username: String, password: String, resolve: @escaping (_ token: String?, _ error: Error?) -> Void) {
+        let data = "\(username):\(password)".data(using: .utf8)!
+        let base64String = data.base64EncodedString()
+        let url = "https://\(host)/as/v1/auth/login"
+        var request = URLRequest(url: URL(string: url)!)
+        request.httpMethod = "PUT"
+        request.setValue("Basic \(base64String)", forHTTPHeaderField: "Authorization")
+
+        let session = URLSession.shared
+        let task = session.dataTask(with: request) { data, response, error in
+                // Handle response
+            if let error = error {
+                print("Error: \(error)")
+                resolve(nil, error)
+                return
+            }
+
+            if let httpResponse = response as? HTTPURLResponse {
+                print("Status code: \(httpResponse.statusCode)")
+                if let data = data {
+                    // Handle data
+                    print("Response data: \(String(data: data, encoding: .utf8) ?? "")")
+                    if (httpResponse.statusCode >= 200 && httpResponse.statusCode < 300) {
+                        var json: [String: AnyObject]
+                        do {
+                            json = try JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions()) as! [String: AnyObject]
+                            if let errorMessage = json["errorMessage"] as? String {
+                                resolve(nil, AccessError.error(message: errorMessage))
+                            } else if let token = json["token"] as? String {
+                                resolve(token, nil)
+                            }
+                        } catch {
+                            self.showInfo(title: "Error", message: "Could not Authenticate to access Provisions.")
+                            print(error)
+                            return
+                        }
+                    } else {
+                        self.showInfo(title: "Error", message: "Could not Authenticate to access Provisions.")
+                        return
+                    }
+                }
+            } else {
+                resolve(nil, AccessError.error(message: "Could not complete request"))
+            }
+        }
+        task.resume()
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -266,21 +300,23 @@ class SubscribeStreamManagerTranscoderTest : BaseTest {
         
         setupDefaultR5VideoViewController()
         
-        let port = (Testbed.getParameter(param: "server_port") as! String)
-        let portURI = (port == "80" || port == "443") ? "" : ":" + port
-        let version = (Testbed.getParameter(param: "sm_version") as! String)
-        let accessToken = (Testbed.getParameter(param: "sm_access_token") as! String)
-        let edgeURI = (Testbed.getParameter(param: "host") as! String) + portURI + "/streammanager/api/" + version + "/admin/event/meta/" +
-            (Testbed.getParameter(param: "context") as! String) + "/" +
-            (Testbed.getParameter(param: "stream1") as! String) + "?action=subscribe&accessToken=" + accessToken
+        let host = (Testbed.getParameter(param: "host") as! String)
+        let username = (Testbed.getParameter(param: "sm_username") as! String)
+        let password = (Testbed.getParameter(param: "sm_password") as! String)
+        
+        authenticate(host: host, username: username, password: password, resolve: { [self](token: String?, error: Error?) -> Void in
             
-        let httpString = "http://" + edgeURI
-        let httpsString = "https://" + edgeURI
-        
-        var urls = [httpString, httpsString]
-        
-        requestProvisions(urls.popLast()!, resolve: respondToProvisions(urls: urls))
-        
+            if ((error) != nil) {
+                NSLog("%@", String(error!.localizedDescription))
+                self.showInfo(title: "Error", message: String(error!.localizedDescription))
+                return
+            }
+            
+            let app = (Testbed.getParameter(param: "context") as! String)
+            let streamName = (Testbed.getParameter(param: "stream1") as! String)
+            let streamGuid = "\(app)/\(streamName)"
+            requestProvision(streamGuid: streamGuid, token: token!)
+            
+        })
     }
-
 }

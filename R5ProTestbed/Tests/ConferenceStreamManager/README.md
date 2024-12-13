@@ -2,7 +2,7 @@
 
 This example demonstrates multi-party communication using Red5 Pro. It should be used in conjunction with a conference WebSocket host such as [this example](https://github.com/red5pro/red5pro-conference-host).
 
-It is recommended to view this example as part of the `webrtcexamples` webapp shipped with the [Red5 Pro Server](https://account.red5pro.com/download).
+It is recommended to view this example as part of the `webrtcexamples` webapp shipped with the [Red5 Pro Server](https://account.red5.net/download).
 
 ## Basic Publisher
 
